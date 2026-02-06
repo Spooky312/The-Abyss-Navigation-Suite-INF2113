@@ -51,29 +51,10 @@
 \setlength{\headheight}{20pt} % avoids fancyhdr warning
 
 % =====================
-% Title info (SAFE placeholders: no < >)
+% Title page (moved to `firstpage.tex` for reuse)
 % =====================
-\title{\textbf{Requirements Analysis Report (BCIC)}\\
-\large ICT2113 Software Modelling and Analysis — Lecture 5}
-
-\author{
-Vendor: \textbf{Brigman Deep Sea Technology}\\
-Team Name: \textbf{TEAM\_NAME}\\
-NAME\_1 (ID\_1)\\
-NAME\_2 (ID\_2)\\
-NAME\_3 (ID\_3)\\
-NAME\_4 (ID\_4)\\
-NAME\_5 (ID\_5)
-}
-
-\date{SUBMISSION\_DATE}
-
 \begin{document}
-
-% Push title down so it doesn't clash with the letterhead top area
-% \vspace*{5cm}
-\maketitle
-\newpage
+\input{firstpage.tex}
 
 \section{Purpose of This Document}
 This document records the requirements analysis performed on the Project
