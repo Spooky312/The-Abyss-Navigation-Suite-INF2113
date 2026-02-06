@@ -11,7 +11,7 @@
 \usepackage{graphicx}
 \usepackage{eso-pic}   % for background images
 \usepackage{fancyhdr}
-
+\frenchspacing
 % =====================
 % Font (pdflatex-friendly Arial-like)
 % =====================
@@ -58,26 +58,102 @@
 
 \section{Purpose of This Document}
 This document records the requirements analysis performed on the Project
-Specification (PS) using the BCIC method (Breakdown, Clarify, Interpret, Categorize).
-The goal is to conduct regulated-revision: identify incongruities, clarify intent, revise
+Specification (PS) using the BCIC method (Breakdown, Clarify, Interpret, Categorize). The goal is to conduct regulated-revision: identify incongruities, clarify intent, revise
 requirements into clear/testable statements, and organize them into a consistent structure.
 
-\section{Inputs and Scope}
+\section*{Executive Summary}
+
+This report provides a comprehensive analysis of the Project Specification (PS) for the \textbf{Abyss Navigator Suite}, which outlines the requirements for an unmanned deep-sea submersible control system. As the vendor responsible for delivering this solution, our team has reviewed the PS to identify any incongruities, gaps, and areas requiring clarification in alignment with the customer’s updated requirements for unmanned operations and safety-first principles.
+
+The analysis uncovered several key issues:
 \begin{itemize}
-  \item Analysed Inputs: PS vVERSION, tender notes, requirements tree, selected models.
-  \item In-scope: requirement clarity, testability, consistency, completeness gaps.
-  \item Out-of-scope: proposing implementation/design solutions beyond requirement intent.
+    \item \textbf{Shift to Unmanned Operations:} The PS originally focused on manned operations, which contradicts the project's core safety-first philosophy. Our revision ensures all operations will be unmanned, with no human presence or life-support systems.
+    \item \textbf{Health Monitoring Focus:} The PS heavily focused on crew health, but it was revised to prioritize vessel health monitoring, including hull integrity, propulsion systems, and power systems, which are critical for unmanned operations.
+    \item \textbf{Emergency Retrieval:} The PS lacked provisions for autonomous emergency retrieval. We have updated the requirements to ensure autonomous retrieval in case of system failure.
+    \item \textbf{Control Architecture:} While the PS implied centralized control, it did not clearly define whether operations would be centralized or decentralized. This report clarifies that control will be centralized at the mothership, with provisions for remote intervention.
 \end{itemize}
 
-\section{Method Used: BCIC}
+This report follows a regulated-revision process to ensure that all requirements are aligned with the safety, feasibility, and technological advancements needed for the Abyss Navigator Suite. We also propose a revised direction that emphasizes \textbf{\emph{autonomous operations}}, \textbf{\emph{unmanned design}}, and \textbf{\emph{safety-first architecture}}.
+
+\section*{BCIC (Breakdown, Clarify, Interpret, Categorize)}
+
+The BCIC method was applied to the Project Specification (PS) to revise the requirements and ensure they align with the vendor's capabilities and the customer’s expectations for unmanned deep-sea submersible operations. The process was divided into four key activities:
+
+\subsection*{1. Breakdown}
+During the Breakdown phase, we identified several incongruities between the customer’s original requirements and the technical realities of unmanned operations. The key issues discovered include:
+
 \begin{itemize}
-  \item \textbf{Breakdown}: Identify incongruent requirements (ambiguous, non-testable, missing info, contradictions, compound).
-  \item \textbf{Clarify}: Determine the intended meaning/scope using stakeholder info, PS context, assumptions, and notes.
-  \item \textbf{Interpret}: Rewrite into clear, atomic, testable requirements using imperative wording (shall/must).
-  \item \textbf{Categorize}: Place revised requirements into the correct section/level (Biz Ops vs IT, L0/L1/L2, precedence).
+    \item \textbf{Manned vs. Unmanned Operations:} The PS initially referenced manned operations, which was inconsistent with the customer's shift to unmanned systems. This was broken down and redefined to focus on fully autonomous, unmanned operations.
+    \item \textbf{Health Monitoring Focus:} The PS placed heavy emphasis on crew health, but it did not sufficiently address vessel health, which is critical for autonomous operations.
+    \item \textbf{Control Architecture:} While the PS suggested centralized control, it did not clarify the control platform specifics. We identified that control should be centralized at the mothership, with provisions for remote human intervention if required.
 \end{itemize}
 
-\pagebreak
+\subsection*{2. Clarify}
+In the Clarify phase, we engaged with the customer to confirm that the operational requirements had been misunderstood or miscommunicated in certain areas. Key clarifications include:
+\begin{itemize}
+    \item \textbf{Unmanned Operations Confirmation:} The customer confirmed the need for fully unmanned operations with no provisions for human presence or life-support systems.
+    \item \textbf{Focus on Vessel Health:} The customer clarified that vessel health monitoring (hull integrity, propulsion systems, etc.) should be prioritized over crew health systems.
+    \item \textbf{Control Architecture:} The customer confirmed that operations should be controlled from a centralized mothership platform.
+\end{itemize}
+
+\subsection*{3. Interpret}
+In the Interpret phase, we revised all incongruent or unclear requirements into clear, actionable statements:
+\begin{itemize}
+    \item \textbf{Operational Scope Revision:} We revised the operational requirements to reflect unmanned operations only, ensuring consistency with the customer's philosophy of eliminating human risk.
+    \item \textbf{Health Monitoring System Revision:} We revised the health monitoring system to focus solely on vessel health, including hull integrity, propulsion, and power systems.
+    \item \textbf{Emergency Retrieval System Revision:} We revised the emergency retrieval requirement to ensure autonomous retrieval in the event of catastrophic failure.
+\end{itemize}
+
+\subsection*{4. Categorize}
+Finally, we categorized the revised requirements into logical groups for clarity and further action:
+\begin{itemize}
+    \item \textbf{Operational Requirements:} These requirements focus on autonomous mission execution, fleet-level coordination, and emergency handling.
+    \item \textbf{System Health and Safety:} These focus on vessel health monitoring, data logging, and autonomous emergency retrieval.
+    \item \textbf{Data and Communication:} Requirements here focus on secure communication, telemetry, and redundancy for deep-sea operations.
+\end{itemize}
+
+\section*{Risks Analysis}
+
+The analysis of the Project Specification (PS) has identified several critical risks that could affect the successful implementation of the \textbf{Abyss Navigator Suite}. These risks primarily stem from the challenges of transitioning to unmanned operations and ensuring the safety and operability of the system in extreme deep-sea conditions. The following are the key risks identified:
+
+\subsection*{1. Risk of Operational Scope Misalignment}
+\textbf{Risk Description:} The initial PS suggested manned operations, which contradicted the customer's shift to unmanned, autonomous operations. This misalignment could cause significant delays and require redesign.
+
+\textbf{Impact:} The project may face scope changes and delays if the transition to unmanned operations is not clearly defined early in the project.
+
+\textbf{Mitigation Strategy:} The PS has been revised to ensure that all operations are unmanned and autonomous, eliminating human presence and life-support systems.
+
+\subsection*{2. Risk of Inadequate Vessel Health Monitoring}
+\textbf{Risk Description:} The PS did not adequately address vessel health monitoring, focusing more on crew health. This is a critical gap for unmanned operations, where the integrity of the vessel itself is paramount.
+
+\textbf{Impact:} If vessel health is not properly monitored, there could be a risk of catastrophic failure during missions, leading to mission failure, environmental damage, or loss of the vessel.
+
+\textbf{Mitigation Strategy:} The revised PS includes a focus on vessel health monitoring, including hull integrity, propulsion systems, and real-time diagnostics for critical components.
+
+\subsection*{3. Risk of Communication Breakdown}
+\textbf{Risk Description:} Deep-sea environments present significant challenges to communication, particularly with limited bandwidth and high latency.
+
+\textbf{Impact:} Poor communication could result in loss of control or data, affecting mission safety and operations.
+
+\textbf{Mitigation Strategy:} The PS now includes requirements for robust **acoustic telemetry** and secure communication protocols to ensure reliable data transmission between the submersibles and the mothership.
+
+\subsection*{4. Risk of Inadequate Emergency Retrieval Systems}
+\textbf{Risk Description:} The original PS lacked provisions for autonomous emergency retrieval, which is essential for unmanned operations.
+
+\textbf{Impact:} Without a robust emergency retrieval system, submersibles could become stranded in deep-sea environments, leading to mission failure or environmental harm.
+
+\textbf{Mitigation Strategy:} The PS has been revised to include autonomous emergency retrieval capabilities, ensuring safe recovery in case of system failure.
+
+\subsection*{5. Risk of Vendor Capability Gaps}
+\textbf{Risk Description:} The vendor may not fully understand the complexity of deep-sea operations or the integration of third-party sensors for the unmanned submersibles.
+
+\textbf{Impact:} This could lead to technical issues or delays in system integration, as well as a failure to meet the customer’s requirements for high resilience and safety.
+
+\textbf{Mitigation Strategy:} The vendor has been selected based on their expertise in deep-sea technology and sensor integration. Additionally, continuous communication with the customer will ensure that requirements are met.
+
+
+
+
 \section{Breakdown Findings (Issue List)}
 \begin{longtable}{|p{0.12\textwidth}|p{0.18\textwidth}|p{0.20\textwidth}|p{0.50\textwidth}|}
 \hline
