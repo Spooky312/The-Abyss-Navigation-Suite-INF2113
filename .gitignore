@@ -1,0 +1,93 @@
+## Core LaTeX auxiliary files
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+
+## Intermediate documents
+*.dvi
+*.xdv
+*-converted-to.*
+
+## Bibliography auxiliary files
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+## Build tool auxiliary files
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+## Build directories
+latex.out/
+
+## Auxiliary and intermediate files from other packages
+*.nav
+*.pre
+*.snm
+*.vrb
+
+## Glossaries
+*.acn
+*.acr
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.lzo
+*.lzs
+
+## Uncomment to also ignore PDFs (if you don't want to commit compiled outputs)
+# *.pdf
+
+## Hyperref
+*.brf
+
+## Knitr
+*-concordance.tex
+
+## Listings
+*.lol
+
+## Makeindex
+*.idx
+*.ilg
+*.ind
+
+## Nomenclature
+*.nlg
+*.nlo
+*.nls
+
+## Pax
+*.pax
+
+## SyncTeX
+*.synctex
+*.synctex.gz
+
+## TikZ & PGF
+*.dpth
+*.md5
+*.auxlock
+
+## Todonotes
+*.tdo
+
+## Xindy
+*.xdy
