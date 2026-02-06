@@ -1,0 +1,157 @@
+\documentclass[12pt,a4paper]{article}
+
+% =====================
+% Packages
+% =====================
+\usepackage[top=1in,left=1in,right=1in,bottom=1.6in]{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{eso-pic}   % for background images
+\usepackage{fancyhdr}
+
+% =====================
+% Font (pdflatex-friendly Arial-like)
+% =====================
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\setstretch{1.2}
+
+% =====================
+% Brigman letterhead background (ALL pages)
+% =====================
+\AddToShipoutPictureBG{%
+  \AtPageLowerLeft{%
+    \includegraphics[width=\paperwidth,height=\paperheight]{Brigman_Letterhead.pdf}%
+  }%
+}
+
+% Push content down so it sits inside the writable white area
+\addtolength{\topmargin}{120pt}
+\addtolength{\textheight}{-150pt}
+
+% =====================
+% Header/Footer (page numbers must appear)
+% =====================
+\pagestyle{fancy}
+\fancyhf{} % clear all
+
+% Optional header text (remove these 2 lines if you want it cleaner)
+\lhead{\textbf{Brigman Deep Sea Technology}}
+\rhead{Requirements Analysis (BCIC)}
+
+% Page number (bottom center)
+\cfoot{\thepage}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{20pt} % avoids fancyhdr warning
+
+% =====================
+% Title info (SAFE placeholders: no < >)
+% =====================
+\title{\textbf{Requirements Analysis Report (BCIC)}\\
+\large ICT2113 Software Modelling and Analysis — Lecture 5}
+
+\author{
+Vendor: \textbf{Brigman Deep Sea Technology}\\
+Team Name: \textbf{TEAM\_NAME}\\
+NAME\_1 (ID\_1)\\
+NAME\_2 (ID\_2)\\
+NAME\_3 (ID\_3)\\
+NAME\_4 (ID\_4)\\
+NAME\_5 (ID\_5)
+}
+
+\date{SUBMISSION\_DATE}
+
+\begin{document}
+
+% Push title down so it doesn't clash with the letterhead top area
+% \vspace*{5cm}
+\maketitle
+\newpage
+
+\section{Purpose of This Document}
+This document records the requirements analysis performed on the Project
+Specification (PS) using the BCIC method (Breakdown, Clarify, Interpret, Categorize).
+The goal is to conduct regulated-revision: identify incongruities, clarify intent, revise
+requirements into clear/testable statements, and organize them into a consistent structure.
+
+\section{Inputs and Scope}
+\begin{itemize}
+  \item Analysed Inputs: PS vVERSION, tender notes, requirements tree, selected models.
+  \item In-scope: requirement clarity, testability, consistency, completeness gaps.
+  \item Out-of-scope: proposing implementation/design solutions beyond requirement intent.
+\end{itemize}
+
+\section{Method Used: BCIC}
+\begin{itemize}
+  \item \textbf{Breakdown}: Identify incongruent requirements (ambiguous, non-testable, missing info, contradictions, compound).
+  \item \textbf{Clarify}: Determine the intended meaning/scope using stakeholder info, PS context, assumptions, and notes.
+  \item \textbf{Interpret}: Rewrite into clear, atomic, testable requirements using imperative wording (shall/must).
+  \item \textbf{Categorize}: Place revised requirements into the correct section/level (Biz Ops vs IT, L0/L1/L2, precedence).
+\end{itemize}
+
+\pagebreak
+\section{Breakdown Findings (Issue List)}
+\begin{longtable}{|p{0.12\textwidth}|p{0.18\textwidth}|p{0.20\textwidth}|p{0.50\textwidth}|}
+\hline
+\textbf{Issue ID} & \textbf{PS Ref} & \textbf{Problem Type} & \textbf{What is wrong (short)} \\
+\hline
+BR-01 & BO-L1-? & Ambiguous & e.g., ``monitor'' not defined: frequency and scope unclear. \\
+\hline
+BR-02 & IT-L1-? & Not testable & e.g., ``secure'' without measurable criteria. \\
+\hline
+\end{longtable}
+
+\section{BCIC Worked Example (One Full Item)}
+\subsection*{Example Item: ISSUE\_ID\_OR\_REQ\_ID}
+
+\textbf{Original PS Statement (as written):}\\
+\textit{``The system should monitor vessel health.''}
+
+\vspace{0.5em}
+\textbf{Breakdown (what is wrong):}
+\begin{itemize}
+  \item Ambiguous term: ``monitor'' (continuous vs periodic?).
+  \item Scope unclear: what counts as ``vessel health''?
+  \item Not fully testable without specifying what must be monitored.
+\end{itemize}
+
+\textbf{Clarify (intended meaning / assumptions used):}
+\begin{itemize}
+  \item Monitoring is expected during mission execution to support safety-first operations.
+  \item Vessel health refers to critical subsystems such as hull integrity, propulsion, and power systems.
+\end{itemize}
+
+\textbf{Interpret (revised requirement(s), clearer + testable):}
+\begin{itemize}
+  \item \textbf{R-NEW-01:} The system \textbf{shall continuously monitor} vessel health during mission execution.
+  \item \textbf{R-NEW-02:} Vessel health monitoring \textbf{shall include} hull integrity, propulsion status, and power system status.
+\end{itemize}
+
+\textbf{Categorize (where it belongs and why):}
+\begin{itemize}
+  \item Category: IT / Technical (because it is a system capability).
+  \item Level: L1 (capability) + L2 (details of what is included).
+  \item Precedence: Essential (supports safety and mission continuity).
+\end{itemize}
+
+\section{Revised Requirements Summary}
+\begin{itemize}
+  \item Total issues identified: N
+  \item Total requirements revised: N
+  \item Total new atomic requirements created (from splitting): N
+\end{itemize}
+
+\section{Conclusion}
+The BCIC analysing method was applied to perform regulated-revision of the PS.
+Incongruities were identified, clarified, revised into testable statements, and categorized
+into the appropriate structure. The revised requirements improve clarity and consistency
+while remaining faithful to the original project intent, and are ready for subsequent specification work.
+
+\end{document}
