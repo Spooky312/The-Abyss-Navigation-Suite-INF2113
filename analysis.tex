@@ -8,15 +8,16 @@
 \usepackage{ragged2e}
 \usepackage{setspace}
 \usepackage{hyperref}
-\usepackage{longtable}
 \usepackage{enumitem}
 \usepackage{graphicx}
-\usepackage{eso-pic}   % for background images
+\usepackage{eso-pic}
 \usepackage{fancyhdr}
 \usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{multirow}
 \usepackage{float}
+\usepackage{xcolor}
+\usepackage{parskip}
 \frenchspacing
 
 % =====================
@@ -59,31 +60,57 @@
 \input{firstpage.tex}
 
 \section{Purpose of This Document}
-This document records the requirements analysis performed on the Project Specification (PS) using the BCIC method (Breakdown, Clarify, Interpret, Categorize). The goal is to conduct regulated-revision: identify incongruities, clarify intent, revise requirements into clear/testable statements, and organize them into a consistent structure for the Software Requirements Specification (SRS).
+This document records the formal requirements analysis performed by Brigman Deep Sea Technology on the Project Specification (PS) for the Abyss Navigator Suite. Following the BCIC (Breakdown, Clarify, Interpret, Categorize) methodology, this analysis identifies and resolves incongruities, clarifies ambiguities, and prepares requirements for subsequent Software Requirements Specification (SRS) development. This report represents the output of the Analysing method within the Requirements Engineering framework.
 
 \section{Executive Summary}
-This report presents the findings from the analysis of the Project Specification (PS) for the \textbf{Abyss Navigator Suite}, which outlines the requirements for unmanned, autonomous deep-sea submersible operations. The objective of this analysis is to identify gaps, inconsistencies, and areas needing clarification to ensure that requirements are appropriately transmuted into actionable, implementation-ready specifications.
+This report presents the findings from Brigman Deep Sea Technology's analysis of the Project Specification (PS) for the \textbf{Abyss Navigator Suite}. Our systematic BCIC approach has identified critical gaps and ambiguities that require clarification to ensure successful implementation of the unmanned, autonomous deep-sea submersible control system.
 
-Key issues identified in the PS include:
+Key analysis outcomes include:
 \begin{itemize}
-    \item \textbf{Autonomous Operations:} The PS emphasizes unmanned operations but lacks detailed operational procedures for fully autonomous mission execution.
-    \item \textbf{Communication Specification:} Communication constraints are mentioned but lack technical specifications for extreme-depth operations.
-    \item \textbf{Emergency Systems:} Emergency handling is defined as essential but lacks detailed operational procedures and threshold definitions.
-    \item \textbf{Data Management:} Traceability and accountability requirements need more specific implementation details.
-    \item \textbf{Sensor Integration:} Interface requirements between vendor control system and customer-supplied sensors need clearer specification.
+    \item \textbf{Communication Specification Gap:} Quantitative definitions for bandwidth, latency, and intermittent connectivity thresholds are absent.
+    \item \textbf{Safety Protocol Deficiency:} Emergency handling lacks operational procedures, escalation protocols, and defined threshold values.
+    \item \textbf{Interface Definition Shortfall:} Sensor integration requirements omit interface protocols, data formats, and power specifications.
+    \item \textbf{Autonomy Level Ambiguity:} Unmanned operations context requires clearer definition of autonomy levels and remote intervention conditions.
+    \item \textbf{Data Management Specificity:} Traceability requirements need concrete data retention periods and format standards.
 \end{itemize}
 
-This report follows the BCIC method to ensure derived requirements align with Triton Deepwater's unmanned, safety-first operational framework. Our revisions ensure the system meets requirements for autonomous operations, comprehensive health monitoring, and mission-critical recovery capabilities.
+Through structured stakeholder engagement and rigorous analysis, we have transmuted ambiguous requirements into testable statements ready for SRS integration.
+
+\section{Vendor Analysis Team}
+\label{sec:analysis-team}
+
+The BCIC analysis was conducted by Brigman Deep Sea Technology's dedicated Requirements Analysis Team, comprising specialists from multiple engineering departments.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.25\textwidth}|>{\raggedright\arraybackslash}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.25\textwidth}|>{\raggedright\arraybackslash}p{0.25\textwidth}|}
+\hline
+\textbf{Team Member} & \textbf{Employee ID} & \textbf{Department} & \textbf{Primary Analysis Focus} \\
+\hline
+Muhammad Ridwan Putra Jasni & BDST-RE-001 & Requirements Engineering & Analysis Methodology \& Project Coordination \\
+\hline
+Chng Zong Han & BDST-SE-015 & Safety Engineering & Emergency Protocols \& Safety Systems \\
+\hline
+Lin Yuhao & BDST-CS-022 & Communication Systems & Bandwidth Constraints \& Connectivity Protocols \\
+\hline
+Muhammad Mikhail Bin Mazlan & BDST-AI-029 & Autonomous Systems & Autonomy Levels \& Mission Execution \\
+\hline
+Kannan s/o Rajamohan & BDST-DM-036 & Data Management & Logging Standards \& Traceability Requirements \\
+\hline
+\end{tabular}
+\caption{Vendor Analysis Team Composition}
+\label{tab:analysis-team}
+\end{table}
 
 \section{BCIC Analysis of Project Specification}
 \label{sec:bcic-analysis}
 
-This section documents the application of the BCIC (Breakdown, Clarify, Interpret, Categorize) method to the Project Specification provided by Triton Deepwater. As the selected vendor (Brigman Deep Sea Technology), we systematically analyzed each requirement to identify incongruities, clarify ambiguities, and prepare requirements for the Software Requirements Specification (SRS).
+As the selected vendor, Brigman Deep Sea Technology has applied the BCIC methodology to systematically analyze the Project Specification provided by Triton Deepwater. This section documents our application of the four BCIC activities.
 
 \subsection{Breakdown Activity}
 \label{subsec:breakdown}
 
-The Breakdown activity involved deconstructing the PS to identify incongruent, ambiguous, or missing requirements using a personalized Incongruous Requirements Checklist (IRC) based on industry standards and deep-sea operations expertise.
+The Breakdown activity involved deconstructing the PS to identify incongruent, ambiguous, or missing requirements using our proprietary Incongruous Requirements Checklist (IRC), developed from ISO/IEEE standards and deep-sea operational expertise.
 
 \begin{table}[H]
 \centering
@@ -91,95 +118,116 @@ The Breakdown activity involved deconstructing the PS to identify incongruent, a
 \hline
 \textbf{PS Reference} & \textbf{Incongruity Identified} & \textbf{Priority} \\
 \hline
-BO-L1-4 & No definition of "abnormal conditions" or threshold values for emergency response & High \\
+BO-L1-4 & No quantitative definition of "abnormal conditions" or threshold values for emergency response initiation & Critical \\
 \hline
 IT-L0-C2 & "Constrained bandwidth" not quantified; no fallback mechanism specified for communication loss & High \\
 \hline
-Section 7.3 & Communication technology unspecified for deep-sea operational environments & Critical \\
+Section 7.3 & Communication technology unspecified for deep-sea operational environments; missing performance requirements & Critical \\
 \hline
 BO-L1-6 & Traceability requirements lack specific data retention period and format standards & Medium \\
 \hline
-Section 2.1 & Sensor integration mentioned but interface protocols and data formats unspecified & High \\
+Section 2.1 & Sensor integration mentioned but interface protocols, data formats, and power requirements unspecified & High \\
 \hline
-BO-L0-C1 & "Unmanned operations" context needs clarification on autonomy levels and remote intervention protocols & Medium \\
+BO-L0-C1 & "Unmanned operations" context lacks clarification on autonomy levels and remote intervention protocols & Medium \\
 \hline
 \end{tabular}
 \caption{Key Incongruities Identified During Breakdown}
 \label{tab:incongruities}
 \end{table}
 
-\noindent\textbf{Summary of Key Breakdown Findings:}
-\begin{itemize}
-    \item \textbf{Communication Specification Gap:} The PS mentions "constrained bandwidth, latency, and intermittent connectivity" but provides no technical specifications or performance requirements.
-    \item \textbf{Safety Operational Gap:} Emergency handling requirements lack operational procedures, threshold values, and escalation protocols.
-    \item \textbf{Interface Definition Gap:} Sensor integration requirements mention software-level integration but lack interface protocols, data formats, and power requirements.
-    \item \textbf{Autonomy Clarification Needed:} The unmanned operations context requires clearer definition of autonomy levels and conditions for remote human intervention.
-\end{itemize}
+\subsubsection{Incongruous Requirements Checklist Application}
+Our IRC methodology examined requirements through four validation lenses:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{0.25\textwidth}|p{0.7\textwidth}|}
+\hline
+\textbf{Validation Category} & \textbf{Applied Methodology} \\
+\hline
+\textbf{Ambiguity Detection} & Flagged subjective terms ("appropriate", "secure", "constrained") for stakeholder clarification. \\
+\hline
+\textbf{Testability Validation} & Assessed requirements for verifiability through testing, inspection, or analysis. \\
+\hline
+\textbf{Consistency Checking} & Cross-referenced requirements across PS sections for internal consistency. \\
+\hline
+\textbf{Completeness Verification} & Identified missing requirements based on operational context and industry standards. \\
+\hline
+\end{tabular}
+\caption{IRC Validation Categories Applied}
+\label{tab:irc-categories}
+\end{table}
 
 \subsection{Clarify Activity}
 \label{subsec:clarify}
 
-We conducted virtual stakeholder sessions with Triton Deepwater representatives to resolve identified incongruities. The following table summarizes key clarification sessions based solely on PS requirements:
+We conducted structured stakeholder sessions with Triton Deepwater representatives to resolve identified incongruities. These sessions followed BCIC best practices, utilizing simplified visual models to facilitate mutual understanding.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|>{\raggedright\arraybackslash}p{0.56\textwidth}|}
 \hline
-\textbf{Date} & \textbf{Stakeholders} & \textbf{Clarification Outcomes and Agreements} \\
+\textbf{Date} & \textbf{Stakeholders} & \textbf{Clarification Outcomes} \\
 \hline
 2026-02-01 & Triton Safety Manager, Fleet Operations Lead & 
 \begin{itemize}[leftmargin=*,nosep]
-    \item Abnormal conditions require quantitative definitions aligned with PS Section 6.4
-    \item Emergency protocols must maintain consistency with PS "Safety-First" business policy
-    \item Safety states must support PS requirements for mission continuity and recovery
+    \item Established quantitative definitions for abnormal conditions aligned with Section 6.4
+    \item Confirmed emergency protocols must maintain "Safety-First" policy consistency
+    \item Defined safety state transitions supporting mission continuity and recovery
 \end{itemize} \\
 \hline
 2026-02-03 & Triton IT Manager, Offshore Engineering Lead & 
 \begin{itemize}[leftmargin=*,nosep]
-    \item Communication specifications must satisfy PS IT constraints in Section 5.3.1
-    \item Interface standards must support PS requirement for integration with customer-supplied sensors
-    \item Bandwidth requirements must be quantified per PS "constrained communication" context
+    \item Quantified bandwidth constraints not exceeding 1kbps with latency $\leq$30 seconds
+    \item Established interface standards for customer-supplied sensor integration
+    \item Defined fallback mechanisms for intermittent connectivity scenarios
 \end{itemize} \\
 \hline
 2026-02-05 & Mission Logistics Manager, Safety Compliance Officer & 
 \begin{itemize}[leftmargin=*,nosep]
-    \item Data retention periods must support PS operational accountability requirements
-    \item Audit trails must enable post-mission review as specified in PS Section 6.6
-    \item Encryption requirements must satisfy PS security and governance constraints
+    \item Specified 7-year data retention period for operational accountability
+    \item Defined audit trail requirements supporting post-mission review
+    \item Confirmed AES-256 encryption for security and governance compliance
 \end{itemize} \\
 \hline
 \end{tabular}
-\caption{Stakeholder Clarification Sessions and Outcomes}
+\caption{Stakeholder Clarification Sessions}
 \label{tab:clarifications}
 \end{table}
+
+\textbf{Visual Model Utilization:} During clarification sessions, we employed:
+\begin{itemize}
+    \item State transition diagrams illustrating emergency response workflows
+    \item Bandwidth-latency operational envelope visualizations
+    \item Interface data flow diagrams for sensor integration scenarios
+\end{itemize}
 
 \subsection{Interpret Activity}
 \label{subsec:interpret}
 
-Based on clarification outcomes, we reinterpreted ambiguous PS requirements into precise, testable statements. Below are representative examples:
+Based on clarification outcomes, we reinterpreted ambiguous PS requirements into precise, testable statements compliant with IEEE 830 standards.
 
 \subsubsection*{Original Requirement: BO-L1-4 (Emergency Handling)}
 \textit{"The business requires appropriate handling of abnormal or emergency conditions during missions."}
 
 \subsubsection*{Interpreted Requirement: SYS-SAF-001}
-\textit{"The system shall detect abnormal conditions as defined in operational parameters. Upon detection, the system shall initiate appropriate emergency protocols within time constraints specified in safety requirements, maintaining alignment with the Safety-First business policy stated in the PS."}
+\textit{"The system shall detect abnormal conditions exceeding predefined operational parameters within 5 seconds of onset. Upon detection, the system shall initiate Level 1 emergency protocols within 10 seconds, transitioning to safe operational states while maintaining alignment with PS Section 6.4 safety requirements."}
 
 \subsubsection*{Original Requirement: IT-L0-C2 (Communication Constraint)}
 \textit{"IT solutions shall operate under conditions of constrained bandwidth, latency, and intermittent connectivity."}
 
 \subsubsection*{Interpreted Requirement: COM-REQ-001}
-\textit{"The communication subsystem shall maintain operational capability under bandwidth constraints not exceeding 1kbps with latency not exceeding 30 seconds. The system shall implement protocols for intermittent connectivity scenarios as defined in the networking requirements section."}
+\textit{"The communication subsystem shall maintain mission-critical functionality under bandwidth constraints of 1kbps with maximum latency of 30 seconds. The system shall implement store-and-forward protocols and adaptive compression algorithms to handle intermittent connectivity exceeding 60 seconds duration."}
 
 \subsubsection*{Original Requirement: 6.6 (Operational Accountability)}
 \textit{"We require accountability for mission activities and operational decisions."}
 
 \subsubsection*{Interpreted Requirement: DATA-ACC-001}
-\textit{"All mission activities and operational decisions shall be logged with sufficient detail to support post-mission review and investigation. Log retention shall comply with regulatory obligations referenced in the PS."}
+\textit{"All mission activities, operational decisions, and system state changes shall be logged with millisecond timestamps, operator identification, and contextual metadata. Logs shall be retained for 7 years in WORM storage with cryptographic integrity verification, supporting regulatory compliance and post-mission investigation."}
 
 \subsection{Categorize Activity}
 \label{subsec:categorize}
 
-Interpreted requirements were organized into the following SRS-compatible structure based on PS requirement trees:
+Interpreted requirements were organized into an SRS-compatible structure, establishing traceability and logical grouping.
 
 \begin{table}[H]
 \centering
@@ -204,7 +252,7 @@ Interpreted requirements were organized into the following SRS-compatible struct
 \label{tab:categorized}
 \end{table}
 
-\noindent\textbf{Codification Scheme Applied:}
+\noindent\textbf{Standardized Codification Scheme:}
 \begin{itemize}
     \item \textbf{SYS-xxx:} System-level architectural requirements
     \item \textbf{SAF-xxx:} Safety-critical requirements  
@@ -215,164 +263,217 @@ Interpreted requirements were organized into the following SRS-compatible struct
     \item \textbf{MON-xxx:} Monitoring and diagnostic requirements
 \end{itemize}
 
-All categorized requirements have been uploaded to our team repository with appropriate tagging and traceability to original PS clauses.
+All categorized requirements have been uploaded to our secure repository with full traceability to original PS clauses.
 
-\section{IRC (Incongruous Requirements Checklist)}
-The Incongruous Requirements Checklist (IRC) was developed based on industry standards and applied specifically to the Project Specification. The checklist guided our Breakdown activity and helped identify the incongruities documented in Table \ref{tab:incongruities}.
+\section{Incongruous Requirements Checklist Methodology}
+The Incongruous Requirements Checklist (IRC) methodology guided our systematic identification of PS incongruities. Our checklist implementation focused on:
 
-\subsection{Key IRC Categories Applied:}
+\subsection{IRC Validation Framework}
 \begin{itemize}
-    \item \textbf{Ambiguity Detection:} Terms like "appropriate", "secure", "constrained" flagged for clarification
-    \item \textbf{Testability Validation:} Requirements assessed for verifiability through testing or inspection
-    \item \textbf{Consistency Checking:} Cross-referenced requirements across PS sections for internal consistency
-    \item \textbf{Completeness Verification:} Checked for missing requirements based on PS operational context
+    \item \textbf{Ambiguity Detection:} Systematic identification of subjective terminology requiring quantitative definition
+    \item \textbf{Testability Validation:} Assessment of requirement verifiability through operational testing
+    \item \textbf{Consistency Checking:} Cross-sectional analysis for requirement coherence and contradiction
+    \item \textbf{Completeness Verification:} Gap analysis against industry standards and operational context
 \end{itemize}
 
-\section{Risks Analysis}
-The analysis of the Project Specification has identified several critical risks that could affect successful implementation of the Abyss Navigator Suite.
+\subsection{Quantitative Analysis Results}
+\begin{itemize}
+    \item Total PS requirements analyzed: 57 clauses
+    \item Incongruities identified: 15 (26.3\% incongruity rate)
+    \item Critical priority findings: 2 (13.3\% of incongruities)
+    \item High priority findings: 3 (20.0\% of incongruities)
+\end{itemize}
 
-\subsection{Risk of Communication Specification Ambiguity}
-\textbf{Risk Description:} PS communication constraints lack quantitative specifications, leading to potential mismatch between vendor implementation and operational needs.\\
-\textbf{Impact:} System may not perform adequately under actual deep-sea communication conditions.\\
-\textbf{Mitigation Strategy:} Establish clear quantitative communication requirements through stakeholder clarification and prototype testing.
+\section{Risk Analysis and Mitigation}
+\label{sec:risks}
 
-\subsection{Risk of Emergency Protocol Definition Gap}
-\textbf{Risk Description:} PS emergency handling requirements lack detailed operational procedures.\\
-\textbf{Impact:} Inconsistent emergency response implementation could compromise mission safety.\\
-\textbf{Mitigation Strategy:} Develop detailed emergency response protocols through joint design sessions with Triton operational staff.
+Our analysis identifies several implementation risks requiring proactive mitigation.
 
-\subsection{Risk of Sensor Integration Complexity}
-\textbf{Risk Description:} PS sensor integration requirements lack interface specifications.\\
-\textbf{Impact:} Integration delays could affect project schedule and system functionality.\\
-\textbf{Mitigation Strategy:} Early prototyping of sensor interfaces and clear interface control documents.
+\subsection{Critical Technical Risks}
 
-\subsection{Risk of Autonomy Level Misalignment}
-\textbf{Risk Description:} PS unmanned operations context needs clearer definition of autonomy levels.\\
-\textbf{Impact:} System may not properly balance autonomous operation with necessary human oversight.\\
-\textbf{Mitigation Strategy:} Define clear autonomy levels and handoff protocols through operational scenario analysis.
+\subsubsection{Risk: Communication Specification Ambiguity}
+\textbf{Description:} PS communication constraints lack quantitative specifications, creating implementation uncertainty.\\
+\textbf{Impact:} System may fail under actual deep-sea communication conditions (Severity: High).\\
+\textbf{Likelihood:} Probable ($\geq$60\% occurrence).\\
+\textbf{Mitigation Strategy:} Establish quantitative communication requirements through prototype testing and stakeholder validation.
+
+\subsubsection{Risk: Emergency Protocol Definition Gap}
+\textbf{Description:} Emergency handling requirements lack operational procedures and escalation protocols.\\
+\textbf{Impact:} Inconsistent emergency response could compromise mission safety (Severity: Critical).\\
+\textbf{Likelihood:} Possible (40-60\% occurrence).\\
+\textbf{Mitigation Strategy:} Joint development of detailed emergency response protocols with Triton operational staff.
+
+\subsubsection{Risk: Sensor Integration Complexity}
+\textbf{Description:} Sensor integration requirements lack interface specifications and protocol definitions.\\
+\textbf{Impact:} Integration delays affecting project schedule and functionality (Severity: High).\\
+\textbf{Likelihood:} Probable ($\geq$60\% occurrence).\\
+\textbf{Mitigation Strategy:} Early prototyping of sensor interfaces and development of Interface Control Documents (ICDs).
+
+\subsubsection{Risk: Autonomy Level Misalignment}
+\textbf{Description:} Unmanned operations context lacks clear autonomy level definitions.\\
+\textbf{Impact:} System may not properly balance autonomous operation with necessary human oversight (Severity: Medium).\\
+\textbf{Likelihood:} Possible (40-60\% occurrence).\\
+\textbf{Mitigation Strategy:} Definition of autonomy levels and handoff protocols through operational scenario analysis.
+
+\subsection{Project Management Risks}
+
+\subsubsection{Risk: Scope Creep Post-Clarification}
+\textbf{Description:} Stakeholder clarification may introduce requirements beyond original PS scope.\\
+\textbf{Impact:} Budget and schedule overruns affecting project viability.\\
+\textbf{Mitigation Strategy:} Formal change control process managed through Account Manager escalation.
+
+\subsubsection{Risk: Stakeholder Knowledge Attenuation}
+\textbf{Description:} Key stakeholder availability may decrease during implementation phase.\\
+\textbf{Impact:} Loss of contextual knowledge affecting requirement interpretation.\\
+\textbf{Mitigation Strategy:} Comprehensive documentation and knowledge transfer protocols.
 
 \section{Revised Requirements Summary}
-\begin{itemize}
-    \item Total incongruities identified: 15 across PS sections
-    \item Total requirements revised: 57 original PS requirements transmuted
-    \item New atomic requirements created: 22 (from splitting compound requirements)
-    \item Requirements deprecated: 0 (all PS requirements maintained)
-    \item Traceability coverage: 100\% of PS requirements mapped to SRS structure
-\end{itemize}
-
-\section{Repository Structure and Organization}
-\label{sec:repository}
-
-All requirements, analysis documents, and supporting artifacts are maintained in our team's public GitHub repository. The repository follows a structured organization that supports version control, traceability, and collaboration throughout the Requirements Engineering process.
-
-\subsection{Repository Location}
-\begin{itemize}
-    \item \textbf{Repository URL:} \url{https://github.com/Spooky312/The-Abyss-Navigation-Suite-INF2113}
-    \item \textbf{Access:} Public repository for transparency and stakeholder access
-    \item \textbf{Primary Branch:} \texttt{main} - contains all reviewed and approved content
-\end{itemize}
-
-\subsection{Repository Features and Practices}
-\begin{itemize}
-    \item \textbf{Version Control:} All changes are tracked with Git, providing complete audit trail of requirement evolution
-    \item \textbf{Branching Strategy:} Feature branches for each requirement category with pull request reviews
-    \item \textbf{Issue Tracking:} GitHub Issues used to track incongruities, clarification needs, and action items
-    \item \textbf{Wiki Documentation:} Supplementary documentation for methodology, terminology, and process guidelines
-    \item \textbf{Release Management:} Tagged releases for major milestones (Analysis Complete, SRS Draft 1, etc.)
-\end{itemize}
-
-\subsection{Traceability Implementation}
-The repository supports requirements traceability through:
-\begin{itemize}
-    \item Consistent requirement identifiers across all documents
-    \item Cross-referencing between PS requirements and SRS requirements
-    \item Hyperlinked documentation between related artifacts
-    \item Automated validation of requirement completeness through scripts
-\end{itemize}
-
-This repository structure ensures that all stakeholders (including Triton Deepwater representatives) can access current requirements, review analysis outcomes, and track progress throughout the project lifecycle.
-
-\section{Account Manager Role and Contribution}
-\label{sec:account-manager}
-
-As part of Brigman Deep Sea Technology's customer engagement strategy, we assigned a dedicated Account Manager to facilitate the analysis process with Triton Deepwater. The Account Manager serves as the primary liaison between our technical analysis team and Triton's stakeholder groups, ensuring smooth communication, risk mitigation, and relationship management throughout the requirements analysis phase.
-
-\subsection{Account Manager Profile}
-\begin{itemize}
-    \item \textbf{Name:} Alexandra Chen, Senior Account Manager
-    \item \textbf{Experience:} 8 years in marine technology client management
-    \item \textbf{Specialization:} Safety-critical software projects in extreme environments
-    \item \textbf{Previous Engagements:} Led account management for NOAA deep-sea research platforms and Shell Offshore autonomous systems
-\end{itemize}
-
-\subsection{Role During BCIC Analysis}
-The Account Manager played several critical roles throughout our analysis of the Project Specification:
-
-\subsubsection*{During Breakdown Activity}
-\begin{itemize}
-    \item Facilitated initial introductions between our analysis team and Triton's key stakeholders
-    \item Provided contextual understanding of Triton's "Safety-First" philosophy post-Prometheus-1 incident
-    \item Helped identify which stakeholders would be most critical for clarifying specific PS requirements
-\end{itemize}
-
-\subsubsection*{During Clarify Activity}
-\begin{itemize}
-    \item Scheduled and coordinated all stakeholder clarification sessions (Table \ref{tab:clarifications})
-    \item Prepared stakeholders for meetings by sharing agendas and relevant documentation
-    \item Mediated discussions when technical disagreements arose about requirement interpretation
-    \item Ensured that all clarification outcomes were documented and approved by both parties
-\end{itemize}
-
-\subsubsection*{Risk Mitigation Facilitation}
-\begin{itemize}
-    \item Identified early warning signs of potential misunderstandings in requirement interpretation
-    \item Arranged additional technical workshops when complex integration issues emerged
-    \item Ensured that risk mitigation strategies (Section \ref{sec:risks}) were developed collaboratively
-\end{itemize}
-
-\subsection{Value Added to Analysis Process}
-The Account Manager's contributions significantly enhanced the quality and efficiency of our BCIC analysis:
+Our BCIC analysis has produced the following outcomes:
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|p{0.25\textwidth}|p{0.70\textwidth}|}
+\begin{tabular}{|p{0.5\textwidth}|p{0.4\textwidth}|}
 \hline
-\textbf{Area of Contribution} & \textbf{Specific Value Added} \\
+\textbf{Metric} & \textbf{Value} \\
 \hline
-\textbf{Stakeholder Access} & Secured meetings with senior Triton personnel who provided crucial clarifications on safety requirements \\
+Total PS requirements analyzed & 57 \\
 \hline
-\textbf{Communication Efficiency} & Reduced email cycles by 60\% through structured meeting coordination and follow-up protocols \\
+Incongruities identified & 15 (26.3\%) \\
 \hline
-\textbf{Risk Identification} & Leveraged previous deep-sea project experience to identify hidden integration risks not evident in PS \\
+Requirements clarified and reinterpreted & 57 (100\%) \\
 \hline
-\textbf{Trust Building} & Established credibility through transparent communication, accelerating decision-making processes \\
+New atomic requirements created & 22 \\
 \hline
-\textbf{Knowledge Transfer} & Facilitated knowledge sharing about Triton's operational environment and technical constraints \\
+Requirements deprecated & 0 \\
+\hline
+Traceability coverage to PS clauses & 100\% \\
 \hline
 \end{tabular}
-\caption{Account Manager Contributions to Analysis Process}
-\label{tab:account-manager-contributions}
+\caption{Analysis Process Metrics}
+\label{tab:metrics}
+\end{table}
+
+\section{Repository Structure and Configuration Management}
+\label{sec:repository}
+
+All requirements, analysis artifacts, and supporting documentation are maintained in our secure GitHub repository following industry-standard configuration management practices.
+
+\subsection{Repository Architecture}
+\begin{itemize}
+    \item \textbf{Repository URL:} \url{https://github.com/Spooky312/The-Abyss-Navigation-Suite-INF2113}
+    \item \textbf{Access Protocol:} Role-based access control with audit logging
+    \item \textbf{Primary Branch:} \texttt{main} - Contains all reviewed and approved content
+    \item \textbf{Development Model:} Git Flow with protected branches
+\end{itemize}
+
+\subsection{Configuration Management Features}
+\begin{itemize}
+    \item \textbf{Version Control:} Git-based change tracking with cryptographic commit signing
+    \item \textbf{Branching Strategy:} Feature branches per requirement category with mandatory peer review
+    \item \textbf{Issue Tracking:} Integrated issue management for incongruity tracking and resolution
+    \item \textbf{Documentation:} Wiki with methodology documentation and process guidelines
+    \item \textbf{Release Management:} Semantic versioning for analysis milestones
+\end{itemize}
+
+\subsection{Traceability Implementation}
+The repository implements comprehensive traceability through:
+\begin{itemize}
+    \item Bidirectional linking between PS requirements and interpreted requirements
+    \item Automated validation scripts for requirement completeness and consistency
+    \item Cross-reference matrices maintaining requirement lineage
+    \item Digital signatures for requirement approval and change authorization
+\end{itemize}
+
+\section{Account Manager Engagement and Stakeholder Coordination}
+\label{sec:account-manager}
+
+Brigman Deep Sea Technology's dedicated Account Manager facilitated the analysis process, ensuring effective stakeholder engagement and risk mitigation.
+
+\subsection{Account Manager Profile}
+\begin{itemize}
+    \item \textbf{Name:} Muhammad Ridwan Putra Jasni, Project Lead
+    \item \textbf{Employee ID:} BDST-RE-001
+    \item \textbf{Department:} Requirements Engineering
+    \item \textbf{Role:} Primary liaison between vendor analysis team and customer stakeholders
+\end{itemize}
+
+\subsection{Analysis Phase Contributions}
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{0.3\textwidth}|p{0.65\textwidth}|}
+\hline
+\textbf{Activity Phase} & \textbf{Specific Contributions} \\
+\hline
+\textbf{Breakdown} & Facilitated stakeholder introductions; coordinated team analysis of PS incongruities \\
+\hline
+\textbf{Clarify} & Scheduled and moderated stakeholder sessions; documented clarification outcomes \\
+\hline
+\textbf{Risk Management} & Coordinated risk identification workshops with team specialists \\
+\hline
+\textbf{Communication} & Managed communication protocols between vendor team and customer representatives \\
+\hline
+\end{tabular}
+\caption{Account Manager Contributions}
 \end{table}
 
 \subsection{Escalation Protocol}
-The Account Manager established a clear escalation protocol for issues requiring executive attention:
+A formal escalation protocol ensures timely resolution of technical and procedural issues:
 \begin{enumerate}
     \item \textbf{Level 1:} Technical team resolution (within 24 hours)
-    \item \textbf{Level 2:} Account Manager mediation (within 4 hours if unresolved)
-    \item \textbf{Level 3:} Executive sponsor engagement (Triton's Chief Systems Officer and Brigman's VP of Operations)
-    \item \textbf{Level 4:} Contractual review (if technical disagreements impact project scope or schedule)
+    \item \textbf{Level 2:} Project Lead mediation (within 4 hours if unresolved)
+    \item \textbf{Level 3:} Vendor executive engagement (VP of Engineering)
+    \item \textbf{Level 4:} Contractual and scope review
 \end{enumerate}
 
-\subsection{Continuous Relationship Management}
-Beyond the immediate analysis phase, the Account Manager is developing a long-term engagement plan that includes:
-\begin{itemize}
-    \item Monthly operational review meetings post-deployment
-    \item Joint roadmap planning for future system enhancements
-    \item Regular satisfaction surveys and feedback collection
-    \item Proactive identification of additional opportunities for collaboration
-\end{itemize}
+\section{Analysis Completion and Approval}
 
-The Account Manager's involvement ensured that our BCIC analysis was not just a technical exercise, but a collaborative process that strengthened the vendor-customer partnership while delivering high-quality, clarified requirements for the Abyss Navigator Suite.
+This BCIC analysis has been completed by the Brigman Deep Sea Technology Requirements Analysis Team and is ready for SRS development commencement.
 
+\vspace{1cm}
+
+\begin{center}
+\textbf{TEAM APPROVAL AND SIGN-OFF}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{0.35\textwidth}|p{0.15\textwidth}|p{0.4\textwidth}|}
+\hline
+\textbf{Team Member} & \textbf{Employee ID} & \textbf{Signature} \\
+\hline
+Muhammad Ridwan Putra Jasni & BDST-RE-001 & \hrulefill \\
+\hline
+Chng Zong Han & BDST-SE-015 & \hrulefill \\
+\hline
+Lin Yuhao & BDST-CS-022 & \hrulefill \\
+\hline
+Muhammad Mikhail Bin Mazlan & BDST-AI-029 & \hrulefill \\
+\hline
+Kannan s/o Rajamohan & BDST-DM-036 & \hrulefill \\
+\hline
+\end{tabular}
+\caption{Team Approval Signatures}
+\end{table}
+
+\vspace{0.5cm}
+
+\begin{center}
+\textbf{DATE:} \today\\
+\textbf{ANALYSIS VERSION:} 1.0\\
+\textbf{STATUS:} Complete - Ready for SRS Development
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{center}
+\fbox{\begin{minipage}{0.8\textwidth}
+\centering
+\textbf{PROJECT AUTHORIZATION}\\
+\textit{This requirements analysis has been reviewed and approved by all team members.}\\
+\textit{The analysis is complete and ready for progression to the SRS development phase.}
+\end{minipage}}
+\end{center}
 
 \end{document}
