@@ -63,7 +63,7 @@
 This document records the formal requirements analysis performed by Brigman Deep Sea Technology on the Project Specification (PS) for the Abyss Navigator Suite. Following the BCIC (Breakdown, Clarify, Interpret, Categorize) methodology, this analysis identifies and resolves incongruities, clarifies ambiguities, and prepares requirements for subsequent Software Requirements Specification (SRS) development. This report represents the output of the Analysing method within the Requirements Engineering framework.
 
 \section{Executive Summary}
-This report presents the findings from Brigman Deep Sea Technology's analysis of the Project Specification (PS) for the \textbf{Abyss Navigator Suite}. Our systematic BCIC approach has identified critical gaps and ambiguities that require clarification to ensure successful implementation of the unmanned, autonomous deep-sea submersible control system.
+This report presents the findings from Brigman Deep Sea Technology's analysis of the Project Specification (PS) for the \textbf{Abyss Navigator Suite}. As Triton Deepwater's selected vendor, we applied our proprietary BCIC methodology to systematically analyze the Project Specification, ensuring requirements are feasible, testable, and aligned with deep-sea operational realities before SRS development.
 
 Key analysis outcomes include:
 \begin{itemize}
@@ -105,35 +105,39 @@ Kannan s/o Rajamohan & BDST-DM-036 & Data Management & Logging Standards \& Trac
 \section{BCIC Analysis of Project Specification}
 \label{sec:bcic-analysis}
 
-As the selected vendor, Brigman Deep Sea Technology has applied the BCIC methodology to systematically analyze the Project Specification provided by Triton Deepwater. This section documents our application of the four BCIC activities.
+As Triton Deepwater's selected vendor, Brigman Deep Sea Technology applied our proprietary BCIC methodology to systematically analyze the Project Specification. This section documents our vendor-led application of the four BCIC activities, demonstrating how we transformed ambiguous statements into validated, testable requirements ready for implementation.
 
-\subsection{Breakdown Activity}
+\subsection{BCIC Activity 1: Breakdown}
 \label{subsec:breakdown}
+\textbf{Objective:} Deconstruct PS to identify incongruent, ambiguous, or missing requirements.
 
-The Breakdown activity involved deconstructing the PS to identify incongruent, ambiguous, or missing requirements using our proprietary Incongruous Requirements Checklist (IRC), developed from ISO/IEEE standards and deep-sea operational expertise.
+During Breakdown, we systematically deconstructed the entire PS using our Incongruous Requirements Checklist (IRC). This vendor-developed tool applies four validation lenses to each requirement, ensuring systematic identification of issues that could impact implementation feasibility.
 
 \begin{table}[H]
 \centering
-\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.55\textwidth}|p{0.15\textwidth}|}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.45\textwidth}|p{0.12\textwidth}|p{0.15\textwidth}|}
 \hline
-\textbf{PS Reference} & \textbf{Incongruity Identified} & \textbf{Priority} \\
+\textbf{PS Reference} & \textbf{Incongruity Identified} & \textbf{Priority} & \textbf{Clarification Status} \\
 \hline
-BO-L1-4 & No quantitative definition of "abnormal conditions" or threshold values for emergency response initiation & Critical \\
+BO-L1-4 & No quantitative definition of "abnormal conditions" or threshold values for emergency response initiation & Critical & \textcolor{red}{\textbf{Requires Clarification}} \\
 \hline
-IT-L0-C2 & "Constrained bandwidth" not quantified; no fallback mechanism specified for communication loss & High \\
+IT-L0-C2 & "Constrained bandwidth" not quantified; no fallback mechanism specified for communication loss & High & \textcolor{red}{\textbf{Requires Clarification}} \\
 \hline
-Section 7.3 & Communication technology unspecified for deep-sea operational environments; missing performance requirements & Critical \\
+Section 7.3 & Communication technology unspecified for deep-sea operational environments; missing performance requirements & Critical & \textcolor{red}{\textbf{Requires Clarification}} \\
 \hline
-BO-L1-6 & Traceability requirements lack specific data retention period and format standards & Medium \\
+BO-L1-6 & Traceability requirements lack specific data retention period and format standards & Medium & Can proceed with assumptions \\
 \hline
-Section 2.1 & Sensor integration mentioned but interface protocols, data formats, and power requirements unspecified & High \\
+Section 2.1 & Sensor integration mentioned but interface protocols, data formats, and power requirements unspecified & High & \textcolor{red}{\textbf{Requires Clarification}} \\
 \hline
-BO-L0-C1 & "Unmanned operations" context lacks clarification on autonomy levels and remote intervention protocols & Medium \\
+BO-L0-C1 & "Unmanned operations" context lacks clarification on autonomy levels and remote intervention protocols & Medium & Can proceed with assumptions \\
 \hline
 \end{tabular}
-\caption{Key Incongruities Identified During Breakdown}
+\caption{Breakdown Findings: Key Incongruities Identified}
 \label{tab:incongruities}
 \end{table}
+
+\subsubsection*{Clarification Required Flags}
+Items marked \textcolor{red}{\textbf{Requires Clarification}} cannot be resolved without stakeholder input and are pending further discussion in the Clarify activity.
 
 \subsubsection{Incongruous Requirements Checklist Application}
 Our IRC methodology examined requirements through four validation lenses:
@@ -157,10 +161,11 @@ Our IRC methodology examined requirements through four validation lenses:
 \label{tab:irc-categories}
 \end{table}
 
-\subsection{Clarify Activity}
+\subsection{BCIC Activity 2: Clarify}
 \label{subsec:clarify}
+\textbf{Objective:} Engage stakeholders to resolve identified incongruities through structured sessions.
 
-We conducted structured stakeholder sessions with Triton Deepwater representatives to resolve identified incongruities. These sessions followed BCIC best practices, utilizing simplified visual models to facilitate mutual understanding.
+As the implementation vendor, we led structured stakeholder sessions with Triton Deepwater to resolve identified incongruities. We facilitated these discussions using simplified visual models we developed, ensuring mutual understanding between our technical team and customer stakeholders.
 
 \begin{table}[H]
 \centering
@@ -170,27 +175,27 @@ We conducted structured stakeholder sessions with Triton Deepwater representativ
 \hline
 2026-02-01 & Triton Safety Manager, Fleet Operations Lead & 
 \begin{itemize}[leftmargin=*,nosep]
-    \item Established quantitative definitions for abnormal conditions aligned with Section 6.4
-    \item Confirmed emergency protocols must maintain "Safety-First" policy consistency
-    \item Defined safety state transitions supporting mission continuity and recovery
+    \item \textbf{Resolved:} Established quantitative definitions for abnormal conditions aligned with Section 6.4
+    \item \textbf{Resolved:} Confirmed emergency protocols must maintain "Safety-First" policy consistency
+    \item \textbf{Pending Clarification:} Safety state transition timing requires further discussion
 \end{itemize} \\
 \hline
 2026-02-03 & Triton IT Manager, Offshore Engineering Lead & 
 \begin{itemize}[leftmargin=*,nosep]
-    \item Quantified bandwidth constraints not exceeding 1kbps with latency $\leq$30 seconds
-    \item Established interface standards for customer-supplied sensor integration
-    \item Defined fallback mechanisms for intermittent connectivity scenarios
+    \item \textbf{Resolved:} Quantified bandwidth constraints not exceeding 1kbps with latency $\leq$30 seconds
+    \item \textbf{Pending Clarification:} Interface standards for customer-supplied sensors require additional review
+    \item \textbf{Resolved:} Defined fallback mechanisms for intermittent connectivity scenarios
 \end{itemize} \\
 \hline
 2026-02-05 & Mission Logistics Manager, Safety Compliance Officer & 
 \begin{itemize}[leftmargin=*,nosep]
-    \item Specified 7-year data retention period for operational accountability
-    \item Defined audit trail requirements supporting post-mission review
-    \item Confirmed AES-256 encryption for security and governance compliance
+    \item \textbf{Resolved:} Specified 7-year data retention period for operational accountability
+    \item \textbf{Resolved:} Defined audit trail requirements supporting post-mission review
+    \item \textbf{Pending Clarification:} Cryptographic protection requirements need regulatory alignment
 \end{itemize} \\
 \hline
 \end{tabular}
-\caption{Stakeholder Clarification Sessions}
+\caption{Clarification Sessions with Stakeholders}
 \label{tab:clarifications}
 \end{table}
 
@@ -201,51 +206,55 @@ We conducted structured stakeholder sessions with Triton Deepwater representativ
     \item Interface data flow diagrams for sensor integration scenarios
 \end{itemize}
 
-\subsection{Interpret Activity}
+\subsection{BCIC Activity 3: Interpret}
 \label{subsec:interpret}
+\textbf{Objective:} Transform clarified requirements into precise, testable statements.
 
-Based on clarification outcomes, we reinterpreted ambiguous PS requirements into precise, testable statements compliant with IEEE 830 standards.
-
-\subsubsection*{Original Requirement: BO-L1-4 (Emergency Handling)}
-\textit{"The business requires appropriate handling of abnormal or emergency conditions during missions."}
+Based on clarification outcomes, we reinterpreted ambiguous PS requirements into precise, testable statements compliant with IEEE 830 standards. Our vendor expertise in deep-sea systems informed these interpretations, ensuring operational feasibility.
 
 \subsubsection*{Interpreted Requirement: SYS-SAF-001}
-\textit{"The system shall detect abnormal conditions exceeding predefined operational parameters within 5 seconds of onset. Upon detection, the system shall initiate Level 1 emergency protocols within 10 seconds, transitioning to safe operational states while maintaining alignment with PS Section 6.4 safety requirements."}
+\textbf{Original (BO-L1-4):} \textit{"The business requires appropriate handling of abnormal or emergency conditions during missions."}
 
-\subsubsection*{Original Requirement: IT-L0-C2 (Communication Constraint)}
-\textit{"IT solutions shall operate under conditions of constrained bandwidth, latency, and intermittent connectivity."}
+\textbf{Interpreted:} \textit{"The system shall detect abnormal conditions exceeding predefined operational parameters within 5 seconds of onset. Upon detection, the system shall initiate Level 1 emergency protocols within 10 seconds, transitioning to safe operational states while maintaining alignment with PS Section 6.4 safety requirements."}
 
 \subsubsection*{Interpreted Requirement: COM-REQ-001}
-\textit{"The communication subsystem shall maintain mission-critical functionality under bandwidth constraints of 1kbps with maximum latency of 30 seconds. The system shall implement store-and-forward protocols and adaptive compression algorithms to handle intermittent connectivity exceeding 60 seconds duration."}
+\textbf{Original (IT-L0-C2):} \textit{"IT solutions shall operate under conditions of constrained bandwidth, latency, and intermittent connectivity."}
 
-\subsubsection*{Original Requirement: 6.6 (Operational Accountability)}
-\textit{"We require accountability for mission activities and operational decisions."}
+\textbf{Interpreted:} \textit{"The communication subsystem shall maintain mission-critical functionality under bandwidth constraints of 1kbps with maximum latency of 30 seconds. The system shall implement robust mechanisms to handle intermittent connectivity exceeding 60 seconds duration without data loss."}
 
 \subsubsection*{Interpreted Requirement: DATA-ACC-001}
-\textit{"All mission activities, operational decisions, and system state changes shall be logged with millisecond timestamps, operator identification, and contextual metadata. Logs shall be retained for 7 years in WORM storage with cryptographic integrity verification, supporting regulatory compliance and post-mission investigation."}
+\textbf{Original (6.6):} \textit{"We require accountability for mission activities and operational decisions."}
 
-\subsection{Categorize Activity}
+\textbf{Interpreted:} \textit{"All mission activities, operational decisions, and system state changes shall be logged with millisecond timestamps, operator identification, and contextual metadata. Logs shall be retained for 7 years in tamper-evident, secure storage supporting regulatory compliance and post-mission investigation."}
+
+\subsubsection*{Pending Clarification Note}
+\textbf{Original (Section 7.3):} \textit{"Communication technology unspecified for deep-sea operational environments."}
+
+\textbf{Vendor Interpretation (Pending):} \textit{"The system shall utilize communication technology suitable for deep-sea environments, with specific technology selection pending stakeholder clarification on performance vs. cost trade-offs."}
+
+\subsection{BCIC Activity 4: Categorize}
 \label{subsec:categorize}
+\textbf{Objective:} Organize interpreted requirements into SRS-compatible structure.
 
-Interpreted requirements were organized into an SRS-compatible structure, establishing traceability and logical grouping.
+We organized interpreted requirements into an SRS-compatible structure, establishing traceability and logical grouping. This vendor-managed categorization enables efficient SRS development and ensures comprehensive requirement coverage.
 
 \begin{table}[H]
 \centering
 \begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.55\textwidth}|p{0.15\textwidth}|}
 \hline
-\textbf{Category} & \textbf{Requirements Coverage} & \textbf{Count} \\
+\textbf{Category} & \textbf{Requirements Coverage} & \textbf{Status} \\
 \hline
-\textbf{Safety \& Emergency} & Autonomous emergency protocols, fail-safe states, abnormal condition handling, mission continuity & 12 \\
+\textbf{Safety \& Emergency} & Autonomous emergency protocols, fail-safe states, abnormal condition handling & \textcolor{green}{\textbf{Complete}} \\
 \hline
-\textbf{Communication Systems} & Bandwidth management, latency handling, intermittent connectivity protocols, secure communication & 8 \\
+\textbf{Communication Systems} & Bandwidth management, latency handling, intermittent connectivity protocols & \textcolor{orange}{\textbf{Pending Clarification}} \\
 \hline
-\textbf{Data Management} & Operational logging, audit trails, data retention, post-mission review support & 7 \\
+\textbf{Data Management} & Operational logging, audit trails, data retention, post-mission review support & \textcolor{green}{\textbf{Complete}} \\
 \hline
-\textbf{Autonomous Operations} & Mission execution, fleet coordination, remote oversight, autonomous decision-making & 11 \\
+\textbf{Autonomous Operations} & Mission execution, fleet coordination, remote oversight & \textcolor{green}{\textbf{Complete}} \\
 \hline
-\textbf{System Integration} & Sensor interface integration, external system coordination, platform compatibility & 9 \\
+\textbf{System Integration} & Sensor interface integration, external system coordination & \textcolor{orange}{\textbf{Pending Clarification}} \\
 \hline
-\textbf{Monitoring \& Diagnostics} & Vehicle status monitoring, operational integrity reporting, system health assessment & 10 \\
+\textbf{Monitoring \& Diagnostics} & Vehicle status monitoring, operational integrity reporting & \textcolor{green}{\textbf{Complete}} \\
 \hline
 \end{tabular}
 \caption{Categorized Requirements for SRS Integration}
@@ -263,7 +272,38 @@ Interpreted requirements were organized into an SRS-compatible structure, establ
     \item \textbf{MON-xxx:} Monitoring and diagnostic requirements
 \end{itemize}
 
+\noindent\textbf{Clarification Status Legend:}
+\begin{itemize}
+    \item \textcolor{green}{\textbf{Complete}}: Requirement clarified and ready for SRS
+    \item \textcolor{orange}{\textbf{Pending Clarification}}: Requires additional stakeholder input
+    \item \textcolor{red}{\textbf{Requires Clarification}}: Cannot proceed without stakeholder resolution
+\end{itemize}
+
 All categorized requirements have been uploaded to our secure repository with full traceability to original PS clauses.
+
+\section{Vendor Reflections on BCIC Application}
+\label{sec:vendor-reflections}
+
+Our application of BCIC as Triton's implementation vendor yielded key insights:
+
+\subsection{Vendor-Added Value Through BCIC}
+\begin{itemize}
+    \item \textbf{Proactive Issue Identification:} Our IRC methodology identified 26.3\% incongruity rate early, preventing costly rework during implementation
+    \item \textbf{Stakeholder Facilitation:} We structured clarification sessions using visual models we developed, bridging technical-customer communication gaps
+    \item \textbf{Requirements Validation:} Our deep-sea operational expertise informed requirement interpretations, ensuring technical feasibility
+    \item \textbf{Traceability Establishment:} We implemented comprehensive traceability from PS to SRS-ready requirements, supporting future verification
+\end{itemize}
+
+\subsection{BCIC Mechanics in Practice}
+The BCIC framework provided structured rigor to our vendor analysis:
+\begin{itemize}
+    \item \textbf{Breakdown:} Systematic deconstruction using our IRC tool
+    \item \textbf{Clarify:} Vendor-facilitated stakeholder engagement with visual aids
+    \item \textbf{Interpret:} Translation of ambiguous statements into testable requirements
+    \item \textbf{Categorize:} Organization for efficient SRS development
+\end{itemize}
+
+This methodology ensured we delivered analysis outcomes ready for implementation, demonstrating our vendor capability to transform customer needs into actionable specifications.
 
 \section{Incongruous Requirements Checklist Methodology}
 The Incongruous Requirements Checklist (IRC) methodology guided our systematic identification of PS incongruities. Our checklist implementation focused on:
@@ -295,13 +335,13 @@ Our analysis identifies several implementation risks requiring proactive mitigat
 \textbf{Description:} PS communication constraints lack quantitative specifications, creating implementation uncertainty.\\
 \textbf{Impact:} System may fail under actual deep-sea communication conditions (Severity: High).\\
 \textbf{Likelihood:} Probable ($\geq$60\% occurrence).\\
-\textbf{Mitigation Strategy:} Establish quantitative communication requirements through prototype testing and stakeholder validation.
+\textbf{Mitigation Strategy:} We will establish quantitative communication requirements through prototype testing and stakeholder validation during early development phases.
 
 \subsubsection{Risk: Emergency Protocol Definition Gap}
 \textbf{Description:} Emergency handling requirements lack operational procedures and escalation protocols.\\
 \textbf{Impact:} Inconsistent emergency response could compromise mission safety (Severity: Critical).\\
 \textbf{Likelihood:} Possible (40-60\% occurrence).\\
-\textbf{Mitigation Strategy:} Joint development of detailed emergency response protocols with Triton operational staff.
+\textbf{Mitigation Strategy:} We will lead joint development of detailed emergency response protocols with Triton operational staff during requirements validation.
 
 \subsubsection{Risk: Sensor Integration Complexity}
 \textbf{Description:} Sensor integration requirements lack interface specifications and protocol definitions.\\
@@ -396,6 +436,8 @@ Brigman Deep Sea Technology's dedicated Account Manager facilitated the analysis
     \item \textbf{Department:} Requirements Engineering
     \item \textbf{Role:} Primary liaison between vendor analysis team and customer stakeholders
 \end{itemize}
+
+\textbf{Vendor Role Emphasis:} As the primary vendor liaison, our Account Manager ensures Brigman's technical expertise is effectively communicated to Triton while capturing customer needs with precision. This role embodies our vendor commitment to proactive stakeholder engagement.
 
 \subsection{Analysis Phase Contributions}
 \begin{table}[H]
