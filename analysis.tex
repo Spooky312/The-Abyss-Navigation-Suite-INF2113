@@ -20,6 +20,7 @@
 \usepackage{parskip}
 \usepackage{amsmath}
 \usepackage{wrapfig}
+\usepackage{amssymb} % Added for checkmark symbols
 \frenchspacing
 
 % =====================
@@ -50,7 +51,7 @@
 \pagestyle{fancy}
 \fancyhf{} % clear all
 \lhead{\textbf{Brigman Deep Sea Technology}}
-\rhead{Requirements Analysis (BCI)}
+\rhead{Requirements Analysis (BC Methodology)}
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \setlength{\headheight}{20pt}
@@ -102,10 +103,10 @@ Kannan s/o Rajamohan & BDST-DM-036 & Data Management Lead (Logging \& Traceabili
 \vfill
 \begin{center}
 \textit{Confidential - For Internal Use Only}\\[0.5cm]
-\textbf{Report Version: 2.0 (BCI Methodology)}
+\textbf{Report Version: 2.0 (BC Methodology)}
 \end{center}
 
-\newpage
+% \newpage
 
 % =====================
 % TABLE OF CONTENTS - 1 PAGE
@@ -115,40 +116,39 @@ Kannan s/o Rajamohan & BDST-DM-036 & Data Management Lead (Logging \& Traceabili
 \vspace{0.5cm}
 \begin{itemize}[leftmargin=*,nosep]
 \item \textbf{1.0 Executive Summary} \dotfill 1
-\item \textbf{2.0 BCI Methodology Application} \dotfill 2
+\item \textbf{2.0 BC Methodology Application} \dotfill 2
   \begin{itemize}[leftmargin=*]
   \item 2.1 Breakdown Activity \dotfill 2
   \item 2.2 Clarify Activity \dotfill 3
-  \item 2.3 Interpret Activity \dotfill 4
   \end{itemize}
-\item \textbf{3.0 Incongruous Requirements Checklist (IRC)} \dotfill 5
-\item \textbf{4.0 Risk Analysis \& Mitigation} \dotfill 6
-\item \textbf{5.0 Account Manager \& Stakeholder Coordination} \dotfill 7
-\item \textbf{6.0 Declarations} \dotfill 8
-\item \textbf{7.0 Sign-off \& Repository Information} \dotfill 8
+\item \textbf{3.0 Incongruous Requirements Checklist (IRC)} \dotfill 4
+\item \textbf{4.0 Risk Analysis \& Mitigation} \dotfill 5
+\item \textbf{5.0 Account Manager \& Stakeholder Coordination} \dotfill 6
+\item \textbf{6.0 Declarations} \dotfill 7
+\item \textbf{7.0 Sign-off \& Repository Information} \dotfill 7
 \end{itemize}
 
-\newpage
+% \newpage
 
 % =====================
 % ORG & STYLING - 0.2 PAGE
 % =====================
 \section*{Document Organization}
 \addcontentsline{toc}{section}{Document Organization}
-This report documents Brigman Deep Sea Technology's application of the BCI (Breakdown, Clarify, Interpret) methodology to analyze Triton Deepwater's Project Specification for the Abyss Navigator Suite. As the selected vendor, we systematically identified, clarified, and transformed ambiguous requirements into testable specifications through direct stakeholder engagement and visual modeling.
+This report documents Brigman Deep Sea Technology's application of the BC (Breakdown, Clarify) methodology to analyze Triton Deepwater's Project Specification for the Abyss Navigator Suite. As the selected vendor, we systematically identified and clarified ambiguous requirements through direct stakeholder engagement using visual models.
 
 \textbf{Styling Conventions:}
 \begin{itemize}
 \item \textbf{Headings:} Hierarchical numbering for requirement traceability
 \item \textbf{Tables:} Consistent formatting with clear captions
-\item \textbf{References:} BCI-xxx for analysis artifacts
+\item \textbf{References:} BC-xxx for analysis artifacts
 \item \textbf{Priorities:} Color-coded (Red=Critical, Orange=High, Yellow=Medium)
 \item \textbf{Status:} Clear indicators (Complete, Pending, Requires Client Clarification)
 \end{itemize}
 
-\textbf{Vendor Quality Assurance:} All analyzed requirements comply with CRaM principles (Correct, Relevant, Measurable) and will be ready for SRS development upon client approval.
+\textbf{Vendor Quality Assurance:} All analyzed requirements comply with CRaM principles (Correct, Relevant, Measurable) and will be ready for the next project phase upon client approval.
 
-\newpage
+% \newpage
 
 % =====================
 % EXECUTIVE SUMMARY - 0.5 PAGE
@@ -156,152 +156,103 @@ This report documents Brigman Deep Sea Technology's application of the BCI (Brea
 \section{Executive Summary}
 \label{sec:executive}
 
-Brigman Deep Sea Technology, as the selected vendor for the Abyss Navigator Suite project, has successfully completed the requirements analysis phase using our proprietary BCI methodology. Through systematic investigation and direct client engagement, we transformed Triton Deepwater's Project Specification from ambiguous operational statements into 79 precise, testable requirements.
+Brigman Deep Sea Technology, as the selected vendor for the Abyss Navigator Suite project, has successfully completed the requirements analysis phase using our proprietary BC methodology. Through systematic investigation and direct client engagement, we identified and clarified ambiguous requirements in Triton Deepwater's Project Specification.
 
-\textbf{Key Vendor Achievements:}
+\textbf{Key Brigman Achievements:}
 \begin{itemize}
-\item \textbf{26.3\% Incongruity Rate Identified:} Systematically uncovered 15 requirement ambiguities requiring client clarification
-\item \textbf{Visual Modeling Success:} Used Context, State Transition, Data Flow, and Use Case diagrams to bridge client-vendor understanding
-\item \textbf{Client Collaboration:} Conducted 3 structured clarification sessions achieving 86.7\% resolution rate with direct client input
-\item \textbf{Quantitative Specifications Established:} Transformed subjective terms into measurable parameters approved by client stakeholders
+\item \textbf{26.3\% Incongruity Rate Identified:} Our team systematically uncovered 15 requirement ambiguities requiring client clarification
+\item \textbf{Visual Modeling Success:} We used Context Diagram and Use Case Diagram to bridge client-vendor understanding
+\item \textbf{Client Collaboration:} We conducted structured clarification sessions achieving 86.7\% resolution rate with direct client input
+\item \textbf{Requirements Prepared for Next Phase:} All requirements are documented and ready for subsequent project activities
 \end{itemize}
 
-\textbf{Vendor Value Delivered:} Our early issue detection prevents an estimated \$350K+ in potential rework costs and reduces implementation risk by 4-6 weeks. By engaging client stakeholders directly through visual models, we've established a shared understanding that ensures the developed system will meet operational needs.
+\textbf{Brigman Value Delivered:} Our early issue detection prevents an estimated \$350K+ in potential rework costs and reduces implementation risk by 4-6 weeks. By engaging client stakeholders directly through visual models, we've established a shared understanding that ensures the project will proceed effectively.
 
-\textbf{Next Steps:} This analysis provides the foundation for SRS development, with all requirements validated against CRaM principles and ready for client review before specification finalization.
+\textbf{Next Steps:} This analysis provides the foundation for project continuation, with all requirements validated against CRaM principles and ready for client review.
 
-\newpage
+% \newpage
 
 % =====================
-% BCI METHODOLOGY - 3 PAGES
+% BC METHODOLOGY - 2 PAGES
 % =====================
-\section{BCI Methodology Application}
-\label{sec:bci}
+\section{BC Methodology Application}
+\label{sec:bc}
 
 \subsection{Breakdown Activity}
-\textbf{Vendor Objective:} Systematically identify ambiguous, conflicting, or missing requirements in the client's Project Specification to prepare for clarification sessions.
+\textbf{Brigman Objective:} Systematically identify ambiguous, conflicting, or missing requirements in the client's Project Specification to prepare for clarification sessions.
 
-\textbf{Our Process:} We applied our proprietary Incongruous Requirements Checklist (IRC) to 57 PS clauses, focusing on four validation lenses critical for vendor success:
+\textbf{Our Process:} We applied our proprietary Incongruous Requirements Checklist (IRC) to 57 PS clauses, focusing on four validation lenses critical for our success:
 \begin{itemize}
-\item \textbf{Ambiguity Detection:} Flagged subjective terms ("appropriate", "secure", "reliable") needing client quantification
-\item \textbf{Testability Validation:} Identified requirements without clear verification methods we could implement
-\item \textbf{Consistency Checking:} Found conflicting requirements across PS sections requiring client resolution
-\item \textbf{Completeness Verification:} Noted gaps against deep-sea operational standards we know from industry experience
+\item \textbf{Ambiguity Detection:} We flagged subjective terms ("appropriate", "secure", "reliable") needing client quantification
+\item \textbf{Testability Validation:} We identified requirements without clear verification methods we could implement
+\item \textbf{Consistency Checking:} We found conflicting requirements across PS sections requiring client resolution
+\item \textbf{Completeness Verification:} We noted gaps against deep-sea operational standards from our industry experience
 \end{itemize}
 
-\textbf{Vendor Preparation - Context Diagram Creation:} 
+\textbf{Brigman Preparation - Context Diagram Creation:} 
 \begin{itemize}
-\item \textbf{Our Action:} Created an initial Context Diagram (Figure 1) based on PS scope descriptions
+\item \textbf{Our Action:} We created an initial Context Diagram (Figure 1) based on PS scope descriptions
 \item \textbf{Purpose for Client Discussion:} To visually confirm system boundaries and external interfaces
 \item \textbf{Questions We Prepared:} "Does this diagram accurately show all systems you interact with? Are we missing any critical interfaces?"
-\item \textbf{Vendor Insight:} The diagram revealed 3 potentially missing interfaces we needed to clarify with client stakeholders
+\item \textbf{Brigman Insight:} The diagram revealed 3 potentially missing interfaces we needed to clarify with client stakeholders
 \end{itemize}
 
-\textbf{Vendor Findings Documented for Client Review:} We identified 15 incongruities (26.3\% rate) that required direct client input to resolve.
+\textbf{Brigman Findings Documented for Client Review:} We identified 15 incongruities (26.3\% rate) that required direct client input to resolve.
 
 \begin{table}[H]
 \centering
 \small
 \begin{tabular}{|p{0.2\textwidth}|p{0.45\textwidth}|p{0.15\textwidth}|p{0.2\textwidth}|}
 \hline
-\textbf{PS Reference} & \textbf{Vendor's Clarification Question} & \textbf{Priority} & \textbf{Scheduled Session} \\
+\textbf{PS Reference} & \textbf{Brigman's Clarification Question} & \textbf{Priority} & \textbf{Scheduled Session} \\
 \hline
-BO-L1-4 & "What quantitative thresholds define 'abnormal conditions' for your operations?" & Critical & Safety Clarification \\
+BO-L1-4 & "What quantitative thresholds define 'abnormal conditions' for your operations?" & Critical & Operational Clarification \\
 \hline
-IT-L0-C2 & "What actual bandwidth and latency constraints should we design for?" & High & Communications Clarification \\
+IT-L0-C2 & "What actual bandwidth and latency constraints should we design for?" & High & Operational Clarification \\
 \hline
-Section 7.3 & "Which specific communication technologies do you expect us to support?" & Critical & Communications Clarification \\
+Section 7.3 & "Which specific communication technologies do you expect us to support?" & Critical & Operational Clarification \\
 \hline
-Section 2.1 & "What sensor interface protocols should we implement for integration?" & High & Operations Clarification \\
+Section 2.1 & "What sensor interface protocols should we implement for integration?" & High & Operational Clarification \\
 \hline
 \end{tabular}
-\caption{Vendor-Prepared Clarification Questions for Client Sessions}
+\caption{Brigman-Prepared Clarification Questions for Client Session}
 \end{table}
 
 \subsection{Clarify Activity}
-\textbf{Vendor Objective:} Engage directly with client stakeholders to resolve identified incongruities using visual models as collaborative discussion tools.
+\textbf{Brigman Objective:} Engage directly with client stakeholders to resolve identified incongruities using visual models as collaborative discussion tools.
 
-\textbf{Session 1: Safety Requirements with Triton Deepwater Safety Team (Feb 15)}
+\textbf{Session: Operational Requirements with Triton Deepwater Operations Team (Feb 21)}
 \begin{itemize}
-\item \textbf{Model Presented:} State Transition Diagram (Figure 2) showing proposed emergency states
-\item \textbf{Our Opening:} "We've modeled possible emergency states based on your PS - can you walk us through what actually happens during an emergency?"
-\item \textbf{Client Discussion:} Safety Manager Thomas Gallagher explained their tiered emergency response protocol
-\item \textbf{Our Key Question:} "When you say 'appropriate handling,' what specific timing expectations do you have for detection and response?"
-\item \textbf{Client's Clear Answer:} "For critical pressure deviations, detection within 5 seconds, initial response within 10 seconds"
-\item \textbf{Vendor Documentation:} Captured client-approved timing specifications directly on the diagram
+\item \textbf{Account Manager Facilitation:} Our Account Manager Muhammad Ridwan Putra Jasni scheduled and led the session
+\item \textbf{Model Presented:} Use Case Diagram from Project Specification (Figure 2) illustrating key system interactions
+\item \textbf{Our Opening:} "These are the main operational scenarios identified in your PS - are we capturing all critical use cases for deep-sea operations?"
+\item \textbf{Client Discussion:} Mission Operations Manager Sarah Whitman reviewed the use cases and provided operational context
+\item \textbf{Our Key Questions:} 
+  \begin{itemize}
+  \item "For 'autonomous mission execution,' what specific accuracy level constitutes success in deep-sea navigation?"
+  \item "What sensor interface protocols should we implement based on your existing systems?"
+  \item "How do you define 'appropriate handling' of emergency conditions in quantitative terms?"
+  \end{itemize}
+\item \textbf{Client's Clear Answers:} 
+  \begin{itemize}
+  \item "99\% waypoint accuracy is our minimum acceptable standard"
+  \item "ROS2-based interfaces are preferred for sensor integration"
+  \item "Critical pressure deviations require detection within 5 seconds and response within 10 seconds"
+  \end{itemize}
+\item \textbf{Brigman Documentation:} We captured client clarifications and updated our understanding of operational requirements
 \end{itemize}
 
-\textbf{Session 2: Communications Requirements with Triton IT Team (Feb 18)}
-\begin{itemize}
-\item \textbf{Model Presented:} Data Flow Diagram (Figure 3) mapping proposed communication pathways
-\item \textbf{Our Opening:} "Here's how we envision data flowing between systems - does this match your actual operational data flows?"
-\item \textbf{Client Discussion:} IT Systems Manager Daniel Chen described bandwidth challenges at 4000m depth
-\item \textbf{Our Key Question:} "You mentioned 'constrained bandwidth' - can you give us the actual numbers we should design for?"
-\item \textbf{Client's Clear Answer:} "We need minimum 1kbps for compressed telemetry, with latency under 30 seconds for command response"
-\item \textbf{Vendor Documentation:} Annotated diagram with client-provided bandwidth and latency requirements
-\end{itemize}
-
-\textbf{Session 3: Operational Requirements with Operations Team (Feb 21)}
-\begin{itemize}
-\item \textbf{Model Presented:} Use Case Diagram (Figure 4) illustrating key system interactions
-\item \textbf{Our Opening:} "These are the main operational scenarios we've identified - are we capturing all critical use cases?"
-\item \textbf{Client Discussion:} Mission Operations Manager Sarah Whitman added two additional fleet coordination scenarios
-\item \textbf{Our Key Question:} "For 'autonomous mission execution,' what specific accuracy level constitutes success?"
-\item \textbf{Client's Clear Answer:} "99\% waypoint accuracy is our minimum acceptable standard for deep-sea navigation"
-\item \textbf{Vendor Documentation:} Extended use cases with client-validated success criteria
-\end{itemize}
-
-\textbf{Vendor Observations from Client Engagement:}
+\textbf{Brigman Observations from Client Engagement:}
 \begin{itemize}
 \item \textbf{40\% Time Reduction:} Visual models cut clarification time compared to text-only discussions
-\item \textbf{Bridged Terminology Gap:} Models helped translate client's operational language into our technical requirements
+\item \textbf{Bridged Terminology Gap:} Use Case Diagram helped translate client's operational language into our technical understanding
 \item \textbf{Increased Client Engagement:} Stakeholders participated more actively when discussing visual representations
-\item \textbf{Concrete Decisions:} Achieved specific resolutions that would have taken multiple meetings without models
+\item \textbf{Concrete Clarifications Achieved:} We resolved key ambiguities that would have taken multiple meetings without models
 \end{itemize}
 
 \textbf{Client Resolution Achieved:} 86.7\% (13/15) of incongruities resolved with direct client input and documented approval.
 
-\subsection{Interpret Activity}
-\textbf{Vendor Objective:} Transform client-clarified requirements into precise, testable statements ready for SRS development and client validation.
-
-\textbf{Our Translation Process:} Taking client feedback from clarification sessions and creating detailed, measurable specifications:
-
-\textbf{Model Enhancement Based on Client Input:}
-\begin{itemize}
-\item \textbf{Context Diagram Update:} Added client-confirmed interfaces with maritime authorities and specific data exchange protocols
-\item \textbf{State Transition Diagram Quantification:} Incorporated client-approved timing: "Detect $\leq$5s, Respond $\leq$10s, Safe State $\leq$30s"
-\item \textbf{Data Flow Diagram Specification:} Annotated with client-provided constraints: "1kbps bandwidth, $\leq$30s latency"
-\item \textbf{Use Case Diagram Detailing:} Extended with client-validated scenarios including newly identified fleet coordination use cases
-\end{itemize}
-
-\textbf{Vendor Requirement Transformation:} Converted ambiguous client statements into measurable specifications for client review:
-
-\begin{table}[H]
-\centering
-\small
-\begin{tabular}{|p{0.28\textwidth}|p{0.32\textwidth}|p{0.4\textwidth}|}
-\hline
-\textbf{Client's Original Statement} & \textbf{Vendor's Proposed Specification} & \textbf{Verification Method (For Client Approval)} \\
-\hline
-"Appropriate handling of emergency conditions" & "System shall detect pressure deviations >15\% within 5s and initiate emergency protocols within 10s" & Pressure chamber simulation measuring detection and response timing \\
-\hline
-"Constrained bandwidth operation" & "System shall maintain telemetry functionality at 1kbps bandwidth with $\leq$30s end-to-end latency" & Acoustic modem testing at 4000m simulated depth \\
-\hline
-"Accountability for mission activities" & "System shall log all mission activities with microsecond timestamps and retain logs for 7 years minimum" & Audit trail inspection and data retention period validation \\
-\hline
-"Autonomous mission execution" & "System shall execute predefined mission plans with $\geq$99\% waypoint accuracy and maintain 50m obstacle clearance" & Navigation system testing with simulated GPS and obstacle scenarios \\
-\hline
-\end{tabular}
-\caption{Client Requirements Transformed into Testable Specifications}
-\end{table}
-
-\textbf{Vendor's Model-Driven Traceability:} Each interpreted requirement directly references elements in our updated models, ensuring clear traceability from initial client statements through clarification discussions to final technical specifications.
-
-\textbf{Client Review Process:} All interpreted requirements and enhanced models will be submitted to Triton Deepwater stakeholders for final approval before SRS development begins.
-
-\textbf{Vendor Quality Verification:} All requirements now comply with CRaM principles and include client-approved test procedures and acceptance criteria.
-
-\newpage
+% \newpage
 
 % =====================
 % IRC - 1 PAGE WITH CHECKLIST
@@ -309,74 +260,58 @@ Section 2.1 & "What sensor interface protocols should we implement for integrati
 \section{Incongruous Requirements Checklist (IRC)}
 \label{sec:irc}
 
-\textbf{Vendor IRC Development:} Created a project-specific checklist based on our deep-sea domain expertise and the unique challenges identified in Triton Deepwater's Project Specification.
+\textbf{Brigman IRC Development:} We created a project-specific checklist based on our deep-sea domain expertise and the unique challenges identified in Triton Deepwater's Project Specification.
 
-\begin{table}[H]
-\centering
-\small
-\begin{tabular}{|p{0.12\textwidth}|p{0.3\textwidth}|p{0.12\textwidth}|p{0.12\textwidth}|p{0.34\textwidth}|}
-\hline
-\textbf{Check ID} & \textbf{Vendor Check Description} & \textbf{Status} & \textbf{Priority} & \textbf{Vendor Responsibility} \\
-\hline
-IRC-001 & Ambiguity: Flag subjective terms needing client quantification & Complete & High & All team members \\
-\hline
-IRC-002 & Testability: Ensure each requirement has clear verification method & Complete & Critical & All team members \\
-\hline
-IRC-003 & Consistency: Identify conflicts across PS sections & Complete & High & Ridwan (Lead) \\
-\hline
-IRC-004 & Completeness: Gap analysis against maritime standards & Complete & Medium & Zong Han (Safety) \\
-\hline
-IRC-005 & Quantification: Transform constraints into measurable parameters & Complete & Critical & Yuhao (Communications) \\
-\hline
-IRC-006 & Interface: Verify all external interfaces defined & Complete & High & Mikhail (Autonomy) \\
-\hline
-IRC-007 & Safety: Validate emergency protocols are testable & Complete & Critical & Zong Han (Safety) \\
-\hline
-IRC-008 & Data: Ensure logging and retention requirements specified & Complete & Medium & Kannan (Data) \\
-\hline
-IRC-009 & Communication: Confirm bandwidth/latency specifications & Complete & Critical & Yuhao (Communications) \\
-\hline
-IRC-010 & Autonomy: Validate mission execution parameters & Complete & High & Mikhail (Autonomy) \\
-\hline
-\end{tabular}
-\caption{Vendor IRC Checklist Implementation}
-\end{table}
+\textbf{Brigman IRC Checklist Implementation:}
 
-\textbf{Vendor Check Categories with Client Examples:}
+\begin{itemize}[leftmargin=*]
+\item \textbf{IRC-001 Ambiguity Detection:} Flag subjective terms needing client quantification
+\item \textbf{IRC-002 Testability Validation:} Ensure each requirement has clear verification method
+\item \textbf{IRC-003 Consistency Checking:} Identify conflicts across PS sections
+\item \textbf{IRC-004 Completeness Verification:} Gap analysis against maritime standards
+\item \textbf{IRC-005 Quantification:} Transform constraints into measurable parameters
+\item \textbf{IRC-006 Interface Verification:} Verify all external interfaces defined
+\item \textbf{IRC-007 Safety Protocol Validation:} Validate emergency protocols are testable
+\item \textbf{IRC-008 Data Management:} Ensure logging and retention requirements specified
+\item \textbf{IRC-009 Communication Specifications:} Confirm bandwidth/latency specifications
+\item \textbf{IRC-010 Autonomy Parameters:} Validate mission execution parameters
+\end{itemize}
+
+\textbf{Brigman Check Categories with Client Examples:}
 
 \textbf{1. Ambiguity Detection (Our Most Frequent Finding)}
 \begin{itemize}
-\item \textbf{Vendor Check:} Does requirement contain subjective terms that need client clarification?
+\item \textbf{Brigman Check:} Does requirement contain subjective terms that need client clarification?
 \item \textbf{Client Example:} "Secure communication" in Section 7.3
-\item \textbf{Vendor Action:} Flagged for client specification during communications session
+\item \textbf{Brigman Action:} We flagged this for client specification during clarification session
 \item \textbf{Client Resolution:} Specified AES-256 encryption for all telemetry data
 \end{itemize}
 
-\textbf{2. Testability Validation (Critical for Acceptance Testing)}
+\textbf{2. Testability Validation (Critical for Project Success)}
 \begin{itemize}
-\item \textbf{Vendor Check:} Can we verify this requirement through testing or inspection?
+\item \textbf{Brigman Check:} Can we verify this requirement through testing or inspection?
 \item \textbf{Client Example:} "System shall be reliable" in multiple sections
-\item \textbf{Vendor Action:} Requested client to define reliability metrics
+\item \textbf{Brigman Action:} We requested client to define reliability metrics
 \item \textbf{Client Resolution:} "System shall maintain 99.9\% uptime with MTBF >1000 hours"
 \end{itemize}
 
 \textbf{3. Consistency Checking (Preventing Implementation Conflicts)}
 \begin{itemize}
-\item \textbf{Vendor Check:} Do requirements conflict across different PS sections?
+\item \textbf{Brigman Check:} Do requirements conflict across different PS sections?
 \item \textbf{Client Example:} Different emergency thresholds in Sections 6.4 and 7.4
-\item \textbf{Vendor Action:} Presented conflict to safety team for resolution
+\item \textbf{Brigman Action:} We presented conflict to operations team for resolution
 \item \textbf{Client Resolution:} Unified to single specification with escalation thresholds
 \end{itemize}
 
 \textbf{4. Completeness Verification (Our Domain Expertise Applied)}
 \begin{itemize}
-\item \textbf{Vendor Check:} Are all necessary deep-sea operational requirements present?
+\item \textbf{Brigman Check:} Are all necessary deep-sea operational requirements present?
 \item \textbf{Client Example:} Missing sensor interface protocols in Section 2.1
-\item \textbf{Vendor Action:} Added based on our experience with deep-sea sensor integration
+\item \textbf{Brigman Action:} We added based on our experience with deep-sea sensor integration
 \item \textbf{Client Resolution:} Approved ROS2-based interface specifications we proposed
 \end{itemize}
 
-\textbf{Vendor Quantitative Results:}
+\textbf{Brigman Quantitative Results:}
 \begin{itemize}
 \item Total requirements analyzed: 57
 \item Incongruities identified: 15 (26.3\%)
@@ -384,9 +319,9 @@ IRC-010 & Autonomy: Validate mission execution parameters & Complete & High & Mi
 \item Critical findings requiring immediate attention: 2 (13.3\% of incongruities)
 \end{itemize}
 
-\textbf{Vendor Value Demonstrated:} Our IRC process identified critical ambiguities early, preventing potential rework costs estimated at \$350K+ and reducing project risk significantly.
+\textbf{Brigman Value Demonstrated:} Our IRC process identified critical ambiguities early, preventing potential rework costs estimated at \$350K+ and reducing project risk significantly.
 
-\newpage
+% \newpage
 
 % =====================
 % RISK ANALYSIS - 1 PAGE
@@ -394,64 +329,64 @@ IRC-010 & Autonomy: Validate mission execution parameters & Complete & High & Mi
 \section{Risk Analysis \& Mitigation}
 \label{sec:risks}
 
-\textbf{Vendor Risk Assessment:} As the system implementation vendor, we've identified and proactively addressed risks that could impact project success, budget, or schedule.
+\textbf{Brigman Risk Assessment:} As the system implementation vendor, we've identified and proactively addressed risks that could impact project success, budget, or schedule.
 
-\subsection{Critical Technical Risks (Vendor Implementation Focus)}
+\subsection{Critical Technical Risks (Brigman Implementation Focus)}
 
 \textbf{Risk 1: Communication Specification Ambiguity}
 \begin{itemize}
-\item \textbf{Vendor Identification:} PS lacked quantitative bandwidth/latency specifications we need for implementation
-\item \textbf{Impact on Vendor:} System failure under actual conditions could lead to costly rework (Severity: High)
-\item \textbf{Likelihood as Vendor:} Probable (72\%) based on our deep-sea project experience
-\item \textbf{Vendor Mitigation:} Used Data Flow Diagram in client session to establish 1kbps, 30s requirements
-\item \textbf{Vendor Validation:} Tested requirements against our acoustic communication models
+\item \textbf{Brigman Identification:} PS lacked quantitative bandwidth/latency specifications we need for planning
+\item \textbf{Impact on Brigman:} System failure under actual conditions could lead to costly rework (Severity: High)
+\item \textbf{Likelihood:} Probable (72\%) based on our deep-sea project experience
+\item \textbf{Brigman Mitigation:} Used clarification session to establish 1kbps, 30s requirements
+\item \textbf{Brigman Validation:} Requirements validated against our acoustic communication models
 \end{itemize}
 
 \textbf{Risk 2: Emergency Protocol Definition Gap}
 \begin{itemize}
-\item \textbf{Vendor Identification:} Missing operational procedures we need to implement
-\item \textbf{Impact on Vendor:} Inconsistent implementation could cause safety issues (Severity: Critical)
-\item \textbf{Likelihood as Vendor:} High (68\%) given safety-critical nature
-\item \textbf{Vendor Mitigation:} Used State Transition Diagram to develop detailed protocols with client
-\item \textbf{Vendor Validation:} Protocols reviewed by our safety engineering team
+\item \textbf{Brigman Identification:} Missing operational procedures we need to understand
+\item \textbf{Impact on Brigman:} Inconsistent understanding could cause safety issues (Severity: Critical)
+\item \textbf{Likelihood:} High (68\%) given safety-critical nature
+\item \textbf{Brigman Mitigation:} Clarified emergency protocols with operations team
+\item \textbf{Brigman Validation:} Protocols documented and shared with our safety engineering team
 \end{itemize}
 
 \textbf{Risk 3: Sensor Integration Complexity}
 \begin{itemize}
-\item \textbf{Vendor Identification:} Missing interface specifications we need for development
-\item \textbf{Impact on Vendor:} Integration delays could impact schedule (Severity: High)
-\item \textbf{Likelihood as Vendor:} Very Probable (85\%) based on sensor specification review
-\item \textbf{Vendor Mitigation:} Proposed and gained client approval for ROS2-based interface standards
-\item \textbf{Vendor Validation:} Prototyped with highest-risk sensor types
+\item \textbf{Brigman Identification:} Missing interface specifications we need for planning
+\item \textbf{Impact on Brigman:} Integration delays could impact schedule (Severity: High)
+\item \textbf{Likelihood:} Very Probable (85\%) based on sensor specification review
+\item \textbf{Brigman Mitigation:} Proposed and gained client approval for ROS2-based interface standards
+\item \textbf{Brigman Validation:} Integration approach documented for next phase
 \end{itemize}
 
-\subsection{Project Management Risks (Vendor Delivery Focus)}
+\subsection{Project Management Risks (Brigman Delivery Focus)}
 
 \textbf{Risk 4: Scope Creep Post-Clarification}
 \begin{itemize}
-\item \textbf{Vendor Concern:} Client clarification introduces new requirements impacting budget/schedule
-\item \textbf{Vendor Mitigation:} Formal change control process with requirement traceability matrix
-\item \textbf{Vendor Process:} All new requirements go through impact analysis before acceptance
+\item \textbf{Brigman Concern:} Client clarification introduces new requirements impacting budget/schedule
+\item \textbf{Brigman Mitigation:} Formal change control process with requirement traceability
+\item \textbf{Brigman Process:} All new requirements go through impact analysis before acceptance
 \end{itemize}
 
 \textbf{Risk 5: Stakeholder Knowledge Attenuation}
 \begin{itemize}
-\item \textbf{Vendor Concern:} Key client stakeholders become unavailable during development
-\item \textbf{Vendor Mitigation:} Comprehensive documentation including all clarification decisions
-\item \textbf{Vendor Process:} Knowledge transfer sessions scheduled with backup stakeholders
+\item \textbf{Brigman Concern:} Key client stakeholders become unavailable during project
+\item \textbf{Brigman Mitigation:} Comprehensive documentation including all clarification decisions
+\item \textbf{Brigman Process:} Knowledge transfer sessions scheduled with backup stakeholders
 \end{itemize}
 
-\subsection{Vendor Risk Mitigation Strategy}
+\subsection{Brigman Risk Mitigation Strategy}
 \begin{enumerate}
-\item \textbf{Proactive Identification:} BCI Breakdown phase flags risks before implementation begins
+\item \textbf{Proactive Identification:} BC Breakdown phase flags risks before project advances
 \item \textbf{Early Client Engagement:} Clarify phase addresses risks through direct stakeholder discussion
 \item \textbf{Continuous Monitoring:} Risk register maintained and reviewed weekly
 \item \textbf{Escalation Protocols:} Defined pathways for risks exceeding agreed thresholds
 \end{enumerate}
 
-\textbf{Vendor Risk Management Value:} Our proactive risk identification and mitigation approach reduces project uncertainty and provides clear visibility into potential challenges before they impact delivery.
+\textbf{Brigman Risk Management Value:} Our proactive risk identification and mitigation approach reduces project uncertainty and provides clear visibility into potential challenges.
 
-\newpage
+% \newpage
 
 % =====================
 % ACCOUNT MANAGER - 0.5 PAGE
@@ -459,37 +394,37 @@ IRC-010 & Autonomy: Validate mission execution parameters & Complete & High & Mi
 \section{Account Manager \& Stakeholder Coordination}
 \label{sec:account}
 
-\subsection{Vendor Account Manager Role}
+\subsection{Brigman Account Manager Role}
 \begin{itemize}
 \item \textbf{Name:} Muhammad Ridwan Putra Jasni
-\item \textbf{Vendor Role:} Primary Brigman Deep Sea Technology representative to Triton Deepwater
+\item \textbf{Role:} Primary Brigman Deep Sea Technology representative to Triton Deepwater
 \item \textbf{Responsibilities:} 
   \begin{itemize}
   \item Facilitate all client-vendor communications and coordination
-  \item Schedule and lead all clarification sessions with appropriate stakeholders
+  \item Schedule and lead clarification sessions with appropriate stakeholders
   \item Manage client expectations and ensure alignment on requirements
   \item Escalate issues through proper channels when needed
   \end{itemize}
-\item \textbf{Vendor Value:} Ensures single point of contact for consistent messaging and relationship management
+\item \textbf{Brigman Value:} Ensures single point of contact for consistent messaging and relationship management
 \end{itemize}
 
-\subsection{Vendor Stakeholder Engagement Strategy}
+\subsection{Brigman Stakeholder Engagement Strategy}
 \begin{itemize}
-\item \textbf{Scheduled Sessions:} 3 targeted clarification sessions with specific stakeholder groups
-\item \textbf{Visual Aids Deployed:} Used models as discussion tools to bridge technical-operational gaps
-\item \textbf{Vendor Documentation:} Comprehensive records of all client decisions and clarifications
+\item \textbf{Scheduled Session:} Targeted clarification session with operations stakeholder group
+\item \textbf{Visual Aids Deployed:} Used Use Case Diagram as discussion tool to bridge technical-operational gaps
+\item \textbf{Brigman Documentation:} Comprehensive records of all client decisions and clarifications
 \item \textbf{Follow-up Process:} Action items tracked to completion with client validation
 \end{itemize}
 
-\subsection{Vendor Escalation Protocol}
+\subsection{Brigman Escalation Protocol}
 \begin{enumerate}
-\item \textbf{Level 1:} Vendor technical team attempts resolution (within 24 hours)
+\item \textbf{Level 1:} Brigman technical team attempts resolution (within 24 hours)
 \item \textbf{Level 2:} Account Manager mediates between teams (within 4 hours if unresolved)
-\item \textbf{Level 3:} Vendor executive engagement (VP of Engineering contacts client counterpart)
+\item \textbf{Level 3:} Brigman executive engagement (VP of Engineering contacts client counterpart)
 \item \textbf{Level 4:} Contractual and scope review with legal teams
 \end{enumerate}
 
-\subsection{Vendor Coordination Outcomes}
+\subsection{Brigman Coordination Outcomes}
 \begin{itemize}
 \item \textbf{86.7\% Resolution Rate:} Successfully resolved majority of incongruities with client input
 \item \textbf{Strengthened Client Relationship:} Professional engagement built trust for ongoing collaboration
@@ -497,9 +432,9 @@ IRC-010 & Autonomy: Validate mission execution parameters & Complete & High & Mi
 \item \textbf{Mutual Understanding Achieved:} Bridged client operational needs with our technical capabilities
 \end{itemize}
 
-\textbf{Vendor Relationship Management Success:} Our structured approach to stakeholder coordination has established a strong foundation for successful project delivery and potential future engagements.
+\textbf{Brigman Relationship Management Success:} Our structured approach to stakeholder coordination has established a strong foundation for successful project delivery and potential future engagements.
 
-\newpage
+% \newpage
 
 % =====================
 % DECLARATIONS - 0.5 PAGE
@@ -507,7 +442,7 @@ IRC-010 & Autonomy: Validate mission execution parameters & Complete & High & Mi
 \section{Declarations}
 \label{sec:declarations}
 
-\textbf{Vendor AI Tool Usage Declaration:}
+\textbf{Brigman AI Tool Usage Declaration:}
 \begin{itemize}
 \item ChatGPT was used as a tool to assist with language refinement, grammar checking, and improving document flow.
 \item The AI tool served as an educational resource to help explain complex technical concepts within our vendor team.
@@ -515,20 +450,20 @@ IRC-010 & Autonomy: Validate mission execution parameters & Complete & High & Mi
 \item AI-generated content was critically evaluated, validated against our technical expertise, and substantially modified to ensure accuracy and relevance to the project.
 \end{itemize}
 
-\textbf{Vendor Originality Declaration:}
+\textbf{Brigman Originality Declaration:}
 \begin{itemize}
 \item This report represents original analysis work conducted by the Brigman Deep Sea Technology team as the selected vendor.
-\item The BCI methodology is a proprietary framework developed and applied by our organization.
+\item The BC methodology is a proprietary framework developed and applied by our organization.
 \item All visual models and analysis techniques were created specifically for the Abyss Navigator Suite project requirements.
 \item Quantitative findings and metrics are based on our actual analysis of Triton Deepwater's Project Specification.
 \end{itemize}
 
-\textbf{Vendor Compliance Declaration:}
+\textbf{Brigman Compliance Declaration:}
 \begin{itemize}
-\item This analysis complies with IEEE 830 standards for requirements specification as required for SRS development.
-\item All requirements meet CRaM principles (Correct, Relevant, Measurable) ensuring testable specifications.
+\item This analysis complies with IEEE 830 standards for requirements specification.
+\item All requirements meet CRaM principles (Correct, Relevant, Measurable).
 \item The analysis follows industry best practices for requirements engineering from a vendor perspective.
-\item Traceability is maintained from Project Specification through client clarification to interpreted requirements.
+\item Traceability is maintained from Project Specification through client clarification.
 \end{itemize}
 
 \vspace{0.5cm}
@@ -542,14 +477,14 @@ IRC-010 & Autonomy: Validate mission execution parameters & Complete & High & Mi
 \begin{center}
 \fbox{\begin{minipage}{0.9\textwidth}
 \centering
-\textbf{VENDOR REPOSITORY INFORMATION}\\
+\textbf{BRIGMAN REPOSITORY INFORMATION}\\
 \url{https://github.com/Spooky312/The-Abyss-Navigation-Suite-INF2113}\\
-\textbf{Vendor Repository Organization:}
+\textbf{Brigman Repository Organization:}
 \begin{itemize}
-\item \textbf{/requirements/} – PS, BCI analysis, interpreted specifications
-\item \textbf{/models/} – Context, State Transition, Data Flow, Use Case diagrams
+\item \textbf{/requirements/} – PS, BC analysis documentation
+\item \textbf{/models/} – Context Diagram, Use Case Diagram
 \item \textbf{/client-sessions/} – Meeting minutes, decisions, action items
-\item \textbf{/artifacts/} – IRC checklists, risk registers, validation documents
+\item \textbf{/artifacts/} – IRC checklist, risk registers, validation documents
 \end{itemize}
 \textit{All artifacts version-controlled for client transparency and auditability}
 \end{minipage}}
@@ -558,7 +493,7 @@ IRC-010 & Autonomy: Validate mission execution parameters & Complete & High & Mi
 \vspace{0.5cm}
 
 \begin{center}
-\textbf{VENDOR TEAM APPROVAL SIGN-OFF}
+\textbf{BRIGMAN TEAM APPROVAL SIGN-OFF}
 \end{center}
 
 \begin{table}[H]
@@ -566,7 +501,7 @@ IRC-010 & Autonomy: Validate mission execution parameters & Complete & High & Mi
 \small
 \begin{tabular}{|p{0.3\textwidth}|p{0.2\textwidth}|p{0.4\textwidth}|}
 \hline
-\textbf{Vendor Team Member} & \textbf{Employee ID} & \textbf{Signature} \\
+\textbf{Brigman Team Member} & \textbf{Employee ID} & \textbf{Signature} \\
 \hline
 Muhammad Ridwan Putra Jasni & BDST-RE-001 & \rule{0.8\linewidth}{0.4pt} \\
 \hline
@@ -582,10 +517,10 @@ Kannan s/o Rajamohan & BDST-DM-036 & \rule{0.8\linewidth}{0.4pt} \\
 \end{table}
 
 \begin{center}
-\textbf{Vendor Report Version:} 2.0 (BCI Methodology)\\
+\textbf{Brigman Report Version:} 2.0 (BC Methodology)\\
 \textbf{Client Delivery Date:} \today\\
-\textbf{Vendor Status:} Analysis Complete - Ready for Client Review and SRS Development\\
-\textbf{Next Client Step:} Review and approval of interpreted requirements and specifications
+\textbf{Brigman Status:} Analysis Complete - Ready for Next Project Phase\\
+\textbf{Next Client Step:} Review and approval of clarified requirements
 \end{center}
 
 \end{document}
