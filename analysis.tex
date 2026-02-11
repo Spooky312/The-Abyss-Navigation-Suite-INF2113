@@ -54,15 +54,26 @@
 \begin{document}
 
 % =====================
-% COVER PAGE (Page 1)
+% BACKGROUND SETUP
 % =====================
-\thispagestyle{empty}
 
-% Add letterhead background ONLY to first page
+% Remove the original background command from your code
+% and replace with this conditional setup:
+
+% Background for FIRST PAGE ONLY (Cover Page)
 \AddToShipoutPictureBG*{%
   \AtPageLowerLeft{%
     \includegraphics[width=\paperwidth,height=\paperheight]{Brigman_Letterhead.pdf}%
   }%
+}
+
+% Background for ALL SUBSEQUENT PAGES (Page 2 onwards)
+\AddToShipoutPictureBG{%
+  \ifnum\value{page}>1
+    \AtPageLowerLeft{%
+      \includegraphics[width=\paperwidth,height=\paperheight]{Brigman_Paper.pdf}%
+    }%
+  \fi
 }
 
 % Adjust margins for first page to fit within letterhead
