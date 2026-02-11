@@ -33,25 +33,12 @@
 \setstretch{1.2}
 
 % =====================
-% Brigman letterhead background (ALL pages)
-% =====================
-\AddToShipoutPictureBG{%
-  \AtPageLowerLeft{%
-    \includegraphics[width=\paperwidth,height=\paperheight]{Brigman_Letterhead.pdf}%
-  }%
-}
-
-% Push content down so it sits inside the writable white area
-\addtolength{\topmargin}{120pt}
-\addtolength{\textheight}{-150pt}
-
-% =====================
 % Header/Footer (page numbers must appear)
 % =====================
 \pagestyle{fancy}
 \fancyhf{} % clear all
 \lhead{\textbf{Brigman Deep Sea Technology}}
-\rhead{Requirements Analysis (BC Methodology)}
+\rhead{Software Requirements Analysis (BC Methodology)}
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \setlength{\headheight}{20pt}
@@ -59,25 +46,31 @@
 \begin{document}
 
 % =====================
-% PROGENITOR - 1 PAGE (COVER PAGE)
+% FIRST PAGE ONLY WITH LETTERHEAD
 % =====================
 \thispagestyle{empty} % No header/footer on cover page
 
+% Add letterhead background ONLY to first page
+\AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \includegraphics[width=\paperwidth,height=\paperheight]{Brigman_Letterhead.pdf}%
+  }%
+}
+
+% Adjust margins for first page to fit within letterhead
+\newgeometry{top=6cm,left=1in,right=1in,bottom=1.6in}
+
 \begin{center}
-% \vspace*{1.5cm}
-
 % Add the logo
-\includegraphics[width=0.35\textwidth]{brigman logo.png}\\[0.8cm]
+\includegraphics[width=0.45\textwidth]{brigman logo.png}\\[0.8cm]
 
-\LARGE\textbf{Requirements Analysis Report}\\[0.3cm]
-\large\textbf{Abyss Navigator Suite Project}\\[0.8cm]
+\LARGE\textbf{Software Requirements Analysis Report}\\[0.3cm]
+\large\textbf{Abyss Navigator Suite Project}\\[0.3cm]
 
 \textbf{\Large Brigman Deep Sea Technology}\\
-\small Deep Sea Autonomous Systems Division\\[0.5cm]
+\small Deep Sea Autonomous Systems Software Division\\[0.5cm]
 \today
 \end{center}
-
-\vspace{1cm}
 
 % Team table on cover page
 \begin{table}[H]
@@ -87,30 +80,32 @@
 \hline
 \textbf{Team Member} & \textbf{Employee ID} & \textbf{Role \& Analysis Focus} \\
 \hline
-Muhammad Ridwan Putra Jasni & BDST-RE-001 & Project Lead \& Account Manager \\
+Muhammad Ridwan Putra Jasni & BDST-RE-001 & Software Project Lead \& Account Manager \\
 \hline
-Chng Zong Han & BDST-SE-015 & Safety Engineering Lead (Emergency Protocols) \\
+Chng Zong Han & BDST-SE-015 & Software Safety Engineering Lead (Emergency Protocols) \\
 \hline
-Lin Yuhao & BDST-CS-022 & Communications Lead (Network Specifications) \\
+Lin Yuhao & BDST-CS-022 & Communications Software Lead (Network Specifications) \\
 \hline
-Muhammad Mikhail Bin Mazlan & BDST-AI-029 & Autonomous Systems Lead (Mission Operations) \\
+Muhammad Mikhail Bin Mazlan & BDST-AI-029 & Autonomous Systems Software Lead (Mission Operations) \\
 \hline
-Kannan s/o Rajamohan & BDST-DM-036 & Data Management Lead (Logging \& Traceability) \\
+Kannan s/o Rajamohan & BDST-DM-036 & Data Management Software Lead (Logging \& Traceability) \\
 \hline
 \end{tabular}
 \end{table}
 
 \vfill
 \begin{center}
-\textit{Confidential - For Internal Use Only}\\[0.5cm]
-\textbf{Report Version: 2.0 (BC Methodology)}
+\textit{Confidential - For Internal Use Only}\\
+\textbf{Report Version: 2.0 (Software Integration Edition)}
 \end{center}
 
-% \newpage
+% Restore normal geometry for subsequent pages
+\restoregeometry
 
 % =====================
-% TABLE OF CONTENTS - 1 PAGE
+% TABLE OF CONTENTS - 1 PAGE (NORMAL, NO LETTERHEAD)
 % =====================
+\newpage
 \thispagestyle{empty} % No header/footer on TOC page
 \section*{Table of Contents}
 \vspace{0.5cm}
@@ -128,76 +123,52 @@ Kannan s/o Rajamohan & BDST-DM-036 & Data Management Lead (Logging \& Traceabili
 \item \textbf{7.0 Sign-off \& Repository Information} \dotfill 7
 \end{itemize}
 
-% \newpage
-
 % =====================
-% ORG & STYLING - 0.2 PAGE
+% ORG & STYLING - 0.2 PAGE (NORMAL, NO LETTERHEAD)
 % =====================
+\newpage
 \section*{Document Organization}
 \addcontentsline{toc}{section}{Document Organization}
-This report documents Brigman Deep Sea Technology's application of the BC (Breakdown, Clarify) methodology to analyze Triton Deepwater's Project Specification for the Abyss Navigator Suite. As the selected vendor, we systematically identified and clarified ambiguous requirements through direct stakeholder engagement using visual models.
 
-\textbf{Styling Conventions:}
-\begin{itemize}
-\item \textbf{Headings:} Hierarchical numbering for requirement traceability
-\item \textbf{Tables:} Consistent formatting with clear captions
-\item \textbf{References:} BC-xxx for analysis artifacts
-\item \textbf{Priorities:} Color-coded (Red=Critical, Orange=High, Yellow=Medium)
-\item \textbf{Status:} Clear indicators (Complete, Pending, Requires Client Clarification)
-\end{itemize}
+This report documents Brigman Deep Sea Technology's application of the BC (Breakdown, Clarify) methodology to analyze Triton Deepwater's Project Specification for the Abyss Navigator Suite. As the selected software vendor, we systematically identified and clarified ambiguous software requirements through direct stakeholder engagement using visual models.
 
-\textbf{Vendor Quality Assurance:} All analyzed requirements comply with CRaM principles (Correct, Relevant, Measurable) and will be ready for the next project phase upon client approval.
+Our project focus is exclusively on software development and integration. All hardware components, specifications, and interfaces are specified by Triton Deepwater, with our software system serving as the integration layer that connects and coordinates all specified hardware components. The software will adapt to customer-specified hardware interfaces and protocols, ensuring seamless operation across the entire system.
 
-% \newpage
+The document follows consistent styling conventions with hierarchical numbering for requirement traceability, standardized table formatting, BC-xxx references for analysis artifacts, and color-coded priorities (Red=Critical, Orange=High, Yellow=Medium). Status indicators clearly show completion levels, pending actions, and requirements needing client clarification. All analyzed software requirements comply with CRaM principles (Correct, Relevant, Measurable) and are ready for the next project phase upon client approval.
 
 % =====================
-% EXECUTIVE SUMMARY - 0.5 PAGE
+% EXECUTIVE SUMMARY - 0.5 PAGE (NORMAL, NO LETTERHEAD)
 % =====================
+\newpage
 \section{Executive Summary}
 \label{sec:executive}
 
-Brigman Deep Sea Technology, as the selected vendor for the Abyss Navigator Suite project, has successfully completed the requirements analysis phase using our proprietary BC methodology. Through systematic investigation and direct client engagement, we identified and clarified ambiguous requirements in Triton Deepwater's Project Specification.
+Brigman Deep Sea Technology, as the selected software vendor for the Abyss Navigator Suite project, has successfully completed the software requirements analysis phase using our proprietary BC methodology. Through systematic investigation and direct client engagement, we have identified and clarified ambiguous software requirements in Triton Deepwater's Project Specification.
 
-\textbf{Key Brigman Achievements:}
-\begin{itemize}
-\item \textbf{26.3\% Incongruity Rate Identified:} Our team systematically uncovered 15 requirement ambiguities requiring client clarification
-\item \textbf{Visual Modeling Success:} We used Context Diagram and Use Case Diagram to bridge client-vendor understanding
-\item \textbf{Client Collaboration:} We conducted structured clarification sessions achieving 86.7\% resolution rate with direct client input
-\item \textbf{Requirements Prepared for Next Phase:} All requirements are documented and ready for subsequent project activities
-\end{itemize}
+Our project scope focuses exclusively on software responsibility, encompassing system development, integration, and testing. The software will adapt to all customer-specified hardware components, creating a unified software layer that connects all hardware subsystems and ensures complete interface compatibility with customer hardware specifications.
 
-\textbf{Brigman Value Delivered:} Our early issue detection prevents an estimated \$350K+ in potential rework costs and reduces implementation risk by 4-6 weeks. By engaging client stakeholders directly through visual models, we've established a shared understanding that ensures the project will proceed effectively.
+During this analysis phase, our team systematically uncovered 15 software requirement ambiguities requiring client clarification, representing a 26.3\% incongruity rate. We successfully employed visual modeling techniques using Context Diagrams and Use Case Diagrams to bridge client-vendor understanding gaps. Through structured clarification sessions with Triton Deepwater stakeholders, we achieved an 86.7\% resolution rate with direct client input, preparing all software requirements for subsequent project activities.
 
-\textbf{Next Steps:} This analysis provides the foundation for project continuation, with all requirements validated against CRaM principles and ready for client review.
+The value delivered through this early analysis phase is substantial. Our proactive issue detection prevents an estimated \$350K+ in potential rework costs and reduces implementation risk by 4-6 weeks. By engaging client stakeholders directly through visual models, we have established a shared understanding that ensures the project will proceed effectively.
 
-% \newpage
+This analysis provides the foundation for project continuation, with all software requirements validated against CRaM principles and ready for client review and approval.
 
 % =====================
-% BC METHODOLOGY - 2 PAGES
+% BC METHODOLOGY - 2 PAGES (NORMAL, NO LETTERHEAD)
 % =====================
+\newpage
 \section{BC Methodology Application}
 \label{sec:bc}
 
 \subsection{Breakdown Activity}
-\textbf{Brigman Objective:} Systematically identify ambiguous, conflicting, or missing requirements in the client's Project Specification to prepare for clarification sessions.
 
-\textbf{Our Process:} We applied our proprietary Incongruous Requirements Checklist (IRC) to 57 PS clauses, focusing on four validation lenses critical for our success:
-\begin{itemize}
-\item \textbf{Ambiguity Detection:} We flagged subjective terms ("appropriate", "secure", "reliable") needing client quantification
-\item \textbf{Testability Validation:} We identified requirements without clear verification methods we could implement
-\item \textbf{Consistency Checking:} We found conflicting requirements across PS sections requiring client resolution
-\item \textbf{Completeness Verification:} We noted gaps against deep-sea operational standards from our industry experience
-\end{itemize}
+Our primary objective during the Breakdown Activity was to systematically identify ambiguous, conflicting, or missing software requirements in the client's Project Specification to prepare for targeted clarification sessions. We applied our proprietary Incongruous Requirements Checklist (IRC) to 57 PS clauses, focusing on four critical validation lenses essential for project success.
 
-\textbf{Brigman Preparation - Context Diagram Creation:} 
-\begin{itemize}
-\item \textbf{Our Action:} We created an initial Context Diagram (Figure 1) based on PS scope descriptions
-\item \textbf{Purpose for Client Discussion:} To visually confirm system boundaries and external interfaces
-\item \textbf{Questions We Prepared:} "Does this diagram accurately show all systems you interact with? Are we missing any critical interfaces?"
-\item \textbf{Brigman Insight:} The diagram revealed 3 potentially missing interfaces we needed to clarify with client stakeholders
-\end{itemize}
+The validation process encompassed ambiguity detection for subjective terms requiring client quantification, testability validation for requirements lacking clear verification methods, consistency checking across PS sections to identify conflicting requirements, and completeness verification against deep-sea software operational standards based on our industry experience.
 
-\textbf{Brigman Findings Documented for Client Review:} We identified 15 incongruities (26.3\% rate) that required direct client input to resolve.
+In preparation for client discussions, we created an initial Software Context Diagram based on PS scope descriptions. This visual tool served to confirm software system boundaries and external hardware interfaces. Our preparation included specific questions for client stakeholders: "Does this diagram accurately show software interactions with all hardware systems? Are we missing any critical hardware interfaces?" The diagram revealed three potentially missing hardware interfaces that required clarification with client stakeholders.
+
+Our findings documented for client review identified 15 software incongruities (26.3\% rate) requiring direct client input for resolution. The table below summarizes our key clarification questions prepared for the client session:
 
 \begin{table}[H]
 \centering
@@ -212,264 +183,177 @@ IT-L0-C2 & "What actual bandwidth and latency constraints should we design for?"
 \hline
 Section 7.3 & "Which specific communication technologies do you expect us to support?" & Critical & Operational Clarification \\
 \hline
-Section 2.1 & "What sensor interface protocols should we implement for integration?" & High & Operational Clarification \\
+Section 2.1 & "What sensor interface protocols should we implement for integration?" & High & Hardware Interface Clarification \\
 \hline
 \end{tabular}
-\caption{Brigman-Prepared Clarification Questions for Client Session}
+\caption{Brigman-Prepared Software-Related Clarification Questions for Client Session}
 \end{table}
 
 \subsection{Clarify Activity}
-\textbf{Brigman Objective:} Engage directly with client stakeholders to resolve identified incongruities using visual models as collaborative discussion tools.
 
-\textbf{Session: Operational Requirements with Triton Deepwater Operations Team (Feb 21)}
-\begin{itemize}
-\item \textbf{Account Manager Facilitation:} Our Account Manager Muhammad Ridwan Putra Jasni scheduled and led the session
-\item \textbf{Model Presented:} Use Case Diagram from Project Specification (Figure 2) illustrating key system interactions
-\item \textbf{Our Opening:} "These are the main operational scenarios identified in your PS - are we capturing all critical use cases for deep-sea operations?"
-\item \textbf{Client Discussion:} Mission Operations Manager Sarah Whitman reviewed the use cases and provided operational context
-\item \textbf{Our Key Questions:} 
-  \begin{itemize}
-  \item "For 'autonomous mission execution,' what specific accuracy level constitutes success in deep-sea navigation?"
-  \item "What sensor interface protocols should we implement based on your existing systems?"
-  \item "How do you define 'appropriate handling' of emergency conditions in quantitative terms?"
-  \end{itemize}
-\item \textbf{Client's Clear Answers:} 
-  \begin{itemize}
-  \item "99\% waypoint accuracy is our minimum acceptable standard"
-  \item "ROS2-based interfaces are preferred for sensor integration"
-  \item "Critical pressure deviations require detection within 5 seconds and response within 10 seconds"
-  \end{itemize}
-\item \textbf{Brigman Documentation:} We captured client clarifications and updated our understanding of operational requirements
-\end{itemize}
+The Clarify Activity objective centered on engaging directly with client stakeholders to resolve identified software incongruities using visual models as collaborative discussion tools. Our Account Manager Muhammad Ridwan Putra Jasni scheduled and led the session with Triton Deepwater's Operations Team on February 21.
 
-\textbf{Brigman Observations from Client Engagement:}
-\begin{itemize}
-\item \textbf{40\% Time Reduction:} Visual models cut clarification time compared to text-only discussions
-\item \textbf{Bridged Terminology Gap:} Use Case Diagram helped translate client's operational language into our technical understanding
-\item \textbf{Increased Client Engagement:} Stakeholders participated more actively when discussing visual representations
-\item \textbf{Concrete Clarifications Achieved:} We resolved key ambiguities that would have taken multiple meetings without models
-\end{itemize}
+During the session, we presented a Use Case Diagram from the Project Specification illustrating key software system interactions. Our opening question framed the discussion: "These are the main software operational scenarios identified in your PS - are we capturing all critical software use cases for deep-sea operations?" Mission Operations Manager Sarah Whitman reviewed the use cases and provided valuable operational context.
 
-\textbf{Client Resolution Achieved:} 86.7\% (13/15) of incongruities resolved with direct client input and documented approval.
+Our key questions during the session focused on critical operational parameters. For autonomous mission execution, we needed to understand what specific accuracy level constitutes success in deep-sea navigation. Regarding hardware integration, we sought clarification on which sensor interface protocols to implement based on existing systems. For emergency handling, we required quantitative definitions of appropriate response measures.
 
-% \newpage
+The client provided clear, actionable answers: 99\% waypoint accuracy represents their minimum acceptable standard, ROS2 interfaces are preferred for sensor integration, and critical pressure deviations require detection within 5 seconds with response within 10 seconds. We documented these clarifications and updated our understanding of software operational requirements accordingly.
+
+During software integration discussions, several important clarifications emerged. The client confirmed that all hardware will provide standard API interfaces for software integration. We agreed on unified JSON data format for all hardware data and determined that software will communicate with hardware via standard TCP/IP and UDP protocols. Additionally, our software architecture will include a hardware adaptation layer to handle different hardware specifications.
+
+Our observations from client engagement revealed significant benefits from using visual models. We experienced a 40\% reduction in clarification time compared to text-only discussions, with the Use Case Diagram effectively bridging terminology gaps between client operational language and our technical understanding. Stakeholders participated more actively when discussing visual representations, leading to concrete clarifications that would have otherwise required multiple meetings.
+
+Overall, we achieved resolution of 86.7\% (13/15) of software incongruities with direct client input and documented approval.
 
 % =====================
-% IRC - 1 PAGE WITH CHECKLIST
+% IRC - 1 PAGE WITH CHECKLIST (NORMAL, NO LETTERHEAD)
 % =====================
+\newpage
 \section{Incongruous Requirements Checklist (IRC)}
 \label{sec:irc}
 
-\textbf{Brigman IRC Development:} We created a project-specific checklist based on our deep-sea domain expertise and the unique challenges identified in Triton Deepwater's Project Specification.
-
-\textbf{Brigman IRC Checklist Implementation:}
+We developed a project-specific software checklist based on our deep-sea domain expertise and the unique challenges identified in Triton Deepwater's Project Specification. The Brigman IRC Checklist Implementation includes:
 
 \begin{itemize}[leftmargin=*]
 \item \textbf{IRC-001 Ambiguity Detection:} Flag subjective terms needing client quantification
-\item \textbf{IRC-002 Testability Validation:} Ensure each requirement has clear verification method
-\item \textbf{IRC-003 Consistency Checking:} Identify conflicts across PS sections
-\item \textbf{IRC-004 Completeness Verification:} Gap analysis against maritime standards
+\item \textbf{IRC-002 Testability Validation:} Ensure each software requirement has clear verification method
+\item \textbf{IRC-003 Consistency Checking:} Identify software requirement conflicts across PS sections
+\item \textbf{IRC-004 Completeness Verification:} Gap analysis against software engineering standards
 \item \textbf{IRC-005 Quantification:} Transform constraints into measurable parameters
-\item \textbf{IRC-006 Interface Verification:} Verify all external interfaces defined
+\item \textbf{IRC-006 Hardware Interface Verification:} Verify all hardware interfaces are defined
 \item \textbf{IRC-007 Safety Protocol Validation:} Validate emergency protocols are testable
 \item \textbf{IRC-008 Data Management:} Ensure logging and retention requirements specified
 \item \textbf{IRC-009 Communication Specifications:} Confirm bandwidth/latency specifications
 \item \textbf{IRC-010 Autonomy Parameters:} Validate mission execution parameters
 \end{itemize}
 
-\textbf{Brigman Check Categories with Client Examples:}
+\subsubsection*{Brigman Check Categories with Client Examples}
 
 \textbf{1. Ambiguity Detection (Our Most Frequent Finding)}
-\begin{itemize}
-\item \textbf{Brigman Check:} Does requirement contain subjective terms that need client clarification?
-\item \textbf{Client Example:} "Secure communication" in Section 7.3
-\item \textbf{Brigman Action:} We flagged this for client specification during clarification session
-\item \textbf{Client Resolution:} Specified AES-256 encryption for all telemetry data
-\end{itemize}
+
+Our ambiguity detection check focuses on identifying software requirements containing subjective terms requiring client clarification. A representative client example emerged in Section 7.3 with the term "secure communication." We flagged this during our clarification session, leading the client to specify AES-256 encryption for all telemetry data.
 
 \textbf{2. Testability Validation (Critical for Project Success)}
-\begin{itemize}
-\item \textbf{Brigman Check:} Can we verify this requirement through testing or inspection?
-\item \textbf{Client Example:} "System shall be reliable" in multiple sections
-\item \textbf{Brigman Action:} We requested client to define reliability metrics
-\item \textbf{Client Resolution:} "System shall maintain 99.9\% uptime with MTBF >1000 hours"
-\end{itemize}
+
+Testability validation ensures we can verify each software requirement through testing or inspection. When encountering the requirement "System shall be reliable" in multiple sections, we requested the client to define reliability metrics. The resolution specified that the system shall maintain 99.9\% uptime with MTBF >1000 hours.
 
 \textbf{3. Consistency Checking (Preventing Implementation Conflicts)}
-\begin{itemize}
-\item \textbf{Brigman Check:} Do requirements conflict across different PS sections?
-\item \textbf{Client Example:} Different emergency thresholds in Sections 6.4 and 7.4
-\item \textbf{Brigman Action:} We presented conflict to operations team for resolution
-\item \textbf{Client Resolution:} Unified to single specification with escalation thresholds
-\end{itemize}
 
-\textbf{4. Completeness Verification (Our Domain Expertise Applied)}
-\begin{itemize}
-\item \textbf{Brigman Check:} Are all necessary deep-sea operational requirements present?
-\item \textbf{Client Example:} Missing sensor interface protocols in Section 2.1
-\item \textbf{Brigman Action:} We added based on our experience with deep-sea sensor integration
-\item \textbf{Client Resolution:} Approved ROS2-based interface specifications we proposed
-\end{itemize}
+Consistency checking identifies conflicts across different PS sections. We discovered different emergency thresholds in Sections 6.4 and 7.4, presented this conflict to the operations team, and achieved resolution through unification to a single specification with escalation thresholds.
 
-\textbf{Brigman Quantitative Results:}
+\textbf{4. Hardware Interface Completeness Verification (Applying Our Integration Expertise)}
+
+Hardware interface verification ensures all necessary hardware interface requirements are present. Noting missing sensor interface protocols in Section 2.1, we added recommendations based on our experience with deep-sea sensor integration. The client approved our proposed ROS2-based interface specifications.
+
+\subsubsection*{Brigman Quantitative Results}
+
+Our analysis produced the following quantitative outcomes:
 \begin{itemize}
-\item Total requirements analyzed: 57
-\item Incongruities identified: 15 (26.3\%)
+\item Total software requirements analyzed: 57
+\item Software incongruities identified: 15 (26.3\%)
 \item Resolved with client input: 13 (86.7\% resolution rate)
 \item Critical findings requiring immediate attention: 2 (13.3\% of incongruities)
 \end{itemize}
 
-\textbf{Brigman Value Demonstrated:} Our IRC process identified critical ambiguities early, preventing potential rework costs estimated at \$350K+ and reducing project risk significantly.
-
-% \newpage
+The value demonstrated through our IRC process is significant. By identifying critical software ambiguities early, we prevent potential rework costs estimated at \$350K+ and substantially reduce project risk.
 
 % =====================
-% RISK ANALYSIS - 1 PAGE
+% RISK ANALYSIS - 1 PAGE (NORMAL, NO LETTERHEAD)
 % =====================
+\newpage
 \section{Risk Analysis \& Mitigation}
 \label{sec:risks}
 
-\textbf{Brigman Risk Assessment:} As the system implementation vendor, we've identified and proactively addressed risks that could impact project success, budget, or schedule.
+As the software implementation vendor, we have identified and proactively addressed risks that could impact project success, budget, or schedule. Our risk assessment encompasses both technical implementation risks and project management considerations.
 
-\subsection{Critical Technical Risks (Brigman Implementation Focus)}
+\subsection{Critical Software Technical Risks (Brigman Implementation Focus)}
 
 \textbf{Risk 1: Communication Specification Ambiguity}
-\begin{itemize}
-\item \textbf{Brigman Identification:} PS lacked quantitative bandwidth/latency specifications we need for planning
-\item \textbf{Impact on Brigman:} System failure under actual conditions could lead to costly rework (Severity: High)
-\item \textbf{Likelihood:} Probable (72\%) based on our deep-sea project experience
-\item \textbf{Brigman Mitigation:} Used clarification session to establish 1kbps, 30s requirements
-\item \textbf{Brigman Validation:} Requirements validated against our acoustic communication models
-\end{itemize}
 
-\textbf{Risk 2: Emergency Protocol Definition Gap}
-\begin{itemize}
-\item \textbf{Brigman Identification:} Missing operational procedures we need to understand
-\item \textbf{Impact on Brigman:} Inconsistent understanding could cause safety issues (Severity: Critical)
-\item \textbf{Likelihood:} High (68\%) given safety-critical nature
-\item \textbf{Brigman Mitigation:} Clarified emergency protocols with operations team
-\item \textbf{Brigman Validation:} Protocols documented and shared with our safety engineering team
-\end{itemize}
+The Project Specification lacked quantitative bandwidth/latency specifications needed for software planning. This ambiguity creates a high-severity risk where system failure under actual conditions could lead to costly rework. Based on our deep-sea project experience, this scenario is probable (72\% likelihood). We mitigated this risk through clarification sessions that established specific requirements of 1kbps bandwidth with 30-second latency, validated against our acoustic communication models.
+
+\textbf{Risk 2: Hardware Interface Compatibility Issues}
+
+Customer-specified hardware may use incompatible interface protocols, requiring additional adaptation layer development with medium-high severity impact. Given hardware specification diversity, this risk presents moderate likelihood (55\%). Our mitigation strategy proposes standardized middleware interfaces and adapter patterns, with validation through a flexible hardware abstraction layer in our software architecture.
 
 \textbf{Risk 3: Sensor Integration Complexity}
-\begin{itemize}
-\item \textbf{Brigman Identification:} Missing interface specifications we need for planning
-\item \textbf{Impact on Brigman:} Integration delays could impact schedule (Severity: High)
-\item \textbf{Likelihood:} Very Probable (85\%) based on sensor specification review
-\item \textbf{Brigman Mitigation:} Proposed and gained client approval for ROS2-based interface standards
-\item \textbf{Brigman Validation:} Integration approach documented for next phase
-\end{itemize}
+
+Hardware sensors may lack interface specifications needed for our integration, potentially causing integration delays with high severity impact. Based on sensor specification review, this scenario is very probable (85\% likelihood). We mitigated this by proposing and gaining client approval for ROS2 interface standards, with the integration approach documented for the next phase.
 
 \subsection{Project Management Risks (Brigman Delivery Focus)}
 
 \textbf{Risk 4: Scope Creep Post-Clarification}
-\begin{itemize}
-\item \textbf{Brigman Concern:} Client clarification introduces new requirements impacting budget/schedule
-\item \textbf{Brigman Mitigation:} Formal change control process with requirement traceability
-\item \textbf{Brigman Process:} All new requirements go through impact analysis before acceptance
-\end{itemize}
 
-\textbf{Risk 5: Stakeholder Knowledge Attenuation}
-\begin{itemize}
-\item \textbf{Brigman Concern:} Key client stakeholders become unavailable during project
-\item \textbf{Brigman Mitigation:} Comprehensive documentation including all clarification decisions
-\item \textbf{Brigman Process:} Knowledge transfer sessions scheduled with backup stakeholders
-\end{itemize}
+Client clarification may introduce new software requirements impacting budget and schedule. We address this through a formal change control process with requirement traceability, ensuring all new software requirements undergo impact analysis before acceptance.
 
-\subsection{Brigman Risk Mitigation Strategy}
-\begin{enumerate}
-\item \textbf{Proactive Identification:} BC Breakdown phase flags risks before project advances
-\item \textbf{Early Client Engagement:} Clarify phase addresses risks through direct stakeholder discussion
-\item \textbf{Continuous Monitoring:} Risk register maintained and reviewed weekly
-\item \textbf{Escalation Protocols:} Defined pathways for risks exceeding agreed thresholds
-\end{enumerate}
+\textbf{Risk 5: Hardware Specification Changes}
 
-\textbf{Brigman Risk Management Value:} Our proactive risk identification and mitigation approach reduces project uncertainty and provides clear visibility into potential challenges.
+The client may change hardware specifications during software development. Our mitigation includes defining a hardware specification freeze date in the contract, with hardware changes requiring formal change requests and impact assessments.
 
-% \newpage
+\subsection{Brigman Software Integration Risk Mitigation Strategy}
+
+Our comprehensive risk mitigation strategy employs multiple approaches. We have adopted flexible architecture design with modular components for easy adaptation to hardware changes. Early hardware simulation enables software testing before hardware availability through created simulators. A hardware abstraction layer implementation isolates hardware-specific code, while continuous integration establishes a CI/CD pipeline for rapid adaptation to hardware changes.
+
+Our proactive risk identification and mitigation approach reduces project uncertainty and provides clear visibility into potential challenges, demonstrating Brigman's risk management value throughout the project lifecycle.
 
 % =====================
-% ACCOUNT MANAGER - 0.5 PAGE
+% ACCOUNT MANAGER - 0.5 PAGE (NORMAL, NO LETTERHEAD)
 % =====================
+\newpage
 \section{Account Manager \& Stakeholder Coordination}
 \label{sec:account}
 
 \subsection{Brigman Account Manager Role}
-\begin{itemize}
-\item \textbf{Name:} Muhammad Ridwan Putra Jasni
-\item \textbf{Role:} Primary Brigman Deep Sea Technology representative to Triton Deepwater
-\item \textbf{Responsibilities:} 
-  \begin{itemize}
-  \item Facilitate all client-vendor communications and coordination
-  \item Schedule and lead clarification sessions with appropriate stakeholders
-  \item Manage client expectations and ensure alignment on requirements
-  \item Escalate issues through proper channels when needed
-  \end{itemize}
-\item \textbf{Brigman Value:} Ensures single point of contact for consistent messaging and relationship management
-\end{itemize}
+
+Muhammad Ridwan Putra Jasni serves as the primary Brigman Deep Sea Technology software representative to Triton Deepwater. His responsibilities encompass facilitating all client-vendor communications and coordination, scheduling and leading software requirement clarification sessions with appropriate stakeholders, managing client expectations to ensure alignment on software requirements, and escalating issues through proper channels when necessary. This role ensures a single point of contact for consistent messaging and effective relationship management.
 
 \subsection{Brigman Stakeholder Engagement Strategy}
-\begin{itemize}
-\item \textbf{Scheduled Session:} Targeted clarification session with operations stakeholder group
-\item \textbf{Visual Aids Deployed:} Used Use Case Diagram as discussion tool to bridge technical-operational gaps
-\item \textbf{Brigman Documentation:} Comprehensive records of all client decisions and clarifications
-\item \textbf{Follow-up Process:} Action items tracked to completion with client validation
-\end{itemize}
+
+Our stakeholder engagement involved targeted clarification sessions with the operations stakeholder group. We deployed visual aids such as Use Case Diagrams as discussion tools to bridge technical-operational gaps. Comprehensive documentation captured all client decisions and clarifications, with a follow-up process that tracks action items to completion with client validation.
 
 \subsection{Brigman Escalation Protocol}
+
+Our escalation protocol follows a structured four-level approach:
 \begin{enumerate}
-\item \textbf{Level 1:} Brigman technical team attempts resolution (within 24 hours)
-\item \textbf{Level 2:} Account Manager mediates between teams (within 4 hours if unresolved)
-\item \textbf{Level 3:} Brigman executive engagement (VP of Engineering contacts client counterpart)
+\item \textbf{Level 1:} Brigman technical team attempts resolution within 24 hours
+\item \textbf{Level 2:} Account Manager mediates between teams within 4 hours if unresolved
+\item \textbf{Level 3:} Brigman executive engagement with VP of Engineering contacting client counterpart
 \item \textbf{Level 4:} Contractual and scope review with legal teams
 \end{enumerate}
 
 \subsection{Brigman Coordination Outcomes}
-\begin{itemize}
-\item \textbf{86.7\% Resolution Rate:} Successfully resolved majority of incongruities with client input
-\item \textbf{Strengthened Client Relationship:} Professional engagement built trust for ongoing collaboration
-\item \textbf{Clear Communication Channels:} Established protocols for efficient future communications
-\item \textbf{Mutual Understanding Achieved:} Bridged client operational needs with our technical capabilities
-\end{itemize}
 
-\textbf{Brigman Relationship Management Success:} Our structured approach to stakeholder coordination has established a strong foundation for successful project delivery and potential future engagements.
+Our coordination efforts produced significant outcomes. We successfully resolved 86.7\% of software incongruities with client input, strengthening the client relationship through professional engagement that built trust for ongoing collaboration. Clear communication channels established protocols for efficient future communications, achieving mutual understanding that bridges client operational needs with our technical capabilities.
 
-% \newpage
+This structured approach to stakeholder coordination establishes a strong foundation for successful project delivery and potential future engagements, demonstrating Brigman's relationship management success.
 
 % =====================
-% DECLARATIONS - 0.5 PAGE
+% DECLARATIONS - 0.5 PAGE (NORMAL, NO LETTERHEAD)
 % =====================
+\newpage
 \section{Declarations}
 \label{sec:declarations}
 
 \textbf{Brigman AI Tool Usage Declaration:}
-\begin{itemize}
-\item ChatGPT was used as a tool to assist with language refinement, grammar checking, and improving document flow.
-\item The AI tool served as an educational resource to help explain complex technical concepts within our vendor team.
-\item All analysis, models, diagrams, and substantive content in this report were developed by the Brigman Deep Sea Technology analysis team.
-\item AI-generated content was critically evaluated, validated against our technical expertise, and substantially modified to ensure accuracy and relevance to the project.
-\end{itemize}
+
+ChatGPT was used as a tool to assist with language refinement, grammar checking, and improving document flow. The AI tool served as an educational resource to help explain complex technical concepts within our vendor team. All analysis, models, diagrams, and substantive content in this report were developed by the Brigman Deep Sea Technology analysis team. AI-generated content was critically evaluated, validated against our technical expertise, and substantially modified to ensure accuracy and relevance to the project.
 
 \textbf{Brigman Originality Declaration:}
-\begin{itemize}
-\item This report represents original analysis work conducted by the Brigman Deep Sea Technology team as the selected vendor.
-\item The BC methodology is a proprietary framework developed and applied by our organization.
-\item All visual models and analysis techniques were created specifically for the Abyss Navigator Suite project requirements.
-\item Quantitative findings and metrics are based on our actual analysis of Triton Deepwater's Project Specification.
-\end{itemize}
 
-\textbf{Brigman Compliance Declaration:}
-\begin{itemize}
-\item This analysis complies with IEEE 830 standards for requirements specification.
-\item All requirements meet CRaM principles (Correct, Relevant, Measurable).
-\item The analysis follows industry best practices for requirements engineering from a vendor perspective.
-\item Traceability is maintained from Project Specification through client clarification.
-\end{itemize}
+This report represents original analysis work conducted by the Brigman Deep Sea Technology team as the selected software vendor. The BC methodology is a proprietary framework developed and applied by our organization. All visual models and analysis techniques were created specifically for the Abyss Navigator Suite project software requirements. Quantitative findings and metrics are based on our actual analysis of Triton Deepwater's Project Specification.
+
+\textbf{Brigman Software Compliance Declaration:}
+
+This analysis complies with IEEE 830 standards for software requirements specification. All software requirements meet CRaM principles (Correct, Relevant, Measurable). The analysis follows industry best practices for software requirements engineering from a vendor perspective. Traceability is maintained from Project Specification through client clarification.
+
+\textbf{Software Scope Declaration:}
+
+This analysis covers only software system requirements and excludes any hardware components. Software will adapt to and integrate all customer-specified hardware components. Hardware specifications and interface requirements are provided by the customer, and software will adapt accordingly. Software's primary role is to "glue" all hardware components together and provide a unified control interface.
 
 \vspace{0.5cm}
 
 % =====================
-% SIGN-OFF & REPOSITORY - 0.2 PAGE
+% SIGN-OFF & REPOSITORY - 0.2 PAGE (NORMAL, NO LETTERHEAD)
 % =====================
 \section*{Sign-off \& Repository Information}
 \addcontentsline{toc}{section}{Sign-off \& Repository Information}
@@ -481,8 +365,9 @@ Section 2.1 & "What sensor interface protocols should we implement for integrati
 \url{https://github.com/Spooky312/The-Abyss-Navigation-Suite-INF2113}\\
 \textbf{Brigman Repository Organization:}
 \begin{itemize}
-\item \textbf{/requirements/} – PS, BC analysis documentation
-\item \textbf{/models/} – Context Diagram, Use Case Diagram
+\item \textbf{/software-requirements/} – PS, BC analysis documentation
+\item \textbf{/software-models/} – Context Diagram, Use Case Diagram, Architecture Diagrams
+\item \textbf{/hardware-interfaces/} – Hardware interface specifications, adaptation layer designs
 \item \textbf{/client-sessions/} – Meeting minutes, decisions, action items
 \item \textbf{/artifacts/} – IRC checklist, risk registers, validation documents
 \end{itemize}
@@ -517,10 +402,10 @@ Kannan s/o Rajamohan & BDST-DM-036 & \rule{0.8\linewidth}{0.4pt} \\
 \end{table}
 
 \begin{center}
-\textbf{Brigman Report Version:} 2.0 (BC Methodology)\\
+\textbf{Brigman Report Version:} 2.0 (Software Integration Edition)\\
 \textbf{Client Delivery Date:} \today\\
-\textbf{Brigman Status:} Analysis Complete - Ready for Next Project Phase\\
-\textbf{Next Client Step:} Review and approval of clarified requirements
+\textbf{Brigman Status:} Software Requirements Analysis Complete - Ready for Next Project Phase\\
+\textbf{Next Client Step:} Review and approval of clarified software requirements
 \end{center}
 
 \end{document}
