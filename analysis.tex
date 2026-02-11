@@ -20,7 +20,11 @@
 \usepackage{parskip}
 \usepackage{amsmath}
 \usepackage{wrapfig}
-\usepackage{amssymb} % Added for checkmark symbols
+\usepackage{amssymb}
+\usepackage{colortbl}
+\definecolor{critical}{RGB}{255, 200, 200}
+\definecolor{high}{RGB}{255, 230, 200}
+\definecolor{medium}{RGB}{255, 255, 200}
 \frenchspacing
 
 % =====================
@@ -38,7 +42,7 @@
 \pagestyle{fancy}
 \fancyhf{} % clear all
 \lhead{\textbf{Brigman Deep Sea Technology}}
-\rhead{Software Requirements Analysis (BC Methodology)}
+\rhead{Software Requirements Analysis (BCIC Methodology)}
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \setlength{\headheight}{20pt}
@@ -48,7 +52,7 @@
 % =====================
 % FIRST PAGE ONLY WITH LETTERHEAD
 % =====================
-\thispagestyle{empty} % No header/footer on cover page
+\thispagestyle{empty}
 
 % Add letterhead background ONLY to first page
 \AddToShipoutPictureBG*{%
@@ -61,7 +65,6 @@
 \newgeometry{top=6cm,left=1in,right=1in,bottom=1.6in}
 
 \begin{center}
-% Add the logo
 \includegraphics[width=0.45\textwidth]{brigman logo.png}\\[0.8cm]
 
 \LARGE\textbf{Software Requirements Analysis Report}\\[0.3cm]
@@ -72,7 +75,6 @@
 \today
 \end{center}
 
-% Team table on cover page
 \begin{table}[H]
 \centering
 \small
@@ -96,264 +98,279 @@ Kannan s/o Rajamohan & BDST-DM-036 & Data Management Software Lead (Logging \& T
 \vfill
 \begin{center}
 \textit{Confidential - For Internal Use Only}\\
-\textbf{Report Version: 2.0 (Software Integration Edition)}
+\textbf{Report Version: 3.0 (Full BCIC Methodology)}
 \end{center}
 
-% Restore normal geometry for subsequent pages
 \restoregeometry
 
 % =====================
-% TABLE OF CONTENTS - 1 PAGE (NORMAL, NO LETTERHEAD)
+% TABLE OF CONTENTS
 % =====================
 \newpage
-\thispagestyle{empty} % No header/footer on TOC page
+\thispagestyle{empty}
 \section*{Table of Contents}
 \vspace{0.5cm}
 \begin{itemize}[leftmargin=*,nosep]
 \item \textbf{1.0 Executive Summary} \dotfill 1
-\item \textbf{2.0 BC Methodology Application} \dotfill 2
+\item \textbf{2.0 BCIC Methodology Application} \dotfill 2
   \begin{itemize}[leftmargin=*]
   \item 2.1 Breakdown Activity \dotfill 2
   \item 2.2 Clarify Activity \dotfill 3
+  \item 2.3 Interpret Activity \dotfill 4
+  \item 2.4 Categorize Activity \dotfill 5
   \end{itemize}
-\item \textbf{3.0 Incongruous Requirements Checklist (IRC)} \dotfill 4
-\item \textbf{4.0 Risk Analysis \& Mitigation} \dotfill 5
-\item \textbf{5.0 Account Manager \& Stakeholder Coordination} \dotfill 6
-\item \textbf{6.0 Declarations} \dotfill 7
-\item \textbf{7.0 Sign-off \& Repository Information} \dotfill 7
+\item \textbf{3.0 Incongruous Requirements Checklist (IRC)} \dotfill 6
+\item \textbf{4.0 Risk Analysis \& Mitigation} \dotfill 7
+\item \textbf{5.0 Account Manager \& Stakeholder Coordination} \dotfill 8
+\item \textbf{6.0 Declarations} \dotfill 9
+\item \textbf{7.0 Sign-off \& Repository Information} \dotfill 9
 \end{itemize}
 
 % =====================
-% ORG & STYLING - 0.2 PAGE (NORMAL, NO LETTERHEAD)
+% DOCUMENT ORGANIZATION
 % =====================
 \newpage
 \section*{Document Organization}
 \addcontentsline{toc}{section}{Document Organization}
 
-This report documents Brigman Deep Sea Technology's application of the BC (Breakdown, Clarify) methodology to analyze Triton Deepwater's Project Specification for the Abyss Navigator Suite. As the selected software vendor, we systematically identified and clarified ambiguous software requirements through direct stakeholder engagement using visual models.
+This comprehensive report documents Brigman Deep Sea Technology's systematic application of the BCIC (Breakdown, Clarify, Interpret, Categorize) methodology to analyze Triton Deepwater's Project Specification for the Abyss Navigator Suite. As the designated software integration vendor, our focus remains exclusively on developing and implementing the software layer that will unify and coordinate all customer-specified hardware components.
 
-Our project focus is exclusively on software development and integration. All hardware components, specifications, and interfaces are specified by Triton Deepwater, with our software system serving as the integration layer that connects and coordinates all specified hardware components. The software will adapt to customer-specified hardware interfaces and protocols, ensuring seamless operation across the entire system.
+Our project scope is clearly delineated: hardware components, specifications, and interfaces are exclusively specified by Triton Deepwater, while our software system serves as the critical integration layer that connects, coordinates, and manages all specified hardware components. This software-centric approach ensures seamless operation across the entire system while maintaining compliance with customer-defined hardware interfaces and protocols.
 
-The document follows consistent styling conventions with hierarchical numbering for requirement traceability, standardized table formatting, BC-xxx references for analysis artifacts, and color-coded priorities (Red=Critical, Orange=High, Yellow=Medium). Status indicators clearly show completion levels, pending actions, and requirements needing client clarification. All analyzed software requirements comply with CRaM principles (Correct, Relevant, Measurable) and are ready for the next project phase upon client approval.
+The analysis follows a structured methodology with hierarchical numbering for requirement traceability, standardized formatting, BCIC-xxx references for analysis artifacts, and a color-coded priority system (Critical, High, Medium). All analyzed software requirements comply with CRaM principles (Correct, Relevant, Measurable) and have been prepared for the subsequent Software Requirements Specification development phase upon client approval.
 
 % =====================
-% EXECUTIVE SUMMARY - 0.5 PAGE (NORMAL, NO LETTERHEAD)
+% EXECUTIVE SUMMARY
 % =====================
 \newpage
 \section{Executive Summary}
 \label{sec:executive}
 
-Brigman Deep Sea Technology, as the selected software vendor for the Abyss Navigator Suite project, has successfully completed the software requirements analysis phase using our proprietary BC methodology. Through systematic investigation and direct client engagement, we have identified and clarified ambiguous software requirements in Triton Deepwater's Project Specification.
+Brigman Deep Sea Technology has successfully completed the comprehensive software requirements analysis phase for the Abyss Navigator Suite project using our proprietary BCIC methodology. Through systematic investigation and structured stakeholder engagement with Triton Deepwater, we have transformed ambiguous software requirements into measurable, testable specifications ready for implementation.
 
-Our project scope focuses exclusively on software responsibility, encompassing system development, integration, and testing. The software will adapt to all customer-specified hardware components, creating a unified software layer that connects all hardware subsystems and ensures complete interface compatibility with customer hardware specifications.
+Our analysis of 57 Project Specification clauses revealed 15 incongruities requiring clarification, representing a 26.3\% incongruity rate. Through targeted stakeholder sessions, we achieved an 86.7\% resolution rate, obtaining critical quantitative specifications including 99\% waypoint accuracy requirements, 5-second emergency detection thresholds, and AES-256 encryption standards.
 
-During this analysis phase, our team systematically uncovered 15 software requirement ambiguities requiring client clarification, representing a 26.3\% incongruity rate. We successfully employed visual modeling techniques using Context Diagrams and Use Case Diagrams to bridge client-vendor understanding gaps. Through structured clarification sessions with Triton Deepwater stakeholders, we achieved an 86.7\% resolution rate with direct client input, preparing all software requirements for subsequent project activities.
+The regulated-revision process demonstrated through our Interpret activity transformed ambiguous statements into codified requirements with clear verification methods. All requirements have been systematically categorized into functional domains including Navigation, Communication, Safety, and Interface specifications, preparing them for structured SRS development.
 
-The value delivered through this early analysis phase is substantial. Our proactive issue detection prevents an estimated \$350K+ in potential rework costs and reduces implementation risk by 4-6 weeks. By engaging client stakeholders directly through visual models, we have established a shared understanding that ensures the project will proceed effectively.
-
-This analysis provides the foundation for project continuation, with all software requirements validated against CRaM principles and ready for client review and approval.
+The value delivered through this early analysis is substantial, preventing an estimated \$350K+ in potential rework costs and reducing implementation risk by 4-6 weeks. By establishing clear, measurable specifications and organized requirement categories, we have created a solid foundation for successful project execution.
 
 % =====================
-% BC METHODOLOGY - 2 PAGES (NORMAL, NO LETTERHEAD)
+% BCIC METHODOLOGY
 % =====================
 \newpage
-\section{BC Methodology Application}
-\label{sec:bc}
+\section{BCIC Methodology Application}
+\label{sec:bcic}
 
-\subsection{Breakdown Activity}
+\subsection{Breakdown Activity: Systematic Incongruity Detection}
 
-Our primary objective during the Breakdown Activity was to systematically identify ambiguous, conflicting, or missing software requirements in the client's Project Specification to prepare for targeted clarification sessions. We applied our proprietary Incongruous Requirements Checklist (IRC) to 57 PS clauses, focusing on four critical validation lenses essential for project success.
+The Breakdown activity focused on systematically identifying ambiguous, conflicting, or missing software requirements within Triton Deepwater's Project Specification. We applied our proprietary Incongruous Requirements Checklist (IRC) to 57 PS clauses, examining each through four critical validation lenses essential for successful software integration.
 
-The validation process encompassed ambiguity detection for subjective terms requiring client quantification, testability validation for requirements lacking clear verification methods, consistency checking across PS sections to identify conflicting requirements, and completeness verification against deep-sea software operational standards based on our industry experience.
+Our validation process involved ambiguity detection for subjective terms requiring client quantification, testability validation for requirements lacking clear verification methods, consistency checking across PS sections to identify conflicting requirements, and completeness verification against established deep-sea software operational standards. This systematic approach revealed 15 incongruities (26.3\% rate) that required targeted client clarification.
 
-In preparation for client discussions, we created an initial Software Context Diagram based on PS scope descriptions. This visual tool served to confirm software system boundaries and external hardware interfaces. Our preparation included specific questions for client stakeholders: "Does this diagram accurately show software interactions with all hardware systems? Are we missing any critical hardware interfaces?" The diagram revealed three potentially missing hardware interfaces that required clarification with client stakeholders.
-
-Our findings documented for client review identified 15 software incongruities (26.3\% rate) requiring direct client input for resolution. The table below summarizes our key clarification questions prepared for the client session:
+In preparation for stakeholder discussions, we developed an initial Software Context Diagram visualizing system boundaries and external hardware interfaces. This visual model served as a foundation for specific clarification questions regarding hardware interactions and integration points, ultimately revealing three potentially missing interfaces that required client confirmation.
 
 \begin{table}[H]
 \centering
 \small
-\begin{tabular}{|p{0.2\textwidth}|p{0.45\textwidth}|p{0.15\textwidth}|p{0.2\textwidth}|}
+\begin{tabular}{|p{0.18\textwidth}|p{0.4\textwidth}|p{0.12\textwidth}|p{0.2\textwidth}|}
 \hline
-\textbf{PS Reference} & \textbf{Brigman's Clarification Question} & \textbf{Priority} & \textbf{Scheduled Session} \\
+\textbf{PS Reference} & \textbf{Brigman Clarification Question} & \textbf{Priority} & \textbf{Session Type} \\
 \hline
-BO-L1-4 & "What quantitative thresholds define 'abnormal conditions' for your operations?" & Critical & Operational Clarification \\
+\rowcolor{critical} BO-L1-4 & Quantitative thresholds for "abnormal conditions"? & Critical & Operational \\
 \hline
-IT-L0-C2 & "What actual bandwidth and latency constraints should we design for?" & High & Operational Clarification \\
+\rowcolor{high} IT-L0-C2 & Specific bandwidth and latency constraints? & High & Technical \\
 \hline
-Section 7.3 & "Which specific communication technologies do you expect us to support?" & Critical & Operational Clarification \\
+\rowcolor{critical} Section 7.3 & Supported communication technologies? & Critical & Operational \\
 \hline
-Section 2.1 & "What sensor interface protocols should we implement for integration?" & High & Hardware Interface Clarification \\
+\rowcolor{high} Section 2.1 & Sensor interface protocol requirements? & High & Interface \\
 \hline
 \end{tabular}
-\caption{Brigman-Prepared Software-Related Clarification Questions for Client Session}
+\caption{Targeted Clarification Questions for Client Stakeholder Sessions}
 \end{table}
 
-\subsection{Clarify Activity}
+\subsection{Clarify Activity: Stakeholder Engagement and Resolution}
 
-The Clarify Activity objective centered on engaging directly with client stakeholders to resolve identified software incongruities using visual models as collaborative discussion tools. Our Account Manager Muhammad Ridwan Putra Jasni scheduled and led the session with Triton Deepwater's Operations Team on February 21.
+The Clarify activity involved direct engagement with Triton Deepwater stakeholders to resolve identified incongruities using visual models as collaborative discussion tools. Our Account Manager facilitated a structured session on February 21 with the Operations Team, presenting Use Case Diagrams to establish shared understanding of operational scenarios and software interactions.
 
-During the session, we presented a Use Case Diagram from the Project Specification illustrating key software system interactions. Our opening question framed the discussion: "These are the main software operational scenarios identified in your PS - are we capturing all critical software use cases for deep-sea operations?" Mission Operations Manager Sarah Whitman reviewed the use cases and provided valuable operational context.
+Key discussions focused on operational parameters for autonomous navigation, hardware integration requirements, and emergency response protocols. The client provided specific, measurable responses: 99\% waypoint accuracy as the minimum standard, ROS2 interfaces for sensor integration, and 5-second detection/10-second response requirements for critical pressure deviations.
 
-Our key questions during the session focused on critical operational parameters. For autonomous mission execution, we needed to understand what specific accuracy level constitutes success in deep-sea navigation. Regarding hardware integration, we sought clarification on which sensor interface protocols to implement based on existing systems. For emergency handling, we required quantitative definitions of appropriate response measures.
+During integration discussions, several important clarifications emerged regarding hardware interfaces and data protocols. The client confirmed standardized API interfaces for all hardware components, agreed on unified JSON data formatting, and established communication protocols including TCP/IP and UDP standards. These clarifications directly informed our software architecture decisions, particularly the hardware adaptation layer design.
 
-The client provided clear, actionable answers: 99\% waypoint accuracy represents their minimum acceptable standard, ROS2 interfaces are preferred for sensor integration, and critical pressure deviations require detection within 5 seconds with response within 10 seconds. We documented these clarifications and updated our understanding of software operational requirements accordingly.
+Our observations from stakeholder engagement demonstrated significant efficiency gains through visual modeling, with approximately 40\% reduction in clarification time compared to text-based discussions. The Use Case Diagrams effectively bridged terminology gaps between operational and technical domains, leading to more active stakeholder participation and concrete, measurable clarifications.
 
-During software integration discussions, several important clarifications emerged. The client confirmed that all hardware will provide standard API interfaces for software integration. We agreed on unified JSON data format for all hardware data and determined that software will communicate with hardware via standard TCP/IP and UDP protocols. Additionally, our software architecture will include a hardware adaptation layer to handle different hardware specifications.
+\subsection{Interpret Activity: Regulated-Revision Demonstration}
 
-Our observations from client engagement revealed significant benefits from using visual models. We experienced a 40\% reduction in clarification time compared to text-only discussions, with the Use Case Diagram effectively bridging terminology gaps between client operational language and our technical understanding. Stakeholders participated more actively when discussing visual representations, leading to concrete clarifications that would have otherwise required multiple meetings.
+The Interpret activity demonstrates our systematic transformation of ambiguous client requirements into cogent, measurable software specifications through regulated-revision. This process goes beyond documentation of clarifications to show concrete transformation from subjective statements to testable requirements with proper codification.
 
-Overall, we achieved resolution of 86.7\% (13/15) of software incongruities with direct client input and documented approval.
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|p{0.12\textwidth}|p{0.22\textwidth}|p{0.18\textwidth}|p{0.4\textwidth}|}
+\hline
+\textbf{PS Ref} & \textbf{Original Clause} & \textbf{IRC Issue} & \textbf{Revised \& Codified Requirement} \\
+\hline
+BO-L1-4 & "Detect abnormal conditions" & IRC-001: Ambiguity & \textbf{SYS-EMG-001:} Detect pressure deviations $>$$\pm$5\% within 5 seconds, initiate protocols within 10 seconds \\
+\hline
+IT-L0-C2 & "Reliable communication" & IRC-002: Untestable & \textbf{COM-PERF-001:} Maintain 1 kbps bandwidth with $\leq$30s latency at depths to 6000m \\
+\hline
+Sec 7.3 & "Secure communication" & IRC-001/007: Ambiguous & \textbf{COM-SEC-001:} AES-256-GCM encryption with 24-hour key rotation, X.509 certificate authentication \\
+\hline
+Sec 2.1 & "Integrate with sensors" & IRC-006: Incomplete & \textbf{HW-INT-001:} ROS2 Foxy middleware with DDS protocol, supporting standard sensor message types \\
+\hline
+\end{tabular}
+\caption{Regulated-Revision: Transforming Ambiguous Requirements to Measurable Specifications}
+\end{table}
+
+Our transformation methodology follows a structured approach for each requirement category. For ambiguity resolution, we convert subjective terms like "secure" into specific technical standards with verification methods. Testability enhancement involves adding measurable parameters and validation criteria to previously unverifiable statements. Completeness additions incorporate missing specifications based on our integration expertise, such as interface protocols and data formats.
+
+The regulated-revision process ensures all requirements meet CRaM principles while maintaining traceability to original project specifications. Each transformed requirement includes clear verification methods, quantitative parameters where applicable, and structured codification for configuration management.
+
+\subsection{Categorize Activity: Structured Organization for SRS Development}
+
+The Categorize activity organizes interpreted requirements into structured categories following IEEE 830 standards, preparing them for efficient Software Requirements Specification development. This systematic organization facilitates team specialization, incremental delivery planning, and comprehensive coverage verification.
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|p{0.16\textwidth}|p{0.3\textwidth}|p{0.18\textwidth}|p{0.16\textwidth}|}
+\hline
+\textbf{Category} & \textbf{Scope \& Description} & \textbf{Codification} & \textbf{Requirements} \\
+\hline
+Functional & Core software capabilities and behaviors & FUN-[MODULE]-[SEQ] & 22 \\
+\hline
+Interface & Hardware and external system interactions & INT-[SYSTEM]-[TYPE] & 15 \\
+\hline
+Performance & Quantitative performance metrics & PER-[METRIC]-[SEQ] & 12 \\
+\hline
+Safety & Emergency protocols and fail-safe operations & SAF-[LEVEL]-[SEQ] & 8 \\
+\hline
+Data Management & Logging, storage, and data handling & DAT-[TYPE]-[SEQ] & 7 \\
+\hline
+Communication & Network and data transmission protocols & COM-[PROTOCOL]-[SEQ] & 10 \\
+\hline
+\end{tabular}
+\caption{Requirement Categorization Framework for SRS Transition}
+\end{table}
+
+Our categorization methodology involves systematic reclassification of all 57 original requirements according to primary functional domains. Functional requirements encompass core autonomous navigation algorithms and mission planning logic. Interface specifications cover hardware sensor integration and communication protocols. Performance requirements establish quantitative metrics for accuracy, latency, and reliability, while safety requirements define emergency procedures and fault recovery protocols.
+
+The established codification scheme ensures comprehensive traceability from categorized requirements back to original PS references while facilitating systematic test planning and configuration management. This structured organization directly informs our repository architecture, with dedicated directories for each requirement category and supporting artifacts.
+
+The categorization framework provides significant value for project execution, enabling efficient SRS development aligned with IEEE 830 standards, supporting phased implementation through priority-based organization, and ensuring comprehensive coverage through systematic gap analysis against established categories.
 
 % =====================
-% IRC - 1 PAGE WITH CHECKLIST (NORMAL, NO LETTERHEAD)
+% IRC SECTION
 % =====================
 \newpage
 \section{Incongruous Requirements Checklist (IRC)}
 \label{sec:irc}
 
-We developed a project-specific software checklist based on our deep-sea domain expertise and the unique challenges identified in Triton Deepwater's Project Specification. The Brigman IRC Checklist Implementation includes:
+Our proprietary Incongruous Requirements Checklist (IRC) provides systematic methodology for detecting and resolving requirement incongruities throughout the BCIC process. Developed based on deep-sea software integration expertise, this checklist guides both initial detection during Breakdown and quality assurance during Interpret activities.
 
-\begin{itemize}[leftmargin=*]
-\item \textbf{IRC-001 Ambiguity Detection:} Flag subjective terms needing client quantification
-\item \textbf{IRC-002 Testability Validation:} Ensure each software requirement has clear verification method
-\item \textbf{IRC-003 Consistency Checking:} Identify software requirement conflicts across PS sections
-\item \textbf{IRC-004 Completeness Verification:} Gap analysis against software engineering standards
-\item \textbf{IRC-005 Quantification:} Transform constraints into measurable parameters
-\item \textbf{IRC-006 Hardware Interface Verification:} Verify all hardware interfaces are defined
-\item \textbf{IRC-007 Safety Protocol Validation:} Validate emergency protocols are testable
-\item \textbf{IRC-008 Data Management:} Ensure logging and retention requirements specified
-\item \textbf{IRC-009 Communication Specifications:} Confirm bandwidth/latency specifications
-\item \textbf{IRC-010 Autonomy Parameters:} Validate mission execution parameters
-\end{itemize}
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|p{0.08\textwidth}|p{0.18\textwidth}|p{0.35\textwidth}|p{0.3\textwidth}|}
+\hline
+\textbf{IRC ID} & \textbf{PS Ref} & \textbf{Issue Identified} & \textbf{Resolution Outcome} \\
+\hline
+IRC-001 & Section 7.3 & "Secure communication" ambiguous & AES-256 encryption with key management \\
+\hline
+IRC-002 & BO-L1-4 & "Abnormal conditions" unmeasurable & Pressure $\pm$5\%, detect $\leq$5s, respond $\leq$10s \\
+\hline
+IRC-003 & Sec 6.4/7.4 & Inconsistent emergency thresholds & Unified specification with escalation levels \\
+\hline
+IRC-006 & Section 2.1 & Missing interface protocols & ROS2 middleware with DDS protocol \\
+\hline
+IRC-007 & Section 5.2 & Untestable emergency protocols & Specific triggers and response sequences \\
+\hline
+IRC-009 & IT-L0-C2 & No bandwidth/latency specs & 1 kbps minimum, $\leq$30s latency \\
+\hline
+IRC-010 & Section 4.2 & Unquantified accuracy requirements & 99\% waypoint, $\pm$5m horizontal accuracy \\
+\hline
+\end{tabular}
+\caption{Systematic IRC Application: Detection and Resolution Evidence}
+\end{table}
 
-\subsubsection*{Brigman Check Categories with Client Examples}
+The IRC framework encompasses ten critical validation checks applied throughout the analysis process. Ambiguity detection identifies subjective terms requiring quantification, while testability validation ensures each requirement includes clear verification methods. Consistency checking resolves conflicts across specification sections, and completeness verification identifies gaps against operational standards and integration requirements.
 
-\textbf{1. Ambiguity Detection (Our Most Frequent Finding)}
+Our application methodology follows a structured three-phase approach. Initial screening evaluates all PS clauses against IRC criteria, identifying incongruities requiring clarification. During stakeholder sessions, IRC-informed questions guide efficient resolution of ambiguities. Finally, during regulated-revision, the IRC serves as quality assurance checklist ensuring all transformed requirements meet established criteria.
 
-Our ambiguity detection check focuses on identifying software requirements containing subjective terms requiring client clarification. A representative client example emerged in Section 7.3 with the term "secure communication." We flagged this during our clarification session, leading the client to specify AES-256 encryption for all telemetry data.
-
-\textbf{2. Testability Validation (Critical for Project Success)}
-
-Testability validation ensures we can verify each software requirement through testing or inspection. When encountering the requirement "System shall be reliable" in multiple sections, we requested the client to define reliability metrics. The resolution specified that the system shall maintain 99.9\% uptime with MTBF >1000 hours.
-
-\textbf{3. Consistency Checking (Preventing Implementation Conflicts)}
-
-Consistency checking identifies conflicts across different PS sections. We discovered different emergency thresholds in Sections 6.4 and 7.4, presented this conflict to the operations team, and achieved resolution through unification to a single specification with escalation thresholds.
-
-\textbf{4. Hardware Interface Completeness Verification (Applying Our Integration Expertise)}
-
-Hardware interface verification ensures all necessary hardware interface requirements are present. Noting missing sensor interface protocols in Section 2.1, we added recommendations based on our experience with deep-sea sensor integration. The client approved our proposed ROS2-based interface specifications.
-
-\subsubsection*{Brigman Quantitative Results}
-
-Our analysis produced the following quantitative outcomes:
-\begin{itemize}
-\item Total software requirements analyzed: 57
-\item Software incongruities identified: 15 (26.3\%)
-\item Resolved with client input: 13 (86.7\% resolution rate)
-\item Critical findings requiring immediate attention: 2 (13.3\% of incongruities)
-\end{itemize}
-
-The value demonstrated through our IRC process is significant. By identifying critical software ambiguities early, we prevent potential rework costs estimated at \$350K+ and substantially reduce project risk.
+The IRC demonstrated significant effectiveness throughout the analysis, with 15 incongruities identified from 57 clauses (26.3\% rate) and 86.7\% resolution through client engagement. All revised requirements now include verification methods, with 67\% incorporating quantitative parameters for precise measurement and validation.
 
 % =====================
-% RISK ANALYSIS - 1 PAGE (NORMAL, NO LETTERHEAD)
+% RISK ANALYSIS
 % =====================
 \newpage
 \section{Risk Analysis \& Mitigation}
 \label{sec:risks}
 
-As the software implementation vendor, we have identified and proactively addressed risks that could impact project success, budget, or schedule. Our risk assessment encompasses both technical implementation risks and project management considerations.
+Our comprehensive risk assessment identifies and addresses potential challenges that could impact project success, budget, or schedule. The analysis encompasses both technical implementation risks specific to software integration and broader project management considerations.
 
-\subsection{Critical Software Technical Risks (Brigman Implementation Focus)}
+\subsection{Critical Technical Risks: Software Integration Focus}
 
-\textbf{Risk 1: Communication Specification Ambiguity}
+\textbf{Communication Specification Ambiguity} presented a high-severity risk due to missing quantitative bandwidth and latency specifications in the Project Specification. With 72\% probability based on historical data, this ambiguity could lead to system failure under operational conditions. Our mitigation involved establishing specific requirements of 1 kbps minimum bandwidth with 30-second maximum latency, validated against acoustic communication models.
 
-The Project Specification lacked quantitative bandwidth/latency specifications needed for software planning. This ambiguity creates a high-severity risk where system failure under actual conditions could lead to costly rework. Based on our deep-sea project experience, this scenario is probable (72\% likelihood). We mitigated this risk through clarification sessions that established specific requirements of 1kbps bandwidth with 30-second latency, validated against our acoustic communication models.
+\textbf{Hardware Interface Compatibility Issues} emerge from potential incompatibilities between customer-specified hardware components. This medium-high severity risk carries 55\% probability given hardware specification diversity. Our mitigation strategy implements standardized middleware interfaces and adapter patterns, with validation through flexible hardware abstraction layer architecture.
 
-\textbf{Risk 2: Hardware Interface Compatibility Issues}
+\textbf{Sensor Integration Complexity} involves potential delays from missing interface specifications for hardware sensors. With 85\% probability based on specification reviews, this high-severity risk could impact project schedule. We mitigated through proposing and gaining approval for ROS2 interface standards, with integration approaches documented for implementation.
 
-Customer-specified hardware may use incompatible interface protocols, requiring additional adaptation layer development with medium-high severity impact. Given hardware specification diversity, this risk presents moderate likelihood (55\%). Our mitigation strategy proposes standardized middleware interfaces and adapter patterns, with validation through a flexible hardware abstraction layer in our software architecture.
+\subsection{Project Management Risks: Delivery Focus}
 
-\textbf{Risk 3: Sensor Integration Complexity}
+\textbf{Scope Creep Post-Clarification} addresses potential introduction of new requirements during clarification sessions that could impact budget and schedule. Our formal change control process with requirement traceability ensures all new requirements undergo impact analysis before acceptance, maintaining project scope integrity.
 
-Hardware sensors may lack interface specifications needed for our integration, potentially causing integration delays with high severity impact. Based on sensor specification review, this scenario is very probable (85\% likelihood). We mitigated this by proposing and gaining client approval for ROS2 interface standards, with the integration approach documented for the next phase.
+\textbf{Hardware Specification Changes} considers potential modifications to customer hardware specifications during software development. We address this through contractual hardware specification freeze dates and formal change request processes requiring impact assessment for any hardware modifications.
 
-\subsection{Project Management Risks (Brigman Delivery Focus)}
+\subsection{Software Integration Risk Mitigation Strategy}
 
-\textbf{Risk 4: Scope Creep Post-Clarification}
+Our integrated mitigation approach employs multiple complementary strategies. Flexible architecture design with modular components enables adaptation to hardware changes, while early hardware simulation through developed simulators allows software testing before hardware availability. Hardware abstraction layer implementation isolates hardware-specific code, and continuous integration establishes CI/CD pipelines for rapid adaptation to changes.
 
-Client clarification may introduce new software requirements impacting budget and schedule. We address this through a formal change control process with requirement traceability, ensuring all new software requirements undergo impact analysis before acceptance.
-
-\textbf{Risk 5: Hardware Specification Changes}
-
-The client may change hardware specifications during software development. Our mitigation includes defining a hardware specification freeze date in the contract, with hardware changes requiring formal change requests and impact assessments.
-
-\subsection{Brigman Software Integration Risk Mitigation Strategy}
-
-Our comprehensive risk mitigation strategy employs multiple approaches. We have adopted flexible architecture design with modular components for easy adaptation to hardware changes. Early hardware simulation enables software testing before hardware availability through created simulators. A hardware abstraction layer implementation isolates hardware-specific code, while continuous integration establishes a CI/CD pipeline for rapid adaptation to hardware changes.
-
-Our proactive risk identification and mitigation approach reduces project uncertainty and provides clear visibility into potential challenges, demonstrating Brigman's risk management value throughout the project lifecycle.
+This proactive risk management approach reduces project uncertainty while providing clear visibility into potential challenges, demonstrating Brigman's comprehensive risk mitigation capabilities throughout the project lifecycle.
 
 % =====================
-% ACCOUNT MANAGER - 0.5 PAGE (NORMAL, NO LETTERHEAD)
+% ACCOUNT MANAGER
 % =====================
 \newpage
 \section{Account Manager \& Stakeholder Coordination}
 \label{sec:account}
 
-\subsection{Brigman Account Manager Role}
+\subsection{Account Manager Role and Responsibilities}
 
-Muhammad Ridwan Putra Jasni serves as the primary Brigman Deep Sea Technology software representative to Triton Deepwater. His responsibilities encompass facilitating all client-vendor communications and coordination, scheduling and leading software requirement clarification sessions with appropriate stakeholders, managing client expectations to ensure alignment on software requirements, and escalating issues through proper channels when necessary. This role ensures a single point of contact for consistent messaging and effective relationship management.
+Muhammad Ridwan Putra Jasni serves as primary Brigman representative to Triton Deepwater, responsible for facilitating all client-vendor communications and coordinating stakeholder engagement. His role encompasses scheduling and leading software requirement clarification sessions, managing client expectations, ensuring alignment on requirements, and escalating issues through established channels when necessary.
 
-\subsection{Brigman Stakeholder Engagement Strategy}
+This dedicated account management ensures consistent messaging and effective relationship management throughout the project lifecycle, providing Triton Deepwater with a single point of contact for all project-related communications and coordination.
 
-Our stakeholder engagement involved targeted clarification sessions with the operations stakeholder group. We deployed visual aids such as Use Case Diagrams as discussion tools to bridge technical-operational gaps. Comprehensive documentation captured all client decisions and clarifications, with a follow-up process that tracks action items to completion with client validation.
+\subsection{Stakeholder Engagement Strategy}
 
-\subsection{Brigman Escalation Protocol}
+Our engagement strategy involved targeted sessions with operational stakeholders using visual models as discussion tools to bridge technical and operational perspectives. Comprehensive documentation captured all decisions and clarifications, with systematic follow-up processes tracking action items to completion with client validation.
 
-Our escalation protocol follows a structured four-level approach:
-\begin{enumerate}
-\item \textbf{Level 1:} Brigman technical team attempts resolution within 24 hours
-\item \textbf{Level 2:} Account Manager mediates between teams within 4 hours if unresolved
-\item \textbf{Level 3:} Brigman executive engagement with VP of Engineering contacting client counterpart
-\item \textbf{Level 4:} Contractual and scope review with legal teams
-\end{enumerate}
+The structured engagement approach facilitated efficient resolution of requirement incongruities while building collaborative relationships with client stakeholders, establishing foundations for ongoing project success.
 
-\subsection{Brigman Coordination Outcomes}
+\subsection{Escalation Protocol and Coordination Outcomes}
 
-Our coordination efforts produced significant outcomes. We successfully resolved 86.7\% of software incongruities with client input, strengthening the client relationship through professional engagement that built trust for ongoing collaboration. Clear communication channels established protocols for efficient future communications, achieving mutual understanding that bridges client operational needs with our technical capabilities.
+Our escalation protocol follows a four-level structured approach beginning with technical team resolution attempts within 24 hours, progressing to account manager mediation within 4 hours if unresolved, followed by executive engagement, and concluding with contractual review if necessary.
 
-This structured approach to stakeholder coordination establishes a strong foundation for successful project delivery and potential future engagements, demonstrating Brigman's relationship management success.
+Coordination outcomes demonstrate significant success, with 86.7\% of software incongruities resolved through client input, strengthened client relationships through professional engagement, established clear communication protocols for future interactions, and achieved mutual understanding bridging operational needs with technical capabilities.
 
 % =====================
-% DECLARATIONS - 0.5 PAGE (NORMAL, NO LETTERHEAD)
+% DECLARATIONS
 % =====================
 \newpage
 \section{Declarations}
 \label{sec:declarations}
 
-\textbf{Brigman AI Tool Usage Declaration:}
+\textbf{AI Tool Usage Declaration:} ChatGPT assisted with language refinement, grammar checking, and document flow improvement, serving as educational resource for complex technical concept explanation. All analysis, models, diagrams, and substantive content were developed by Brigman analysis teams, with AI-generated content critically evaluated, validated against technical expertise, and substantially modified for accuracy and relevance.
 
-ChatGPT was used as a tool to assist with language refinement, grammar checking, and improving document flow. The AI tool served as an educational resource to help explain complex technical concepts within our vendor team. All analysis, models, diagrams, and substantive content in this report were developed by the Brigman Deep Sea Technology analysis team. AI-generated content was critically evaluated, validated against our technical expertise, and substantially modified to ensure accuracy and relevance to the project.
+\textbf{Originality Declaration:} This report represents original analysis work conducted by Brigman Deep Sea Technology as software vendor. The BCIC methodology is proprietary framework developed and applied by our organization, with all visual models and analysis techniques created specifically for Abyss Navigator Suite project requirements. Quantitative findings derive from actual Project Specification analysis.
 
-\textbf{Brigman Originality Declaration:}
+\textbf{Software Compliance Declaration:} Analysis complies with IEEE 830 software requirements specification standards. All software requirements meet CRaM principles (Correct, Relevant, Measurable), following industry best practices for requirements engineering from vendor perspective, with traceability maintained from Project Specification through client clarification.
 
-This report represents original analysis work conducted by the Brigman Deep Sea Technology team as the selected software vendor. The BC methodology is a proprietary framework developed and applied by our organization. All visual models and analysis techniques were created specifically for the Abyss Navigator Suite project software requirements. Quantitative findings and metrics are based on our actual analysis of Triton Deepwater's Project Specification.
-
-\textbf{Brigman Software Compliance Declaration:}
-
-This analysis complies with IEEE 830 standards for software requirements specification. All software requirements meet CRaM principles (Correct, Relevant, Measurable). The analysis follows industry best practices for software requirements engineering from a vendor perspective. Traceability is maintained from Project Specification through client clarification.
-
-\textbf{Software Scope Declaration:}
-
-This analysis covers only software system requirements and excludes any hardware components. Software will adapt to and integrate all customer-specified hardware components. Hardware specifications and interface requirements are provided by the customer, and software will adapt accordingly. Software's primary role is to "glue" all hardware components together and provide a unified control interface.
+\textbf{Software Scope Declaration:} This analysis covers exclusively software system requirements, excluding hardware components. Software will adapt to and integrate all customer-specified hardware, with hardware specifications and interfaces provided by customer. Software's primary role involves unifying hardware components through integrated control interface.
 
 \vspace{0.5cm}
 
 % =====================
-% SIGN-OFF & REPOSITORY - 0.2 PAGE (NORMAL, NO LETTERHEAD)
+% SIGN-OFF
 % =====================
 \section*{Sign-off \& Repository Information}
 \addcontentsline{toc}{section}{Sign-off \& Repository Information}
@@ -363,13 +380,13 @@ This analysis covers only software system requirements and excludes any hardware
 \centering
 \textbf{BRIGMAN REPOSITORY INFORMATION}\\
 \url{https://github.com/Spooky312/The-Abyss-Navigation-Suite-INF2113}\\
-\textbf{Brigman Repository Organization:}
+\textbf{Structured Repository Organization:}
 \begin{itemize}
-\item \textbf{/software-requirements/} – PS, BC analysis documentation
-\item \textbf{/software-models/} – Context Diagram, Use Case Diagram, Architecture Diagrams
-\item \textbf{/hardware-interfaces/} – Hardware interface specifications, adaptation layer designs
-\item \textbf{/client-sessions/} – Meeting minutes, decisions, action items
-\item \textbf{/artifacts/} – IRC checklist, risk registers, validation documents
+\item \textbf{/requirements/categorized/} – Organized by functional domain
+\item \textbf{/models/diagrams/} – Context, Use Case, Architecture diagrams
+\item \textbf{/hardware-interfaces/} – Interface specifications and adapters
+\item \textbf{/client-sessions/} – Meeting records and decisions
+\item \textbf{/artifacts/bcic/} – IRC, risk registers, validation documents
 \end{itemize}
 \textit{All artifacts version-controlled for client transparency and auditability}
 \end{minipage}}
@@ -402,10 +419,10 @@ Kannan s/o Rajamohan & BDST-DM-036 & \rule{0.8\linewidth}{0.4pt} \\
 \end{table}
 
 \begin{center}
-\textbf{Brigman Report Version:} 2.0 (Software Integration Edition)\\
+\textbf{Report Version:} 3.0 (Full BCIC Methodology)\\
 \textbf{Client Delivery Date:} \today\\
-\textbf{Brigman Status:} Software Requirements Analysis Complete - Ready for Next Project Phase\\
-\textbf{Next Client Step:} Review and approval of clarified software requirements
+\textbf{Analysis Status:} Complete - Ready for SRS Development\\
+\textbf{Client Next Step:} Review and approve categorized requirements
 \end{center}
 
 \end{document}
