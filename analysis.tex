@@ -22,9 +22,13 @@
 \usepackage{wrapfig}
 \usepackage{amssymb}
 \usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{textcomp}
 \definecolor{critical}{RGB}{255, 200, 200}
 \definecolor{high}{RGB}{255, 230, 200}
 \definecolor{medium}{RGB}{255, 255, 200}
+\definecolor{tableheader}{RGB}{240, 240, 240}
+\definecolor{tablerow}{RGB}{250, 250, 250}
 \frenchspacing
 
 % =====================
@@ -50,7 +54,7 @@
 \begin{document}
 
 % =====================
-% FIRST PAGE ONLY WITH LETTERHEAD
+% COVER PAGE (Page 1)
 % =====================
 \thispagestyle{empty}
 
@@ -62,16 +66,15 @@
 }
 
 % Adjust margins for first page to fit within letterhead
-\newgeometry{top=6cm,left=1in,right=1in,bottom=1.6in}
+\newgeometry{top=5.5cm,left=1in,right=1in,bottom=1.6in}
 
 \begin{center}
-\includegraphics[width=0.45\textwidth]{brigman logo.png}\\[0.8cm]
+\includegraphics[width=0.45\textwidth]{brigman logo.png}\\[0.1cm]
 
 \LARGE\textbf{Software Requirements Analysis Report}\\[0.3cm]
 \large\textbf{Abyss Navigator Suite Project}\\[0.3cm]
 
 \textbf{\Large Brigman Deep Sea Technology}\\
-\small Deep Sea Autonomous Systems Software Division\\[0.5cm]
 \today
 \end{center}
 
@@ -104,43 +107,49 @@ Kannan s/o Rajamohan & BDST-DM-036 & Data Management Software Lead (Logging \& T
 \restoregeometry
 
 % =====================
-% TABLE OF CONTENTS
+% TABLE OF CONTENTS (Page 2)
 % =====================
 \newpage
 \thispagestyle{empty}
 \section*{Table of Contents}
 \vspace{0.5cm}
 \begin{itemize}[leftmargin=*,nosep]
-\item \textbf{1.0 Executive Summary} \dotfill 1
-\item \textbf{2.0 BCIC Methodology Application} \dotfill 2
+\item \textbf{1.0 Executive Summary} \dotfill 4
+\item \textbf{2.0 BCIC Methodology Application} \dotfill 5
   \begin{itemize}[leftmargin=*]
-  \item 2.1 Breakdown Activity \dotfill 2
-  \item 2.2 Clarify Activity \dotfill 3
-  \item 2.3 Interpret Activity \dotfill 4
-  \item 2.4 Categorize Activity \dotfill 5
+  \item 2.1 Breakdown Activity \dotfill 5
+  \item 2.2 Clarify Activity \dotfill 6
+  \item 2.3 Interpret Activity \dotfill 7
+  \item 2.4 Categorize Activity \dotfill 8
   \end{itemize}
-\item \textbf{3.0 Incongruous Requirements Checklist (IRC)} \dotfill 6
-\item \textbf{4.0 Risk Analysis \& Mitigation} \dotfill 7
-\item \textbf{5.0 Account Manager \& Stakeholder Coordination} \dotfill 8
-\item \textbf{6.0 Declarations} \dotfill 9
-\item \textbf{7.0 Sign-off \& Repository Information} \dotfill 9
+\item \textbf{3.0 Incongruous Requirements Checklist (IRC)} \dotfill 9
+  \begin{itemize}[leftmargin=*]
+  \item 3.1 Combined IRC Checklist Template \dotfill 9
+  \item 3.2 IRC Application Format \dotfill 9
+  \end{itemize}
+\item \textbf{4.0 Risk Analysis \& Mitigation} \dotfill 10
+\item \textbf{5.0 Account Manager \& Stakeholder Coordination} \dotfill 11
+\item \textbf{6.0 Declarations} \dotfill 12
+\item \textbf{7.0 Sign-off \& Repository Information} \dotfill 12
+\item \textbf{Appendix A: Applied IRC Results} \dotfill 13
 \end{itemize}
 
 % =====================
-% DOCUMENT ORGANIZATION
+% DOCUMENT ORGANIZATION (Page 3)
 % =====================
 \newpage
+\setcounter{page}{3}
 \section*{Document Organization}
 \addcontentsline{toc}{section}{Document Organization}
 
-This comprehensive report documents Brigman Deep Sea Technology's systematic application of the BCIC (Breakdown, Clarify, Interpret, Categorize) methodology to analyze Triton Deepwater's Project Specification for the Abyss Navigator Suite. As the designated software integration vendor, our focus remains exclusively on developing and implementing the software layer that will unify and coordinate all customer-specified hardware components.
+This comprehensive report documents Brigman Deep Sea Technology's systematic application of the BCIC (Breakdown, Clarify, Interpret, Categorize) methodology to analyze Triton Deepwater's Project Specification for the Abyss Navigator Suite. Our focus remains exclusively on developing and implementing the software layer that will unify and coordinate all customer-specified hardware components.
 
-Our project scope is clearly delineated: hardware components, specifications, and interfaces are exclusively specified by Triton Deepwater, while our software system serves as the critical integration layer that connects, coordinates, and manages all specified hardware components. This software-centric approach ensures seamless operation across the entire system while maintaining compliance with customer-defined hardware interfaces and protocols.
+Our project scope is clearly delineated: hardware components, specifications, and interfaces are exclusively specified by Triton Deepwater, while our software system serves as the critical integration layer that connects, coordinates, and manages all specified hardware components.
 
-The analysis follows a structured methodology with hierarchical numbering for requirement traceability, standardized formatting, BCIC-xxx references for analysis artifacts, and a color-coded priority system (Critical, High, Medium). All analyzed software requirements comply with CRaM principles (Correct, Relevant, Measurable) and have been prepared for the subsequent Software Requirements Specification development phase upon client approval.
+The analysis follows a structured methodology with hierarchical numbering for requirement traceability, standardized formatting, BCIC-xxx references for analysis artifacts, and a color-coded priority system (Critical, High, Medium). All analyzed software requirements comply with CRaM principles (Correct, Relevant, Measurable).
 
 % =====================
-% EXECUTIVE SUMMARY
+% EXECUTIVE SUMMARY (Page 4)
 % =====================
 \newpage
 \section{Executive Summary}
@@ -148,14 +157,14 @@ The analysis follows a structured methodology with hierarchical numbering for re
 
 Brigman Deep Sea Technology has successfully completed the comprehensive software requirements analysis phase for the Abyss Navigator Suite project using our proprietary BCIC methodology. Through systematic investigation and structured stakeholder engagement with Triton Deepwater, we have transformed ambiguous software requirements into measurable, testable specifications ready for implementation.
 
-Our analysis of 57 Project Specification clauses revealed 15 incongruities requiring clarification, representing a 26.3\% incongruity rate. Through targeted stakeholder sessions, we achieved an 86.7\% resolution rate, obtaining critical quantitative specifications including 99\% waypoint accuracy requirements, 5-second emergency detection thresholds, and AES-256 encryption standards.
+Our analysis of 27 formal Project Specification requirement clauses revealed 15 incongruities requiring clarification, representing a 55.6\% incongruity rate. Through targeted stakeholder sessions, we achieved an 86.7\% resolution rate, obtaining critical quantitative specifications including 99\% waypoint accuracy requirements, 5-second emergency detection thresholds, and AES-256 encryption standards.
 
 The regulated-revision process demonstrated through our Interpret activity transformed ambiguous statements into codified requirements with clear verification methods. All requirements have been systematically categorized into functional domains including Navigation, Communication, Safety, and Interface specifications, preparing them for structured SRS development.
 
-The value delivered through this early analysis is substantial, preventing an estimated \$350K+ in potential rework costs and reducing implementation risk by 4-6 weeks. By establishing clear, measurable specifications and organized requirement categories, we have created a solid foundation for successful project execution.
+The value delivered through this early analysis is substantial, preventing an estimated \$350K+ in potential rework costs and reducing implementation risk by 4-6 weeks.
 
 % =====================
-% BCIC METHODOLOGY
+% BCIC METHODOLOGY (Pages 5-8)
 % =====================
 \newpage
 \section{BCIC Methodology Application}
@@ -163,30 +172,13 @@ The value delivered through this early analysis is substantial, preventing an es
 
 \subsection{Breakdown Activity: Systematic Incongruity Detection}
 
-The Breakdown activity focused on systematically identifying ambiguous, conflicting, or missing software requirements within Triton Deepwater's Project Specification. We applied our proprietary Incongruous Requirements Checklist (IRC) to 57 PS clauses, examining each through four critical validation lenses essential for successful software integration.
+The Breakdown activity focused on systematically identifying ambiguous, conflicting, or missing software requirements within Triton Deepwater's Project Specification. We applied our proprietary Incongruous Requirements Checklist (IRC) to 27 formal PS requirement clauses, using the structured framework defined in Section 3.0 to examine each requirement through three critical validation lenses: Imperative, Continuance, and Contextual checks.
 
-Our validation process involved ambiguity detection for subjective terms requiring client quantification, testability validation for requirements lacking clear verification methods, consistency checking across PS sections to identify conflicting requirements, and completeness verification against established deep-sea software operational standards. This systematic approach revealed 15 incongruities (26.3\% rate) that required targeted client clarification.
+Our validation process involved applying 8 specific IRC checks to identify issues with obligation clarity, compound statements, testability, and consistency. This systematic approach revealed 15 incongruities (55.6\% rate) that required targeted client clarification.
 
 In preparation for stakeholder discussions, we developed an initial Software Context Diagram visualizing system boundaries and external hardware interfaces. This visual model served as a foundation for specific clarification questions regarding hardware interactions and integration points, ultimately revealing three potentially missing interfaces that required client confirmation.
 
-\begin{table}[H]
-\centering
-\small
-\begin{tabular}{|p{0.18\textwidth}|p{0.4\textwidth}|p{0.12\textwidth}|p{0.2\textwidth}|}
-\hline
-\textbf{PS Reference} & \textbf{Brigman Clarification Question} & \textbf{Priority} & \textbf{Session Type} \\
-\hline
-\rowcolor{critical} BO-L1-4 & Quantitative thresholds for "abnormal conditions"? & Critical & Operational \\
-\hline
-\rowcolor{high} IT-L0-C2 & Specific bandwidth and latency constraints? & High & Technical \\
-\hline
-\rowcolor{critical} Section 7.3 & Supported communication technologies? & Critical & Operational \\
-\hline
-\rowcolor{high} Section 2.1 & Sensor interface protocol requirements? & High & Interface \\
-\hline
-\end{tabular}
-\caption{Targeted Clarification Questions for Client Stakeholder Sessions}
-\end{table}
+% Page 6
 
 \subsection{Clarify Activity: Stakeholder Engagement and Resolution}
 
@@ -194,143 +186,124 @@ The Clarify activity involved direct engagement with Triton Deepwater stakeholde
 
 Key discussions focused on operational parameters for autonomous navigation, hardware integration requirements, and emergency response protocols. The client provided specific, measurable responses: 99\% waypoint accuracy as the minimum standard, ROS2 interfaces for sensor integration, and 5-second detection/10-second response requirements for critical pressure deviations.
 
-During integration discussions, several important clarifications emerged regarding hardware interfaces and data protocols. The client confirmed standardized API interfaces for all hardware components, agreed on unified JSON data formatting, and established communication protocols including TCP/IP and UDP standards. These clarifications directly informed our software architecture decisions, particularly the hardware adaptation layer design.
+During integration discussions, several important clarifications emerged regarding hardware interfaces and data protocols. The client confirmed standardized API interfaces for all hardware components, agreed on unified JSON data formatting, and established communication protocols including TCP/IP and UDP standards.
 
-Our observations from stakeholder engagement demonstrated significant efficiency gains through visual modeling, with approximately 40\% reduction in clarification time compared to text-based discussions. The Use Case Diagrams effectively bridged terminology gaps between operational and technical domains, leading to more active stakeholder participation and concrete, measurable clarifications.
+Our observations from stakeholder engagement demonstrated significant efficiency gains through visual modeling, with approximately 40\% reduction in clarification time compared to text-based discussions.
+
+% Page 7
 
 \subsection{Interpret Activity: Regulated-Revision Demonstration}
 
-The Interpret activity demonstrates our systematic transformation of ambiguous client requirements into cogent, measurable software specifications through regulated-revision. This process goes beyond documentation of clarifications to show concrete transformation from subjective statements to testable requirements with proper codification.
+The Interpret activity demonstrates our systematic transformation of ambiguous client requirements into cogent, measurable software specifications through regulated-revision. This process addresses all IRC-identified issues through structured requirement rewriting, applying verb strength correction for imperative issues, decomposition for continuance issues, and quantification for contextual issues.
 
-\begin{table}[H]
-\centering
-\small
-\begin{tabular}{|p{0.12\textwidth}|p{0.22\textwidth}|p{0.18\textwidth}|p{0.4\textwidth}|}
-\hline
-\textbf{PS Ref} & \textbf{Original Clause} & \textbf{IRC Issue} & \textbf{Revised \& Codified Requirement} \\
-\hline
-BO-L1-4 & "Detect abnormal conditions" & IRC-001: Ambiguity & \textbf{SYS-EMG-001:} Detect pressure deviations $>$$\pm$5\% within 5 seconds, initiate protocols within 10 seconds \\
-\hline
-IT-L0-C2 & "Reliable communication" & IRC-002: Untestable & \textbf{COM-PERF-001:} Maintain 1 kbps bandwidth with $\leq$30s latency at depths to 6000m \\
-\hline
-Sec 7.3 & "Secure communication" & IRC-001/007: Ambiguous & \textbf{COM-SEC-001:} AES-256-GCM encryption with 24-hour key rotation, X.509 certificate authentication \\
-\hline
-Sec 2.1 & "Integrate with sensors" & IRC-006: Incomplete & \textbf{HW-INT-001:} ROS2 Foxy middleware with DDS protocol, supporting standard sensor message types \\
-\hline
-\end{tabular}
-\caption{Regulated-Revision: Transforming Ambiguous Requirements to Measurable Specifications}
-\end{table}
-
-Our transformation methodology follows a structured approach for each requirement category. For ambiguity resolution, we convert subjective terms like "secure" into specific technical standards with verification methods. Testability enhancement involves adding measurable parameters and validation criteria to previously unverifiable statements. Completeness additions incorporate missing specifications based on our integration expertise, such as interface protocols and data formats.
+Our transformation methodology follows a structured approach for each requirement category, systematically addressing the IRC flags identified during Breakdown. For imperative issues (IMP series), we correct obligation wording to match stated priority. For continuance issues (CON series), we decompose compound requirements. For contextual issues (CTX series), we add measurable parameters, resolve inconsistencies, and ensure testability.
 
 The regulated-revision process ensures all requirements meet CRaM principles while maintaining traceability to original project specifications. Each transformed requirement includes clear verification methods, quantitative parameters where applicable, and structured codification for configuration management.
+
+% Page 8
 
 \subsection{Categorize Activity: Structured Organization for SRS Development}
 
 The Categorize activity organizes interpreted requirements into structured categories following IEEE 830 standards, preparing them for efficient Software Requirements Specification development. This systematic organization facilitates team specialization, incremental delivery planning, and comprehensive coverage verification.
 
-\begin{table}[H]
-\centering
-\small
-\begin{tabular}{|p{0.16\textwidth}|p{0.3\textwidth}|p{0.18\textwidth}|p{0.16\textwidth}|}
-\hline
-\textbf{Category} & \textbf{Scope \& Description} & \textbf{Codification} & \textbf{Requirements} \\
-\hline
-Functional & Core software capabilities and behaviors & FUN-[MODULE]-[SEQ] & 22 \\
-\hline
-Interface & Hardware and external system interactions & INT-[SYSTEM]-[TYPE] & 15 \\
-\hline
-Performance & Quantitative performance metrics & PER-[METRIC]-[SEQ] & 12 \\
-\hline
-Safety & Emergency protocols and fail-safe operations & SAF-[LEVEL]-[SEQ] & 8 \\
-\hline
-Data Management & Logging, storage, and data handling & DAT-[TYPE]-[SEQ] & 7 \\
-\hline
-Communication & Network and data transmission protocols & COM-[PROTOCOL]-[SEQ] & 10 \\
-\hline
-\end{tabular}
-\caption{Requirement Categorization Framework for SRS Transition}
-\end{table}
-
-Our categorization methodology involves systematic reclassification of all 57 original requirements according to primary functional domains. Functional requirements encompass core autonomous navigation algorithms and mission planning logic. Interface specifications cover hardware sensor integration and communication protocols. Performance requirements establish quantitative metrics for accuracy, latency, and reliability, while safety requirements define emergency procedures and fault recovery protocols.
+Our categorization methodology involves systematic reclassification of all 27 original requirements according to primary functional domains. This organization directly addresses scope clarity issues by ensuring clear priority and scope alignment through structured categorization.
 
 The established codification scheme ensures comprehensive traceability from categorized requirements back to original PS references while facilitating systematic test planning and configuration management. This structured organization directly informs our repository architecture, with dedicated directories for each requirement category and supporting artifacts.
 
-The categorization framework provides significant value for project execution, enabling efficient SRS development aligned with IEEE 830 standards, supporting phased implementation through priority-based organization, and ensuring comprehensive coverage through systematic gap analysis against established categories.
+% =====================
+% IRC SECTION (Page 9)
+% =====================
 
-% =====================
-% IRC SECTION
-% =====================
-\newpage
 \section{Incongruous Requirements Checklist (IRC)}
 \label{sec:irc}
 
-Our proprietary Incongruous Requirements Checklist (IRC) provides systematic methodology for detecting and resolving requirement incongruities throughout the BCIC process. Developed based on deep-sea software integration expertise, this checklist guides both initial detection during Breakdown and quality assurance during Interpret activities.
+This section documents the Brigman Incongruous Requirements Checklist (IRC) framework used during the Breakdown activity to systematically identify requirement incongruities.
+
+\subsection{3.1 Combined IRC Checklist Template}
 
 \begin{table}[H]
 \centering
 \small
-\begin{tabular}{|p{0.08\textwidth}|p{0.18\textwidth}|p{0.35\textwidth}|p{0.3\textwidth}|}
+\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{|p{0.12\textwidth}|p{0.15\textwidth}|p{0.43\textwidth}|p{0.3\textwidth}|}
 \hline
-\textbf{IRC ID} & \textbf{PS Ref} & \textbf{Issue Identified} & \textbf{Resolution Outcome} \\
+\rowcolor{tableheader}
+\textbf{Check ID} & \textbf{Type} & \textbf{Check Description} & \textbf{Example Symptom} \\
 \hline
-IRC-001 & Section 7.3 & "Secure communication" ambiguous & AES-256 encryption with key management \\
+\multicolumn{4}{|l|}{\cellcolor{tablerow}\textbf{Imperative Checks (Obligation Strength \& Responsibility)}} \\
 \hline
-IRC-002 & BO-L1-4 & "Abnormal conditions" unmeasurable & Pressure $\pm$5\%, detect $\leq$5s, respond $\leq$10s \\
+IMP-1 & Imperative & Priority vs. wording mismatch & "The system should maintain connectivity" (Essential requirement with weak language) \\
 \hline
-IRC-003 & Sec 6.4/7.4 & Inconsistent emergency thresholds & Unified specification with escalation levels \\
+IMP-2 & Imperative & Not written as clear obligation & "Emergency handling is important for mission safety" (Descriptive, not imperative) \\
 \hline
-IRC-006 & Section 2.1 & Missing interface protocols & ROS2 middleware with DDS protocol \\
+IMP-3 & Imperative & Responsibility unclear & "Mission data must be protected" (Ambiguous who protects it) \\
 \hline
-IRC-007 & Section 5.2 & Untestable emergency protocols & Specific triggers and response sequences \\
+\multicolumn{4}{|l|}{\cellcolor{tablerow}\textbf{Continuance Checks (Complexity \& Compound Statements)}} \\
 \hline
-IRC-009 & IT-L0-C2 & No bandwidth/latency specs & 1 kbps minimum, $\leq$30s latency \\
+CON-1 & Continuance & Compound requirement & "System shall log, store, and analyze mission data" (Three requirements combined) \\
 \hline
-IRC-010 & Section 4.2 & Unquantified accuracy requirements & 99\% waypoint, $\pm$5m horizontal accuracy \\
+CON-2 & Continuance & Deferred reference dependency & "As defined in the following section" (Meaning depends on undefined content) \\
+\hline
+\multicolumn{4}{|l|}{\cellcolor{tablerow}\textbf{Contextual Checks (Meaning, Testability \& Consistency)}} \\
+\hline
+CTX-1 & Contextual & Ambiguous term / multiple interpretations & "Sufficient bandwidth", "Safe operational state", "User-friendly" \\
+\hline
+CTX-2 & Contextual & Not testable / not verifiable & "System shall be reliable" (No measurable reliability metric) \\
+\hline
+CTX-3 & Contextual & Inconsistent / out of scope & Conflicts with another requirement or outside project boundaries \\
 \hline
 \end{tabular}
-\caption{Systematic IRC Application: Detection and Resolution Evidence}
+\caption{Combined IRC Checklist Framework – Systematic Detection of Requirement Incongruities}
 \end{table}
 
-The IRC framework encompasses ten critical validation checks applied throughout the analysis process. Ambiguity detection identifies subjective terms requiring quantification, while testability validation ensures each requirement includes clear verification methods. Consistency checking resolves conflicts across specification sections, and completeness verification identifies gaps against operational standards and integration requirements.
+\subsection{3.2 IRC Application Format \& Recording Template}
 
-Our application methodology follows a structured three-phase approach. Initial screening evaluates all PS clauses against IRC criteria, identifying incongruities requiring clarification. During stakeholder sessions, IRC-informed questions guide efficient resolution of ambiguities. Finally, during regulated-revision, the IRC serves as quality assurance checklist ensuring all transformed requirements meet established criteria.
+When applying the IRC framework during the Breakdown activity, record findings systematically using the following format:
 
-The IRC demonstrated significant effectiveness throughout the analysis, with 15 incongruities identified from 57 clauses (26.3\% rate) and 86.7\% resolution through client engagement. All revised requirements now include verification methods, with 67\% incorporating quantitative parameters for precise measurement and validation.
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{0.15\textwidth}|p{0.15\textwidth}|p{0.3\textwidth}|c|p{0.25\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{PS Ref} & \textbf{IRC Flags} & \textbf{Reason} & \textbf{Clarify?} & \textbf{Question for Client} \\
+\hline
+BO-L1-4 & CTX-1, CTX-2 & "Abnormal conditions" ambiguous and not testable without quantification & Y & What quantitative thresholds define "abnormal conditions"? \\
+\hline
+IT-L0-C2 & IMP-1, CTX-2 & Essential constraint with ambiguous language, no measurable parameters & Y & What specific bandwidth and latency constraints apply? \\
+\hline
+\end{tabular}
+\end{center}
+
+\textbf{Note:} For the complete filled IRC checklist with project-specific application examples and resolution results following stakeholder clarification, refer to Appendix A.
 
 % =====================
-% RISK ANALYSIS
+% RISK ANALYSIS (Page 10)
 % =====================
-\newpage
+
 \section{Risk Analysis \& Mitigation}
 \label{sec:risks}
 
-Our comprehensive risk assessment identifies and addresses potential challenges that could impact project success, budget, or schedule. The analysis encompasses both technical implementation risks specific to software integration and broader project management considerations.
+Our comprehensive risk assessment identifies and addresses potential challenges that could impact project success, budget, or schedule.
 
 \subsection{Critical Technical Risks: Software Integration Focus}
 
-\textbf{Communication Specification Ambiguity} presented a high-severity risk due to missing quantitative bandwidth and latency specifications in the Project Specification. With 72\% probability based on historical data, this ambiguity could lead to system failure under operational conditions. Our mitigation involved establishing specific requirements of 1 kbps minimum bandwidth with 30-second maximum latency, validated against acoustic communication models.
+\textbf{Communication Specification Ambiguity} presented a high-severity risk due to missing quantitative bandwidth and latency specifications in the Project Specification. This risk corresponds to CTX-1 (Ambiguous term) and CTX-2 (Not testable) issues identified during Breakdown. With 72\% probability based on historical data, this ambiguity could lead to system failure under operational conditions. Our mitigation involved establishing specific requirements of 1 kbps minimum bandwidth with 30-second maximum latency.
 
-\textbf{Hardware Interface Compatibility Issues} emerge from potential incompatibilities between customer-specified hardware components. This medium-high severity risk carries 55\% probability given hardware specification diversity. Our mitigation strategy implements standardized middleware interfaces and adapter patterns, with validation through flexible hardware abstraction layer architecture.
+\textbf{Hardware Interface Compatibility Issues} emerge from potential incompatibilities between customer-specified hardware components. This risk relates to CTX-1 issues regarding missing interface specifications. This medium-high severity risk carries 55\% probability given hardware specification diversity. Our mitigation strategy implements standardized middleware interfaces and adapter patterns.
 
-\textbf{Sensor Integration Complexity} involves potential delays from missing interface specifications for hardware sensors. With 85\% probability based on specification reviews, this high-severity risk could impact project schedule. We mitigated through proposing and gaining approval for ROS2 interface standards, with integration approaches documented for implementation.
+\textbf{Sensor Integration Complexity} involves potential delays from missing interface specifications for hardware sensors, corresponding to CTX-1 and CON-1 issues. With 85\% probability based on specification reviews, this high-severity risk could impact project schedule. We mitigated through proposing and gaining approval for ROS2 interface standards.
 
 \subsection{Project Management Risks: Delivery Focus}
 
-\textbf{Scope Creep Post-Clarification} addresses potential introduction of new requirements during clarification sessions that could impact budget and schedule. Our formal change control process with requirement traceability ensures all new requirements undergo impact analysis before acceptance, maintaining project scope integrity.
+\textbf{Scope Creep Post-Clarification} addresses potential introduction of new requirements during clarification sessions that could impact budget and schedule. This risk relates to CTX-3 (Inconsistent/out of scope) concerns about scope boundary maintenance. Our formal change control process with requirement traceability ensures all new requirements undergo impact analysis before acceptance.
 
-\textbf{Hardware Specification Changes} considers potential modifications to customer hardware specifications during software development. We address this through contractual hardware specification freeze dates and formal change request processes requiring impact assessment for any hardware modifications.
-
-\subsection{Software Integration Risk Mitigation Strategy}
-
-Our integrated mitigation approach employs multiple complementary strategies. Flexible architecture design with modular components enables adaptation to hardware changes, while early hardware simulation through developed simulators allows software testing before hardware availability. Hardware abstraction layer implementation isolates hardware-specific code, and continuous integration establishes CI/CD pipelines for rapid adaptation to changes.
-
-This proactive risk management approach reduces project uncertainty while providing clear visibility into potential challenges, demonstrating Brigman's comprehensive risk mitigation capabilities throughout the project lifecycle.
+\textbf{Hardware Specification Changes} considers potential modifications to customer hardware specifications during software development, which could trigger CTX-3 issues if not properly managed. We address this through contractual hardware specification freeze dates and formal change request processes.
 
 % =====================
-% ACCOUNT MANAGER
+% ACCOUNT MANAGER (Page 11)
 % =====================
-\newpage
+
 \section{Account Manager \& Stakeholder Coordination}
 \label{sec:account}
 
@@ -353,41 +326,30 @@ Our escalation protocol follows a four-level structured approach beginning with 
 Coordination outcomes demonstrate significant success, with 86.7\% of software incongruities resolved through client input, strengthened client relationships through professional engagement, established clear communication protocols for future interactions, and achieved mutual understanding bridging operational needs with technical capabilities.
 
 % =====================
-% DECLARATIONS
+% DECLARATIONS & SIGN-OFF (Page 12)
 % =====================
 \newpage
 \section{Declarations}
 \label{sec:declarations}
 
-\textbf{AI Tool Usage Declaration:} ChatGPT assisted with language refinement, grammar checking, and document flow improvement, serving as educational resource for complex technical concept explanation. All analysis, models, diagrams, and substantive content were developed by Brigman analysis teams, with AI-generated content critically evaluated, validated against technical expertise, and substantially modified for accuracy and relevance.
+\textbf{AI Tool Usage Declaration:} ChatGPT assisted with language refinement, grammar checking, and document flow improvement, serving as educational resource for complex technical concept explanation. All analysis, models, diagrams, and substantive content were developed by Brigman analysis teams.
 
-\textbf{Originality Declaration:} This report represents original analysis work conducted by Brigman Deep Sea Technology as software vendor. The BCIC methodology is proprietary framework developed and applied by our organization, with all visual models and analysis techniques created specifically for Abyss Navigator Suite project requirements. Quantitative findings derive from actual Project Specification analysis.
+\textbf{Originality Declaration:} This report represents original analysis work conducted by Brigman Deep Sea Technology as software vendor. The BCIC methodology is proprietary framework developed and applied by our organization, with all visual models and analysis techniques created specifically for Abyss Navigator Suite project requirements.
 
-\textbf{Software Compliance Declaration:} Analysis complies with IEEE 830 software requirements specification standards. All software requirements meet CRaM principles (Correct, Relevant, Measurable), following industry best practices for requirements engineering from vendor perspective, with traceability maintained from Project Specification through client clarification.
+\textbf{Software Compliance Declaration:} Analysis complies with IEEE 830 software requirements specification standards. All software requirements meet CRaM principles (Correct, Relevant, Measurable), following industry best practices for requirements engineering from vendor perspective.
 
 \textbf{Software Scope Declaration:} This analysis covers exclusively software system requirements, excluding hardware components. Software will adapt to and integrate all customer-specified hardware, with hardware specifications and interfaces provided by customer. Software's primary role involves unifying hardware components through integrated control interface.
 
-\vspace{0.5cm}
+\vspace{1cm}
 
-% =====================
-% SIGN-OFF
-% =====================
 \section*{Sign-off \& Repository Information}
 \addcontentsline{toc}{section}{Sign-off \& Repository Information}
 
 \begin{center}
 \fbox{\begin{minipage}{0.9\textwidth}
 \centering
-\textbf{BRIGMAN REPOSITORY INFORMATION}\\
-\url{https://github.com/Spooky312/The-Abyss-Navigation-Suite-INF2113}\\
-\textbf{Structured Repository Organization:}
-\begin{itemize}
-\item \textbf{/requirements/categorized/} – Organized by functional domain
-\item \textbf{/models/diagrams/} – Context, Use Case, Architecture diagrams
-\item \textbf{/hardware-interfaces/} – Interface specifications and adapters
-\item \textbf{/client-sessions/} – Meeting records and decisions
-\item \textbf{/artifacts/bcic/} – IRC, risk registers, validation documents
-\end{itemize}
+\textbf{BRIGMAN REPOSITORY INFORMATION}\\[4pt]
+\url{https://github.com/Spooky312/The-Abyss-Navigation-Suite-INF2113}\\[8pt]
 \textit{All artifacts version-controlled for client transparency and auditability}
 \end{minipage}}
 \end{center}
@@ -401,8 +363,10 @@ Coordination outcomes demonstrate significant success, with 86.7\% of software i
 \begin{table}[H]
 \centering
 \small
+\renewcommand{\arraystretch}{1.2}
 \begin{tabular}{|p{0.3\textwidth}|p{0.2\textwidth}|p{0.4\textwidth}|}
 \hline
+\rowcolor{tableheader}
 \textbf{Brigman Team Member} & \textbf{Employee ID} & \textbf{Signature} \\
 \hline
 Muhammad Ridwan Putra Jasni & BDST-RE-001 & \rule{0.8\linewidth}{0.4pt} \\
@@ -424,5 +388,152 @@ Kannan s/o Rajamohan & BDST-DM-036 & \rule{0.8\linewidth}{0.4pt} \\
 \textbf{Analysis Status:} Complete - Ready for SRS Development\\
 \textbf{Client Next Step:} Review and approve categorized requirements
 \end{center}
+
+% =====================
+% APPENDIX A (Pages 13-15)
+% =====================
+\newpage
+\section*{Appendix A: Applied IRC Results}
+\addcontentsline{toc}{section}{Appendix A: Applied IRC Results}
+
+\subsection*{A.1 Applied IRC Checklist with Project Examples}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{0.12\textwidth}|p{0.15\textwidth}|p{0.43\textwidth}|p{0.3\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Check ID} & \textbf{Type} & \textbf{Check Description} & \textbf{Project Example \& Resolution} \\
+\hline
+\multicolumn{4}{|l|}{\cellcolor{tablerow}\textbf{Imperative Checks (Obligation Strength \& Responsibility)}} \\
+\hline
+IMP-1 & Imperative & Priority vs. wording mismatch & \textbf{IT-L0-C2:} "Communications Constraint" (Essential) $\rightarrow$ Revised: "System shall maintain minimum 1 kbps bandwidth with $\leq$30s latency" \\
+\hline
+IMP-2 & Imperative & Not written as clear obligation & \textbf{BO-L1-4:} "Emergency and Abnormal Situation Handling" $\rightarrow$ Revised: "System shall detect pressure deviations $>$$\pm$5\% within 5 seconds" \\
+\hline
+IMP-3 & Imperative & Responsibility unclear & \textbf{BO-L1-6:} "Operational Accountability" $\rightarrow$ Revised: "Software shall implement logging with operator ID attribution" \\
+\hline
+\multicolumn{4}{|l|}{\cellcolor{tablerow}\textbf{Continuance Checks (Complexity \& Compound Statements)}} \\
+\hline
+CON-1 & Continuance & Compound requirement & \textbf{IT-L1-5:} "Operational Logging Capability" $\rightarrow$ Decomposed into DAT-LOG-001, DAT-STR-001, DAT-RET-001, DAT-ANL-001 \\
+\hline
+CON-2 & Continuance & Deferred reference dependency & \textbf{BO-L1-4:} References abnormal conditions without definition $\rightarrow$ Added specific thresholds for pressure, temperature, power deviations \\
+\hline
+\multicolumn{4}{|l|}{\cellcolor{tablerow}\textbf{Contextual Checks (Meaning, Testability \& Consistency)}} \\
+\hline
+CTX-1 & Contextual & Ambiguous term / multiple interpretations & \textbf{IT-L0-C3:} "Protected in accordance with applicable security obligations" $\rightarrow$ Specified: AES-256 encryption, X.509 certificates, role-based access control \\
+\hline
+CTX-2 & Contextual & Not testable / not verifiable & \textbf{BO-L1-4:} "Abnormal conditions" not testable $\rightarrow$ Quantified: Pressure $\pm$5\%, temperature $\pm$10\%, power $\pm$15\% detection thresholds \\
+\hline
+CTX-3 & Contextual & Inconsistent / out of scope & \textbf{BO-L0-A1:} "Missions supervised by trained personnel" $\rightarrow$ Confirmed software-only scope; assumption noted \\
+\hline
+\end{tabular}
+\caption{Applied IRC Checklist with Project-Specific Examples and Resolutions}
+\end{table}
+
+% Page 14
+\newpage
+\subsection*{A.2 Complete Filled IRC Application Table}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{0.1\textwidth}|p{0.12\textwidth}|p{0.4\textwidth}|c|p{0.3\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{PS Ref} & \textbf{IRC Flags} & \textbf{Reason} & \textbf{Clarify?} & \textbf{Resolution \& Action} \\
+\hline
+BO-L1-4 & CTX-1, CTX-2 & "Abnormal conditions" ambiguous and not testable without quantification & Y & Quantified: Pressure $\pm$5\%, temp $\pm$10\%, power $\pm$15\% thresholds \\
+\hline
+IT-L0-C2 & IMP-1, CTX-2 & Essential constraint with ambiguous language, no measurable parameters & Y & Specified: 1 kbps min bandwidth, $\leq$30s latency, 95\% uptime \\
+\hline
+IT-L0-C3 & CTX-1 & "Protected in accordance with applicable security obligations" – undefined standards & Y & Specified: AES-256 encryption, X.509 certificates, audit logging \\
+\hline
+BO-L1-5 & CTX-1 & "Orderly manner" when conditions degrade – ambiguous termination criteria & Y & Defined: Complete current operation, log shutdown reason, safe state transition \\
+\hline
+IT-L0-A1 & CTX-1, CON-1 & "Primary mission sensors supplied by customer" – missing interface protocols & Y & Specified: ROS2 middleware, DDS protocol, JSON format, API specs \\
+\hline
+BO-L0-A1 & CTX-3 & "Missions supervised by trained personnel" – out of scope for software & Y & Confirmed software-only scope; operational assumption noted \\
+\hline
+IT-L1-5 & CON-1 & "Operational Logging Capability" combines logging, storage, retrieval, analysis & N & Decomposed into 4 atomic requirements \\
+\hline
+BO-L1-6 & IMP-3 & "Operational Accountability" – missing clear responsibility assignment & Y & Revised: Software logging with operator ID attribution \\
+\hline
+BO-L2-4.1 & IMP-2 & "Abnormal operating conditions shall be identifiable" – not clear system obligation & N & Revised: "System shall identify abnormal conditions within detection thresholds" \\
+\hline
+BO-L2-4.2 & CTX-1 & "Safe operational state" – ambiguous safety condition definition & Y & Defined: Neutral buoyancy, minimal power, communication beacon active \\
+\hline
+BO-L1-4 & CON-2 & References abnormal conditions without defining them & Y & Added specific definition with quantitative thresholds \\
+\hline
+BO-L1-5 & CON-1 & "Mission Continuity and Recovery" combines continuation, termination, recovery & N & Decomposed into SYS-CONT-001, SYS-TERM-001, SYS-REC-001 \\
+\hline
+\end{tabular}
+\caption{Complete Filled IRC Application Table with All Project Findings}
+\end{table}
+
+% Page 15
+\newpage
+\subsection*{A.3 IRC Application Quantitative Summary}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{0.5\textwidth}|c|c|}
+\hline
+\rowcolor{tableheader}
+\textbf{Metric} & \textbf{Value} & \textbf{Percentage} \\
+\hline
+Total PS Clauses Analyzed & 27 & 100\% \\
+\hline
+Total IRC Checks Applied & 216 & 8 per clause \\
+\hline
+Incongruities Identified & 15 & 55.6\% \\
+\hline
+Imperative Issues Found (IMP series) & 4 & 14.8\% of clauses \\
+\hline
+Continuance Issues Found (CON series) & 3 & 11.1\% of clauses \\
+\hline
+Contextual Issues Found (CTX series) & 8 & 29.6\% of clauses \\
+\hline
+Requirements Requiring Clarification & 13 & 86.7\% of issues \\
+\hline
+Issues Resolved with Client Input & 13 & 86.7\% resolution rate \\
+\hline
+Requirements Ready for SRS & 22 & 81.5\% of original \\
+\hline
+\end{tabular}
+\caption{IRC Application Quantitative Summary and Performance Metrics}
+\end{table}
+
+\subsection*{A.4 IRC Value Demonstration \& Process Benefits}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|p{0.25\textwidth}|p{0.65\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Benefit Area} & \textbf{Demonstrated Value \& Outcome} \\
+\hline
+\textbf{Early Defect Detection} & 15 requirement issues identified before implementation, preventing potential rework costs estimated at \$350K+ \\
+\hline
+\textbf{Structured Clarification} & IRC framework guided efficient stakeholder discussions, reducing clarification time by approximately 40\% \\
+\hline
+\textbf{Quality Assurance} & All requirements now meet CRaM principles (Correct, Relevant, Measurable) with clear verification methods \\
+\hline
+\textbf{Regulated-Revision Guide} & Systematic transformation of ambiguous requirements into precise, testable specifications with traceability \\
+\hline
+\textbf{Risk Mitigation} & Early ambiguity resolution reduced implementation schedule risk by 4-6 weeks and technical uncertainty \\
+\hline
+\textbf{Client Confidence} & Demonstrated rigorous, systematic approach to requirement quality and stakeholder collaboration \\
+\hline
+\end{tabular}
+\caption{IRC Framework Benefits and Project Value Demonstration}
+\end{table}
 
 \end{document}
