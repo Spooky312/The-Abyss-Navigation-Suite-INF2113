@@ -50,7 +50,7 @@
 % Background for COVER PAGE ONLY (Page 1)
 \AddToShipoutPictureBG*{%
   \AtPageLowerLeft{%
-    \includegraphics[width=\paperwidth,height=\paperheight]{Brigman_Letterhead.pdf}%
+    \includegraphics[width=\paperwidth,height=\paperheight]{../templates/Brigman_Letterhead.pdf}%
   }%
 }
 
@@ -58,7 +58,7 @@
 \AddToShipoutPictureBG{%
   \ifnum\value{page}>1
     \AtPageLowerLeft{%
-      \includegraphics[width=\paperwidth,height=\paperheight]{Brigman_Paper.pdf}%
+      \includegraphics[width=\paperwidth,height=\paperheight]{../templates/Brigman_Paper.pdf}%
     }%
   \fi
 }
@@ -92,7 +92,7 @@
 \newgeometry{top=5.2cm,left=1in,right=1in,bottom=1.6in} % Adjust as needed
 
 \begin{center}
-\includegraphics[width=0.4\textwidth]{brigman logo.png}\\[0.5cm]
+\includegraphics[width=0.4\textwidth]{../templates/brigman logo.png}\\[0.5cm]
 
 \LARGE\textbf{Software Requirements Analysis Report}\\[0.5cm]
 \large\textbf{Abyss Navigator Suite Project}\\[0.5cm]
@@ -133,6 +133,7 @@
 \item \textbf{6.0 Declarations} \dotfill 12
 \item \textbf{7.0 Sign-off \& Repository Information} \dotfill 12
 \item \textbf{Appendix A: Applied IRC Results} \dotfill A-1
+\item \textbf{Appendix B: Risk Assessment Matrix Legend} \dotfill B-1
 \end{itemize}
 
 % =====================
@@ -196,7 +197,7 @@ BO-L1-4 & CTX-1, CTX-2, CON-2 & “Abnormal conditions” undefined, not testabl
 \end{tabular}
 \end{table}
 
-The same IRC process was applied to every clause. The complete set of findings, including all flags and resolutions, is documented in Appendix A. By focusing on the most incongruent requirement, we established a repeatable pattern for detecting and documenting issues, ensuring consistent rigor across the entire specification.
+The same IRC process was applied to every clause. The complete set of findings, including all flags and resolutions, is documented in Table~\ref{tab:irc-complete}. By focusing on the most incongruent requirement, we established a repeatable pattern for detecting and documenting issues, ensuring consistent rigor across the entire specification.
 
 \subsection{Clarify Activity: Stakeholder Engagement and Resolution}
 
@@ -206,7 +207,7 @@ The same IRC process was applied to every clause. The complete set of findings, 
 \begin{figure}[H]
 \centering
 % Placeholder for the hand-drawn context diagram sketch
-\includegraphics[width=0.5\textwidth]{Context Napkin.jpg}
+\includegraphics[width=0.5\textwidth]{../Models/Context Napkin.jpg}
 \caption{Paper Napkin Sketch: Initial Context Diagram (hand‑drawn, used during clarification)}
 \label{fig:paper-context}
 \end{figure}
@@ -214,7 +215,7 @@ The same IRC process was applied to every clause. The complete set of findings, 
 \begin{figure}[H]
 \centering
 % Placeholder for the hand-drawn use case sketch
-\includegraphics[width=0.5\textwidth]{UseCase Napkin.pdf}
+\includegraphics[width=0.5\textwidth]{../Models/UseCase Napkin.pdf}
 \caption{Paper Napkin Sketch: Initial Use Case Diagram (hand‑drawn, used during clarification)}
 \label{fig:paper-usecase}
 \end{figure}
@@ -253,7 +254,7 @@ For our example requirement, the transformation is shown in Table~\ref{tab:inter
 \rowcolor{tableheader}
 \textbf{Requirement ID} & \textbf{Requirement Text} & \textbf{Verification Method} \\
 \hline
-Original (BO-L1-4) & “The business requires appropriate handling of abnormal or emergency conditions during missions.” & ,  (not testable) \\
+Original (BO-L1-4) & “The business requires appropriate handling of abnormal or emergency conditions during missions.” & (not testable) \\
 \hline
 Interpreted (SAF-EMG-001) & The system \textbf{shall detect} pressure deviations \(>\pm5\%\) from nominal setpoint within 5 seconds. & Test: Inject simulated pressure spike; measure detection latency. \\
 \hline
@@ -272,7 +273,7 @@ SAF-STATE-001 & Upon detection of any abnormal condition, the system \textbf{sha
 \begin{figure}[H]
 \centering
 % Placeholder for the final polished context diagram
-\includegraphics[width=0.5\textwidth]{Context Model.pdf}
+\includegraphics[width=0.5\textwidth]{../Models/Context Model.pdf}
 \caption{Final Context Diagram – Abyss Navigator Suite (post‑clarification)}
 \label{fig:final-context}
 \end{figure}
@@ -280,7 +281,7 @@ SAF-STATE-001 & Upon detection of any abnormal condition, the system \textbf{sha
 \begin{figure}[H]
 \centering
 % Placeholder for the final polished use case diagram
-\includegraphics[width=0.5\textwidth]{UseCase Model.jpg}
+\includegraphics[width=0.5\textwidth]{../Models/UseCase Model.jpg}
 \caption{Final Use Case Diagram – Abyss Navigator Suite (post‑clarification)}
 \label{fig:final-usecase}
 \end{figure}
@@ -366,29 +367,30 @@ IT-L0-C2 & IMP-1, CTX-2 & Essential constraint with ambiguous language, no measu
 \end{tabular}
 \end{center}
 
-\textbf{Note:} The complete filled IRC application table with all project findings and resolution results is provided in Appendix A.
+\textbf{Note:} The complete filled IRC application table with all project findings and resolution results is provided in Table~\ref{tab:irc-complete}.
 
 % =====================
-% RISK ANALYSIS (Page 10) – unchanged
+% RISK ANALYSIS (Page 10)
 % =====================
 \section{Risk Analysis \& Mitigation}
 \label{sec:risks}
 
-Our comprehensive risk assessment identifies and addresses potential challenges that could impact project success, budget, or schedule.
+Our systematic risk assessment evaluates potential challenges using a risk matrix (Table~\ref{tab:risk-legend}) rated 1-8 for impact and likelihood. Figure~\ref{fig:risk-assessment} details all identified risks with corresponding mitigation strategies.
 
-\subsection{Critical Technical Risks: Software Integration Focus}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{Risk Assessment/Risk Assessment.png}
+\caption{Complete Risk Assessment: Identified Risks and Mitigation Strategies}
+\label{fig:risk-assessment}
+\end{figure}
 
-\textbf{Communication Specification Ambiguity} presented a high-severity risk due to missing quantitative bandwidth and latency specifications in the Project Specification. This risk corresponds to CTX-1 (Ambiguous term) and CTX-2 (Not testable) issues identified during Breakdown. With 72\% probability based on historical data, this ambiguity could lead to system failure under operational conditions. Our mitigation involved establishing specific requirements of 1 kbps minimum bandwidth with 30-second maximum latency.
+\subsection{Top 3 Critical Risks and Mitigation Strategies}
 
-\textbf{Hardware Interface Compatibility Issues} emerge from potential incompatibilities between customer-specified hardware components. This risk relates to CTX-1 issues regarding missing interface specifications. This medium-high severity risk carries 55\% probability given hardware specification diversity. Our mitigation strategy implements standardized middleware interfaces and adapter patterns.
+\textbf{R4: Technical Knowledge Asymmetry.} Triton's deep-sea expertise does not extend to software evaluation, risking costly misalignment discovered late in development. \textit{Mitigation:} Hands-on workshops using familiar mission scenarios and early prototypes to facilitate tangible requirement discussions.
 
-\textbf{Sensor Integration Complexity} involves potential delays from missing interface specifications for hardware sensors, corresponding to CTX-1 and CON-1 issues. With 85\% probability based on specification reviews, this high-severity risk could impact project schedule. We mitigated through proposing and gaining approval for ROS2 interface standards.
+\textbf{R5: Institutional Knowledge Loss.} Critical operational knowledge resides with experienced personnel, not documentation. Recent restructuring increases departure risk, threatening irreplaceable expertise in emergency procedures and safety judgement. \textit{Mitigation:} Comprehensive decision logs capturing rationale and cultivating backup contacts to eliminate single points of failure.
 
-\subsection{Project Management Risks: Delivery Focus}
-
-\textbf{Scope Creep Post-Clarification} addresses potential introduction of new requirements during clarification sessions that could impact budget and schedule. This risk relates to CTX-3 (Inconsistent/out of scope) concerns about scope boundary maintenance. Our formal change control process with requirement traceability ensures all new requirements undergo impact analysis before acceptance.
-
-\textbf{Hardware Specification Changes} considers potential modifications to customer hardware specifications during software development, which could trigger CTX-3 issues if not properly managed. We address this through contractual hardware specification freeze dates and formal change request processes.
+\textbf{R7: Withheld Critical Specifications.} Security concerns may prevent disclosure of platform and environmental specifications despite NDAs, forcing design assumptions that risk integration failures. \textit{Mitigation:} Negotiate phased tiered disclosure under NDA, and formally log all assumptions with customer sign-off to ensure shared accountability.
 
 % =====================
 % ACCOUNT MANAGER (Page 11) – unchanged
@@ -486,6 +488,7 @@ Kannan s/o Rajamohan & BDST-DM-036 & \rule{0.8\linewidth}{0.4pt} \\
 \setcounter{page}{1}
 \renewcommand{\thepage}{A-\arabic{page}}
 \section*{Appendix A: Applied IRC Results}
+\label{app:irc-results}
 \addcontentsline{toc}{section}{Appendix A: Applied IRC Results}
 
 % --- Subsection A-1: Complete Filled IRC Application Table ---
@@ -497,7 +500,8 @@ Kannan s/o Rajamohan & BDST-DM-036 & \rule{0.8\linewidth}{0.4pt} \\
 \small
 \renewcommand{\arraystretch}{1.3}
 \begin{longtable}{|>{\raggedright\arraybackslash}p{0.1\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.4\textwidth}|c|>{\raggedright\arraybackslash}p{0.3\textwidth}|}
-\caption{Complete Filled IRC Application Table with All Project Findings}\\
+\caption{Complete Filled IRC Application Table with All Project Findings}
+\label{tab:irc-complete}\\
 \hline
 \rowcolor{tableheader}
 \textbf{PS Ref} & \textbf{IRC Flags} & \textbf{Reason} & \textbf{Clarify?} & \textbf{Resolution \& Action} \\
@@ -575,6 +579,7 @@ Requirements Ready for SRS & 22 & 81.5\% of original \\
 \hline
 \end{tabular}
 \caption{IRC Application Quantitative Summary and Performance Metrics}
+\label{tab:irc-summary}
 \end{table}
 
 % --- Subsection A-3: IRC Value Demonstration & Process Benefits ---
@@ -604,6 +609,62 @@ Requirements Ready for SRS & 22 & 81.5\% of original \\
 \hline
 \end{tabular}
 \caption{IRC Framework Benefits and Project Value Demonstration}
+\label{tab:irc-benefits}
 \end{table}
+
+% =====================
+% APPENDIX B (Pages B-1 ...)
+% =====================
+\newpage
+\setcounter{page}{1}
+\renewcommand{\thepage}{B-\arabic{page}}
+\section*{Appendix B: Risk Assessment Matrix Legend}
+\label{app:risk-matrix}
+\addcontentsline{toc}{section}{Appendix B: Risk Assessment Matrix Legend}
+
+\subsection*{B-1 Risk Rating Scale}
+\addcontentsline{toc}{subsection}{B-1 Risk Rating Scale}
+
+The risk assessment matrix employs a systematic rating scale from 1 to 8 for both Impact and Likelihood dimensions. Table~\ref{tab:risk-legend} provides the classification criteria used to evaluate each identified risk.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|>{\raggedright\arraybackslash}p{0.35\textwidth}|>{\raggedright\arraybackslash}p{0.35\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Legend} & \textbf{Impact} & \textbf{Likelihood} \\
+\hline
+1 & Catastrophic & Almost Certain \\
+\hline
+2 & Critical & Very Common \\
+\hline
+3 & Major & Highly Likely \\
+\hline
+4 & Significant & Likely \\
+\hline
+5 & Moderate & Moderately Likely \\
+\hline
+6 & Minor & Somewhat Likely \\
+\hline
+7 & Minimal & Unlikely \\
+\hline
+8 & Negligible & Least Likely \\
+\hline
+\end{tabular}
+\caption{Risk Assessment Matrix Rating Legend}
+\label{tab:risk-legend}
+\end{table}
+
+\subsection*{B-2 Risk Assessment Matrix}
+\addcontentsline{toc}{subsection}{B-2 Risk Assessment Matrix}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{Risk Assessment/Risk Assessment Matrix.png}
+\caption{Risk Assessment Matrix – Systematic Evaluation Framework}
+\label{fig:risk-matrix}
+\end{figure}
 
 \end{document}
