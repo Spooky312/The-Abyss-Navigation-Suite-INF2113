@@ -103,6 +103,28 @@
 \textbf{\Large Brigman Deep Sea Technology}\\
 \today
 \end{center}
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{2.0}
+\begin{tabular}{|>{\raggedright\arraybackslash}m{0.25\textwidth}|>{\raggedright\arraybackslash}m{0.2\textwidth}|>{\raggedright\arraybackslash}m{0.25\textwidth}|>{\raggedright\arraybackslash}m{0.2\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Brigman Team Member} & \textbf{Department} & \textbf{Role} & \textbf{Employee ID} \\
+\hline
+Muhammad Ridwan Putra Jasni & Requirements Engineering & Lead Business Analyst & BDST-RE-BA-001 \\
+\hline
+Chng Zong Han & Requirements Engineering & Business Analyst & BDST-RE-BA-002 \\
+\hline
+Lin Yuhao & Requirements Engineering & Business Analyst & BDST-RE-BA-003 \\
+\hline
+Muhammad Mikhail Bin Mazlan & Requirements Engineering & Business Analyst & BDST-RE-BA-004 \\
+\hline
+Kannan s/o Rajamohan & Requirements Engineering & Business Analyst & BDST-RE-BA-005 \\
+\hline
+\end{tabular}
+\end{table}
+
 % cover page continues
 \fancyhf{} % clear all
 \lhead{\textbf{Brigman Deep Sea Technology}}
@@ -170,31 +192,35 @@ The same IRC process was applied to every clause. The complete set of findings, 
 \subsection{Clarify Activity: Stakeholder Engagement and Resolution}
 
 \noindent
-\textbf{Paper Napkin Sketches as Collaborative Tools.} Prior to the clarification session, our team prepared hand-drawn \textbf{Context} and \textbf{Use Case} diagrams to support rapid stakeholder feedback.
-
+\textbf{Paper Napkin Sketches as Collaborative Tools.} Prior to clarification, the vendor analysis team prepared hand-drawn \textbf{Context} and \textbf{Use Case} diagrams to support stakeholder validation and reduce ambiguity.
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{../Models/Context Napkin.jpg}
-\caption{Paper Napkin Sketch: Initial Context Diagram (hand-drawn, used during clarification)}
+\caption{Paper Napkin Sketch: Initial Context Diagram (used during clarification)}
 \label{fig:paper-context}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.5\textwidth]{../Models/UseCase Napkin.pdf}
-\caption{Paper Napkin Sketch: Initial Use Case Diagram (hand-drawn, used during clarification)}
+\caption{Paper Napkin Sketch: Initial Use Case Diagram (used during clarification)}
 \label{fig:paper-usecase}
 \end{figure}
 
-During the clarification session, stakeholders annotated these sketches and validated operational boundaries and actors. For \textbf{BO-L1-4}, the client clarified:
+
+Clarification sessions were conducted per flagged requirement. The Business Analyst (BA) led each session, supported by the analysis team, with the Account Manager present for governance confirmation. The departmental representative responsible for the requirement attended to clarify operational intent (e.g., Safety \& Risk for safety requirements, Fleet Operations for autonomous operations, and IT Systems for technical constraints). Separate sessions aligned to stakeholder responsibility ensured accurate interpretation within the Clarify phase of BCIC.
+
+During clarification, stakeholders annotated these sketches while the BA facilitated discussion and recorded validated interpretations. Operational boundaries, actor responsibilities, abnormal thresholds, and system response expectations were confirmed before proceeding.
+
+For \textbf{BO-L1-4}, clarification established:
 
 \begin{itemize}
-    \item Pressure deviation of \(\pm5\%\) sustained for 5 seconds constitutes an “abnormal condition”.
-    \item Temperature deviation of \(\pm10\%\) from nominal, and power supply deviation of \(\pm15\%\), are also abnormal thresholds.
-    \item Upon detection, the system must automatically transition the submersible to a \textbf{safe operational state}, defined as neutral buoyancy, minimal power consumption, and active communication beacon.
+    \item Pressure deviation of \(\pm5\%\) sustained for 5 seconds constitutes an abnormal condition.
+    \item Temperature deviation of \(\pm10\%\) and power supply deviation of \(\pm15\%\) are abnormal thresholds.
+    \item Upon detection, the system must transition to a \textbf{safe operational state} (neutral buoyancy, minimal power consumption, active communication beacon).
 \end{itemize}
 
-These inputs resolved the CTX‑1, CTX‑2, and CON‑2 flags for BO-L1-4 and were replicated across other flagged requirements. Stakeholder feedback indicated a \textbf{40\% reduction in clarification time} versus text-only reviews.
+These inputs resolved the CTX-1, CTX-2, and CON-2 flags and were replicated across other flagged requirements. Stakeholder feedback indicated a \textbf{40\% reduction in clarification time} compared to text-only review. Following explicit confirmation, the BA proceeded to the Interpret stage for regulated-revision.
 
 \subsection{Interpret Activity: Regulated-Revision Demonstration}
 
@@ -213,8 +239,6 @@ For our example requirement, the transformation is shown in Table~\ref{tab:inter
 \centering
 \small
 \renewcommand{\arraystretch}{1.3}
-\caption{Regulated-Revision of Example Requirement BO-L1-4}
-\label{tab:interpret-example}
 \begin{tabular}{|>{\raggedright\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.35\textwidth}|>{\raggedright\arraybackslash}p{0.4\textwidth}|}
 \hline
 \rowcolor{tableheader}
@@ -231,6 +255,8 @@ SAF-EMG-003 & The system \textbf{shall detect} power supply deviations \(>\pm15\
 SAF-STATE-001 & Upon detection of any abnormal condition, the system \textbf{shall} transition the submersible to a safe operational state (neutral buoyancy, minimal power, communication beacon active). & Integration test: End‑to‑end emergency scenario. \\
 \hline
 \end{tabular}
+\caption{Regulated-Revision of Example Requirement BO-L1-4}
+\label{tab:interpret-example}
 \end{table}
 
 \noindent
@@ -275,7 +301,7 @@ Applied across all 27 clauses, this produced \textbf{22 atomic requirements} rea
 
 This section documents the Brigman Incongruous Requirements Checklist (IRC) framework used during the Breakdown activity to systematically identify requirement incongruities.
 
-\subsection{3.1 Combined IRC Checklist Template}
+\subsection{Combined IRC Checklist Template}
 
 \begin{table}[H]
 \centering
@@ -312,7 +338,7 @@ CTX-3 & Contextual & Inconsistent / out of scope & Conflicts with another requir
 \caption{Combined IRC Checklist Framework – Systematic Detection of Requirement Incongruities}
 \end{table}
 
-\subsection{3.2 IRC Application Format \& Recording Template}
+\subsection{IRC Application Format \& Recording Template}
 
 When applying the IRC framework during the Breakdown activity, record findings systematically using the following format:
 
@@ -360,21 +386,27 @@ Our risk assessment uses a matrix rated 1-8 for impact and likelihood (Table~\re
 % ACCOUNT MANAGER (Page 11) – unchanged
 % =====================
 \section{Account Manager \& Stakeholder Coordination}
-\label{sec:account}
 
-\subsection{Account Manager Role and Responsibilities}
+\subsection{Account Manager Role in BCIC}
 
-Muhammad Ridwan Putra Jasni serves as Brigman's primary representative to Triton Deepwater, coordinating communications, clarification sessions, and escalation when required. This role provides consistent messaging and a single point of contact throughout delivery.
+The designated Account Manager, Adrian Clarke, serves as Brigman Deep Sea Technology’s primary liaison to Triton Deepwater during the Analysing (BCIC) method. In Requirements Engineering, this role supports the vendor’s analysis team but is not part of Requirements Elicitation or Validation. Regulated-revision, modelling, and codification remain the responsibility of analysts; the Account Manager ensures continuity of engagement, structured communication, and cooperative alignment across stakeholders.
 
-\subsection{Stakeholder Engagement Strategy}
+\subsection{Governance and Communication Control}
 
-Engagement used targeted sessions with operational stakeholders and visual models to align technical and operational perspectives. Decisions were documented, tracked, and validated through structured follow-up.
+During Breakdown and Clarify phases, the Account Manager provided governance support to prevent ambiguity drift and uncontrolled requirement changes. Key responsibilities included: (i) agreeing clarification agendas and ensuring correct SMEs were present, (ii) documenting decisions and action items, (iii) confirming customer agreement on interpreted/corrected clauses, and (iv) controlling distribution of revised artefacts so only one authoritative version was used. This ensured clarified parameters were traceable to revised requirement clauses before repository loading, improving readiness for Specifying (SRS).
 
-\subsection{Escalation Protocol and Coordination Outcomes}
+\subsection{Clarification Sessions Attended, Escalation, and Outcomes}
 
-Escalation follows four levels: technical resolution (24 hours), account manager mediation (4 hours), executive engagement, and contractual review when needed.
+To resolve incongruities, the Account Manager coordinated and attended targeted clarification sessions with the following stakeholder groups:
 
-This approach resolved 86.7\% of incongruities through client input and established clear coordination protocols for future phases.
+\begin{itemize}
+    \item \textbf{Operational Session} -- Fleet Operations Team and Mission Operations Manager (autonomous execution, fleet-level coordination, abnormal handling)
+    \item \textbf{Safety \& Risk Session} -- Safety \& Risk Manager and Systems Safety Engineer (emergency retrieval triggers, fail-safe transitions, regulatory obligations)
+    \item \textbf{IT \& Communications Session} -- IT Systems Manager and Network \& Communications Engineer (remote intervention, degraded communication handling, telemetry constraints)
+    \item \textbf{Data Governance Session} -- Safety \& Compliance Officer and Mission Data Analyst (logging sufficiency, traceability, post-mission accountability)
+\end{itemize}
+
+A four-level escalation framework was applied: technical resolution within 24 hours; Account Manager mediation within 4 hours of impasse; executive engagement where strategic direction was affected; and contractual review where material scope, schedule, or budget impact was identified. This structured coordination reduced clarification delays and stakeholder misalignment; consequently, 86.7\% of identified incongruities were resolved prior to transition into the Specifying phase.
 
 % =====================
 % DECLARATIONS & SIGN-OFF (Page 12) – unchanged
@@ -383,9 +415,9 @@ This approach resolved 86.7\% of incongruities through client input and establis
 \section{Declarations}
 \label{sec:declarations}
 
-\textbf{AI Tool Usage Declaration:} ChatGPT assisted with language refinement and document flow. All technical analysis, models, and substantive content were produced by Brigman teams.
+\textbf{AI Tool Usage Declaration:} We acknowledge the use of ChatGPT (https://chat.openai.com) to assist with language refinement, structural organization, and clarity of presentation. The prompts entered included requests to review section structure, improve wording and improve flow. The output from these prompts was used to refine phrasing and document flow. We confirm that no AI-generated analytical content, models, or technical conclusions have been presented as our own work.
 
-\textbf{Originality Declaration:} This report presents original analysis by Brigman Deep Sea Technology. BCIC is a proprietary framework applied specifically to this project.
+\textbf{Originality Declaration:} This report presents original analysis by Brigman Deep Sea Technology. BCIC is a proprietary framework invented by Dr Kevin Anthony Jones and applied by us specifically to this project.
 
 \textbf{Software Compliance Declaration:} Analysis aligns with IEEE 830 and applies CRaM principles (Correct, Relevant, Measurable).
 
@@ -418,15 +450,15 @@ This approach resolved 86.7\% of incongruities through client input and establis
 \rowcolor{tableheader}
 \textbf{Brigman Team Member} & \textbf{Employee ID} & \textbf{Signature} \\
 \hline
-Muhammad Ridwan Putra Jasni & BDST-RE-001 & \rule{0pt}{1.0cm} \\
+Muhammad Ridwan Putra Jasni & BDST-RE-BA-001 & \makebox[\linewidth][c]{\includegraphics[height=1.5cm]{../Signatures/signature_ridwan.jpg}}\\
 \hline
-Chng Zong Han & BDST-SE-015 & \rule{0pt}{1.0cm} \\
+Chng Zong Han & BDST-RE-BA-002 & \textit{Signature Pending} \\
 \hline
-Lin Yuhao & BDST-CS-022 & \rule{0pt}{1.0cm} \\
+Lin Yuhao & BDST-RE-BA-003 & \textit{Signature Pending} \\
 \hline
-Muhammad Mikhail Bin Mazlan & BDST-AI-029 & \rule{0pt}{1.0cm} \\
+Muhammad Mikhail Bin Mazlan & BDST-RE-BA-004 & \textit{Signature Pending} \\
 \hline
-Kannan s/o Rajamohan & BDST-DM-036 & \rule{0pt}{1.0cm} \\
+Kannan s/o Rajamohan & BDST-RE-BA-005 & \textit{Signature Pending} \\
 \hline
 \end{tabular}
 \end{table}
