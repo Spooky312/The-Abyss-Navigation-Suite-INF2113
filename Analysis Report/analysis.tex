@@ -1,3 +1,5 @@
+% !TeX root = analysis.tex
+% !TeX program = pdflatex
 \documentclass[12pt,a4paper]{article}
 
 % =====================
@@ -25,6 +27,7 @@
 \usepackage{longtable}
 \usepackage{textcomp}
 \usepackage{caption}
+\usepackage{bookmark}
 \definecolor{critical}{RGB}{255, 200, 200}
 \definecolor{high}{RGB}{255, 230, 200}
 \definecolor{medium}{RGB}{255, 255, 200}
@@ -111,59 +114,24 @@
 % =====================
 % TABLE OF CONTENTS (Page 2)
 % =====================
+\newpage
 \thispagestyle{empty}
-\section*{Table of Contents}
-\vspace{0.5cm}
-\begin{itemize}[leftmargin=*,nosep]
-\item \textbf{1.0 Executive Summary} \dotfill 4
-\item \textbf{2.0 BCIC Methodology Application} \dotfill 5
-  \begin{itemize}[leftmargin=*]
-  \item 2.1 Breakdown Activity \dotfill 5
-  \item 2.2 Clarify Activity \dotfill 6
-  \item 2.3 Interpret Activity \dotfill 7
-  \item 2.4 Categorize Activity \dotfill 8
-  \end{itemize}
-\item \textbf{3.0 Incongruous Requirements Checklist (IRC)} \dotfill 9
-  \begin{itemize}[leftmargin=*]
-  \item 3.1 Combined IRC Checklist Template \dotfill 9
-  \item 3.2 IRC Application Format \dotfill 9
-  \end{itemize}
-\item \textbf{4.0 Risk Analysis \& Mitigation} \dotfill 10
-\item \textbf{5.0 Account Manager \& Stakeholder Coordination} \dotfill 11
-\item \textbf{6.0 Declarations} \dotfill 12
-\item \textbf{7.0 Sign-off \& Repository Information} \dotfill 12
-\item \textbf{Appendix A: Applied IRC Results} \dotfill A-1
-\item \textbf{Appendix B: Risk Assessment Matrix Legend} \dotfill B-1
-\end{itemize}
+\renewcommand{\contentsname}{Table of Contents}
+\tableofcontents
 
 % =====================
-% DOCUMENT ORGANIZATION (Page 3)
+% EXECUTIVE SUMMARY (Page 3)
 % =====================
 \newpage
 \setcounter{page}{3}
-\section*{Document Organization}
-\addcontentsline{toc}{section}{Document Organization}
-
-This comprehensive report documents Brigman Deep Sea Technology's systematic application of the BCIC (Breakdown, Clarify, Interpret, Categorize) methodology to analyze Triton Deepwater's Project Specification for the Abyss Navigator Suite. Our focus remains exclusively on developing and implementing the software layer that will unify and coordinate all customer-specified hardware components.
-
-Our project scope is clearly delineated: hardware components, specifications, and interfaces are exclusively specified by Triton Deepwater, while our software system serves as the critical integration layer that connects, coordinates, and manages all specified hardware components.
-
-The analysis follows a structured methodology with hierarchical numbering for requirement traceability, standardized formatting, BCIC-xxx references for analysis artifacts, and a color-coded priority system (Critical, High, Medium). All analyzed software requirements comply with CRaM principles (Correct, Relevant, Measurable).
-
-% =====================
-% EXECUTIVE SUMMARY (Page 4)
-% =====================
-\newpage
 \section{Executive Summary}
 \label{sec:executive}
 
-Brigman Deep Sea Technology has successfully completed the comprehensive software requirements analysis phase for the Abyss Navigator Suite project using our proprietary BCIC methodology. Through systematic investigation and structured stakeholder engagement with Triton Deepwater, we have transformed ambiguous software requirements into measurable, testable specifications ready for implementation.
+Brigman Deep Sea Technology completed software requirements analysis for the Abyss Navigator Suite using BCIC, transforming ambiguous inputs into measurable and testable specifications.
 
-Our analysis of 27 formal Project Specification requirement clauses revealed 15 incongruities requiring clarification, representing a 55.6\% incongruity rate. Through targeted stakeholder sessions, we achieved an 86.7\% resolution rate, obtaining critical quantitative specifications including 99\% waypoint accuracy requirements, 5-second emergency detection thresholds, and AES-256 encryption standards.
+Across 27 Project Specification clauses, we identified 15 incongruities (55.6\%) and resolved 86.7\% through targeted stakeholder sessions. Key outputs include quantitative constraints such as 99\% waypoint accuracy, 5-second emergency detection thresholds, and AES-256 security controls.
 
-The regulated-revision process demonstrated through our Interpret activity transformed ambiguous statements into codified requirements with clear verification methods. All requirements have been systematically categorized into functional domains including Navigation, Communication, Safety, and Interface specifications, preparing them for structured SRS development.
-
-The value delivered through this early analysis is substantial, preventing an estimated \$350K+ in potential rework costs and reducing implementation risk by 4-6 weeks.
+The regulated-revision process produced codified, verifiable requirements grouped into Navigation, Communication, Safety, and Interface domains. This early analysis is estimated to avoid \$350K+ in rework and reduce schedule risk by 4-6 weeks.
 
 % =====================
 % BCIC METHODOLOGY APPLICATION (Pages 5-8)
@@ -177,9 +145,9 @@ The value delivered through this early analysis is substantial, preventing an es
 % ------------------------------------------------------------------
 \subsection{Breakdown Activity: Systematic Incongruity Detection}
 
-The Breakdown activity applies our Incongruous Requirements Checklist (IRC) to every requirement clause in the Project Specification. Each clause is examined through eight specific checks covering Imperative (obligation strength), Continuance (complexity), and Contextual (meaning, testability, consistency) dimensions. This process identified \textbf{15 incongruities} across the 27 clauses, a 55.6\% incongruity rate.
+The Breakdown activity applies the Incongruous Requirements Checklist (IRC) to each Project Specification clause across Imperative, Continuance, and Contextual checks. This process identified \textbf{15 incongruities} across 27 clauses (55.6\%).
 
-To illustrate the method, we present here the analysis of \textbf{BO-L1-4 (Emergency and Abnormal Situation Handling)}, the requirement that triggered the most IRC flags (three) and thus served as our primary example throughout stakeholder discussions. Table~\ref{tab:breakdown-example} shows the IRC application format for this requirement, including the specific clarification question prepared for the client.
+As the primary example, \textbf{BO-L1-4 (Emergency and Abnormal Situation Handling)} triggered three IRC flags. Table~\ref{tab:breakdown-example} summarizes the issue and clarification question raised to the client.
 
 \begin{table}[H]
 \centering
@@ -202,25 +170,11 @@ The same IRC process was applied to every clause. The complete set of findings, 
 \subsection{Clarify Activity: Stakeholder Engagement and Resolution}
 
 \noindent
-\textbf{Paper Napkin Sketches as Collaborative Tools.} Prior to the structured clarification session, our team prepared two lightweight, hand‑drawn visual models, a \textbf{Context Diagram} and a \textbf{Use Case Diagram}, on paper napkin-style sketches. These intentionally informal diagrams served as neutral, low‑threat discussion anchors, inviting stakeholders to correct, annotate, and enrich them in real time.
+\textbf{Paper Napkin Sketches as Collaborative Tools.} Prior to the clarification session, our team prepared hand-drawn \textbf{Context} and \textbf{Use Case} diagrams to support rapid stakeholder feedback.
 
-\begin{figure}[H]
-\centering
-% Placeholder for the hand-drawn context diagram sketch
-\includegraphics[width=0.5\textwidth]{../Models/Context Napkin.jpg}
-\caption{Paper Napkin Sketch: Initial Context Diagram (hand‑drawn, used during clarification)}
-\label{fig:paper-context}
-\end{figure}
+Initial napkin sketches are archived in the project repository and were used as working artifacts during clarification.
 
-\begin{figure}[H]
-\centering
-% Placeholder for the hand-drawn use case sketch
-\includegraphics[width=0.5\textwidth]{../Models/UseCase Napkin.pdf}
-\caption{Paper Napkin Sketch: Initial Use Case Diagram (hand‑drawn, used during clarification)}
-\label{fig:paper-usecase}
-\end{figure}
-
-During the clarification session with the Triton Deepwater Operations Team, The Business Analyst presented the sketches, while the Account Manager facilitated stakeholder coordination and ensured alignment. Stakeholders immediately engaged: they drew boundary lines, added missing actors (e.g., "Regulatory Authority"), and scribbled operational notes. For our example requirement \textbf{BO-L1-4}, the discussion centred on the "Emergency Handling" use case. Using the sketch, the client clarified:
+During the clarification session, stakeholders annotated these sketches and validated operational boundaries and actors. For \textbf{BO-L1-4}, the client clarified:
 
 \begin{itemize}
     \item Pressure deviation of \(\pm5\%\) sustained for 5 seconds constitutes an “abnormal condition”.
@@ -228,11 +182,11 @@ During the clarification session with the Triton Deepwater Operations Team, The 
     \item Upon detection, the system must automatically transition the submersible to a \textbf{safe operational state}, defined as neutral buoyancy, minimal power consumption, and active communication beacon.
 \end{itemize}
 
-These clarifications, obtained through collaborative visual modelling, directly resolved the CTX‑1, CTX‑2, and CON‑2 flags for BO-L1-4. The same interactive process was repeated for all other flagged requirements; the paper napkin sketches evolved in real time into a shared understanding of system boundaries and operator interactions. Stakeholder feedback confirmed a \textbf{40\% reduction in clarification time} compared to text-only reviews.
+These inputs resolved the CTX‑1, CTX‑2, and CON‑2 flags for BO-L1-4 and were replicated across other flagged requirements. Stakeholder feedback indicated a \textbf{40\% reduction in clarification time} versus text-only reviews.
 
 \subsection{Interpret Activity: Regulated-Revision Demonstration}
 
-Following the clarification session, we transformed the raw stakeholder inputs into precise, measurable, and verifiable software requirements. This \textbf{regulated-revision} process applies a fixed set of transformations:
+Following clarification, stakeholder inputs were transformed into precise, measurable, and verifiable software requirements through a \textbf{regulated-revision} process:
 
 \begin{itemize}
     \item \textbf{Imperative issues (IMP):} replace weak or passive phrasing with strong obligations (“shall”).
@@ -268,29 +222,15 @@ SAF-STATE-001 & Upon detection of any abnormal condition, the system \textbf{sha
 \end{table}
 
 \noindent
-\textbf{Finalised Diagrams.} The informal paper napkin sketches were refined into formal modelling notation. Figure~\ref{fig:final-context} presents the official Context Diagram for the Abyss Navigator Suite, clearly delineating the software system, external hardware, operators, and external systems. Figure~\ref{fig:final-usecase} shows the consolidated Use Case Diagram, now including all actors and use cases validated by the client.
+\textbf{Finalised Diagrams.} The sketch outputs were formalized into official Context and Use Case models maintained in the repository.
 
-\begin{figure}[H]
-\centering
-% Placeholder for the final polished context diagram
-\includegraphics[width=0.5\textwidth]{../Models/Context Model.pdf}
-\caption{Final Context Diagram – Abyss Navigator Suite (post‑clarification)}
-\label{fig:final-context}
-\end{figure}
+Formal context and use case diagrams are maintained in the repository as approved analysis artifacts.
 
-\begin{figure}[H]
-\centering
-% Placeholder for the final polished use case diagram
-\includegraphics[width=0.5\textwidth]{../Models/UseCase Model.jpg}
-\caption{Final Use Case Diagram – Abyss Navigator Suite (post‑clarification)}
-\label{fig:final-usecase}
-\end{figure}
-
-These final models serve as the authoritative source for system scope and actor interactions, directly traceable to the clarified requirements. Every requirement refined during Interpret activity is linked to the relevant model elements.
+These models define approved system scope and actor interactions, with direct traceability to clarified requirements.
 
 \subsection{Categorize Activity: Structured Organization for SRS Development}
 
-With all requirements clarified and rewritten in measurable form, we performed systematic categorization following IEEE 830 guidelines. The refined requirements were grouped into four primary functional domains:
+With requirements clarified and rewritten in measurable form, we categorized them under IEEE 830-aligned domains:
 
 \begin{itemize}
     \item \textbf{Navigation} – autonomous waypoint following, obstacle avoidance.
@@ -299,9 +239,9 @@ With all requirements clarified and rewritten in measurable form, we performed s
     \item \textbf{Interface} – sensor integration, API specifications, data logging.
 \end{itemize}
 
-Our example requirement (BO-L1-4) and its decomposed children (SAF-EMG-001…003, SAF-STATE-001) were assigned to the \textbf{Safety} domain. Each categorized requirement received a unique codification (e.g., SAF-EMG-001) that maintains full traceability to the original PS clause and to the corresponding IRC record.
+BO-L1-4 and its derived requirements (SAF-EMG-001 to SAF-EMG-003, SAF-STATE-001) were assigned to \textbf{Safety}. Each item received unique codification to preserve traceability to original PS clauses and IRC records.
 
-This categorization was applied uniformly to all 27 original clauses, yielding \textbf{22 atomic requirements} ready for SRS development (81.5\% of the original set). The structured organization directly informs our repository architecture and enables incremental delivery planning. The complete categorised requirements list is maintained under version control at the repository cited in Section~7.
+Applied across all 27 clauses, this produced \textbf{22 atomic requirements} ready for SRS development (81.5\%). The categorized list is maintained in the repository cited in Section~7.
 
 % =====================
 % IRC SECTION (Page 9) – unchanged template
@@ -375,22 +315,15 @@ IT-L0-C2 & IMP-1, CTX-2 & Essential constraint with ambiguous language, no measu
 \section{Risk Analysis \& Mitigation}
 \label{sec:risks}
 
-Our systematic risk assessment evaluates potential challenges using a risk matrix (Table~\ref{tab:risk-legend}) rated 1-8 for impact and likelihood. Figure~\ref{fig:risk-assessment} details all identified risks with corresponding mitigation strategies.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.95\textwidth]{Risk Assessment/Risk Assessment.png}
-\caption{Complete Risk Assessment: Identified Risks and Mitigation Strategies}
-\label{fig:risk-assessment}
-\end{figure}
+Our risk assessment uses a matrix rated 1-8 for impact and likelihood (Table~\ref{tab:risk-legend}). A full visual risk register is included in Appendix B.
 
 \subsection{Top 3 Critical Risks and Mitigation Strategies}
 
-\textbf{R4: Technical Knowledge Asymmetry.} Triton's deep-sea expertise does not extend to software evaluation, risking costly misalignment discovered late in development. \textit{Mitigation:} Hands-on workshops using familiar mission scenarios and early prototypes to facilitate tangible requirement discussions.
+\textbf{R4: Technical Knowledge Asymmetry.} Limited software evaluation capability can cause late-stage misalignment. \textit{Mitigation:} Run hands-on workshops with mission-based prototypes.
 
-\textbf{R5: Institutional Knowledge Loss.} Critical operational knowledge resides with experienced personnel, not documentation. Recent restructuring increases departure risk, threatening irreplaceable expertise in emergency procedures and safety judgement. \textit{Mitigation:} Comprehensive decision logs capturing rationale and cultivating backup contacts to eliminate single points of failure.
+\textbf{R5: Institutional Knowledge Loss.} Critical operational knowledge is concentrated in experienced personnel, creating continuity risk during staffing changes. \textit{Mitigation:} Maintain decision logs and backup contacts to prevent single points of failure.
 
-\textbf{R7: Withheld Critical Specifications.} Security concerns may prevent disclosure of platform and environmental specifications despite NDAs, forcing design assumptions that risk integration failures. \textit{Mitigation:} Negotiate phased tiered disclosure under NDA, and formally log all assumptions with customer sign-off to ensure shared accountability.
+\textbf{R7: Withheld Critical Specifications.} Security constraints may delay access to key platform data, increasing assumption-driven integration risk. \textit{Mitigation:} Use phased NDA disclosure and formally record assumptions with customer sign-off.
 
 % =====================
 % ACCOUNT MANAGER (Page 11) – unchanged
@@ -400,38 +333,33 @@ Our systematic risk assessment evaluates potential challenges using a risk matri
 
 \subsection{Account Manager Role and Responsibilities}
 
-Muhammad Ridwan Putra Jasni serves as primary Brigman representative to Triton Deepwater, responsible for facilitating all client-vendor communications and coordinating stakeholder engagement. His role encompasses scheduling and leading software requirement clarification sessions, managing client expectations, ensuring alignment on requirements, and escalating issues through established channels when necessary.
-
-This dedicated account management ensures consistent messaging and effective relationship management throughout the project lifecycle, providing Triton Deepwater with a single point of contact for all project-related communications and coordination.
+Muhammad Ridwan Putra Jasni serves as Brigman's primary representative to Triton Deepwater, coordinating communications, clarification sessions, and escalation when required. This role provides consistent messaging and a single point of contact throughout delivery.
 
 \subsection{Stakeholder Engagement Strategy}
 
-Our engagement strategy involved targeted sessions with operational stakeholders using visual models as discussion tools to bridge technical and operational perspectives. Comprehensive documentation captured all decisions and clarifications, with systematic follow-up processes tracking action items to completion with client validation.
-
-The structured engagement approach facilitated efficient resolution of requirement incongruities while building collaborative relationships with client stakeholders, establishing foundations for ongoing project success.
+Engagement used targeted sessions with operational stakeholders and visual models to align technical and operational perspectives. Decisions were documented, tracked, and validated through structured follow-up.
 
 \subsection{Escalation Protocol and Coordination Outcomes}
 
-Our escalation protocol follows a four-level structured approach beginning with technical team resolution attempts within 24 hours, progressing to account manager mediation within 4 hours if unresolved, followed by executive engagement, and concluding with contractual review if necessary.
+Escalation follows four levels: technical resolution (24 hours), account manager mediation (4 hours), executive engagement, and contractual review when needed.
 
-Coordination outcomes demonstrate significant success, with 86.7\% of software incongruities resolved through client input, strengthened client relationships through professional engagement, established clear communication protocols for future interactions, and achieved mutual understanding bridging operational needs with technical capabilities.
+This approach resolved 86.7\% of incongruities through client input and established clear coordination protocols for future phases.
 
 % =====================
 % DECLARATIONS & SIGN-OFF (Page 12) – unchanged
 % =====================
-\newpage
 \section{Declarations}
 \label{sec:declarations}
 
-\textbf{AI Tool Usage Declaration:} ChatGPT assisted with language refinement, grammar checking, and document flow improvement, serving as educational resource for complex technical concept explanation. All analysis, models, diagrams, and substantive content were developed by Brigman analysis teams.
+\textbf{AI Tool Usage Declaration:} ChatGPT assisted with language refinement and document flow. All technical analysis, models, and substantive content were produced by Brigman teams.
 
-\textbf{Originality Declaration:} This report represents original analysis work conducted by Brigman Deep Sea Technology as software vendor. The BCIC methodology is proprietary framework developed and applied by our organization, with all visual models and analysis techniques created specifically for Abyss Navigator Suite project requirements.
+\textbf{Originality Declaration:} This report presents original analysis by Brigman Deep Sea Technology. BCIC is a proprietary framework applied specifically to this project.
 
-\textbf{Software Compliance Declaration:} Analysis complies with IEEE 830 software requirements specification standards. All software requirements meet CRaM principles (Correct, Relevant, Measurable), following industry best practices for requirements engineering from vendor perspective.
+\textbf{Software Compliance Declaration:} Analysis aligns with IEEE 830 and applies CRaM principles (Correct, Relevant, Measurable).
 
-\textbf{Software Scope Declaration:} This analysis covers exclusively software system requirements, excluding hardware components. Software will adapt to and integrate all customer-specified hardware, with hardware specifications and interfaces provided by customer. Software's primary role involves unifying hardware components through integrated control interface.
+\textbf{Software Scope Declaration:} This analysis covers software requirements only. Hardware specifications and interfaces are customer-defined, and the software integrates those components.
 
-\vspace{1cm}
+\vspace{0.3cm}
 
 \section*{Sign-off \& Repository Information}
 \addcontentsline{toc}{section}{Sign-off \& Repository Information}
@@ -445,8 +373,6 @@ Coordination outcomes demonstrate significant success, with 86.7\% of software i
 \end{minipage}}
 \end{center}
 
-\vspace{0.5cm}
-
 \begin{center}
 \textbf{BRIGMAN TEAM APPROVAL SIGN-OFF}
 \end{center}
@@ -454,21 +380,21 @@ Coordination outcomes demonstrate significant success, with 86.7\% of software i
 \begin{table}[H]
 \centering
 \small
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|>{\raggedright\arraybackslash}p{0.3\textwidth}|>{\raggedright\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.4\textwidth}|}
+\renewcommand{\arraystretch}{1.0}
+\begin{tabular}{|>{\raggedright\arraybackslash}m{0.3\textwidth}|>{\raggedright\arraybackslash}m{0.2\textwidth}|>{\raggedright\arraybackslash}m{0.4\textwidth}|}
 \hline
 \rowcolor{tableheader}
 \textbf{Brigman Team Member} & \textbf{Employee ID} & \textbf{Signature} \\
 \hline
-Muhammad Ridwan Putra Jasni & BDST-RE-001 & \rule{0.8\linewidth}{0.4pt} \\
+Muhammad Ridwan Putra Jasni & BDST-RE-001 & \rule{0pt}{1.0cm} \\
 \hline
-Chng Zong Han & BDST-SE-015 & \rule{0.8\linewidth}{0.4pt} \\
+Chng Zong Han & BDST-SE-015 & \rule{0pt}{1.0cm} \\
 \hline
-Lin Yuhao & BDST-CS-022 & \rule{0.8\linewidth}{0.4pt} \\
+Lin Yuhao & BDST-CS-022 & \rule{0pt}{1.0cm} \\
 \hline
-Muhammad Mikhail Bin Mazlan & BDST-AI-029 & \rule{0.8\linewidth}{0.4pt} \\
+Muhammad Mikhail Bin Mazlan & BDST-AI-029 & \rule{0pt}{1.0cm} \\
 \hline
-Kannan s/o Rajamohan & BDST-DM-036 & \rule{0.8\linewidth}{0.4pt} \\
+Kannan s/o Rajamohan & BDST-DM-036 & \rule{0pt}{1.0cm} \\
 \hline
 \end{tabular}
 \end{table}
