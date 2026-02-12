@@ -210,7 +210,7 @@ The value delivered through this early analysis is substantial, preventing an es
 % ------------------------------------------------------------------
 \subsection{Breakdown Activity: Systematic Incongruity Detection}
 
-The Breakdown activity applies our Incongruous Requirements Checklist (IRC) to every requirement clause in the Project Specification. Each clause is examined through eight specific checks covering Imperative (obligation strength), Continuance (complexity), and Contextual (meaning, testability, consistency) dimensions. This process identified **15 incongruities** across the 27 clauses—a 55.6\% incongruity rate.
+The Breakdown activity applies our Incongruous Requirements Checklist (IRC) to every requirement clause in the Project Specification. Each clause is examined through eight specific checks covering Imperative (obligation strength), Continuance (complexity), and Contextual (meaning, testability, consistency) dimensions. This process identified **15 incongruities** across the 27 clauses, a 55.6\% incongruity rate.
 
 To illustrate the method, we present here the analysis of **BO-L1-4 (Emergency and Abnormal Situation Handling)**, the requirement that triggered the most IRC flags (three) and thus served as our primary example throughout stakeholder discussions. Table~\ref{tab:breakdown-example} shows the IRC application format for this requirement, including the specific clarification question prepared for the client.
 
@@ -235,7 +235,7 @@ The same IRC process was applied to every clause. The complete set of findings, 
 \subsection{Clarify Activity: Stakeholder Engagement and Resolution}
 
 \noindent
-\textbf{Paper Napkin Sketches as Collaborative Tools.} Prior to the structured clarification session, our team prepared two lightweight, hand‑drawn visual models—a **Context Diagram** and a **Use Case Diagram**—on paper napkin-style sketches. These intentionally informal diagrams served as neutral, low‑threat discussion anchors, inviting stakeholders to correct, annotate, and enrich them in real time.
+\textbf{Paper Napkin Sketches as Collaborative Tools.} Prior to the structured clarification session, our team prepared two lightweight, hand‑drawn visual models, a **Context Diagram** and a **Use Case Diagram**, on paper napkin-style sketches. These intentionally informal diagrams served as neutral, low‑threat discussion anchors, inviting stakeholders to correct, annotate, and enrich them in real time.
 
 \begin{figure}[H]
 \centering
@@ -253,7 +253,7 @@ The same IRC process was applied to every clause. The complete set of findings, 
 \label{fig:paper-usecase}
 \end{figure}
 
-During the clarification session with the Triton Deepwater Operations Team, the Account Manager presented these sketches on a large whiteboard. Stakeholders immediately engaged: they drew boundary lines, added missing actors (e.g., “Regulatory Authority”), and scribbled operational notes. For our example requirement **BO-L1-4**, the discussion centred on the “Emergency Handling” use case. Using the sketch, the client clarified:
+During the clarification session with the Triton Deepwater Operations Team, The Business Analyst presented the sketches, while the Account Manager facilitated stakeholder coordination and ensured alignment. Stakeholders immediately engaged: they drew boundary lines, added missing actors (e.g., “Regulatory Authority”), and scribbled operational notes. For our example requirement **BO-L1-4**, the discussion centred on the “Emergency Handling” use case. Using the sketch, the client clarified:
 
 \begin{itemize}
     \item Pressure deviation of \(\pm5\%\) sustained for 5 seconds constitutes an “abnormal condition”.
@@ -287,7 +287,7 @@ For our example requirement, the transformation is shown in Table~\ref{tab:inter
 \rowcolor{tableheader}
 \textbf{Requirement ID} & \textbf{Requirement Text} & \textbf{Verification Method} \\
 \hline
-Original (BO-L1-4) & “The business requires appropriate handling of abnormal or emergency conditions during missions.” & — (not testable) \\
+Original (BO-L1-4) & “The business requires appropriate handling of abnormal or emergency conditions during missions.” & ,  (not testable) \\
 \hline
 Interpreted (SAF-EMG-001) & The system \textbf{shall detect} pressure deviations \(>\pm5\%\) from nominal setpoint within 5 seconds. & Test: Inject simulated pressure spike; measure detection latency. \\
 \hline
