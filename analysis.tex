@@ -100,41 +100,7 @@
 \textbf{\Large Brigman Deep Sea Technology}\\
 \today
 \end{center}
-
-\vspace{0.5cm}
-\begin{table}[H]
-\centering
-\small
-\begin{tabular}{|>{\raggedright\arraybackslash}p{0.35\textwidth}|>{\centering\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.4\textwidth}|}
-\hline
-\textbf{Team Member} & \textbf{Employee ID} & \textbf{Role \& Analysis Focus} \\
-\hline
-Muhammad Ridwan Putra Jasni & BDST-RE-001 & Software Project Lead \& Account Manager \\
-\hline
-Chng Zong Han & BDST-SE-015 & Software Safety Engineering Lead (Emergency Protocols) \\
-\hline
-Lin Yuhao & BDST-CS-022 & Communications Software Lead (Network Specifications) \\
-\hline
-Muhammad Mikhail Bin Mazlan & BDST-AI-029 & Autonomous Systems Software Lead (Mission Operations) \\
-\hline
-Kannan s/o Rajamohan & BDST-DM-036 & Data Management Software Lead (Logging \& Traceability) \\
-\hline
-\end{tabular}
-\end{table}
-
-\vfill
-\begin{center}
-\textit{Confidential - For Internal Use Only}\\
-\textbf{Report Version: 3.0 (Full BCIC Methodology)}
-\end{center}
-
-\restoregeometry
-
-% =====================
-% RESTORE HEADERS for other pages
-% =====================
-\newpage
-\pagestyle{fancy}
+% cover page continues
 \fancyhf{} % clear all
 \lhead{\textbf{Brigman Deep Sea Technology}}
 \rhead{Software Requirements Analysis (BCIC Methodology)}
@@ -210,9 +176,9 @@ The value delivered through this early analysis is substantial, preventing an es
 % ------------------------------------------------------------------
 \subsection{Breakdown Activity: Systematic Incongruity Detection}
 
-The Breakdown activity applies our Incongruous Requirements Checklist (IRC) to every requirement clause in the Project Specification. Each clause is examined through eight specific checks covering Imperative (obligation strength), Continuance (complexity), and Contextual (meaning, testability, consistency) dimensions. This process identified **15 incongruities** across the 27 clauses, a 55.6\% incongruity rate.
+The Breakdown activity applies our Incongruous Requirements Checklist (IRC) to every requirement clause in the Project Specification. Each clause is examined through eight specific checks covering Imperative (obligation strength), Continuance (complexity), and Contextual (meaning, testability, consistency) dimensions. This process identified \textbf{15 incongruities} across the 27 clauses, a 55.6\% incongruity rate.
 
-To illustrate the method, we present here the analysis of **BO-L1-4 (Emergency and Abnormal Situation Handling)**, the requirement that triggered the most IRC flags (three) and thus served as our primary example throughout stakeholder discussions. Table~\ref{tab:breakdown-example} shows the IRC application format for this requirement, including the specific clarification question prepared for the client.
+To illustrate the method, we present here the analysis of \textbf{BO-L1-4 (Emergency and Abnormal Situation Handling)}, the requirement that triggered the most IRC flags (three) and thus served as our primary example throughout stakeholder discussions. Table~\ref{tab:breakdown-example} shows the IRC application format for this requirement, including the specific clarification question prepared for the client.
 
 \begin{table}[H]
 \centering
@@ -220,7 +186,7 @@ To illustrate the method, we present here the analysis of **BO-L1-4 (Emergency a
 \renewcommand{\arraystretch}{1.3}
 \caption{IRC Application for Example Requirement BO-L1-4}
 \label{tab:breakdown-example}
-\begin{tabular}{|p{0.13\textwidth}|p{0.13\textwidth}|p{0.32\textwidth}|c|p{0.3\textwidth}|}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.13\textwidth}|>{\raggedright\arraybackslash}p{0.13\textwidth}|>{\raggedright\arraybackslash}p{0.32\textwidth}|c|>{\raggedright\arraybackslash}p{0.3\textwidth}|}
 \hline
 \rowcolor{tableheader}
 \textbf{PS Ref} & \textbf{IRC Flags} & \textbf{Reason} & \textbf{Clarify?} & \textbf{Question for Client} \\
@@ -235,7 +201,7 @@ The same IRC process was applied to every clause. The complete set of findings, 
 \subsection{Clarify Activity: Stakeholder Engagement and Resolution}
 
 \noindent
-\textbf{Paper Napkin Sketches as Collaborative Tools.} Prior to the structured clarification session, our team prepared two lightweight, hand‑drawn visual models, a **Context Diagram** and a **Use Case Diagram**, on paper napkin-style sketches. These intentionally informal diagrams served as neutral, low‑threat discussion anchors, inviting stakeholders to correct, annotate, and enrich them in real time.
+\textbf{Paper Napkin Sketches as Collaborative Tools.} Prior to the structured clarification session, our team prepared two lightweight, hand‑drawn visual models, a \textbf{Context Diagram} and a \textbf{Use Case Diagram}, on paper napkin-style sketches. These intentionally informal diagrams served as neutral, low‑threat discussion anchors, inviting stakeholders to correct, annotate, and enrich them in real time.
 
 \begin{figure}[H]
 \centering
@@ -253,19 +219,19 @@ The same IRC process was applied to every clause. The complete set of findings, 
 \label{fig:paper-usecase}
 \end{figure}
 
-During the clarification session with the Triton Deepwater Operations Team, The Business Analyst presented the sketches, while the Account Manager facilitated stakeholder coordination and ensured alignment. Stakeholders immediately engaged: they drew boundary lines, added missing actors (e.g., “Regulatory Authority”), and scribbled operational notes. For our example requirement **BO-L1-4**, the discussion centred on the “Emergency Handling” use case. Using the sketch, the client clarified:
+During the clarification session with the Triton Deepwater Operations Team, The Business Analyst presented the sketches, while the Account Manager facilitated stakeholder coordination and ensured alignment. Stakeholders immediately engaged: they drew boundary lines, added missing actors (e.g., "Regulatory Authority"), and scribbled operational notes. For our example requirement \textbf{BO-L1-4}, the discussion centred on the "Emergency Handling" use case. Using the sketch, the client clarified:
 
 \begin{itemize}
     \item Pressure deviation of \(\pm5\%\) sustained for 5 seconds constitutes an “abnormal condition”.
     \item Temperature deviation of \(\pm10\%\) from nominal, and power supply deviation of \(\pm15\%\), are also abnormal thresholds.
-    \item Upon detection, the system must automatically transition the submersible to a **safe operational state**, defined as neutral buoyancy, minimal power consumption, and active communication beacon.
+    \item Upon detection, the system must automatically transition the submersible to a \textbf{safe operational state}, defined as neutral buoyancy, minimal power consumption, and active communication beacon.
 \end{itemize}
 
-These clarifications, obtained through collaborative visual modelling, directly resolved the CTX‑1, CTX‑2, and CON‑2 flags for BO-L1-4. The same interactive process was repeated for all other flagged requirements; the paper napkin sketches evolved in real time into a shared understanding of system boundaries and operator interactions. Stakeholder feedback confirmed a **40\% reduction in clarification time** compared to text-only reviews.
+These clarifications, obtained through collaborative visual modelling, directly resolved the CTX‑1, CTX‑2, and CON‑2 flags for BO-L1-4. The same interactive process was repeated for all other flagged requirements; the paper napkin sketches evolved in real time into a shared understanding of system boundaries and operator interactions. Stakeholder feedback confirmed a \textbf{40\% reduction in clarification time} compared to text-only reviews.
 
 \subsection{Interpret Activity: Regulated-Revision Demonstration}
 
-Following the clarification session, we transformed the raw stakeholder inputs into precise, measurable, and verifiable software requirements. This **regulated-revision** process applies a fixed set of transformations:
+Following the clarification session, we transformed the raw stakeholder inputs into precise, measurable, and verifiable software requirements. This \textbf{regulated-revision} process applies a fixed set of transformations:
 
 \begin{itemize}
     \item \textbf{Imperative issues (IMP):} replace weak or passive phrasing with strong obligations (“shall”).
@@ -282,7 +248,7 @@ For our example requirement, the transformation is shown in Table~\ref{tab:inter
 \renewcommand{\arraystretch}{1.3}
 \caption{Regulated-Revision of Example Requirement BO-L1-4}
 \label{tab:interpret-example}
-\begin{tabular}{|p{0.2\textwidth}|p{0.35\textwidth}|p{0.4\textwidth}|}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.35\textwidth}|>{\raggedright\arraybackslash}p{0.4\textwidth}|}
 \hline
 \rowcolor{tableheader}
 \textbf{Requirement ID} & \textbf{Requirement Text} & \textbf{Verification Method} \\
@@ -332,9 +298,9 @@ With all requirements clarified and rewritten in measurable form, we performed s
     \item \textbf{Interface} – sensor integration, API specifications, data logging.
 \end{itemize}
 
-Our example requirement (BO-L1-4) and its decomposed children (SAF-EMG-001…003, SAF-STATE-001) were assigned to the **Safety** domain. Each categorized requirement received a unique codification (e.g., SAF-EMG-001) that maintains full traceability to the original PS clause and to the corresponding IRC record.
+Our example requirement (BO-L1-4) and its decomposed children (SAF-EMG-001…003, SAF-STATE-001) were assigned to the \textbf{Safety} domain. Each categorized requirement received a unique codification (e.g., SAF-EMG-001) that maintains full traceability to the original PS clause and to the corresponding IRC record.
 
-This categorization was applied uniformly to all 27 original clauses, yielding **22 atomic requirements** ready for SRS development (81.5\% of the original set). The structured organization directly informs our repository architecture and enables incremental delivery planning. The complete categorised requirements list is maintained under version control at the repository cited in Section~7.
+This categorization was applied uniformly to all 27 original clauses, yielding \textbf{22 atomic requirements} ready for SRS development (81.5\% of the original set). The structured organization directly informs our repository architecture and enables incremental delivery planning. The complete categorised requirements list is maintained under version control at the repository cited in Section~7.
 
 % =====================
 % IRC SECTION (Page 9) – unchanged template
@@ -350,7 +316,7 @@ This section documents the Brigman Incongruous Requirements Checklist (IRC) fram
 \centering
 \small
 \renewcommand{\arraystretch}{1.0}
-\begin{tabular}{|p{0.12\textwidth}|p{0.15\textwidth}|p{0.43\textwidth}|p{0.3\textwidth}|}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.43\textwidth}|>{\raggedright\arraybackslash}p{0.3\textwidth}|}
 \hline
 \rowcolor{tableheader}
 \textbf{Check ID} & \textbf{Type} & \textbf{Check Description} & \textbf{Example Symptom} \\
@@ -388,7 +354,7 @@ When applying the IRC framework during the Breakdown activity, record findings s
 \begin{center}
 \small
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|p{0.15\textwidth}|p{0.15\textwidth}|p{0.3\textwidth}|c|p{0.25\textwidth}|}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.3\textwidth}|c|>{\raggedright\arraybackslash}p{0.25\textwidth}|}
 \hline
 \rowcolor{tableheader}
 \textbf{PS Ref} & \textbf{IRC Flags} & \textbf{Reason} & \textbf{Clarify?} & \textbf{Question for Client} \\
@@ -487,7 +453,7 @@ Coordination outcomes demonstrate significant success, with 86.7\% of software i
 \centering
 \small
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|p{0.3\textwidth}|p{0.2\textwidth}|p{0.4\textwidth}|}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.3\textwidth}|>{\raggedright\arraybackslash}p{0.2\textwidth}|>{\raggedright\arraybackslash}p{0.4\textwidth}|}
 \hline
 \rowcolor{tableheader}
 \textbf{Brigman Team Member} & \textbf{Employee ID} & \textbf{Signature} \\
@@ -526,15 +492,29 @@ Kannan s/o Rajamohan & BDST-DM-036 & \rule{0.8\linewidth}{0.4pt} \\
 \subsection*{A-1 Complete Filled IRC Application Table}
 \addcontentsline{toc}{subsection}{A-1 Complete Filled IRC Application Table}
 
-\begin{table}[H]
+% Use longtable in Appendix so the table can break across pages
 \centering
 \small
 \renewcommand{\arraystretch}{1.3}
-\begin{tabular}{|p{0.1\textwidth}|p{0.12\textwidth}|p{0.4\textwidth}|c|p{0.3\textwidth}|}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.1\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.4\textwidth}|c|>{\raggedright\arraybackslash}p{0.3\textwidth}|}
+\caption{Complete Filled IRC Application Table with All Project Findings}\\
 \hline
 \rowcolor{tableheader}
 \textbf{PS Ref} & \textbf{IRC Flags} & \textbf{Reason} & \textbf{Clarify?} & \textbf{Resolution \& Action} \\
 \hline
+\endfirsthead
+\multicolumn{5}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{PS Ref} & \textbf{IRC Flags} & \textbf{Reason} & \textbf{Clarify?} & \textbf{Resolution \& Action} \\
+\hline
+\endhead
+\hline \multicolumn{5}{r}{{Continued on next page}} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+
 BO-L1-4 & CTX-1, CTX-2, CON-2 & "Abnormal conditions" ambiguous and not testable; no definition & Y & Quantified: Pressure $\pm$5\%, temp $\pm$10\%, power $\pm$15\% thresholds \\
 \hline
 IT-L0-C2 & IMP-1, CTX-2 & Essential constraint with ambiguous language, no measurable parameters & Y & Specified: 1 kbps min bandwidth, $\leq$30s latency, 95\% uptime \\
@@ -559,9 +539,7 @@ BO-L1-4 (duplicate) & CON-2 & References abnormal conditions without defining th
 \hline
 BO-L1-5 (duplicate) & CON-1 & "Mission Continuity and Recovery" combines continuation, termination, recovery & N & Decomposed into SYS-CONT-001, SYS-TERM-001, SYS-REC-001 \\
 \hline
-\end{tabular}
-\caption{Complete Filled IRC Application Table with All Project Findings}
-\end{table}
+\end{longtable}
 
 % --- Subsection A-2: IRC Application Quantitative Summary ---
 \newpage
@@ -572,7 +550,7 @@ BO-L1-5 (duplicate) & CON-1 & "Mission Continuity and Recovery" combines continu
 \centering
 \small
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|p{0.5\textwidth}|c|c|}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.5\textwidth}|c|c|}
 \hline
 \rowcolor{tableheader}
 \textbf{Metric} & \textbf{Value} & \textbf{Percentage} \\
@@ -607,7 +585,7 @@ Requirements Ready for SRS & 22 & 81.5\% of original \\
 \centering
 \small
 \renewcommand{\arraystretch}{1.3}
-\begin{tabular}{|p{0.25\textwidth}|p{0.65\textwidth}|}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.25\textwidth}|>{\raggedright\arraybackslash}p{0.65\textwidth}|}
 \hline
 \rowcolor{tableheader}
 \textbf{Benefit Area} & \textbf{Demonstrated Value \& Outcome} \\
