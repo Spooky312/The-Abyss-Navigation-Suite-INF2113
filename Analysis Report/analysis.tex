@@ -136,7 +136,7 @@ The regulated-revision process produced codified, verifiable requirements groupe
 % =====================
 % BCIC METHODOLOGY APPLICATION (Pages 5-8)
 % =====================
-\newpage
+
 \section{BCIC Methodology Application}
 \label{sec:bcic}
 
@@ -172,7 +172,19 @@ The same IRC process was applied to every clause. The complete set of findings, 
 \noindent
 \textbf{Paper Napkin Sketches as Collaborative Tools.} Prior to the clarification session, our team prepared hand-drawn \textbf{Context} and \textbf{Use Case} diagrams to support rapid stakeholder feedback.
 
-Initial napkin sketches are archived in the project repository and were used as working artifacts during clarification.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{../Models/Context Napkin.jpg}
+\caption{Paper Napkin Sketch: Initial Context Diagram (hand-drawn, used during clarification)}
+\label{fig:paper-context}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{../Models/UseCase Napkin.pdf}
+\caption{Paper Napkin Sketch: Initial Use Case Diagram (hand-drawn, used during clarification)}
+\label{fig:paper-usecase}
+\end{figure}
 
 During the clarification session, stakeholders annotated these sketches and validated operational boundaries and actors. For \textbf{BO-L1-4}, the client clarified:
 
@@ -222,9 +234,21 @@ SAF-STATE-001 & Upon detection of any abnormal condition, the system \textbf{sha
 \end{table}
 
 \noindent
-\textbf{Finalised Diagrams.} The sketch outputs were formalized into official Context and Use Case models maintained in the repository.
+\textbf{Finalised Diagrams.} The sketch outputs were formalized into official Context and Use Case models.
 
-Formal context and use case diagrams are maintained in the repository as approved analysis artifacts.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{../Models/Context Model.pdf}
+\caption{Final Context Diagram: Abyss Navigator Suite (post-clarification)}
+\label{fig:final-context}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{../Models/UseCase Model.jpg}
+\caption{Final Use Case Diagram: Abyss Navigator Suite (post-clarification)}
+\label{fig:final-usecase}
+\end{figure}
 
 These models define approved system scope and actor interactions, with direct traceability to clarified requirements.
 
@@ -242,8 +266,6 @@ With requirements clarified and rewritten in measurable form, we categorized the
 BO-L1-4 and its derived requirements (SAF-EMG-001 to SAF-EMG-003, SAF-STATE-001) were assigned to \textbf{Safety}. Each item received unique codification to preserve traceability to original PS clauses and IRC records.
 
 Applied across all 27 clauses, this produced \textbf{22 atomic requirements} ready for SRS development (81.5\%). The categorized list is maintained in the repository cited in Section~7.
-
-\newpage
 
 % =====================
 % IRC SECTION (Page 9) – unchanged template
@@ -311,7 +333,6 @@ IT-L0-C2 & IMP-1, CTX-2 & Essential constraint with ambiguous language, no measu
 
 \textbf{Note:} The complete filled IRC application table with all project findings and resolution results is provided in Table~\ref{tab:irc-complete}.
 
-\newpage
 % =====================
 % RISK ANALYSIS (Page 10)
 % =====================
@@ -358,6 +379,7 @@ This approach resolved 86.7\% of incongruities through client input and establis
 % =====================
 % DECLARATIONS & SIGN-OFF (Page 12) – unchanged
 % =====================
+\newpage
 \section{Declarations}
 \label{sec:declarations}
 
@@ -370,8 +392,6 @@ This approach resolved 86.7\% of incongruities through client input and establis
 \textbf{Software Scope Declaration:} This analysis covers software requirements only. Hardware specifications and interfaces are customer-defined, and the software integrates those components.
 
 \vspace{0.3cm}
-
-\newpage
 
 \section*{Sign-off \& Repository Information}
 \addcontentsline{toc}{section}{Sign-off \& Repository Information}
