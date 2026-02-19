@@ -1,0 +1,254 @@
+% !TeX program = pdflatex
+\documentclass[11pt,a4paper]{article}
+
+% =====================
+% Packages + Layout
+% =====================
+\usepackage[top=1in,left=1in,right=1in,bottom=1in]{geometry}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{parskip}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Page number like template
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\definecolor{tableheader}{RGB}{240,240,240}
+\definecolor{tablerow}{RGB}{250,250,250}
+\definecolor{flagrow}{RGB}{255,245,245}
+
+\begin{document}
+\small
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAGE 1 — EXACT TEMPLATE STYLE (Checklist + 1-row template)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\Large \textbf{IRC Checklist \& Application}}\\[4pt]
+{\normalsize PS Ref: \textbf{PS-REF}}
+\end{center}
+
+\vspace{8pt}
+
+\section*{Combined IRC Checklist Template}
+\vspace{-2pt}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|>{\centering\arraybackslash}m{0.12\textwidth}|
+                >{\centering\arraybackslash}m{0.15\textwidth}|
+                >{\raggedright\arraybackslash}m{0.43\textwidth}|
+                >{\raggedright\arraybackslash}m{0.30\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Check ID} & \textbf{Type} & \textbf{Check Description} & \textbf{Example Symptom} \\
+\hline
+
+\multicolumn{4}{|l|}{\cellcolor{tablerow}\textbf{Imperative Checks (Obligation Strength \& Responsibility)}} \\
+\hline
+IMP-1 & Imperative & Priority vs. wording mismatch &
+``The system should maintain connectivity'' (Essential requirement with weak language) \\
+\hline
+IMP-2 & Imperative & Not written as clear obligation &
+``Emergency handling is important for mission safety'' (Descriptive, not imperative) \\
+\hline
+IMP-3 & Imperative & Responsibility unclear &
+``Mission data must be protected'' (Ambiguous who protects it) \\
+\hline
+
+\multicolumn{4}{|l|}{\cellcolor{tablerow}\textbf{Continuance Checks (Complexity \& Compound Statements)}} \\
+\hline
+CON-1 & Continuance & Compound requirement &
+``System shall log, store, and analyze mission data'' (Three requirements combined) \\
+\hline
+CON-2 & Continuance & Deferred reference dependency &
+``As defined in the following section'' (Meaning depends on undefined content) \\
+\hline
+
+\multicolumn{4}{|l|}{\cellcolor{tablerow}\textbf{Contextual Checks (Meaning, Testability \& Consistency)}} \\
+\hline
+CTX-1 & Contextual & Ambiguous term / multiple interpretations &
+``Sufficient bandwidth'', ``Safe operational state'', ``User-friendly'' \\
+\hline
+CTX-2 & Contextual & Not testable / not verifiable &
+``System shall be reliable'' (No measurable reliability metric) \\
+\hline
+CTX-3 & Contextual & Inconsistent / out of scope &
+Conflicts with another requirement or outside project boundaries \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{6pt}
+
+\section*{IRC Application Format \& Recording Template}
+\vspace{-2pt}
+
+When applying the IRC framework during the Breakdown activity, record findings systematically using the following format:
+
+\vspace{6pt}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.16\textwidth}|
+                >{\raggedright\arraybackslash}p{0.18\textwidth}|
+                >{\raggedright\arraybackslash}p{0.34\textwidth}|
+                >{\centering\arraybackslash}p{0.10\textwidth}|
+                >{\raggedright\arraybackslash}p{0.20\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{PS Ref} & \textbf{IRC Flags} & \textbf{Reason} & \textbf{Clarify?} & \textbf{Question for Client} \\
+\hline
+PS-REF & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Note:} The complete filled IRC application table with all project findings and resolution results is provided in the main Analysis Report.
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAGE 2 — FLAGGED ONLY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\Large \textbf{Flagged Requirements (10 PS Clauses)}}\\[4pt]
+{\normalsize From IRC Application Results}
+\end{center}
+
+\vspace{8pt}
+
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|p{0.16\textwidth}|p{0.18\textwidth}|p{0.34\textwidth}|p{0.10\textwidth}|p{0.20\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{PS Ref} & \textbf{IRC Flags} & \textbf{Reason} & \textbf{Clarify?} & \textbf{Question for Client} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor{tableheader}
+\textbf{PS Ref} & \textbf{IRC Flags} & \textbf{Reason} & \textbf{Clarify?} & \textbf{Question for Client} \\
+\hline
+\endhead
+
+\rowcolor{flagrow}
+BO-L1-4 & CTX-1, CTX-2, CON-2 & ``Abnormal conditions'' ambiguous and not testable; no definition. & Y & What quantitative thresholds define ``abnormal conditions'' for pressure, temperature, and power deviations? \\
+\hline
+
+\rowcolor{flagrow}
+IT-L0-C2 & IMP-1, CTX-2 & Essential constraint with ambiguous language, no measurable parameters. & Y & What specific minimum bandwidth and latency constraints apply? \\
+\hline
+
+\rowcolor{flagrow}
+IT-L0-C3 & CTX-1 & ``Protected in accordance with applicable security obligations'' -- undefined standards. & Y & Which specific security standards or regulatory frameworks must the system comply with? \\
+\hline
+
+\rowcolor{flagrow}
+BO-L1-5 & CTX-1, CON-1 & ``Orderly manner'' ambiguous; compound continuation/termination/recovery. & Y & What specific operational steps define an ``orderly'' shutdown and recovery process? \\
+\hline
+
+\rowcolor{flagrow}
+IT-L0-A1 & CTX-1, CON-1 & ``Primary mission sensors supplied by customer'' -- missing interface protocols. & Y & What middleware, communication protocols, and data formats are required for sensor integration? \\
+\hline
+
+\rowcolor{flagrow}
+BO-L0-A1 & CTX-3 & ``Missions supervised by trained personnel'' -- out of scope for software. & Y & Should this supervision requirement be recorded as an operational assumption (not a software requirement)? \\
+\hline
+
+\rowcolor{flagrow}
+IT-L1-5 & CON-1 & ``Operational Logging Capability'' combines logging, storage, retrieval, analysis. & N & N/A \\
+\hline
+
+\rowcolor{flagrow}
+BO-L1-6 & IMP-3 & ``Operational Accountability'' -- missing clear responsibility assignment. & Y & Which system component is responsible for logging and attributing operator accountability? \\
+\hline
+
+\rowcolor{flagrow}
+BO-L2-4.1 & IMP-2 & ``Abnormal operating conditions shall be identifiable'' -- not clear system obligation. & N & N/A \\
+\hline
+
+\rowcolor{flagrow}
+BO-L2-4.2 & CTX-1 & ``Safe operational state'' -- ambiguous safety condition definition. & Y & What specific technical conditions define a ``safe operational state'' for the submersible? \\
+\hline
+
+\end{longtable}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PAGE 3 — NON-FLAGGED ONLY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+{\Large \textbf{Non-Flagged Requirements (17 PS Clauses)}}\\[4pt]
+{\normalsize No incongruities identified under IRC checks}
+\end{center}
+
+\vspace{8pt}
+
+\renewcommand{\arraystretch}{1.2}
+\begin{longtable}{|p{0.16\textwidth}|p{0.18\textwidth}|p{0.34\textwidth}|p{0.10\textwidth}|p{0.20\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{PS Ref} & \textbf{IRC Flags} & \textbf{Reason} & \textbf{Clarify?} & \textbf{Question for Client} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor{tableheader}
+\textbf{PS Ref} & \textbf{IRC Flags} & \textbf{Reason} & \textbf{Clarify?} & \textbf{Question for Client} \\
+\hline
+\endhead
+
+BO-L0-C1 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+BO-L0-C2 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+BO-L0-C3 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+BO-L0-C4 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+BO-L1-1 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+BO-L1-2 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+BO-L1-3 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+BO-L1-7 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+BO-L2-6.1 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+BO-L2-6.2 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+IT-L0-C1 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+IT-L1-1 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+IT-L1-2 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+IT-L1-3 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+IT-L1-4 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+IT-L1-6 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+IT-L2-5.1 & -- & No incongruities identified under IRC checks. & N & N/A \\
+\hline
+
+\end{longtable}
+
+\end{document}

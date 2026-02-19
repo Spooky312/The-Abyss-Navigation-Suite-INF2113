@@ -1,0 +1,132 @@
+% !TeX program = pdflatex
+\documentclass[11pt,a4paper]{article}
+
+% =====================
+% Packages + Layout
+% =====================
+\usepackage[top=1in,left=1in,right=1in,bottom=1in]{geometry}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{float}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\hypersetup{hidelinks}
+
+% =====================
+% Font (Arial-like)
+% =====================
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% =====================
+% Colors 
+% =====================
+\definecolor{tableheader}{RGB}{240,240,240}
+\definecolor{tablerow}{RGB}{250,250,250}
+
+% ======== EDIT THESE LINES ONLY ========
+\newcommand{\PSRef}{PS-REF}
+\newcommand{\IRCFlags}{--}
+\newcommand{\Reason}{No incongruities identified under IRC checks.}
+\newcommand{\Clarify}{N}
+\newcommand{\QuestionForClient}{N/A}
+% ======================================
+
+\begin{document}
+\small
+
+\begin{center}
+{\Large \textbf{IRC Checklist \& Application}}\\[4pt]
+{\normalsize PS Ref: \textbf{\PSRef}}\\[2pt]
+\end{center}
+
+\vspace{6pt}
+
+% =====================
+% Combined IRC Checklist Template
+% =====================
+\section*{Combined IRC Checklist Template}
+\vspace{-2pt}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{|>{\centering\arraybackslash}m{0.12\textwidth}|
+                >{\centering\arraybackslash}m{0.15\textwidth}|
+                >{\raggedright\arraybackslash}m{0.43\textwidth}|
+                >{\raggedright\arraybackslash}m{0.30\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Check ID} & \textbf{Type} & \textbf{Check Description} & \textbf{Example Symptom} \\
+\hline
+
+\multicolumn{4}{|l|}{\cellcolor{tablerow}\textbf{Imperative Checks (Obligation Strength \& Responsibility)}} \\
+\hline
+IMP-1 & Imperative & Priority vs. wording mismatch &
+``The system should maintain connectivity'' (Essential requirement with weak language) \\
+\hline
+IMP-2 & Imperative & Not written as clear obligation &
+``Emergency handling is important for mission safety'' (Descriptive, not imperative) \\
+\hline
+IMP-3 & Imperative & Responsibility unclear &
+``Mission data must be protected'' (Ambiguous who protects it) \\
+\hline
+
+\multicolumn{4}{|l|}{\cellcolor{tablerow}\textbf{Continuance Checks (Complexity \& Compound Statements)}} \\
+\hline
+CON-1 & Continuance & Compound requirement &
+``System shall log, store, and analyze mission data'' (Three requirements combined) \\
+\hline
+CON-2 & Continuance & Deferred reference dependency &
+``As defined in the following section'' (Meaning depends on undefined content) \\
+\hline
+
+\multicolumn{4}{|l|}{\cellcolor{tablerow}\textbf{Contextual Checks (Meaning, Testability \& Consistency)}} \\
+\hline
+CTX-1 & Contextual & Ambiguous term / multiple interpretations &
+``Sufficient bandwidth'', ``Safe operational state'', ``User-friendly'' \\
+\hline
+CTX-2 & Contextual & Not testable / not verifiable &
+``System shall be reliable'' (No measurable reliability metric) \\
+\hline
+CTX-3 & Contextual & Inconsistent / out of scope &
+Conflicts with another requirement or outside project boundaries \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{6pt}
+
+% =====================
+% IRC Application Format & Recording Template
+% =====================
+\section*{IRC Application Format \& Recording Template}
+\vspace{-2pt}
+
+When applying the IRC framework during the Breakdown activity, record findings systematically using the following format:
+
+\vspace{6pt}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.16\textwidth}|
+                >{\raggedright\arraybackslash}p{0.18\textwidth}|
+                >{\raggedright\arraybackslash}p{0.34\textwidth}|
+                >{\centering\arraybackslash}p{0.10\textwidth}|
+                >{\raggedright\arraybackslash}p{0.20\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{PS Ref} & \textbf{IRC Flags} & \textbf{Reason} & \textbf{Clarify?} & \textbf{Question for Client} \\
+\hline
+\PSRef & \IRCFlags & \Reason & \Clarify & \QuestionForClient \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Note:} The complete filled IRC application table with all project findings and resolution results is provided in the main Analysis Report.
+
+\end{document}
