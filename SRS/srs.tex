@@ -30,11 +30,19 @@
 \usepackage{textcomp}
 \usepackage{caption}
 \usepackage{bookmark}
+\usepackage[normalem]{ulem}
 \hypersetup{
   colorlinks=true,
   linkcolor=blue,
   urlcolor=blue,
   citecolor=blue
+}
+% Make all hyperlinks blue AND underlined
+\AtBeginDocument{%
+  \let\origref\ref
+  \renewcommand{\ref}[1]{\uline{\origref{#1}}}%
+  \let\orighyperref\hyperref
+  \renewcommand{\hyperref}[2][]{\orighyperref[#1]{\uline{#2}}}%
 }
 \definecolor{tableheader}{RGB}{240, 240, 240}
 \definecolor{tablerow}{RGB}{250, 250, 250}
@@ -122,6 +130,8 @@ Muhammad Mikhail Bin Mazlan & Requirements Engineering & Business Analyst & BDST
 Kannan s/o Rajamohan & Requirements Engineering & Business Analyst & BDST-RE-BA-005 \\
 \hline
 \end{tabular}
+\caption{Requirements Engineering Team -- Brigman Deep Sea Technology}
+\label{tab:re-team}
 \end{table}
 
 \restoregeometry
@@ -141,8 +151,16 @@ Kannan s/o Rajamohan & Requirements Engineering & Business Analyst & BDST-RE-BA-
 % =====================
 \renewcommand{\contentsname}{Table of Contents}
 \thispagestyle{empty}
+\hypersetup{linkcolor=black}
 \tableofcontents
 \newpage
+\hypersetup{linkcolor=blue}
+
+\noindent\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+  \small\textbf{Note on Hyperlinks:} Throughout this document, all hyperlinks are displayed in \textcolor{blue}{\underline{blue and underlined}}. These links are fully clickable in the PDF viewer and will navigate to the relevant section, requirement, or external resource.
+\end{minipage}}
+
+\bigskip
 
 % =====================
 % 1. INTRODUCTION
@@ -173,15 +191,6 @@ This SRS is intended for Triton Deepwater stakeholders, the Brigman development 
 
 \subsection{Product Scope}
 The Abyss Navigator Suite enables unmanned missions executed autonomously, remotely supervised from a surface or mothership environment, with controlled intervention, safe emergency handling, and operational traceability.
-
-\subsection{References}
-\begin{itemize}[leftmargin=*,nosep]
-  \item Triton Deepwater, \textit{Project Specification: The Abyss Navigator Suite}, ICT2113, 2026.
-  \item Brigman Deep Sea Technology, \textit{Software Requirements Analysis Report (BCIC Methodology)}, 2026.
-  \item Kevin Anthony Jones, \textit{Labtorial Guide for Class Project: Reqrs now \& near future}, Dec 2025.
-  \item Kevin Anthony Jones, \textit{Guide Rubric for Assessment of Deliverables}, Jan 2026.
-  \item Karl E. Wiegers, \textit{Software Requirements Specification Template}, 1999.
-\end{itemize}
 
 % =====================
 % 2. OVERALL DESCRIPTION
@@ -292,6 +301,7 @@ NAV-WPT-001 & Essential & BO-L1-1 & QUAL-OPS-001 & The system shall achieve \tex
 \hline
 NAV-FLEET-001 & Desirable & BO-L1-3, IT-L1-3 & QUAL-OPS-001, QUAL-RES-001 & The system shall support concurrent supervision of at least \textbf{3} submersibles, including assignment of mission plans and real-time status visibility per vehicle. & Test: Simulated 3-vehicle session; verify assignment and visibility. & \hyperref[fig:usecase-diagram-pdf]{UC03} (Supervise multiple vehicles) \\
 \hline
+\caption{Navigation \& Mission Autonomy Requirements}\label{tab:req-navigation}
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
 \normalsize
@@ -322,6 +332,7 @@ COM-INT-001 & Essential & IT-L1-2, BO-L1-2 & QUAL-OPS-001, QUAL-SAF-001 & The sy
 \hline
 COM-DEG-001 & Essential & IT-L0-C2, IT-L1-6 & QUAL-RES-001, QUAL-SAF-001 & The system shall support safe operation under constrained communications, including operation at \(\geq\) \textbf{1 kbps} bandwidth, \(\leq\) \textbf{30 s} one-way latency, and intermittent connectivity, and shall enter safe-state if connectivity is lost continuously for \(>\) \textbf{10 minutes}. & Test: Fault-inject bandwidth, latency, and outage; verify safe-state trigger. & \hyperref[fig:usecase-diagram-pdf]{UC06} (Handle degraded comms) \\
 \hline
+\caption{Communications \& Remote Operations Requirements}\label{tab:req-communications}
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
 \normalsize
@@ -360,6 +371,7 @@ SYS-TERM-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-TRC-001 & When terminati
 \hline
 SYS-REC-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-OPS-001 & After entering safe-state, the system shall support recovery coordination by continuously broadcasting a communication beacon and exposing last-known position and status to operators until recovery is confirmed. & Demo/Test: Simulate safe-state; verify beacon and status visibility. & \hyperref[fig:usecase-diagram-pdf]{UC11} (Coordinate recovery) \\
 \hline
+\caption{Safety \& Recovery Requirements}\label{tab:req-safety}
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
 \normalsize
@@ -392,6 +404,7 @@ DATA-LOG-003 & Essential & BO-L2-6.2, IT-L2-5.1 & QUAL-OPS-001, QUAL-TRC-001 & T
 \hline
 DATA-LOG-004 & Desirable & BO-L1-7, BO-L2-6.2 & QUAL-OPS-001 & The system shall generate a post-mission summary report (mission timeline, anomalies, interventions) within \(\leq\) \textbf{10 minutes} after mission completion. & Test: Complete mission; measure report generation time and contents. & \hyperref[fig:usecase-diagram-pdf]{UC14} (Post-mission summary) \\
 \hline
+\caption{Data Logging \& Accountability Requirements}\label{tab:req-data}
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
 \normalsize
@@ -418,6 +431,7 @@ DATA-LOG-004 & Desirable & BO-L1-7, BO-L2-6.2 & QUAL-OPS-001 & The system shall 
 
 INT-SENS-001 & Essential & IT-L0-A1 & QUAL-RES-001 & The system shall integrate customer-supplied mission sensors using \textbf{ROS2 middleware} and \textbf{DDS} transport, and shall ingest sensor messages in a documented \textbf{JSON} schema defined in the Interface/API guide. & Test: Sensor-in-the-loop integration against the published schema. & \hyperref[fig:usecase-diagram-pdf]{UC15} (Sensor integration) \\
 \hline
+\caption{External Interface Requirements}\label{tab:req-interface}
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
 \normalsize
@@ -448,6 +462,7 @@ SEC-AUTH-001 & Essential & IT-L0-C3, IT-L1-4 & QUAL-SEC-001 & The system shall e
 \hline
 SEC-AUD-001 & Essential & IT-L0-C3, BO-L0-C4 & QUAL-SEC-001, QUAL-TRC-001 & The system shall maintain audit logs for access to operational data and for administrative configuration changes, including actor identity and timestamps. & Inspection/Test: Perform actions; confirm corresponding audit records. & \hyperref[fig:usecase-diagram-pdf]{UC17} (Audit access) \\
 \hline
+\caption{Security \& Governance Requirements}\label{tab:req-security}
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
 \normalsize
@@ -479,12 +494,14 @@ TECH-API-001 & APIs & External and internal service interfaces shall use version
 \hline
 \end{tabular}
 \caption{Technology requirements for operating environment and platform}
+\label{tab:tech-requirements}
 \end{table}
 
 % =====================
 % 6. QUALITY DEVELOPMENT MODEL
 % =====================
 \section{Quality Development Model}
+\label{sec:quality-model}
 
 Brigman Deep Sea Technology adopts BDST Quality Model v1.1, which is
 explicitly aligned with McCall’s Software Quality Model (1977) across
@@ -510,6 +527,7 @@ Product Transition & Portability & TECH-PLAT-001 \\
 Product Transition & Reusability & Modular API schema (TECH-API-001) \\ \hline
 \end{tabular}
 \caption{Mapping of BDST Quality Model to McCall Quality Model}
+\label{tab:mccall-quality-model}
 \end{table}
 
 \subsection{6.2 BDST Quality Features}
@@ -563,7 +581,7 @@ Trace links in this iRTM are classified as:
                   >{\raggedright\arraybackslash}p{0.25\textwidth}|
                   >{\raggedright\arraybackslash}p{0.17\textwidth}|
                   >{\raggedright\arraybackslash}p{0.20\textwidth}|}
-\caption{iRTM: Project Specification (PS) to SRS traceability}\\
+
 \hline
 \rowcolor{tableheader}
 \textbf{iRTM ID} & \textbf{PS Ref} & \textbf{Trace Type} & \textbf{PS Clause (min.)} & \textbf{SRS Element} & \textbf{SRS Clause / Coverage (min.)} \\
@@ -633,6 +651,7 @@ RTM-026 & IT-L1-6 & DT & Safe operation under degraded comm. & COM-DEG-001; SYS-
 \hline
 RTM-027 & IT-L2-5.1 & DT & Logs sufficient for review/accountability. & DATA-LOG-003; DATA-LOG-004 & Exportable records and review-ready reports. \\
 \hline
+\caption{iRTM: Project Specification (PS) to SRS traceability}\label{tab:irtm}
 \end{longtable}
 \normalsize
 
@@ -691,6 +710,7 @@ OI-002 & Final JSON sensor schema approval & Customer & 45 days post-baseline \\
 \hline
 \end{tabular}
 \caption{Open Issues Register}
+\label{tab:open-issues}
 \end{table}
 
 Open issues unresolved by kill date shall default to baseline assumptions.
@@ -735,6 +755,7 @@ ADD-002 & \textbf{Cost redaction note:} Any cost figures referenced from the Pro
 \hline
 \end{tabular}
 \caption{Addenda (purpose-appropriate notes adopted from the Project Specification)}
+\label{tab:addenda}
 \end{table}
 
 % =====================
@@ -767,6 +788,7 @@ Muhammad Ridwan Putra Jasni (Authenticator) & BDST-RE-BA-001 & \makebox[\linewid
 \hline
 \end{tabular}
 \caption{Vendor authenticator sign-off (signature provided)}
+\label{tab:vendor-signoff}
 \end{table}
 
 \subsection{Designated Approvers (No Signatures Required)}
@@ -789,6 +811,7 @@ Vendor (Brigman) & Verification \& Validation Lead & (TBD) \\
 \hline
 \end{tabular}
 \caption{Designated approvers (placeholders where not yet nominated)}
+\label{tab:designated-approvers}
 \end{table}
 
 \section*{Repository Information}
@@ -797,10 +820,27 @@ Vendor (Brigman) & Verification \& Validation Lead & (TBD) \\
 \fbox{\begin{minipage}{0.9\textwidth}
 \centering
 \textbf{PROJECT REPOSITORY}\\[2pt]
-\url{https://github.com/Spooky312/The-Abyss-Navigation-Suite-INF2113}\\[4pt]
+\href{https://github.com/Spooky312/The-Abyss-Navigation-Suite-INF2113}{\uline{\nolinkurl{https://github.com/Spooky312/The-Abyss-Navigation-Suite-INF2113}}}\\[4pt]
 \textit{SRS, models, and traceability artifacts maintained under version control}
 \end{minipage}}
 \end{center}
+
+% =====================
+% References
+% =====================
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thepage}{R-\arabic{page}}
+\section*{References}
+\addcontentsline{toc}{section}{References}
+\begin{itemize}[leftmargin=*,nosep]
+  \item Triton Deepwater, \textit{Project Specification: The Abyss Navigator Suite}, ICT2113, 2026.
+  \item Brigman Deep Sea Technology, \textit{Software Requirements Analysis Report (BCIC Methodology)}, 2026.
+  \item Kevin Anthony Jones, \textit{Labtorial Guide for Class Project: Reqrs now \& near future}, Dec 2025.
+  \item Kevin Anthony Jones, \textit{Guide Rubric for Assessment of Deliverables}, Jan 2026.
+  \item Karl E. Wiegers, \textit{Software Requirements Specification Template}, 1999.
+\end{itemize}
 
 % =====================
 % Glossary
@@ -847,7 +887,7 @@ Vendor (Brigman) & Verification \& Validation Lead & (TBD) \\
 
 \begin{figure}[H]
 \centering
-\hyperref[tab:response-sequence]{\includegraphics[width=0.95\textwidth]{../Models/Use Case Diagram.pdf}}
+\orighyperref[tab:response-sequence]{\includegraphics[width=0.95\textwidth]{../Models/Use Case Diagram.pdf}}
 \caption{Use Case Diagram}
 \label{fig:usecase-diagram-pdf}
 \end{figure}
@@ -868,6 +908,8 @@ from preparation to post-mission data review; the colored connectors highlight s
 \newcommand{\startappendix}[2]{%
   \setcounter{page}{1}%
   \renewcommand{\thepage}{#1-\arabic{page}}%
+  \setcounter{table}{0}%
+  \renewcommand{\thetable}{#1-\arabic{table}}%
   \section*{Appendix #1: #2}%
   \addcontentsline{toc}{section}{Appendix #1: #2}%
   \phantomsection
@@ -1621,7 +1663,6 @@ UpdatedAtUTC & TIMESTAMP & - & NOT NULL & Settings update time (UTC) \\
 \renewcommand{\arraystretch}{1.2}
 \setlength{\tabcolsep}{4pt}
 \phantomsection
-\label{tab:response-sequence}
 \begin{longtable}{|>{\raggedright\arraybackslash}p{0.16\textwidth}|>{\raggedright\arraybackslash}p{0.62\textwidth}|>{\raggedright\arraybackslash}p{0.16\textwidth}|}
 \hline
 \rowcolor{tableheader}
@@ -1772,6 +1813,7 @@ UpdatedAtUTC & TIMESTAMP & - & NOT NULL & Settings update time (UTC) \\
   \item Data is presented to the officer.
 \end{enumerate} & Stored mission data becomes accessible for analysis. \\
 \hline
+\caption{Response Sequence: Use Case Flows}\label{tab:response-sequence}
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
 \normalsize
@@ -1787,7 +1829,6 @@ UpdatedAtUTC & TIMESTAMP & - & NOT NULL & Settings update time (UTC) \\
 \renewcommand{\arraystretch}{1.2}
 \setlength{\tabcolsep}{4pt}
 \phantomsection
-\label{tab:dd-response-sequence}
 
 \begin{longtable}{|>{\raggedright\arraybackslash}p{0.16\textwidth}|>{\raggedright\arraybackslash}p{0.62\textwidth}|>{\raggedright\arraybackslash}p{0.16\textwidth}|}
 \hline
@@ -2045,7 +2086,7 @@ System services are monitored and stored for operational visibility. \\
 \end{enumerate} &
 Security policies are stored and enforced with clear change attribution. \\
 \hline
-
+\caption{Data Dictionary Response Sequence Flows}\label{tab:dd-response-sequence}
 \end{longtable}
 
 \setlength{\tabcolsep}{6pt}
