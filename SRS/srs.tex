@@ -174,14 +174,6 @@ This SRS is intended for Triton Deepwater stakeholders, the Brigman development 
 \subsection{Product Scope}
 The Abyss Navigator Suite enables unmanned missions executed autonomously, remotely supervised from a surface or mothership environment, with controlled intervention, safe emergency handling, and operational traceability.
 
-\subsection{References}
-\begin{itemize}[leftmargin=*,nosep]
-  \item Triton Deepwater, \textit{Project Specification: The Abyss Navigator Suite}, ICT2113, 2026.
-  \item Brigman Deep Sea Technology, \textit{Software Requirements Analysis Report (BCIC Methodology)}, 2026.
-  \item Kevin Anthony Jones, \textit{Labtorial Guide for Class Project: Reqrs now \& near future}, Dec 2025.
-  \item Kevin Anthony Jones, \textit{Guide Rubric for Assessment of Deliverables}, Jan 2026.
-  \item Karl E. Wiegers, \textit{Software Requirements Specification Template}, 1999.
-\end{itemize}
 
 % =====================
 % 2. OVERALL DESCRIPTION
@@ -512,6 +504,8 @@ QUAL-OPS-001 & Operability \& Performance & Measures operator ability to plan mi
 \caption{BDST Quality Model v1.0 (quality feature names and measurement intent)}
 \end{table}
 
+The BDST Quality Model v1.0 is derived from and conceptually aligned with the McCall Software Quality Model (McCall et al., 1977). While McCall classifies quality across \textbf{Product Operation}, \textbf{Product Revision}, and \textbf{Product Transition} perspectives, BDST adapts these principles to the safety‑critical, unmanned deep‑sea operational domain. The selected quality features operationalize McCall’s attributes in a context‑specific manner relevant to constrained communications, autonomous control, and mission accountability.
+
 % =====================
 % 7. INTEGRATED REQUIREMENTS TRACEABILITY MATRIX (iRTM)
 % =====================
@@ -716,6 +710,23 @@ Vendor (Brigman) & Verification \& Validation Lead & (TBD) \\
 \textit{SRS, models, and traceability artifacts maintained under version control}
 \end{minipage}}
 \end{center}
+
+% =====================
+% REFERENCES (NEW SECTION)
+% =====================
+\newpage
+\section*{References}
+\label{sec:references}
+\addcontentsline{toc}{section}{References}
+
+\begin{itemize}[leftmargin=*,nosep]
+  \item Triton Deepwater, \textit{Project Specification: The Abyss Navigator Suite}, ICT2113, 2026.
+  \item Brigman Deep Sea Technology, \textit{Software Requirements Analysis Report (BCIC Methodology)}, 2026.
+  \item Kevin Anthony Jones, \textit{Labtorial Guide for Class Project: Reqrs now \& near future}, Dec 2025.
+  \item Kevin Anthony Jones, \textit{Guide Rubric for Assessment of Deliverables}, Jan 2026.
+  \item Karl E. Wiegers, \textit{Software Requirements Specification Template}, 1999.
+  \item McCall, J.A., Richards, P.K., \& Walters, G.F. (1977). \textit{Factors in Software Quality}. Rome Air Development Center.
+\end{itemize}
 
 % =====================
 % APPENDICES
@@ -933,6 +944,5 @@ from preparation to post-mission data review; the colored connectors highlight s
 \setcounter{page}{1}
 \renewcommand{\thepage}{B-\arabic{page}}
 \section*{Appendix B: Wireframe}
-
 
 \end{document}
