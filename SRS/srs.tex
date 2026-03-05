@@ -485,149 +485,234 @@ TECH-API-001 & APIs & External and internal service interfaces shall use version
 % 6. QUALITY DEVELOPMENT MODEL
 % =====================
 \section{Quality Development Model}
-\label{sec:quality-model}
 
-Brigman Deep Sea Technology applies the \textbf{BDST Quality Model v1.0} to ensure requirements are not only functional but also safe, secure, and verifiable under operational constraints. Each requirement in Section~\ref{sec:requirements} is tagged with one or more quality feature IDs below.
+Brigman Deep Sea Technology adopts BDST Quality Model v1.1, which is
+explicitly aligned with McCall’s Software Quality Model (1977) across
+the three perspectives: Product Operation, Product Revision, and Product Transition.
 
-\begin{table}[H]
+\subsection{6.1 Alignment with McCall Quality Model}
+
+\begin{table}[h]
 \centering
-\small
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|p{0.16\textwidth}|p{0.22\textwidth}|p{0.52\textwidth}|}
+\begin{tabular}{|l|l|l|}
 \hline
-\rowcolor{tableheader}
-\textbf{Quality ID} & \textbf{Feature Name} & \textbf{What it Covers / Measures} \\
-\hline
-QUAL-SAF-001 & Safety Integrity & Measures correct detection of abnormal conditions, safe-state transitions, and recovery behavior under fault injection. \\
-\hline
-QUAL-SEC-001 & Security \& Governance & Measures encryption coverage, authentication strength, audit completeness, and unauthorized access resistance. \\
-\hline
-QUAL-RES-001 & Resilience under Constraints & Measures mission continuity and safe behavior during comm outages, bandwidth limits, and sensor degradation. \\
-\hline
-QUAL-TRC-001 & Traceability \& Accountability & Measures ability to reconstruct mission timelines and decisions from logs with actor attribution and retention. \\
-\hline
-QUAL-OPS-001 & Operability \& Performance & Measures operator ability to plan missions, interpret telemetry/alerts, intervene reliably, and meet timing/performance thresholds (telemetry update rates, detection latency, report generation, retrieval times). \\
-\hline
+McCall Perspective & McCall Feature & Covered by BDST Quality ID \\ \hline
+Product Operation & Reliability & QUAL-SAF-001, QUAL-RES-001 \\
+Product Operation & Integrity & QUAL-SEC-001 \\
+Product Operation & Usability & QUAL-OPS-001 \\
+Product Operation & Correctness & NAV-WPT-001, SAF-EMG-001..003 \\
+Product Operation & Efficiency & COM-MON-001 (timing constraints) \\ \hline
+Product Revision & Maintainability & TECH-API-001, TECH-DB-001 \\
+Product Revision & Testability & Verification column (Section 4) \\
+Product Revision & Flexibility & SYS-CONT-001 (degraded mode handling) \\ \hline
+Product Transition & Interoperability & INT-SENS-001 \\
+Product Transition & Portability & TECH-PLAT-001 \\
+Product Transition & Reusability & Modular API schema (TECH-API-001) \\ \hline
 \end{tabular}
-\caption{BDST Quality Model v1.0 (quality feature names and measurement intent)}
+\caption{Mapping of BDST Quality Model to McCall Quality Model}
 \end{table}
+
+\subsection{6.2 BDST Quality Features}
+
+\begin{itemize}
+\item QUAL-SAF-001 (Safety Integrity): Measures detection latency, safe-state transition correctness, and recovery robustness under fault injection.
+\item QUAL-SEC-001 (Security \& Governance): Measures encryption coverage, authentication enforcement, and audit completeness.
+\item QUAL-RES-001 (Resilience): Measures safe operation under degraded communications and abnormal conditions.
+\item QUAL-TRC-001 (Traceability): Measures reconstruction capability of mission timeline with actor attribution.
+\item QUAL-OPS-001 (Operability \& Performance): Measures telemetry frequency, detection timing, intervention response, and report generation performance.
+\end{itemize}
 
 % =====================
 % 7. INTEGRATED REQUIREMENTS TRACEABILITY MATRIX (iRTM)
 % =====================
+%========================================================
 \section{Integrated Requirements Traceability Matrix (iRTM)}
 \label{sec:irtm}
 
-The iRTM traces each Project Specification clause to the corresponding SRS requirement(s) or SRS section(s), using minimized paraphrases to preserve CRaM meaning while remaining concise.
+The iRTM traces each Project Specification clause to the corresponding SRS requirement(s) or SRS section(s),
+using minimized paraphrases to preserve CRaM meaning while remaining concise.
+
+\subsection{Traceability Governance Principles}
+
+The iRTM establishes the initial chain-of-custody between the Project Specification (PS) and this SRS.
+It is governed by the following principles:
+
+\begin{itemize}
+  \item Every PS clause shall map to at least one SRS requirement or SRS section.
+  \item Every SRS requirement shall have a trace origin (PS clause or Vendor Provision).
+  \item Requirement identifiers remain stable across revisions to preserve trace integrity.
+  \item Outline numbering shall not be used for trace identification.
+  \item The iRTM is an inceptive trace artifact and shall be extended during Design, Implementation, and Verification phases.
+\end{itemize}
+
+\subsection{Trace Type Legend}
+
+Trace links in this iRTM are classified as:
+
+\begin{itemize}
+  \item \textbf{DT (Direct Trace)}: PS clause directly generates one or more SRS requirement IDs.
+  \item \textbf{AT (Assumption Trace)}: PS clause is captured as an assumption/dependency in the SRS, traced to the relevant SRS section.
+  \item \textbf{VP (Vendor Provision)}: Requirement introduced by the vendor as part of Specifying method (e.g., technology provisions, quality model provisions, change protocol).
+\end{itemize}
 
 \small
 \renewcommand{\arraystretch}{1.2}
-\begin{longtable}{|>{\raggedright\arraybackslash}p{0.09\textwidth}|>{\raggedright\arraybackslash}p{0.11\textwidth}|>{\raggedright\arraybackslash}p{0.28\textwidth}|>{\raggedright\arraybackslash}p{0.17\textwidth}|>{\raggedright\arraybackslash}p{0.21\textwidth}|}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.09\textwidth}|
+                  >{\raggedright\arraybackslash}p{0.11\textwidth}|
+                  >{\raggedright\arraybackslash}p{0.08\textwidth}|
+                  >{\raggedright\arraybackslash}p{0.25\textwidth}|
+                  >{\raggedright\arraybackslash}p{0.17\textwidth}|
+                  >{\raggedright\arraybackslash}p{0.20\textwidth}|}
 \caption{iRTM: Project Specification (PS) to SRS traceability}\\
 \hline
 \rowcolor{tableheader}
-\textbf{iRTM ID} & \textbf{PS Ref} & \textbf{PS Clause (min.)} & \textbf{SRS Element} & \textbf{SRS Clause / Coverage (min.)} \\
+\textbf{iRTM ID} & \textbf{PS Ref} & \textbf{Trace Type} & \textbf{PS Clause (min.)} & \textbf{SRS Element} & \textbf{SRS Clause / Coverage (min.)} \\
 \hline
 \endfirsthead
 \hline
 \rowcolor{tableheader}
-\textbf{iRTM ID} & \textbf{PS Ref} & \textbf{PS Clause (min.)} & \textbf{SRS Element} & \textbf{SRS Clause / Coverage (min.)} \\
+\textbf{iRTM ID} & \textbf{PS Ref} & \textbf{Trace Type} & \textbf{PS Clause (min.)} & \textbf{SRS Element} & \textbf{SRS Clause / Coverage (min.)} \\
 \hline
 \endhead
-\hline \multicolumn{5}{r}{{Continued on next page}} \\ \hline
+\hline \multicolumn{6}{r}{{Continued on next page}} \\ \hline
 \endfoot
 \hline
 \endlastfoot
 
-RTM-001 & BO-L0-C1 & Unmanned operations at extreme depths. & NAV-EXEC-001 & Autonomous execution without continuous human control. \\
+RTM-001 & BO-L0-C1 & DT & Unmanned operations at extreme depths. & NAV-EXEC-001 & Autonomous execution without continuous human control. \\
 \hline
-RTM-002 & BO-L0-C2 & Safety-first: eliminate human exposure. & SAF-STATE-001; SYS-TERM-001 & Safe-state bias and orderly termination under risk. \\
+RTM-002 & BO-L0-C2 & DT & Safety-first: eliminate human exposure. & SAF-STATE-001; SYS-TERM-001 & Safe-state bias and orderly termination under risk. \\
 \hline
-RTM-003 & BO-L0-C3 & Extreme pressure/low visibility/limited comm. & COM-DEG-001; SAF-EMG-001 & Constrained-link behavior; abnormal detection. \\
+RTM-003 & BO-L0-C3 & DT & Extreme pressure/low visibility/limited comm. & COM-DEG-001; SAF-EMG-001 & Constrained-link behavior; abnormal detection. \\
 \hline
-RTM-004 & BO-L0-C4 & Comply with maritime safety/data governance. & SEC-AUD-001; DATA-LOG-002 & Auditable access and retained records. \\
+RTM-004 & BO-L0-C4 & DT & Comply with maritime safety/data governance. & SEC-AUD-001; DATA-LOG-002 & Auditable access and retained records. \\
 \hline
-RTM-005 & BO-L0-A1 & Missions supervised by trained personnel. & Section 2.7 & Operational assumption recorded (software supports supervision). \\
+RTM-005 & BO-L0-A1 & AT & Missions supervised by trained personnel. & Section 2.6 & Operational assumption recorded (software supports supervision). \\
 \hline
-RTM-006 & BO-L1-1 & Autonomous mission execution required. & NAV-PLAN-001; NAV-EXEC-001; NAV-WPT-001 & Plan, autonomous execution, and waypoint performance. \\
+RTM-006 & BO-L1-1 & DT & Autonomous mission execution required. & NAV-PLAN-001; NAV-EXEC-001; NAV-WPT-001 & Plan, autonomous execution, and waypoint performance. \\
 \hline
-RTM-007 & BO-L1-2 & Remote mission oversight required. & COM-MON-001; COM-INT-001 & Telemetry updates and remote interventions. \\
+RTM-007 & BO-L1-2 & DT & Remote mission oversight required. & COM-MON-001; COM-INT-001 & Telemetry updates and remote interventions. \\
 \hline
-RTM-008 & BO-L1-3 & Coordinated multi-submersible operation. & NAV-FLEET-001 & Concurrent supervision and mission assignment. \\
+RTM-008 & BO-L1-3 & DT & Coordinated multi-submersible operation. & NAV-FLEET-001 & Concurrent supervision and mission assignment. \\
 \hline
-RTM-009 & BO-L1-4 & Handle abnormal/emergency conditions. & SAF-EMG-001..003; SAF-STATE-001 & Detection thresholds and safe-state transition. \\
+RTM-009 & BO-L1-4 & DT & Handle abnormal/emergency conditions. & SAF-EMG-001..003; SAF-STATE-001 & Detection thresholds and safe-state transition. \\
 \hline
-RTM-010 & BO-L1-5 & Continue safely or terminate orderly. & SYS-CONT-001; SYS-TERM-001; SYS-REC-001 & Degraded continuation, termination, recovery coordination. \\
+RTM-010 & BO-L1-5 & DT & Continue safely or terminate orderly. & SYS-CONT-001; SYS-TERM-001; SYS-REC-001 & Degraded continuation, termination, recovery coordination. \\
 \hline
-RTM-011 & BO-L1-6 & Accountability for mission activities/decisions. & DATA-LOG-001; SEC-AUD-001 & Operator-attributed logging and auditability. \\
+RTM-011 & BO-L1-6 & DT & Accountability for mission activities/decisions. & DATA-LOG-001; SEC-AUD-001 & Operator-attributed logging and auditability. \\
 \hline
-RTM-012 & BO-L1-7 & Outputs usable for ops and analytics. & DATA-LOG-003; DATA-LOG-004 & Exportable records and summary reporting. \\
+RTM-012 & BO-L1-7 & DT & Outputs usable for ops and analytics. & DATA-LOG-003; DATA-LOG-004 & Exportable records and summary reporting. \\
 \hline
-RTM-013 & BO-L2-4.1 & Abnormal conditions identifiable. & SAF-EMG-001..003 & Defined abnormal thresholds and detection timing. \\
+RTM-013 & BO-L2-4.1 & DT & Abnormal conditions identifiable. & SAF-EMG-001..003 & Defined abnormal thresholds and detection timing. \\
 \hline
-RTM-014 & BO-L2-4.2 & Transition to safe state on critical. & SAF-STATE-001 & Defined safe operational state behavior. \\
+RTM-014 & BO-L2-4.2 & DT & Transition to safe state on critical. & SAF-STATE-001 & Defined safe operational state behavior. \\
 \hline
-RTM-015 & BO-L2-6.1 & Activities/decisions traceable. & DATA-LOG-001; SEC-AUD-001 & Trace logs and audit logs with actor identities. \\
+RTM-015 & BO-L2-6.1 & DT & Activities/decisions traceable. & DATA-LOG-001; SEC-AUD-001 & Trace logs and audit logs with actor identities. \\
 \hline
-RTM-016 & BO-L2-6.2 & Records support review/investigation. & DATA-LOG-002..004 & Retention, export, and post-mission reporting. \\
+RTM-016 & BO-L2-6.2 & DT & Records support review/investigation. & DATA-LOG-002..004 & Retention, export, and post-mission reporting. \\
 \hline
-RTM-017 & IT-L0-C1 & Remote supervision/control context. & COM-MON-001; COM-INT-001 & Remote monitoring and intervention functions. \\
+RTM-017 & IT-L0-C1 & DT & Remote supervision/control context. & COM-MON-001; COM-INT-001 & Remote monitoring and intervention functions. \\
 \hline
-RTM-018 & IT-L0-C2 & Constrained bandwidth/latency/intermittent. & COM-DEG-001 & Explicit bandwidth, latency, and outage thresholds. \\
+RTM-018 & IT-L0-C2 & DT & Constrained bandwidth/latency/intermittent. & COM-DEG-001 & Explicit bandwidth, latency, and outage thresholds. \\
 \hline
-RTM-019 & IT-L0-C3 & Protect operational data per obligations. & SEC-ENC-001; SEC-AUTH-001; SEC-AUD-001 & Encryption, authentication, audit. \\
+RTM-019 & IT-L0-C3 & DT & Protect operational data per obligations. & SEC-ENC-001; SEC-AUTH-001; SEC-AUD-001 & Encryption, authentication, audit. \\
 \hline
-RTM-020 & IT-L0-A1 & Customer provides sensors for integration. & INT-SENS-001 & ROS2/DDS/JSON-based sensor integration. \\
+RTM-020 & IT-L0-A1 & DT & Customer provides sensors for integration. & INT-SENS-001 & ROS2/DDS/JSON-based sensor integration. \\
 \hline
-RTM-021 & IT-L1-1 & Remote monitoring capability required. & COM-MON-001 & Telemetry update rate requirement. \\
+RTM-021 & IT-L1-1 & DT & Remote monitoring capability required. & COM-MON-001 & Telemetry update rate requirement. \\
 \hline
-RTM-022 & IT-L1-2 & Remote intervention capability required. & COM-INT-001 & Remote command/ack requirement. \\
+RTM-022 & IT-L1-2 & DT & Remote intervention capability required. & COM-INT-001 & Remote command/ack requirement. \\
 \hline
-RTM-023 & IT-L1-3 & Multi-vehicle supervision required. & NAV-FLEET-001 & 3-vehicle concurrent supervision. \\
+RTM-023 & IT-L1-3 & DT & Multi-vehicle supervision required. & NAV-FLEET-001 & 3-vehicle concurrent supervision. \\
 \hline
-RTM-024 & IT-L1-4 & Protect confidentiality/integrity of data. & SEC-ENC-001; SEC-AUTH-001 & Encryption and mutual authentication. \\
+RTM-024 & IT-L1-4 & DT & Protect confidentiality/integrity of data. & SEC-ENC-001; SEC-AUTH-001 & Encryption and mutual authentication. \\
 \hline
-RTM-025 & IT-L1-5 & Logging mission events and operator actions. & DATA-LOG-001..004 & Logging, retention, export, reporting. \\
+RTM-025 & IT-L1-5 & DT & Logging mission events and operator actions. & DATA-LOG-001..004 & Logging, retention, export, reporting. \\
 \hline
-RTM-026 & IT-L1-6 & Safe operation under degraded comm. & COM-DEG-001; SYS-CONT-001 & Degraded comm handling and mission continuity. \\
+RTM-026 & IT-L1-6 & DT & Safe operation under degraded comm. & COM-DEG-001; SYS-CONT-001 & Degraded comm handling and mission continuity. \\
 \hline
-RTM-027 & IT-L2-5.1 & Logs sufficient for review/accountability. & DATA-LOG-003; DATA-LOG-004 & Exportable records and review-ready reports. \\
+RTM-027 & IT-L2-5.1 & DT & Logs sufficient for review/accountability. & DATA-LOG-003; DATA-LOG-004 & Exportable records and review-ready reports. \\
 \hline
 \end{longtable}
 \normalsize
+
+\subsection{SDLC Trace Extension}
+
+The iRTM is an inceptive trace artifact. During subsequent SDLC phases, the trace matrix shall be
+extended with references to:
+
+\begin{itemize}
+  \item Design Module Identifier (architecture/subsystem mapping)
+  \item Test Case Identifier (verification and acceptance test cases)
+  \item Repository Artifact Reference (implementation modules/commits)
+\end{itemize}
+
+No requirement shall progress to implementation without corresponding design and verification references.
+%========================================================
 
 % =====================
 % 8. CHANGE MITIGATION
 % =====================
 \section{Change Mitigation Protocol}
-\label{sec:change-mitigation}
 
-This protocol reduces downstream SDLC errors by preventing uncontrolled requirement drift, ensuring every change is evaluated for impact on implementation, verification, and traceability.
+This protocol implements all three change mitigation strategies defined in
+Specifying methodology: anticipatory contingency requirements, open issues,
+and high-risk change control.
 
-\begin{table}[H]
+\subsection{8.1 Anticipatory Contingency Requirements}
+
+The following dormant requirements are pre-approved and may be activated
+without contract renegotiation if triggering conditions occur:
+
+\begin{itemize}
+\item CONT-REG-001: If maritime regulatory requirements introduce new
+depth or reporting limits, system logging and reporting thresholds shall
+be configurable without architectural redesign.
+
+\item CONT-SENS-001: If customer-supplied sensor interface versions change,
+the system shall support backward-compatible schema adapters.
+
+\item CONT-COMM-001: If operational communication bandwidth reduces below
+1 kbps baseline, system shall prioritize safety telemetry over mission data.
+\end{itemize}
+
+\subsection{8.2 Open Issues Register}
+
+Open issues are requirements not fully resolved at SRS baseline and subject
+to structured negotiation.
+
+\begin{table}[h]
 \centering
-\small
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|p{0.18\textwidth}|p{0.72\textwidth}|}
+\begin{tabular}{|l|l|l|l|}
 \hline
-\rowcolor{tableheader}
-\textbf{Change ID} & \textbf{Control / Strategy} \\
-\hline
-CHG-CTRL-001 & \textbf{Baseline control:} the SRS is baselined at Version 1.0; all changes require a change request (CR) recorded in the repository. \\
-\hline
-CHG-CTRL-002 & \textbf{Change classification:} changes are classified as Editorial, Minor (no external impact), or Major (scope/safety/security/performance impact). \\
-\hline
-CHG-CTRL-003 & \textbf{Impact analysis:} each CR must list affected requirement IDs, affected iRTM entries, verification updates, and schedule/risk impacts before approval. \\
-\hline
-CHG-CTRL-004 & \textbf{Approval gates:} Major changes require approval by the Customer-designated approver and the Vendor authenticator; Minor changes require Vendor authenticator approval. \\
-\hline
-CHG-CTRL-005 & \textbf{Traceability maintenance:} any approved change must update Section~\ref{sec:requirements} and Section~\ref{sec:irtm} in the same revision to keep the iRTM consistent. \\
-\hline
-CHG-CTRL-006 & \textbf{Verification alignment:} changes that affect timing, safety, or security requirements must include updated test cases and acceptance criteria prior to implementation. \\
+Issue ID & Description & Responsible Party & Kill Date \\ \hline
+OI-001 & Final database product selection & Vendor & 30 days post-baseline \\
+OI-002 & Final JSON sensor schema approval & Customer & 45 days post-baseline \\
 \hline
 \end{tabular}
-\caption{Change mitigation controls (codified)}
+\caption{Open Issues Register}
 \end{table}
+
+Open issues unresolved by kill date shall default to baseline assumptions.
+
+\subsection{8.3 High-Risk Change Control}
+
+High-risk requirements include:
+
+\begin{itemize}
+\item All SAF-* requirements
+\item COM-DEG-001
+\item SEC-ENC-001, SEC-AUTH-001
+\end{itemize}
+
+Any proposed modification to high-risk requirements shall:
+
+\begin{enumerate}
+\item Undergo formal impact analysis (safety, schedule, cost)
+\item Be reviewed by Customer Safety Approver
+\item Be approved by Vendor Authenticator
+\item Update iRTM and verification artifacts in the same revision
+\end{enumerate}
 
 % =====================
 % 9. ADDENDA
@@ -718,19 +803,29 @@ Vendor (Brigman) & Verification \& Validation Lead & (TBD) \\
 \end{center}
 
 % =====================
-% APPENDICES
+% Glossary
 % =====================
-\newpage
-\appendix
-\section{Glossary}
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thepage}{G-\arabic{page}}
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
 \begin{itemize}[leftmargin=*,nosep]
   \item \textbf{BCIC:} Breakdown, Clarify, Interpret, Categorize.
   \item \textbf{CRaM:} Correct, Relevant, and Measurable requirements organization principle.
   \item \textbf{iRTM:} Integrated Requirements Traceability Matrix.
   \item \textbf{Safe-state:} neutral buoyancy, minimal power, beacon active.
 \end{itemize}
-
-\section{To Be Determined (TBD) List}
+% =====================
+% TBD List
+% =====================
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thepage}{T-\arabic{page}}
+\section*{To Be Determined (TBD) List}
+\addcontentsline{toc}{section}{To Be Determined (TBD) List}
 \begin{itemize}[leftmargin=*,nosep]
   \item Customer nomination of Safety \& Compliance approver name.
   \item Final selection of database product/version for TECH-DB-001 (if different from PostgreSQL-equivalent).
@@ -740,8 +835,12 @@ Vendor (Brigman) & Verification \& Validation Lead & (TBD) \\
 % =====================
 % FIGURES 
 % =====================
-
-\section{Figures}
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thepage}{F-\arabic{page}}
+\section*{Figures}
+\addcontentsline{toc}{section}{Figures}
 \label{sec:figures}
 
 \addtocounter{figure}{0}
@@ -762,15 +861,32 @@ from preparation to post-mission data review; the colored connectors highlight s
 
 \vspace{1em}
 
-\section*{Data Dictionary}
-\addcontentsline{toc}{subsection}{Data Dictionary}
+
+
+
+% ---- Appendix page prefix helper (A-1, B-1, C-1...) ----
+\newcommand{\startappendix}[2]{%
+  \setcounter{page}{1}%
+  \renewcommand{\thepage}{#1-\arabic{page}}%
+  \section*{Appendix #1: #2}%
+  \addcontentsline{toc}{section}{Appendix #1: #2}%
+  \phantomsection
+}
+
+% =====================
+% APPENDICES (Main Header)
+% =====================
+\clearpage
+\section*{APPENDICES}
+\addcontentsline{toc}{section}{APPENDICES}
+\phantomsection
+% --------------------
+% Appendix A: Data Dictionary
+% --------------------
+\startappendix{A}{Data Dictionary}
+\label{app:data-dictionary}
 
 This section defines the data entities used by the system and the attributes that describe each entity.
-
-
-% --------------------
-% Data Dictionary
-% --------------------
 
 % ====================
 % Entity: Operator
@@ -1494,15 +1610,12 @@ UpdatedAtUTC & TIMESTAMP & - & NOT NULL & Settings update time (UTC) \\
 
 
 
-% =====================
-% RESPONSE SEQUENCE
-% =====================
-
-\newpage
-\setcounter{page}{1}
-\renewcommand{\thepage}{A-\arabic{page}}
-\section*{Appendix A: Response Sequence}
-\addcontentsline{toc}{subsection}{Response Sequence}
+% --------------------
+% Appendix B: Response Sequence
+% --------------------
+\clearpage
+\startappendix{B}{Response Sequence}
+\label{app:response-sequence}
 
 \small
 \renewcommand{\arraystretch}{1.2}
@@ -1663,14 +1776,12 @@ UpdatedAtUTC & TIMESTAMP & - & NOT NULL & Settings update time (UTC) \\
 \setlength{\tabcolsep}{6pt}
 \normalsize
 
-% ====================
-% Appendix B: Response Sequence (Data Dictionary)
-% ====================
-\newpage
-\setcounter{page}{1}
-\renewcommand{\thepage}{B-\arabic{page}}
-\section*{Appendix B: Response Sequence (Data Dictionary)}
-\addcontentsline{toc}{subsection}{Response Sequence (Data Dictionary)}
+% --------------------
+% Appendix C: Response Sequence (Data Dictionary)
+% --------------------
+\clearpage
+\startappendix{C}{Response Sequence (Data Dictionary)}
+\label{app:dd-response-sequence}
 
 \small
 \renewcommand{\arraystretch}{1.2}
@@ -1939,11 +2050,6 @@ Security policies are stored and enforced with clear change attribution. \\
 
 \setlength{\tabcolsep}{6pt}
 \normalsize
-
-\newpage
-\setcounter{page}{1}
-\renewcommand{\thepage}{C-\arabic{page}}
-\section*{Appendix C: Wireframe}
 
 
 \end{document}
