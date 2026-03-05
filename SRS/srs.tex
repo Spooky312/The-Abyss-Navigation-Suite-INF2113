@@ -276,13 +276,13 @@ Each requirement in Section 4 is recorded with:
 \hline
 \endlastfoot
 
-NAV-PLAN-001 & Essential & BO-L1-1 & QUAL-OPS-001, QUAL-TRC-001 & The system shall allow an authorized operator to create and version a mission plan containing an ordered set of waypoints (latitude, longitude, depth) and mission phases. & Demo: Create/edit/version plan; inspect stored plan versions. & \hyperref[fig:usecase-diagram-pdf]{UC01} (Mission planning) \\
+NAV-PLAN-001 & Essential & BO-L1-1 & QUAL-OPS-001, QUAL-TRC-001 & The system shall allow an authorized operator to create and version a mission plan containing an ordered set of waypoints (latitude, longitude, depth) and mission phases. & Demo: Create/edit/version plan; inspect stored plan versions. & \hyperref[fig:usecase-diagram-pdf]{UC05} (Configure Mission Parameters) \\
 \hline
-NAV-EXEC-001 & Essential & BO-L1-1, BO-L0-C1 & QUAL-RES-001, QUAL-SAF-001 & The system shall execute a validated mission plan autonomously without continuous human control for a full mission cycle in a representative simulation. & Test: End-to-end mission simulation with no operator commands. & \hyperref[fig:usecase-diagram-pdf]{UC02} (Autonomous mission execution) \\
+NAV-EXEC-001 & Essential & BO-L1-1, BO-L0-C1 & QUAL-RES-001, QUAL-SAF-001 & The system shall execute a validated mission plan autonomously without continuous human control for a full mission cycle in a representative simulation. & Test: End-to-end mission simulation with no operator commands. & \hyperref[fig:usecase-diagram-pdf]{UC14} (Autonomous Execution) \\
 \hline
-NAV-WPT-001 & Essential & BO-L1-1 & QUAL-OPS-001 & The system shall achieve \textbf{99\% waypoint arrival success} in which each reached waypoint is within \(\leq\)5 m horizontal and \(\leq\)2 m vertical error under representative sea-trial conditions. & Analysis: Compare logged track vs. waypoints across trials. & \hyperref[fig:usecase-diagram-pdf]{UC02} (Waypoint navigation) \\
+NAV-WPT-001 & Essential & BO-L1-1 & QUAL-OPS-001 & The system shall achieve \textbf{99\% waypoint arrival success} in which each reached waypoint is within \(\leq\)5 m horizontal and \(\leq\)2 m vertical error under representative sea-trial conditions. & Analysis: Compare logged track vs. waypoints across trials. & \hyperref[fig:usecase-diagram-pdf]{UC14} (Autonomous Execution) \\
 \hline
-NAV-FLEET-001 & Desirable & BO-L1-3, IT-L1-3 & QUAL-OPS-001, QUAL-RES-001 & The system shall support concurrent supervision of at least \textbf{3} submersibles, including assignment of mission plans and real-time status visibility per vehicle. & Test: Simulated 3-vehicle session; verify assignment and visibility. & \hyperref[fig:usecase-diagram-pdf]{UC03} (Supervise multiple vehicles) \\
+NAV-FLEET-001 & Desirable & BO-L1-3, IT-L1-3 & QUAL-OPS-001, QUAL-RES-001 & The system shall support concurrent supervision of at least \textbf{3} submersibles, including assignment of mission plans and real-time status visibility per vehicle. & Test: Simulated 3-vehicle session; verify assignment and visibility. & \hyperref[fig:usecase-diagram-pdf]{UC06} (Manage Fleet Mission) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -308,11 +308,11 @@ NAV-FLEET-001 & Desirable & BO-L1-3, IT-L1-3 & QUAL-OPS-001, QUAL-RES-001 & The 
 \hline
 \endlastfoot
 
-COM-MON-001 & Essential & BO-L1-2, IT-L1-1 & QUAL-OPS-001 & The system shall provide remote mission and vehicle status telemetry updates at least once every \textbf{30 seconds} when connectivity is available. & Test: Measure telemetry update intervals under nominal link. & \hyperref[fig:usecase-diagram-pdf]{UC04} (Monitor telemetry) \\
+COM-MON-001 & Essential & BO-L1-2, IT-L1-1 & QUAL-OPS-001 & The system shall provide remote mission and vehicle status telemetry updates at least once every \textbf{30 seconds} when connectivity is available. & Test: Measure telemetry update intervals under nominal link. & \hyperref[fig:usecase-diagram-pdf]{UC02} (Monitor Vessel Health) \\
 \hline
-COM-INT-001 & Essential & IT-L1-2, BO-L1-2 & QUAL-OPS-001, QUAL-SAF-001 & The system shall allow an authorized operator to issue remote intervention commands (pause, resume, safe-state) and receive acknowledgement within \(\leq\) \textbf{60 seconds} when the link latency is \(\leq\)30 seconds. & Test: Command/ack timing under simulated 30s latency. & \hyperref[fig:usecase-diagram-pdf]{UC05} (Remote intervention) \\
+COM-INT-001 & Essential & IT-L1-2, BO-L1-2 & QUAL-OPS-001, QUAL-SAF-001 & The system shall allow an authorized operator to issue remote intervention commands (pause, resume, safe-state) and receive acknowledgement within \(\leq\) \textbf{60 seconds} when the link latency is \(\leq\)30 seconds. & Test: Command/ack timing under simulated 30s latency. & \hyperref[fig:usecase-diagram-pdf]{UC03} (Manual Control Override) \\
 \hline
-COM-DEG-001 & Essential & IT-L0-C2, IT-L1-6 & QUAL-RES-001, QUAL-SAF-001 & The system shall support safe operation under constrained communications, including operation at \(\geq\) \textbf{1 kbps} bandwidth, \(\leq\) \textbf{30 s} one-way latency, and intermittent connectivity, and shall enter safe-state if connectivity is lost continuously for \(>\) \textbf{10 minutes}. & Test: Fault-inject bandwidth, latency, and outage; verify safe-state trigger. & \hyperref[fig:usecase-diagram-pdf]{UC06} (Handle degraded comms) \\
+COM-DEG-001 & Essential & IT-L0-C2, IT-L1-6 & QUAL-RES-001, QUAL-SAF-001 & The system shall support safe operation under constrained communications, including operation at \(\geq\) \textbf{1 kbps} bandwidth, \(\leq\) \textbf{30 s} one-way latency, and intermittent connectivity, and shall enter safe-state if connectivity is lost continuously for \(>\) \textbf{10 minutes}. & Test: Fault-inject bandwidth, latency, and outage; verify safe-state trigger. & \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -338,19 +338,19 @@ COM-DEG-001 & Essential & IT-L0-C2, IT-L1-6 & QUAL-RES-001, QUAL-SAF-001 & The s
 \hline
 \endlastfoot
 
-SAF-EMG-001 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect pressure deviations \(>\pm5\%\) from nominal setpoint within \textbf{5 seconds}. & Test: Inject simulated pressure spike; measure detection latency. & \hyperref[fig:usecase-diagram-pdf]{UC07} (Detect anomalies) \\
+SAF-EMG-001 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect pressure deviations \(>\pm5\%\) from nominal setpoint within \textbf{5 seconds}. & Test: Inject simulated pressure spike; measure detection latency. & \hyperref[fig:usecase-diagram-pdf]{UC10} (Detect Abnormal Conditions) \\
 \hline
-SAF-EMG-002 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect temperature deviations \(>\pm10\%\) from nominal within \textbf{10 seconds}. & Test: Thermal chamber simulation or sensor-in-the-loop test. & \hyperref[fig:usecase-diagram-pdf]{UC07} (Detect anomalies) \\
+SAF-EMG-002 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect temperature deviations \(>\pm10\%\) from nominal within \textbf{10 seconds}. & Test: Thermal chamber simulation or sensor-in-the-loop test. & \hyperref[fig:usecase-diagram-pdf]{UC10} (Detect Abnormal Conditions)\\
 \hline
-SAF-EMG-003 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect power supply deviations \(>\pm15\%\) from nominal within \textbf{10 seconds}. & Test: Power supply fault injection; measure detection latency. & \hyperref[fig:usecase-diagram-pdf]{UC07} (Detect anomalies) \\
+SAF-EMG-003 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect power supply deviations \(>\pm15\%\) from nominal within \textbf{10 seconds}. & Test: Power supply fault injection; measure detection latency. & \hyperref[fig:usecase-diagram-pdf]{UC10} (Detect Abnormal Conditions)\\
 \hline
-SAF-STATE-001 & Essential & BO-L2-4.2 & QUAL-SAF-001 & Upon detection of any abnormal condition, the system shall transition the submersible to a \textbf{safe operational state} defined as neutral buoyancy, minimal power consumption, and active communication beacon. & Integration test: End-to-end emergency scenario. & \hyperref[fig:usecase-diagram-pdf]{UC08} (Enter safe state) \\
+SAF-STATE-001 & Essential & BO-L2-4.2 & QUAL-SAF-001 & Upon detection of any abnormal condition, the system shall transition the submersible to a \textbf{safe operational state} defined as neutral buoyancy, minimal power consumption, and active communication beacon. & Integration test: End-to-end emergency scenario. & \hyperref[fig:usecase-diagram-pdf]{UC09} (Auto-Trigger Retrival) \\
 \hline
-SYS-CONT-001 & Essential & BO-L1-5 & QUAL-RES-001, QUAL-SAF-001 & When non-critical degradation occurs, the system shall continue the mission in a degraded mode while alerting the operator and logging the degradation event. & Test: Inject non-critical fault; confirm degraded continuation and alert/log. & \hyperref[fig:usecase-diagram-pdf]{UC09} (Continue in degraded mode) \\
+SYS-CONT-001 & Essential & BO-L1-5 & QUAL-RES-001, QUAL-SAF-001 & When non-critical degradation occurs, the system shall continue the mission in a degraded mode while alerting the operator and logging the degradation event. & Test: Inject non-critical fault; confirm degraded continuation and alert/log. & \hyperref[fig:usecase-diagram-pdf]{UC04} (Execute Mission Controls Override) + \hyperref[fig:usecase-diagram-pdf]{UC02} (Monitor Vessel Health) \\
 \hline
-SYS-TERM-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-TRC-001 & When termination is required, the system shall terminate the mission in an orderly manner by completing the current operation when safe, logging the shutdown reason, and entering safe-state. & Test: Inject critical fault; verify ordered termination sequence. & \hyperref[fig:usecase-diagram-pdf]{UC10} (Terminate mission) \\
+SYS-TERM-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-TRC-001 & When termination is required, the system shall terminate the mission in an orderly manner by completing the current operation when safe, logging the shutdown reason, and entering safe-state. & Test: Inject critical fault; verify ordered termination sequence. & \hyperref[fig:usecase-diagram-pdf]{UC01} (Initiate Emergency Retrieval) \\
 \hline
-SYS-REC-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-OPS-001 & After entering safe-state, the system shall support recovery coordination by continuously broadcasting a communication beacon and exposing last-known position and status to operators until recovery is confirmed. & Demo/Test: Simulate safe-state; verify beacon and status visibility. & \hyperref[fig:usecase-diagram-pdf]{UC11} (Coordinate recovery) \\
+SYS-REC-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-OPS-001 & After entering safe-state, the system shall support recovery coordination by continuously broadcasting a communication beacon and exposing last-known position and status to operators until recovery is confirmed. & Demo/Test: Simulate safe-state; verify beacon and status visibility. & \hyperref[fig:usecase-diagram-pdf]{UC01} (Initiate Emergency Retrieval) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -376,13 +376,13 @@ SYS-REC-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-OPS-001 & After entering 
 \hline
 \endlastfoot
 
-DATA-LOG-001 & Essential & BO-L1-6, IT-L1-5 & QUAL-TRC-001 & The system shall log mission events and operator actions with timestamp (UTC), vehicle ID, and operator ID attribution. & Inspection/Test: Review log records for required fields. & \hyperref[fig:usecase-diagram-pdf]{UC12} (Record operations) \\
+DATA-LOG-001 & Essential & BO-L1-6, IT-L1-5 & QUAL-TRC-001 & The system shall log mission events and operator actions with timestamp (UTC), vehicle ID, and operator ID attribution. & Inspection/Test: Review log records for required fields. & \hyperref[fig:usecase-diagram-pdf]{UC13} (Log Operator Operations) + \hyperref[fig:usecase-diagram-pdf]{UC15} (Log Mission Data) \\
 \hline
-DATA-LOG-002 & Essential & IT-L1-5, IT-L0-C3 & QUAL-SEC-001, QUAL-TRC-001 & The system shall store operational logs in an append-only form and retain them for at least \textbf{5 years} to support audit and investigation. & Inspection: Verify storage configuration and retention policy. & \hyperref[fig:usecase-diagram-pdf]{UC12} (Record operations) \\
+DATA-LOG-002 & Essential & IT-L1-5, IT-L0-C3 & QUAL-SEC-001, QUAL-TRC-001 & The system shall store operational logs in an append-only form and retain them for at least \textbf{5 years} to support audit and investigation. & Inspection: Verify storage configuration and retention policy. & \hyperref[fig:usecase-diagram-pdf]{UC13} (Log Operator Operations) + \hyperref[fig:usecase-diagram-pdf]{UC16} (Store Mission Data) \\
 \hline
-DATA-LOG-003 & Essential & BO-L2-6.2, IT-L2-5.1 & QUAL-OPS-001, QUAL-TRC-001 & The system shall allow authorized retrieval and export of mission records for a \(\leq\)24-hour mission into a structured format (CSV and JSON) within \(\leq\) \textbf{2 minutes}. & Test: Export timed retrieval under representative data volume. & \hyperref[fig:usecase-diagram-pdf]{UC13} (Retrieve/export records) \\
+DATA-LOG-003 & Essential & BO-L2-6.2, IT-L2-5.1 & QUAL-OPS-001, QUAL-TRC-001 & The system shall allow authorized retrieval and export of mission records for a \(\leq\)24-hour mission into a structured format (CSV and JSON) within \(\leq\) \textbf{2 minutes}. & Test: Export timed retrieval under representative data volume. & \hyperref[fig:usecase-diagram-pdf]{UC17} (Retrieve Mission Data) \\
 \hline
-DATA-LOG-004 & Desirable & BO-L1-7, BO-L2-6.2 & QUAL-OPS-001 & The system shall generate a post-mission summary report (mission timeline, anomalies, interventions) within \(\leq\) \textbf{10 minutes} after mission completion. & Test: Complete mission; measure report generation time and contents. & \hyperref[fig:usecase-diagram-pdf]{UC14} (Post-mission summary) \\
+DATA-LOG-004 & Desirable & BO-L1-7, BO-L2-6.2 & QUAL-OPS-001 & The system shall generate a post-mission summary report (mission timeline, anomalies, interventions) within \(\leq\) \textbf{10 minutes} after mission completion. & Test: Complete mission; measure report generation time and contents. & \hyperref[fig:usecase-diagram-pdf]{UC07} (Review Mission Log) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -408,7 +408,7 @@ DATA-LOG-004 & Desirable & BO-L1-7, BO-L2-6.2 & QUAL-OPS-001 & The system shall 
 \hline
 \endlastfoot
 
-INT-SENS-001 & Essential & IT-L0-A1 & QUAL-RES-001 & The system shall integrate customer-supplied mission sensors using \textbf{ROS2 middleware} and \textbf{DDS} transport, and shall ingest sensor messages in a documented \textbf{JSON} schema defined in the Interface/API guide. & Test: Sensor-in-the-loop integration against the published schema. & \hyperref[fig:usecase-diagram-pdf]{UC15} (Sensor integration) \\
+INT-SENS-001 & Essential & IT-L0-A1 & QUAL-RES-001 & The system shall integrate customer-supplied mission sensors using \textbf{ROS2 middleware} and \textbf{DDS} transport, and shall ingest sensor messages in a documented \textbf{JSON} schema defined in the Interface/API guide. & Test: Sensor-in-the-loop integration against the published schema. & \hyperref[fig:usecase-diagram-pdf]{UC12} (Validate Hardware Interfaces) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -434,11 +434,11 @@ INT-SENS-001 & Essential & IT-L0-A1 & QUAL-RES-001 & The system shall integrate 
 \hline
 \endlastfoot
 
-SEC-ENC-001 & Essential & IT-L0-C3, IT-L1-4 & QUAL-SEC-001 & The system shall protect operational data using \textbf{AES-256} encryption for data at rest and for encrypted payloads in transit. & Inspection/Test: Verify crypto configuration and encrypted traffic capture. & \hyperref[fig:usecase-diagram-pdf]{UC16} (Protect data) \\
+SEC-ENC-001 & Essential & IT-L0-C3, IT-L1-4 & QUAL-SEC-001 & The system shall protect operational data using \textbf{AES-256} encryption for data at rest and for encrypted payloads in transit. & Inspection/Test: Verify crypto configuration and encrypted traffic capture. & \hyperref[fig:usecase-diagram-pdf]{UC16} (Store Mission Data) \\
 \hline
-SEC-AUTH-001 & Essential & IT-L0-C3, IT-L1-4 & QUAL-SEC-001 & The system shall enforce mutual authentication for system-to-system communications using \textbf{X.509 certificates}. & Test: Reject invalid/expired certificates; accept valid certificates only. & \hyperref[fig:usecase-diagram-pdf]{UC16} (Mutual authentication) \\
+SEC-AUTH-001 & Essential & IT-L0-C3, IT-L1-4 & QUAL-SEC-001 & The system shall enforce mutual authentication for system-to-system communications using \textbf{X.509 certificates}. & Test: Reject invalid/expired certificates; accept valid certificates only. & \hyperref[fig:usecase-diagram-pdf]{UC08} (Synchronise Mission Data) \\
 \hline
-SEC-AUD-001 & Essential & IT-L0-C3, BO-L0-C4 & QUAL-SEC-001, QUAL-TRC-001 & The system shall maintain audit logs for access to operational data and for administrative configuration changes, including actor identity and timestamps. & Inspection/Test: Perform actions; confirm corresponding audit records. & \hyperref[fig:usecase-diagram-pdf]{UC17} (Audit access) \\
+SEC-AUD-001 & Essential & IT-L0-C3, BO-L0-C4 & QUAL-SEC-001, QUAL-TRC-001 & The system shall maintain audit logs for access to operational data and for administrative configuration changes, including actor identity and timestamps. & Inspection/Test: Perform actions; confirm corresponding audit records. & \hyperref[fig:usecase-diagram-pdf]{UC13} (Log Operator Operations) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
