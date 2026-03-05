@@ -174,6 +174,14 @@ This SRS is intended for Triton Deepwater stakeholders, the Brigman development 
 \subsection{Product Scope}
 The Abyss Navigator Suite enables unmanned missions executed autonomously, remotely supervised from a surface or mothership environment, with controlled intervention, safe emergency handling, and operational traceability.
 
+\subsection{References}
+\begin{itemize}[leftmargin=*,nosep]
+  \item Triton Deepwater, \textit{Project Specification: The Abyss Navigator Suite}, ICT2113, 2026.
+  \item Brigman Deep Sea Technology, \textit{Software Requirements Analysis Report (BCIC Methodology)}, 2026.
+  \item Kevin Anthony Jones, \textit{Labtorial Guide for Class Project: Reqrs now \& near future}, Dec 2025.
+  \item Kevin Anthony Jones, \textit{Guide Rubric for Assessment of Deliverables}, Jan 2026.
+  \item Karl E. Wiegers, \textit{Software Requirements Specification Template}, 1999.
+\end{itemize}
 
 % =====================
 % 2. OVERALL DESCRIPTION
@@ -276,13 +284,13 @@ Each requirement in Section 4 is recorded with:
 \hline
 \endlastfoot
 
-NAV-PLAN-001 & Essential & BO-L1-1 & QUAL-OPS-001, QUAL-TRC-001 & The system shall allow an authorized operator to create and version a mission plan containing an ordered set of waypoints (latitude, longitude, depth) and mission phases. & Demo: Create/edit/version plan; inspect stored plan versions. & \hyperref[fig:usecase-diagram-pdf]{UC05} (Configure Mission Parameters) \\
+NAV-PLAN-001 & Essential & BO-L1-1 & QUAL-OPS-001, QUAL-TRC-001 & The system shall allow an authorized operator to create and version a mission plan containing an ordered set of waypoints (latitude, longitude, depth) and mission phases. & Demo: Create/edit/version plan; inspect stored plan versions. & \hyperref[fig:usecase-diagram-pdf]{UC01} (Mission planning) \\
 \hline
-NAV-EXEC-001 & Essential & BO-L1-1, BO-L0-C1 & QUAL-RES-001, QUAL-SAF-001 & The system shall execute a validated mission plan autonomously without continuous human control for a full mission cycle in a representative simulation. & Test: End-to-end mission simulation with no operator commands. & \hyperref[fig:usecase-diagram-pdf]{UC14} (Autonomous Execution) \\
+NAV-EXEC-001 & Essential & BO-L1-1, BO-L0-C1 & QUAL-RES-001, QUAL-SAF-001 & The system shall execute a validated mission plan autonomously without continuous human control for a full mission cycle in a representative simulation. & Test: End-to-end mission simulation with no operator commands. & \hyperref[fig:usecase-diagram-pdf]{UC02} (Autonomous mission execution) \\
 \hline
-NAV-WPT-001 & Essential & BO-L1-1 & QUAL-OPS-001 & The system shall achieve \textbf{99\% waypoint arrival success} in which each reached waypoint is within \(\leq\)5 m horizontal and \(\leq\)2 m vertical error under representative sea-trial conditions. & Analysis: Compare logged track vs. waypoints across trials. & \hyperref[fig:usecase-diagram-pdf]{UC14} (Autonomous Execution) \\
+NAV-WPT-001 & Essential & BO-L1-1 & QUAL-OPS-001 & The system shall achieve \textbf{99\% waypoint arrival success} in which each reached waypoint is within \(\leq\)5 m horizontal and \(\leq\)2 m vertical error under representative sea-trial conditions. & Analysis: Compare logged track vs. waypoints across trials. & \hyperref[fig:usecase-diagram-pdf]{UC02} (Waypoint navigation) \\
 \hline
-NAV-FLEET-001 & Desirable & BO-L1-3, IT-L1-3 & QUAL-OPS-001, QUAL-RES-001 & The system shall support concurrent supervision of at least \textbf{3} submersibles, including assignment of mission plans and real-time status visibility per vehicle. & Test: Simulated 3-vehicle session; verify assignment and visibility. & \hyperref[fig:usecase-diagram-pdf]{UC06} (Manage Fleet Mission) \\
+NAV-FLEET-001 & Desirable & BO-L1-3, IT-L1-3 & QUAL-OPS-001, QUAL-RES-001 & The system shall support concurrent supervision of at least \textbf{3} submersibles, including assignment of mission plans and real-time status visibility per vehicle. & Test: Simulated 3-vehicle session; verify assignment and visibility. & \hyperref[fig:usecase-diagram-pdf]{UC03} (Supervise multiple vehicles) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -308,11 +316,11 @@ NAV-FLEET-001 & Desirable & BO-L1-3, IT-L1-3 & QUAL-OPS-001, QUAL-RES-001 & The 
 \hline
 \endlastfoot
 
-COM-MON-001 & Essential & BO-L1-2, IT-L1-1 & QUAL-OPS-001 & The system shall provide remote mission and vehicle status telemetry updates at least once every \textbf{30 seconds} when connectivity is available. & Test: Measure telemetry update intervals under nominal link. & \hyperref[fig:usecase-diagram-pdf]{UC02} (Monitor Vessel Health) \\
+COM-MON-001 & Essential & BO-L1-2, IT-L1-1 & QUAL-OPS-001 & The system shall provide remote mission and vehicle status telemetry updates at least once every \textbf{30 seconds} when connectivity is available. & Test: Measure telemetry update intervals under nominal link. & \hyperref[fig:usecase-diagram-pdf]{UC04} (Monitor telemetry) \\
 \hline
-COM-INT-001 & Essential & IT-L1-2, BO-L1-2 & QUAL-OPS-001, QUAL-SAF-001 & The system shall allow an authorized operator to issue remote intervention commands (pause, resume, safe-state) and receive acknowledgement within \(\leq\) \textbf{60 seconds} when the link latency is \(\leq\)30 seconds. & Test: Command/ack timing under simulated 30s latency. & \hyperref[fig:usecase-diagram-pdf]{UC03} (Manual Control Override) \\
+COM-INT-001 & Essential & IT-L1-2, BO-L1-2 & QUAL-OPS-001, QUAL-SAF-001 & The system shall allow an authorized operator to issue remote intervention commands (pause, resume, safe-state) and receive acknowledgement within \(\leq\) \textbf{60 seconds} when the link latency is \(\leq\)30 seconds. & Test: Command/ack timing under simulated 30s latency. & \hyperref[fig:usecase-diagram-pdf]{UC05} (Remote intervention) \\
 \hline
-COM-DEG-001 & Essential & IT-L0-C2, IT-L1-6 & QUAL-RES-001, QUAL-SAF-001 & The system shall support safe operation under constrained communications, including operation at \(\geq\) \textbf{1 kbps} bandwidth, \(\leq\) \textbf{30 s} one-way latency, and intermittent connectivity, and shall enter safe-state if connectivity is lost continuously for \(>\) \textbf{10 minutes}. & Test: Fault-inject bandwidth, latency, and outage; verify safe-state trigger. & \\
+COM-DEG-001 & Essential & IT-L0-C2, IT-L1-6 & QUAL-RES-001, QUAL-SAF-001 & The system shall support safe operation under constrained communications, including operation at \(\geq\) \textbf{1 kbps} bandwidth, \(\leq\) \textbf{30 s} one-way latency, and intermittent connectivity, and shall enter safe-state if connectivity is lost continuously for \(>\) \textbf{10 minutes}. & Test: Fault-inject bandwidth, latency, and outage; verify safe-state trigger. & \hyperref[fig:usecase-diagram-pdf]{UC06} (Handle degraded comms) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -338,19 +346,19 @@ COM-DEG-001 & Essential & IT-L0-C2, IT-L1-6 & QUAL-RES-001, QUAL-SAF-001 & The s
 \hline
 \endlastfoot
 
-SAF-EMG-001 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect pressure deviations \(>\pm5\%\) from nominal setpoint within \textbf{5 seconds}. & Test: Inject simulated pressure spike; measure detection latency. & \hyperref[fig:usecase-diagram-pdf]{UC10} (Detect Abnormal Conditions) \\
+SAF-EMG-001 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect pressure deviations \(>\pm5\%\) from nominal setpoint within \textbf{5 seconds}. & Test: Inject simulated pressure spike; measure detection latency. & \hyperref[fig:usecase-diagram-pdf]{UC07} (Detect anomalies) \\
 \hline
-SAF-EMG-002 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect temperature deviations \(>\pm10\%\) from nominal within \textbf{10 seconds}. & Test: Thermal chamber simulation or sensor-in-the-loop test. & \hyperref[fig:usecase-diagram-pdf]{UC10} (Detect Abnormal Conditions)\\
+SAF-EMG-002 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect temperature deviations \(>\pm10\%\) from nominal within \textbf{10 seconds}. & Test: Thermal chamber simulation or sensor-in-the-loop test. & \hyperref[fig:usecase-diagram-pdf]{UC07} (Detect anomalies) \\
 \hline
-SAF-EMG-003 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect power supply deviations \(>\pm15\%\) from nominal within \textbf{10 seconds}. & Test: Power supply fault injection; measure detection latency. & \hyperref[fig:usecase-diagram-pdf]{UC10} (Detect Abnormal Conditions)\\
+SAF-EMG-003 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect power supply deviations \(>\pm15\%\) from nominal within \textbf{10 seconds}. & Test: Power supply fault injection; measure detection latency. & \hyperref[fig:usecase-diagram-pdf]{UC07} (Detect anomalies) \\
 \hline
-SAF-STATE-001 & Essential & BO-L2-4.2 & QUAL-SAF-001 & Upon detection of any abnormal condition, the system shall transition the submersible to a \textbf{safe operational state} defined as neutral buoyancy, minimal power consumption, and active communication beacon. & Integration test: End-to-end emergency scenario. & \hyperref[fig:usecase-diagram-pdf]{UC09} (Auto-Trigger Retrival) \\
+SAF-STATE-001 & Essential & BO-L2-4.2 & QUAL-SAF-001 & Upon detection of any abnormal condition, the system shall transition the submersible to a \textbf{safe operational state} defined as neutral buoyancy, minimal power consumption, and active communication beacon. & Integration test: End-to-end emergency scenario. & \hyperref[fig:usecase-diagram-pdf]{UC08} (Enter safe state) \\
 \hline
-SYS-CONT-001 & Essential & BO-L1-5 & QUAL-RES-001, QUAL-SAF-001 & When non-critical degradation occurs, the system shall continue the mission in a degraded mode while alerting the operator and logging the degradation event. & Test: Inject non-critical fault; confirm degraded continuation and alert/log. & \hyperref[fig:usecase-diagram-pdf]{UC04} (Execute Mission Controls Override) + \hyperref[fig:usecase-diagram-pdf]{UC02} (Monitor Vessel Health) \\
+SYS-CONT-001 & Essential & BO-L1-5 & QUAL-RES-001, QUAL-SAF-001 & When non-critical degradation occurs, the system shall continue the mission in a degraded mode while alerting the operator and logging the degradation event. & Test: Inject non-critical fault; confirm degraded continuation and alert/log. & \hyperref[fig:usecase-diagram-pdf]{UC09} (Continue in degraded mode) \\
 \hline
-SYS-TERM-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-TRC-001 & When termination is required, the system shall terminate the mission in an orderly manner by completing the current operation when safe, logging the shutdown reason, and entering safe-state. & Test: Inject critical fault; verify ordered termination sequence. & \hyperref[fig:usecase-diagram-pdf]{UC01} (Initiate Emergency Retrieval) \\
+SYS-TERM-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-TRC-001 & When termination is required, the system shall terminate the mission in an orderly manner by completing the current operation when safe, logging the shutdown reason, and entering safe-state. & Test: Inject critical fault; verify ordered termination sequence. & \hyperref[fig:usecase-diagram-pdf]{UC10} (Terminate mission) \\
 \hline
-SYS-REC-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-OPS-001 & After entering safe-state, the system shall support recovery coordination by continuously broadcasting a communication beacon and exposing last-known position and status to operators until recovery is confirmed. & Demo/Test: Simulate safe-state; verify beacon and status visibility. & \hyperref[fig:usecase-diagram-pdf]{UC01} (Initiate Emergency Retrieval) \\
+SYS-REC-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-OPS-001 & After entering safe-state, the system shall support recovery coordination by continuously broadcasting a communication beacon and exposing last-known position and status to operators until recovery is confirmed. & Demo/Test: Simulate safe-state; verify beacon and status visibility. & \hyperref[fig:usecase-diagram-pdf]{UC11} (Coordinate recovery) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -376,13 +384,13 @@ SYS-REC-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-OPS-001 & After entering 
 \hline
 \endlastfoot
 
-DATA-LOG-001 & Essential & BO-L1-6, IT-L1-5 & QUAL-TRC-001 & The system shall log mission events and operator actions with timestamp (UTC), vehicle ID, and operator ID attribution. & Inspection/Test: Review log records for required fields. & \hyperref[fig:usecase-diagram-pdf]{UC13} (Log Operator Operations) + \hyperref[fig:usecase-diagram-pdf]{UC15} (Log Mission Data) \\
+DATA-LOG-001 & Essential & BO-L1-6, IT-L1-5 & QUAL-TRC-001 & The system shall log mission events and operator actions with timestamp (UTC), vehicle ID, and operator ID attribution. & Inspection/Test: Review log records for required fields. & \hyperref[fig:usecase-diagram-pdf]{UC12} (Record operations) \\
 \hline
-DATA-LOG-002 & Essential & IT-L1-5, IT-L0-C3 & QUAL-SEC-001, QUAL-TRC-001 & The system shall store operational logs in an append-only form and retain them for at least \textbf{5 years} to support audit and investigation. & Inspection: Verify storage configuration and retention policy. & \hyperref[fig:usecase-diagram-pdf]{UC13} (Log Operator Operations) + \hyperref[fig:usecase-diagram-pdf]{UC16} (Store Mission Data) \\
+DATA-LOG-002 & Essential & IT-L1-5, IT-L0-C3 & QUAL-SEC-001, QUAL-TRC-001 & The system shall store operational logs in an append-only form and retain them for at least \textbf{5 years} to support audit and investigation. & Inspection: Verify storage configuration and retention policy. & \hyperref[fig:usecase-diagram-pdf]{UC12} (Record operations) \\
 \hline
-DATA-LOG-003 & Essential & BO-L2-6.2, IT-L2-5.1 & QUAL-OPS-001, QUAL-TRC-001 & The system shall allow authorized retrieval and export of mission records for a \(\leq\)24-hour mission into a structured format (CSV and JSON) within \(\leq\) \textbf{2 minutes}. & Test: Export timed retrieval under representative data volume. & \hyperref[fig:usecase-diagram-pdf]{UC17} (Retrieve Mission Data) \\
+DATA-LOG-003 & Essential & BO-L2-6.2, IT-L2-5.1 & QUAL-OPS-001, QUAL-TRC-001 & The system shall allow authorized retrieval and export of mission records for a \(\leq\)24-hour mission into a structured format (CSV and JSON) within \(\leq\) \textbf{2 minutes}. & Test: Export timed retrieval under representative data volume. & \hyperref[fig:usecase-diagram-pdf]{UC13} (Retrieve/export records) \\
 \hline
-DATA-LOG-004 & Desirable & BO-L1-7, BO-L2-6.2 & QUAL-OPS-001 & The system shall generate a post-mission summary report (mission timeline, anomalies, interventions) within \(\leq\) \textbf{10 minutes} after mission completion. & Test: Complete mission; measure report generation time and contents. & \hyperref[fig:usecase-diagram-pdf]{UC07} (Review Mission Log) \\
+DATA-LOG-004 & Desirable & BO-L1-7, BO-L2-6.2 & QUAL-OPS-001 & The system shall generate a post-mission summary report (mission timeline, anomalies, interventions) within \(\leq\) \textbf{10 minutes} after mission completion. & Test: Complete mission; measure report generation time and contents. & \hyperref[fig:usecase-diagram-pdf]{UC14} (Post-mission summary) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -408,7 +416,7 @@ DATA-LOG-004 & Desirable & BO-L1-7, BO-L2-6.2 & QUAL-OPS-001 & The system shall 
 \hline
 \endlastfoot
 
-INT-SENS-001 & Essential & IT-L0-A1 & QUAL-RES-001 & The system shall integrate customer-supplied mission sensors using \textbf{ROS2 middleware} and \textbf{DDS} transport, and shall ingest sensor messages in a documented \textbf{JSON} schema defined in the Interface/API guide. & Test: Sensor-in-the-loop integration against the published schema. & \hyperref[fig:usecase-diagram-pdf]{UC12} (Validate Hardware Interfaces) \\
+INT-SENS-001 & Essential & IT-L0-A1 & QUAL-RES-001 & The system shall integrate customer-supplied mission sensors using \textbf{ROS2 middleware} and \textbf{DDS} transport, and shall ingest sensor messages in a documented \textbf{JSON} schema defined in the Interface/API guide. & Test: Sensor-in-the-loop integration against the published schema. & \hyperref[fig:usecase-diagram-pdf]{UC15} (Sensor integration) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -434,11 +442,11 @@ INT-SENS-001 & Essential & IT-L0-A1 & QUAL-RES-001 & The system shall integrate 
 \hline
 \endlastfoot
 
-SEC-ENC-001 & Essential & IT-L0-C3, IT-L1-4 & QUAL-SEC-001 & The system shall protect operational data using \textbf{AES-256} encryption for data at rest and for encrypted payloads in transit. & Inspection/Test: Verify crypto configuration and encrypted traffic capture. & \hyperref[fig:usecase-diagram-pdf]{UC16} (Store Mission Data) \\
+SEC-ENC-001 & Essential & IT-L0-C3, IT-L1-4 & QUAL-SEC-001 & The system shall protect operational data using \textbf{AES-256} encryption for data at rest and for encrypted payloads in transit. & Inspection/Test: Verify crypto configuration and encrypted traffic capture. & \hyperref[fig:usecase-diagram-pdf]{UC16} (Protect data) \\
 \hline
-SEC-AUTH-001 & Essential & IT-L0-C3, IT-L1-4 & QUAL-SEC-001 & The system shall enforce mutual authentication for system-to-system communications using \textbf{X.509 certificates}. & Test: Reject invalid/expired certificates; accept valid certificates only. & \hyperref[fig:usecase-diagram-pdf]{UC08} (Synchronise Mission Data) \\
+SEC-AUTH-001 & Essential & IT-L0-C3, IT-L1-4 & QUAL-SEC-001 & The system shall enforce mutual authentication for system-to-system communications using \textbf{X.509 certificates}. & Test: Reject invalid/expired certificates; accept valid certificates only. & \hyperref[fig:usecase-diagram-pdf]{UC16} (Mutual authentication) \\
 \hline
-SEC-AUD-001 & Essential & IT-L0-C3, BO-L0-C4 & QUAL-SEC-001, QUAL-TRC-001 & The system shall maintain audit logs for access to operational data and for administrative configuration changes, including actor identity and timestamps. & Inspection/Test: Perform actions; confirm corresponding audit records. & \hyperref[fig:usecase-diagram-pdf]{UC13} (Log Operator Operations) \\
+SEC-AUD-001 & Essential & IT-L0-C3, BO-L0-C4 & QUAL-SEC-001, QUAL-TRC-001 & The system shall maintain audit logs for access to operational data and for administrative configuration changes, including actor identity and timestamps. & Inspection/Test: Perform actions; confirm corresponding audit records. & \hyperref[fig:usecase-diagram-pdf]{UC17} (Audit access) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -503,8 +511,6 @@ QUAL-OPS-001 & Operability \& Performance & Measures operator ability to plan mi
 \end{tabular}
 \caption{BDST Quality Model v1.0 (quality feature names and measurement intent)}
 \end{table}
-
-The BDST Quality Model v1.0 is derived from and conceptually aligned with the McCall Software Quality Model (McCall et al., 1977). While McCall classifies quality across \textbf{Product Operation}, \textbf{Product Revision}, and \textbf{Product Transition} perspectives, BDST adapts these principles to the safety‑critical, unmanned deep‑sea operational domain. The selected quality features operationalize McCall’s attributes in a context‑specific manner relevant to constrained communications, autonomous control, and mission accountability.
 
 % =====================
 % 7. INTEGRATED REQUIREMENTS TRACEABILITY MATRIX (iRTM)
@@ -712,23 +718,6 @@ Vendor (Brigman) & Verification \& Validation Lead & (TBD) \\
 \end{center}
 
 % =====================
-% REFERENCES (NEW SECTION)
-% =====================
-\newpage
-\section*{References}
-\label{sec:references}
-\addcontentsline{toc}{section}{References}
-
-\begin{itemize}[leftmargin=*,nosep]
-  \item Triton Deepwater, \textit{Project Specification: The Abyss Navigator Suite}, ICT2113, 2026.
-  \item Brigman Deep Sea Technology, \textit{Software Requirements Analysis Report (BCIC Methodology)}, 2026.
-  \item Kevin Anthony Jones, \textit{Labtorial Guide for Class Project: Reqrs now \& near future}, Dec 2025.
-  \item Kevin Anthony Jones, \textit{Guide Rubric for Assessment of Deliverables}, Jan 2026.
-  \item Karl E. Wiegers, \textit{Software Requirements Specification Template}, 1999.
-  \item McCall, J.A., Richards, P.K., \& Walters, G.F. (1977). \textit{Factors in Software Quality}. Rome Air Development Center.
-\end{itemize}
-
-% =====================
 % APPENDICES
 % =====================
 \newpage
@@ -770,6 +759,740 @@ their interactions with major system functions such as mission planning, launch/
 fault handling, and data logging. Follow each actor’s swim lane to see how the mission progresses 
 from preparation to post-mission data review; the colored connectors highlight safety-critical flows 
 (emergency surfacing, manual override) that must remain available throughout operations.
+
+\vspace{1em}
+
+\section*{Data Dictionary}
+\addcontentsline{toc}{subsection}{Data Dictionary}
+
+This section defines the data entities used by the system and the attributes that describe each entity.
+
+
+% --------------------
+% Data Dictionary
+% --------------------
+
+% ====================
+% Entity: Operator
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\textbf{\hyperref[flow-Operator]{Entity: Operator}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+OperatorID & VARCHAR & 20 & PK, NOT NULL, UNIQUE & Unique operator identifier used in UI (e.g., OP-2847) \\
+\hline
+Username & VARCHAR & 50 & NOT NULL, UNIQUE & Login username / operator ID entry \\
+\hline
+FullName & VARCHAR & 100 & NOT NULL & Display name shown in admin list \\
+\hline
+Role & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Fleet Operator',\\
+'Mission Supervisor',\\
+'Safety \& Compliance Officer',\\
+'Data Analyst',\\
+'System Administrator'
+\end{tabular} & Selected user role \\
+\hline
+AccountStatus & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Active',\\
+'Inactive',\\
+'Locked',\\
+'Disabled'
+\end{tabular} & Account status shown in admin UI \\
+\hline
+TwoFactorEnabled & BOOLEAN & - & NOT NULL, DEFAULT FALSE & Whether 2FA is enabled for this user \\
+\hline
+LastLoginUTC & TIMESTAMP & - & NULL & Last successful login time (UTC) \\
+\hline
+CreatedAtUTC & TIMESTAMP & - & NOT NULL & Record creation time (UTC) \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{Operator} entity}
+\label{tab:data-dictionary-operator}
+\end{table}
+
+% ====================
+% Entity: LoginSession
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\textbf{\hyperref[flow-LoginSession]{Entity: LoginSession}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+SessionID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Unique session identifier \\
+\hline
+OperatorID & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Operator.OperatorID,\\ NOT NULL\end{tabular} & Logged-in user \\
+\hline
+LoginUTC & TIMESTAMP & - & NOT NULL & Login timestamp (UTC) \\
+\hline
+LogoutUTC & TIMESTAMP & - & NULL & Logout timestamp (UTC) \\
+\hline
+TwoFactorVerified & BOOLEAN & - & NOT NULL & Whether 2FA verification succeeded \\
+\hline
+SessionStatus & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Active',\\
+'Expired',\\
+'Terminated'
+\end{tabular} & Session state \\
+\hline
+IPAddress & VARCHAR & 45 & NULL & Optional login source IP address \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{LoginSession} entity}
+\label{tab:data-dictionary-loginsession}
+\end{table}
+
+% ====================
+% Entity: Vehicle
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-Vehicle]{Entity: Vehicle}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+VehicleID & VARCHAR & 20 & PK, NOT NULL, UNIQUE & Vehicle identifier shown in UI (e.g., ASV-01) \\
+\hline
+DisplayName & VARCHAR & 100 & NOT NULL & Vehicle name shown (e.g., Deep Explorer) \\
+\hline
+OperationalStatus & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Active',\\
+'Paused',\\
+'Safe-State'
+\end{tabular} & Status shown on vehicle card \\
+\hline
+CurrentDepth\_m & DECIMAL & (8,2) & NULL & Current depth (meters) shown on vehicle card \\
+\hline
+CurrentPower\_pct & DECIMAL & (5,2) & NULL & Current power (percent) shown on vehicle card \\
+\hline
+CurrentPressure\_bar & DECIMAL & (7,2) & NULL & Current pressure (bar) shown on vehicle card \\
+\hline
+CurrentTemp\_c & DECIMAL & (5,2) & NULL & Current temperature (Celsius) shown on vehicle card \\
+\hline
+LastKnownLat & DECIMAL & (10,6) & NULL & Last known latitude \\
+\hline
+LastKnownLon & DECIMAL & (10,6) & NULL & Last known longitude \\
+\hline
+LastUpdateUTC & TIMESTAMP & - & NULL & Last telemetry update time (UTC) \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{Vehicle} entity}
+\label{tab:data-dictionary-vehicle}
+\end{table}
+
+% ====================
+% Entity: MissionPlan
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-MissionPlan]{Entity: MissionPlan}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+MissionPlanID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Unique mission plan identifier \\
+\hline
+MissionName & VARCHAR & 120 & NOT NULL & Mission name shown in UI (e.g., Hydrothermal Survey 12B) \\
+\hline
+Version & VARCHAR & 10 & NOT NULL & Mission plan version (e.g., 1.3) \\
+\hline
+TargetVehicleID & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Vehicle.VehicleID,\\ NOT NULL\end{tabular} & Selected target vehicle \\
+\hline
+Estimated\allowbreak DurationHours & DECIMAL & (4,1) & NULL & Estimated duration (hours) shown in UI \\
+\hline
+Status & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Draft',\\
+'Deployed',\\
+'Archived'
+\end{tabular} & Mission plan status shown in summary \\
+\hline
+CreatedBy & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Operator.OperatorID,\\ NOT NULL\end{tabular} & Creator of the plan \\
+\hline
+CreatedAtUTC & TIMESTAMP & - & NOT NULL & Creation time (UTC) \\
+\hline
+UpdatedAtUTC & TIMESTAMP & - & NULL & Last update time (UTC) \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{MissionPlan} entity}
+\label{tab:data-dictionary-missionplan}
+\end{table}
+
+% ====================
+% Entity: Waypoint 
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-Waypoint]{Entity: Waypoint }}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+WaypointID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Unique waypoint identifier \\
+\hline
+MissionPlanID & VARCHAR & 36 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ MissionPlan.\\ MissionPlanID,\\ NOT NULL\end{tabular} & Mission plan this waypoint belongs to \\
+\hline
+SequenceNo & INTEGER & 5 & NOT NULL & Waypoint order (supports reordering in UI) \\
+\hline
+Latitude & DECIMAL & (10,6) & NOT NULL & Waypoint latitude \\
+\hline
+Longitude & DECIMAL & (10,6) & NOT NULL & Waypoint longitude \\
+\hline
+Depth\_m & DECIMAL & (8,2) & NOT NULL & Target depth at this waypoint (meters) \\
+\hline
+Phase & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Transit',\\
+'Survey',\\
+'Sample'
+\end{tabular} & Operational phase selected in UI \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{Waypoint} entity}
+\label{tab:data-dictionary-waypoint}
+\end{table}
+
+% ====================
+% Entity: MissionRun 
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-MissionRun]{Entity: MissionRun}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+MissionID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Unique mission execution identifier \\
+\hline
+MissionPlanID & VARCHAR & 36 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ MissionPlan.\\ MissionPlanID,\\ NOT NULL\end{tabular} & Mission plan deployed \\
+\hline
+VehicleID & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Vehicle.VehicleID,\\ NOT NULL\end{tabular} & Vehicle executing mission \\
+\hline
+StartUTC & TIMESTAMP & - & NOT NULL & Mission start time (UTC) \\
+\hline
+EndUTC & TIMESTAMP & - & NULL & Mission end time (UTC) \\
+\hline
+State & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Running',\\
+'Completed',\\
+'Paused',\\
+'Safe-State',\\
+'Terminated'
+\end{tabular} & Mission execution state \\
+\hline
+WaypointSuccess\_\allowbreak pct & DECIMAL & (5,2) & NULL & Waypoint success rate (percent) \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{MissionRun} entity}
+\label{tab:data-dictionary-missionrun}
+\end{table}
+
+% ====================
+% Entity: TelemetrySnapshot
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-TelemetrySnapshot]{Entity: TelemetrySnapshot}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+TelemetryID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Unique telemetry record \\
+\hline
+MissionID & VARCHAR & 36 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ MissionRun.MissionID,\\ NOT NULL\end{tabular} & Mission reference \\
+\hline
+VehicleID & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Vehicle.VehicleID,\\ NOT NULL\end{tabular} & Vehicle reference \\
+\hline
+TimestampUTC & TIMESTAMP & - & NOT NULL & Time telemetry recorded (UTC) \\
+\hline
+Depth\_m & DECIMAL & (8,2) & NOT NULL & Depth (meters) shown on vehicle card \\
+\hline
+Power\_pct & DECIMAL & (5,2) & NOT NULL & Power (percent) shown on vehicle card \\
+\hline
+Pressure\_bar & DECIMAL & (7,2) & NOT NULL & Pressure (bar) shown on vehicle card \\
+\hline
+Temp\_c & DECIMAL & (5,2) & NOT NULL & Temperature (Celsius) shown on vehicle card \\
+\hline
+Latitude & DECIMAL & (10,6) & NOT NULL & Latitude shown on vehicle card and map \\
+\hline
+Longitude & DECIMAL & (10,6) & NOT NULL & Longitude shown on vehicle card and map \\
+\hline
+PayloadJSON & JSON & - & NULL & Optional raw payload for extensibility \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{TelemetrySnapshot} entity}
+\label{tab:data-dictionary-telemetrysnapshot}
+\end{table}
+
+% ====================
+% Entity: CommsLinkSnapshot
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-CommsLinkSnapshot]{Entity: CommsLinkSnapshot}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+LinkSnapID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Unique communications snapshot \\
+\hline
+MissionID & VARCHAR & 36 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ MissionRun.MissionID,\\ NOT NULL\end{tabular} & Mission reference \\
+\hline
+TimestampUTC & TIMESTAMP & - & NOT NULL & Snapshot time (UTC) \\
+\hline
+LinkType & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Satellite',\\
+'Acoustic',\\
+'RF'
+\end{tabular} & Communication link type used \\
+\hline
+ConnectionStatus & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Connected',\\
+'Degraded',\\
+'Disconnected'
+\end{tabular} & Link connection status \\
+\hline
+LinkQuality\_pct & DECIMAL & (5,2) & NOT NULL & Link quality (percent) shown in UI \\
+\hline
+Bandwidth\_mbps & DECIMAL & (6,2) & NOT NULL & Bandwidth (Mbps) shown in UI \\
+\hline
+Latency\_ms & INTEGER & 6 & NOT NULL & Latency (ms) shown in UI \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{CommsLinkSnapshot} entity}
+\label{tab:data-dictionary-commslinksnapshot}
+\end{table}
+
+% ====================
+% Entity: InterventionCommand
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-InterventionCommand]{Entity: InterventionCommand}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+CommandID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Unique command identifier \\
+\hline
+MissionID & VARCHAR & 36 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ MissionRun.MissionID,\\ NOT NULL\end{tabular} & Related mission \\
+\hline
+TargetVehicleID & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Vehicle.VehicleID,\\ NOT NULL\end{tabular} & Vehicle receiving the command \\
+\hline
+IssuedBy & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Operator.OperatorID,\\ NOT NULL\end{tabular} & Operator who issued the command \\
+\hline
+CommandType & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Pause',\\
+'Resume',\\
+'Safe-State'
+\end{tabular} & Command type from the dashboard controls \\
+\hline
+IssuedAtUTC & TIMESTAMP & - & NOT NULL & Command issued time (UTC) \\
+\hline
+CommandStatus & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Sent',\\
+'Acknowledged',\\
+'Failed'
+\end{tabular} & Command delivery outcome \\
+\hline
+AckReceivedAtUTC & TIMESTAMP & - & NULL & Acknowledgement received time (UTC) \\
+\hline
+FailureReason & VARCHAR & 255 & NULL & Reason if command failed \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{InterventionCommand} entity}
+\label{tab:data-dictionary-interventioncommand}
+\end{table}
+
+% ====================
+% Entity: BaselineProfile
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-BaselineProfile]{Entity: BaselineProfile}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+BaselineID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Baseline profile identifier \\
+\hline
+VehicleID & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Vehicle.VehicleID,\\ NOT NULL\end{tabular} & Vehicle baseline applies to \\
+\hline
+MetricType & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Power',\\
+'Pressure',\\
+'Temp'
+\end{tabular} & Metric being compared against baseline \\
+\hline
+BaselineValue & DECIMAL & (8,2) & NOT NULL & Baseline reference value \\
+\hline
+EffectiveFromUTC & TIMESTAMP & - & NOT NULL & Start of validity (UTC) \\
+\hline
+EffectiveToUTC & TIMESTAMP & - & NULL & End of validity (UTC) \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{BaselineProfile} entity}
+\label{tab:data-dictionary-baselineprofile}
+\end{table}
+
+% ====================
+% Entity: AnomalyAlert
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-AnomalyAlert]{Entity: AnomalyAlert}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+AlertID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Unique anomaly alert identifier \\
+\hline
+MissionID & VARCHAR & 36 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ MissionRun.MissionID,\\ NOT NULL\end{tabular} & Mission where anomaly occurred \\
+\hline
+VehicleID & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Vehicle.VehicleID,\\ NOT NULL\end{tabular} & Vehicle involved \\
+\hline
+AlertType & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Power',\\
+'Pressure',\\
+'Temp',\\
+'Comms'
+\end{tabular} & Alert type \\
+\hline
+Deviation\_pct & DECIMAL & (6,2) & NOT NULL & Deviation from baseline (percent) \\
+\hline
+Severity & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'INFO',\\
+'WARNING',\\
+'CRITICAL'
+\end{tabular} & Severity level shown in UI \\
+\hline
+DetectedAtUTC & TIMESTAMP & - & NOT NULL & Detection time (UTC) \\
+\hline
+Status & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Open',\\
+'Acknowledged',\\
+'Resolved'
+\end{tabular} & Alert lifecycle state \\
+\hline
+ReviewedBy & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Operator.OperatorID,\\ NULL\end{tabular} & Operator who reviewed/responded \\
+\hline
+ReviewedAtUTC & TIMESTAMP & - & NULL & Review time (UTC) \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{AnomalyAlert} entity}
+\label{tab:data-dictionary-anomalyalert}
+\end{table}
+
+% ====================
+% Entity: OperationalLogRecord 
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-OperationalLogRecord]{Entity: OperationalLogRecord}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+LogID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Unique log record \\
+\hline
+TimestampUTC & TIMESTAMP & - & NOT NULL & Timestamp (UTC) shown in data logs \\
+\hline
+MissionID & VARCHAR & 36 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ MissionRun.MissionID,\\ NULL\end{tabular} & Optional mission context \\
+\hline
+VehicleID & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Vehicle.VehicleID,\\ NOT NULL\end{tabular} & Vehicle ID shown in data logs \\
+\hline
+OperatorID & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Operator.OperatorID,\\ NULL\end{tabular} & Operator ID shown in data logs (if applicable) \\
+\hline
+EventType & VARCHAR & 50 & NOT NULL & Event type shown in data logs \\
+\hline
+Description & TEXT & - & NOT NULL & Event description shown in data logs \\
+\hline
+Severity & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'INFO',\\
+'WARNING',\\
+'CRITICAL'
+\end{tabular} & Severity badge and filter \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{OperationalLogRecord} entity}
+\label{tab:data-dictionary-operationallogrecord}
+\end{table}
+
+% ====================
+% Entity: ReportingJob 
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-ReportingJob]{Entity: ReportingJob}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+JobID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Unique job identifier \\
+\hline
+JobType & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'ExportFilteredLogs',\\
+'PostMissionReport',\\
+'ExportFullAuditLog'
+\end{tabular} & Type of reporting/export action \\
+\hline
+RequestedBy & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Operator.OperatorID,\\ NOT NULL\end{tabular} & Requesting operator \\
+\hline
+RequestedAtUTC & TIMESTAMP & - & NOT NULL & Request time (UTC) \\
+\hline
+CompletedAtUTC & TIMESTAMP & - & NULL & Completion time (UTC) \\
+\hline
+ExportFormat & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'CSV',\\
+'JSON'
+\end{tabular} & Export format selected in UI \\
+\hline
+FilterVehicleID & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Vehicle.VehicleID,\\ NULL\end{tabular} & Vehicle filter (if used) \\
+\hline
+FilterSeverity & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'INFO',\\
+'WARNING',\\
+'CRITICAL',\\
+NULL
+\end{tabular} & Severity filter (if used) \\
+\hline
+SearchText & VARCHAR & 120 & NULL & Search keyword applied to logs (if used) \\
+\hline
+OutputLocation & VARCHAR & 255 & NULL & Saved output path/link \\
+\hline
+Status & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Queued',\\
+'Running',\\
+'Completed',\\
+'Failed'
+\end{tabular} & Job processing status \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{ReportingJob} entity}
+\label{tab:data-dictionary-reportingjob}
+\end{table}
+
+% ====================
+% Entity: AuditLogRecord 
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-AuditLogRecord]{Entity: AuditLogRecord }}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+AuditID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Unique audit event \\
+\hline
+TimestampUTC & TIMESTAMP & - & NOT NULL & Timestamp shown in audit log (UTC) \\
+\hline
+OperatorID & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Operator.OperatorID,\\ NULL\end{tabular} & Operator who performed the action (if applicable) \\
+\hline
+Action & VARCHAR & 80 & NOT NULL & Action performed (e.g., Login, Mission deployed, Safe-State initiated) \\
+\hline
+Resource & VARCHAR & 80 & NULL & Target resource (e.g., ASV-03, Dashboard, Mission-12A) \\
+\hline
+Outcome & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'SUCCESS',\\
+'FAILED'
+\end{tabular} & Outcome of the action \\
+\hline
+Details & TEXT & - & NULL & Optional additional details \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{AuditLogRecord} entity}
+\label{tab:data-dictionary-auditlogrecord}
+\end{table}
+
+% ====================
+% Entity: Certificate 
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-Certificate]{Entity: Certificate}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+CertID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Unique certificate record \\
+\hline
+CertName & VARCHAR & 100 & NOT NULL & Certificate name shown in UI \\
+\hline
+Issuer & VARCHAR & 100 & NOT NULL & Certificate issuer shown in UI \\
+\hline
+CertType & ENUM & - & 'X.509' & Certificate type \\
+\hline
+LastRenewedAtUTC & TIMESTAMP & - & NULL & Last renewal time (UTC), if applicable \\
+\hline
+ExpiresAtUTC & TIMESTAMP & - & NOT NULL & Expiry timestamp used to compute remaining validity \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{Certificate} entity}
+\label{tab:data-dictionary-certificate}
+\end{table}
+
+% ====================
+% Entity: SystemHealthCheck 
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-SystemHealthCheck]{Entity: SystemHealthCheck}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+HealthID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Unique health record \\
+\hline
+ServiceName & VARCHAR & 60 & NOT NULL & Service name shown in system health panel \\
+\hline
+Status & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'HEALTHY',\\
+'DEGRADED',\\
+'DOWN'
+\end{tabular} & Health status indicator \\
+\hline
+Uptime\_pct & DECIMAL & (5,2) & NOT NULL & Service uptime (percent) \\
+\hline
+LastCheckSecAgo & INTEGER & 6 & NOT NULL & Time since last check (seconds) shown in UI \\
+\hline
+CheckedAtUTC & TIMESTAMP & - & NOT NULL & Measurement time (UTC) \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{SystemHealthCheck} entity}
+\label{tab:data-dictionary-systemhealthcheck}
+\end{table}
+
+% ====================
+% Entity: SecurityConfiguration
+% ====================
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|>{\raggedright\arraybackslash}p{0.18\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|>{\raggedright\arraybackslash}p{0.10\textwidth}|>{\raggedright\arraybackslash}p{0.26\textwidth}|>{\raggedright\arraybackslash}p{0.22\textwidth}|}
+\hline
+\multicolumn{5}{|l|}{\centering\textbf{\hyperref[flow-SecurityConfiguration]{Entity: SecurityConfiguration}}} \\
+\hline
+\rowcolor{tableheader}
+\textbf{Attribute} & \textbf{Data Type} & \textbf{Length} & \textbf{Constraints} & \textbf{Description} \\
+\hline
+ConfigID & VARCHAR & 36 & PK, NOT NULL, UNIQUE & Unique configuration record \\
+\hline
+SessionTimeoutMin & INTEGER & 4 & NOT NULL & Session timeout value (minutes) selected in UI \\
+\hline
+TwoFactorPolicy & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'RequiredForAdmins',\\
+'RequiredForAllUsers',\\
+'Optional'
+\end{tabular} & Two-factor authentication policy \\
+\hline
+PasswordPolicy & ENUM & - &
+\begin{tabular}[t]{@{}l@{}}
+'Standard',\\
+'HighSecurity90Days'
+\end{tabular} & Password policy selection \\
+\hline
+UpdatedBy & VARCHAR & 20 & \begin{tabular}[t]{@{}l@{}}FK $\rightarrow$ Operator.OperatorID,\\ NOT NULL\end{tabular} & Administrator who updated the settings \\
+\hline
+UpdatedAtUTC & TIMESTAMP & - & NOT NULL & Settings update time (UTC) \\
+\hline
+\end{tabular}
+\caption{Data dictionary for \textbf{SecurityConfiguration} entity}
+\label{tab:data-dictionary-securityconfiguration}
+\end{table}
+
+
 
 % =====================
 % RESPONSE SEQUENCE
@@ -940,9 +1663,287 @@ from preparation to post-mission data review; the colored connectors highlight s
 \setlength{\tabcolsep}{6pt}
 \normalsize
 
+% ====================
+% Appendix B: Response Sequence (Data Dictionary)
+% ====================
 \newpage
 \setcounter{page}{1}
 \renewcommand{\thepage}{B-\arabic{page}}
-\section*{Appendix B: Wireframe}
+\section*{Appendix B: Response Sequence (Data Dictionary)}
+\addcontentsline{toc}{subsection}{Response Sequence (Data Dictionary)}
+
+\small
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{4pt}
+\phantomsection
+\label{tab:dd-response-sequence}
+
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.16\textwidth}|>{\raggedright\arraybackslash}p{0.62\textwidth}|>{\raggedright\arraybackslash}p{0.16\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Data Dictionary Entity} & \textbf{Data Dictionary Flow (Description)} & \textbf{Data Dictionary End Goal} \\
+\hline
+\endfirsthead
+
+\hline
+\rowcolor{tableheader}
+\textbf{Data Dictionary Entity} & \textbf{Data Dictionary Flow (Description)} & \textbf{Data Dictionary End Goal} \\
+\hline
+\endhead
+
+\hline \multicolumn{3}{r}{{Continued on next page}} \\ \hline
+\endfoot
+
+\hline
+\endlastfoot
+
+% --------------------
+% Operator
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-operator]{Operator}}\label{flow-Operator} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item Admin creates or updates an operator account (role, account status, 2FA).
+  \item System checks required fields and unique IDs/usernames.
+  \item System stores the operator record with created time.
+  \item System shows the operator in the admin user list.
+  \item Operator can be referenced by sessions, commands, logs, and audit records.
+\end{enumerate} &
+Operator identities exist to control access and attribute actions. \\
+\hline
+
+% --------------------
+% LoginSession
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-loginsession]{LoginSession}}\label{flow-LoginSession} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item Operator submits login credentials.
+  \item System verifies operator account and authorization.
+  \item If required, system verifies 2FA.
+  \item System creates a session record (login time, 2FA result, session state).
+  \item System updates the operator last-login time.
+\end{enumerate} &
+Login activity is tracked for access control and auditing. \\
+\hline
+
+% --------------------
+% Vehicle
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-vehicle]{Vehicle}}\label{flow-Vehicle} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System registers vehicles using VehicleID and display name.
+  \item System receives telemetry readings (depth, power, pressure, temp, position).
+  \item System updates each vehicle’s latest state for the live dashboard.
+  \item System stores last update time.
+  \item Operators view fleet status using the latest stored state.
+\end{enumerate} &
+Vehicles are identifiable and their latest live state is available for monitoring. \\
+\hline
+
+% --------------------
+% MissionPlan
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-missionplan]{MissionPlan}}\label{flow-MissionPlan} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item Fleet controller creates a mission plan (name, version).
+  \item Controller selects a target vehicle and enters mission settings (e.g., duration).
+  \item System validates inputs and stores the mission plan with creator details.
+  \item Mission plan is saved as Draft until deployment.
+  \item Mission plan can be deployed to create a mission run.
+\end{enumerate} &
+A validated mission plan is stored for later deployment and execution. \\
+\hline
+
+% --------------------
+% Waypoint
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-waypoint]{Waypoint}}\label{flow-Waypoint} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item Controller adds waypoints to a mission plan (lat, lon, depth, phase).
+  \item System assigns or updates waypoint order (sequence).
+  \item System validates waypoint values and stores them under the mission plan.
+  \item Waypoints can be reordered and saved again.
+  \item The mission plan holds an ordered route for the vehicle to follow.
+\end{enumerate} &
+An ordered mission route exists as waypoints linked to the mission plan. \\
+\hline
+
+% --------------------
+% MissionRun
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-missionrun]{MissionRun}}\label{flow-MissionRun} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System deploys a mission plan and creates a mission run record.
+  \item System records mission start time and initial state.
+  \item System updates state during operation (running/paused/safe-state/completed/terminated).
+  \item System records mission end time when the run ends.
+  \item System stores mission KPI summary (e.g., waypoint success percent).
+\end{enumerate} &
+Mission execution is tracked as a run with states, timing, and outcome summary. \\
+\hline
+
+% --------------------
+% TelemetrySnapshot
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-telemetrysnapshot]{Telemetry-\allowbreak Snapshot}}\label{flow-TelemetrySnapshot} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System receives telemetry during a mission run.
+  \item System timestamps each reading (UTC).
+  \item System stores depth, power, pressure, temp, and position per snapshot.
+  \item Each snapshot is linked to the mission run and vehicle.
+  \item Telemetry can be used for monitoring, alerts, and reporting.
+\end{enumerate} &
+Time-series telemetry is stored for traceability and analysis. \\
+\hline
+
+% --------------------
+% CommsLinkSnapshot
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-commslinksnapshot]{CommsLink-\allowbreak Snapshot}}\label{flow-CommsLinkSnapshot} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System measures communications link metrics during operation.
+  \item System timestamps each link snapshot (UTC).
+  \item System stores link status, quality, bandwidth, and latency.
+  \item Each snapshot is linked to the mission run.
+  \item Operators view link health and degradation over time.
+\end{enumerate} &
+Communications health is tracked to support reliable operations. \\
+\hline
+
+% --------------------
+% InterventionCommand
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-interventioncommand]{Intervention-\allowbreak Command}}\label{flow-InterventionCommand} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item Operator selects a control action (pause/resume/safe-state).
+  \item System verifies operator authorization for the action.
+  \item System issues the command to the target vehicle.
+  \item System records delivery outcome (acknowledged/failed) with timestamps.
+  \item Command history supports review and accountability.
+\end{enumerate} &
+Manual control actions are recorded with attribution and outcomes. \\
+\hline
+
+% --------------------
+% BaselineProfile
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-baselineprofile]{Baseline-\allowbreak Profile}}\label{flow-BaselineProfile} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System stores baseline values per vehicle and metric type.
+  \item Baselines have effective date range (from/to).
+  \item Monitoring logic uses the active baseline for comparisons.
+  \item Baselines can be updated by creating a new effective range.
+  \item Baselines support consistent deviation calculations.
+\end{enumerate} &
+Baseline references exist for detecting deviations from normal behaviour. \\
+\hline
+
+% --------------------
+% AnomalyAlert
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-anomalyalert]{AnomalyAlert}}\label{flow-AnomalyAlert} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System detects abnormal readings based on rules/baselines.
+  \item System creates an alert with type, severity, deviation percent, and time.
+  \item Alert is shown to operators for review.
+  \item Operator can acknowledge or resolve the alert.
+  \item Review details (who/when) are stored for traceability.
+\end{enumerate} &
+Abnormal conditions are recorded and can be reviewed to support response. \\
+\hline
+
+% --------------------
+% OperationalLogRecord
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-operationallogrecord]{Operational-\allowbreak LogRecord}}\label{flow-OperationalLogRecord} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item A mission event or operator action occurs.
+  \item System records event type and description with UTC timestamp.
+  \item System links the record to vehicle and (if applicable) mission/operator.
+  \item System stores severity level for filtering.
+  \item Logs can be searched, filtered, and exported.
+\end{enumerate} &
+Operational events are stored for investigation, reporting, and review. \\
+\hline
+
+% --------------------
+% ReportingJob
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-reportingjob]{ReportingJob}}\label{flow-ReportingJob} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item Operator requests an export/report (type + format + filters).
+  \item System stores the job request and sets status to queued/running.
+  \item System generates output (e.g., CSV/JSON export or post-mission report).
+  \item System records completion time and output location.
+  \item Job status updates to completed/failed.
+\end{enumerate} &
+Exports and reports are generated and tracked with job history and outputs. \\
+\hline
+
+% --------------------
+% AuditLogRecord
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-auditlogrecord]{AuditLogRecord}}\label{flow-AuditLogRecord} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item A security-relevant action happens (login, deploy, safe-state, config change).
+  \item System records timestamp (UTC) and actor (if available).
+  \item System stores action, resource, and outcome (success/failed).
+  \item Audit records are retained for accountability.
+  \item Audit log can be exported if needed.
+\end{enumerate} &
+Security-sensitive activity is traceable through audit records. \\
+\hline
+
+% --------------------
+% Certificate
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-certificate]{Certificate}}\label{flow-Certificate} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System stores certificate identity and issuer details.
+  \item System records last renewed time when renewal occurs.
+  \item System stores expiry time for validity tracking.
+  \item UI can compute “expires in X days” from expiry time.
+  \item Certificate records support secure system communications.
+\end{enumerate} &
+Certificate validity is tracked so secure connections remain enforceable. \\
+\hline
+
+% --------------------
+% SystemHealthCheck
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-systemhealthcheck]{SystemHealth-\allowbreak Check}}\label{flow-SystemHealthCheck} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System checks key services (database, telemetry, comms, authentication).
+  \item System sets status (healthy/degraded/down) with uptime percent.
+  \item System stores “seconds since last check” and measurement timestamp.
+  \item UI shows latest health status to operators.
+  \item Health history can support troubleshooting.
+\end{enumerate} &
+System services are monitored and stored for operational visibility. \\
+\hline
+
+% --------------------
+% SecurityConfiguration
+% --------------------
+\textbf{\hyperref[tab:data-dictionary-securityconfiguration]{Security-\allowbreak Configuration}}\label{flow-SecurityConfiguration} &
+\textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item Admin selects session timeout, 2FA policy, and password policy.
+  \item System validates the settings.
+  \item System stores the configuration with updater and update time (UTC).
+  \item System enforces the updated policies for access and sessions.
+  \item Changes are traceable and can be audited.
+\end{enumerate} &
+Security policies are stored and enforced with clear change attribution. \\
+\hline
+
+\end{longtable}
+
+\setlength{\tabcolsep}{6pt}
+\normalsize
+
+\newpage
+\setcounter{page}{1}
+\renewcommand{\thepage}{C-\arabic{page}}
+\section*{Appendix C: Wireframe}
+
 
 \end{document}
