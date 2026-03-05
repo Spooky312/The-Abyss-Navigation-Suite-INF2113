@@ -153,7 +153,7 @@ Kannan s/o Rajamohan & Requirements Engineering & Business Analyst & BDST-RE-BA-
 This Software Requirements Specification (SRS) defines the software requirements for the \textbf{Abyss Navigator Suite}, an unmanned deep-sea submersible fleet control system for Triton Deepwater. It is intended to be the baseline agreement for design, implementation, verification, and change control.
 
 \subsection{Document Conventions}
-\textbf{Template source.} This SRS is structured using the \textit{Software Requirements Specification} template by \textbf{Karl E. Wiegers (1999)} (provided in \texttt{References/srs\_template-ieee.pdf}), adapted to incorporate the course rubric requirements (requirements tree, codification, iRTM, and change mitigation).
+\textbf{Template source.} This SRS is structured using the \textit{Software Requirements Specification} template by \textbf{Karl E. Wiegers (1999)} (provided in \texttt{References/srs\_template-ieee.pdf}), adapted to incorporate the course rubric requirements (codification, iRTM, and change mitigation).
 
 \textbf{Normative language.} All requirements use \textbf{shall} to indicate mandatory behavior.
 
@@ -169,7 +169,7 @@ This Software Requirements Specification (SRS) defines the software requirements
 \textbf{Priority levels.} Priority is recorded as \textbf{Essential}, \textbf{Desirable}, or \textbf{Acceptable} to align with the Project Specification.
 
 \subsection{Intended Audience and Reading Suggestions}
-This SRS is intended for Triton Deepwater stakeholders, the Brigman development and verification teams, project management, and independent auditors. Readers should begin with Sections 1--3 (scope, constraints, requirements tree and codification) before using Section 4 (requirements) and Sections 7--8 (traceability and change mitigation).
+This SRS is intended for Triton Deepwater stakeholders, the Brigman development and verification teams, project management, and independent auditors. Readers should begin with Sections 1--3 (scope, constraints, codification) before using Section 4 (requirements) and Sections 7--8 (traceability and change mitigation).
 
 \subsection{Product Scope}
 The Abyss Navigator Suite enables unmanned missions executed autonomously, remotely supervised from a surface or mothership environment, with controlled intervention, safe emergency handling, and operational traceability.
@@ -187,16 +187,6 @@ The Abyss Navigator Suite enables unmanned missions executed autonomously, remot
 % 2. OVERALL DESCRIPTION
 % =====================
 \section{Overall Description}
-
-\subsection{Product Perspective}
-The Abyss Navigator Suite is a new software product that coordinates multiple unmanned submersibles and interfaces with Triton-provided mission sensors, communications links, and external reporting/analysis environments.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.85\textwidth]{../Models/Context Model.pdf}
-\caption{Context Model: Abyss Navigator Suite operating environment and external actors}
-\label{fig:context-model}
-\end{figure}
 
 \subsection{Product Functions}
 At a high level, the system provides:
@@ -250,46 +240,10 @@ The following documentation shall be delivered with the software:
 \end{itemize}
 
 % =====================
-% 3. REQUIREMENTS TREE & CODIFICATION
+% 3. CODIFICATION
 % =====================
-\section{Requirements Tree \& Codification}
-\label{sec:req-tree}
-
-\subsection{Requirements Tree (SRS Organization)}
-This SRS uses a CRaM-aligned requirements tree that differs from the Project Specification tree by organizing requirements for implementation and verification under software-centric domains:
-\begin{itemize}[leftmargin=*,nosep]
-  \item \textbf{Navigation \& Mission Autonomy (NAV)}
-  \item \textbf{Communications \& Remote Operations (COM)}
-  \item \textbf{Safety \& Recovery (SAF/SYS)}
-  \item \textbf{Data Logging \& Accountability (DATA)}
-  \item \textbf{External Interfaces (INT)}
-  \item \textbf{Security \& Governance (SEC)}
-\end{itemize}
-
-\begin{table}[H]
-\centering
-\small
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|p{0.22\textwidth}|p{0.68\textwidth}|}
-\hline
-\rowcolor{tableheader}
-\textbf{Tree Node} & \textbf{Contained Requirement IDs} \\
-\hline
-NAV & NAV-PLAN-001, NAV-EXEC-001, NAV-WPT-001, NAV-FLEET-001 \\
-\hline
-COM & COM-MON-001, COM-INT-001, COM-DEG-001 \\
-\hline
-SAF/SYS & SAF-EMG-001, SAF-EMG-002, SAF-EMG-003, SAF-STATE-001, SYS-CONT-001, SYS-TERM-001, SYS-REC-001 \\
-\hline
-DATA & DATA-LOG-001, DATA-LOG-002, DATA-LOG-003, DATA-LOG-004 \\
-\hline
-INT & INT-SENS-001 \\
-\hline
-SEC & SEC-ENC-001, SEC-AUTH-001, SEC-AUD-001 \\
-\hline
-\end{tabular}
-\caption{Requirements tree nodes and congruous allocation of SRS requirements}
-\end{table}
+\section{Codification}
+\label{sec:codification}
 
 \subsection{Codification Rules}
 \textbf{Requirement IDs} are stable across revisions. The numeric suffix increments only when a new requirement is added; edited requirements retain their IDs to preserve traceability in the iRTM.
