@@ -30,7 +30,12 @@
 \usepackage{textcomp}
 \usepackage{caption}
 \usepackage{bookmark}
-\hypersetup{hidelinks}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=blue
+}
 \definecolor{tableheader}{RGB}{240, 240, 240}
 \definecolor{tablerow}{RGB}{250, 250, 250}
 \frenchspacing
@@ -315,6 +320,7 @@ Each requirement in Section 4 is recorded with:
   \item \textbf{Priority:} Essential / Desirable / Acceptable.
   \item \textbf{Quality tags:} one or more \texttt{QUAL-*} IDs from Section~\ref{sec:quality-model}.
   \item \textbf{Verification:} inspection, analysis, test, or demonstration.
+  \item \textbf{Use Case link:} reference to the primary use case(s) in Figure~\ref{fig:usecase-diagram-pdf} (numbered \texttt{UC01}, \texttt{UC02}, \dots) that realize or exercise the requirement.
 \end{itemize}
 
 % =====================
@@ -327,29 +333,29 @@ Each requirement in Section 4 is recorded with:
 \small
 \renewcommand{\arraystretch}{1.2}
 \setlength{\tabcolsep}{3pt}
-\begin{longtable}{|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.09\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.32\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.08\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.29\textwidth}|>{\raggedright\arraybackslash}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|}
 \hline
 \rowcolor{tableheader}
-\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} \\
+\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} & \textbf{Use Case Link} \\
 \hline
 \endfirsthead
 \hline
 \rowcolor{tableheader}
-\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} \\
+\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} & \textbf{Use Case Link} \\
 \hline
 \endhead
-\hline \multicolumn{6}{r}{{Continued on next page}} \\ \hline
+\hline \multicolumn{7}{r}{{Continued on next page}} \\ \hline
 \endfoot
 \hline
 \endlastfoot
 
-NAV-PLAN-001 & Essential & BO-L1-1 & QUAL-OPS-001, QUAL-TRC-001 & The system shall allow an authorized operator to create and version a mission plan containing an ordered set of waypoints (latitude, longitude, depth) and mission phases. & Demo: Create/edit/version plan; inspect stored plan versions. \\
+NAV-PLAN-001 & Essential & BO-L1-1 & QUAL-OPS-001, QUAL-TRC-001 & The system shall allow an authorized operator to create and version a mission plan containing an ordered set of waypoints (latitude, longitude, depth) and mission phases. & Demo: Create/edit/version plan; inspect stored plan versions. & \hyperref[fig:usecase-diagram-pdf]{UC01} (Mission planning) \\
 \hline
-NAV-EXEC-001 & Essential & BO-L1-1, BO-L0-C1 & QUAL-RES-001, QUAL-SAF-001 & The system shall execute a validated mission plan autonomously without continuous human control for a full mission cycle in a representative simulation. & Test: End-to-end mission simulation with no operator commands. \\
+NAV-EXEC-001 & Essential & BO-L1-1, BO-L0-C1 & QUAL-RES-001, QUAL-SAF-001 & The system shall execute a validated mission plan autonomously without continuous human control for a full mission cycle in a representative simulation. & Test: End-to-end mission simulation with no operator commands. & \hyperref[fig:usecase-diagram-pdf]{UC02} (Autonomous mission execution) \\
 \hline
-NAV-WPT-001 & Essential & BO-L1-1 & QUAL-OPS-001 & The system shall achieve \textbf{99\% waypoint arrival success} in which each reached waypoint is within \(\leq\)5 m horizontal and \(\leq\)2 m vertical error under representative sea-trial conditions. & Analysis: Compare logged track vs. waypoints across trials. \\
+NAV-WPT-001 & Essential & BO-L1-1 & QUAL-OPS-001 & The system shall achieve \textbf{99\% waypoint arrival success} in which each reached waypoint is within \(\leq\)5 m horizontal and \(\leq\)2 m vertical error under representative sea-trial conditions. & Analysis: Compare logged track vs. waypoints across trials. & \hyperref[fig:usecase-diagram-pdf]{UC02} (Waypoint navigation) \\
 \hline
-NAV-FLEET-001 & Desirable & BO-L1-3, IT-L1-3 & QUAL-OPS-001, QUAL-RES-001 & The system shall support concurrent supervision of at least \textbf{3} submersibles, including assignment of mission plans and real-time status visibility per vehicle. & Test: Simulated 3-vehicle session; verify assignment and visibility. \\
+NAV-FLEET-001 & Desirable & BO-L1-3, IT-L1-3 & QUAL-OPS-001, QUAL-RES-001 & The system shall support concurrent supervision of at least \textbf{3} submersibles, including assignment of mission plans and real-time status visibility per vehicle. & Test: Simulated 3-vehicle session; verify assignment and visibility. & \hyperref[fig:usecase-diagram-pdf]{UC03} (Supervise multiple vehicles) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -359,27 +365,27 @@ NAV-FLEET-001 & Desirable & BO-L1-3, IT-L1-3 & QUAL-OPS-001, QUAL-RES-001 & The 
 \small
 \renewcommand{\arraystretch}{1.2}
 \setlength{\tabcolsep}{3pt}
-\begin{longtable}{|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.09\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.32\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.08\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.29\textwidth}|>{\raggedright\arraybackslash}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|}
 \hline
 \rowcolor{tableheader}
-\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} \\
+\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} & \textbf{Use Case Link} \\
 \hline
 \endfirsthead
 \hline
 \rowcolor{tableheader}
-\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} \\
+\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} & \textbf{Use Case Link} \\
 \hline
 \endhead
-\hline \multicolumn{6}{r}{{Continued on next page}} \\ \hline
+\hline \multicolumn{7}{r}{{Continued on next page}} \\ \hline
 \endfoot
 \hline
 \endlastfoot
 
-COM-MON-001 & Essential & BO-L1-2, IT-L1-1 & QUAL-OPS-001 & The system shall provide remote mission and vehicle status telemetry updates at least once every \textbf{30 seconds} when connectivity is available. & Test: Measure telemetry update intervals under nominal link. \\
+COM-MON-001 & Essential & BO-L1-2, IT-L1-1 & QUAL-OPS-001 & The system shall provide remote mission and vehicle status telemetry updates at least once every \textbf{30 seconds} when connectivity is available. & Test: Measure telemetry update intervals under nominal link. & \hyperref[fig:usecase-diagram-pdf]{UC04} (Monitor telemetry) \\
 \hline
-COM-INT-001 & Essential & IT-L1-2, BO-L1-2 & QUAL-OPS-001, QUAL-SAF-001 & The system shall allow an authorized operator to issue remote intervention commands (pause, resume, safe-state) and receive acknowledgement within \(\leq\) \textbf{60 seconds} when the link latency is \(\leq\)30 seconds. & Test: Command/ack timing under simulated 30s latency. \\
+COM-INT-001 & Essential & IT-L1-2, BO-L1-2 & QUAL-OPS-001, QUAL-SAF-001 & The system shall allow an authorized operator to issue remote intervention commands (pause, resume, safe-state) and receive acknowledgement within \(\leq\) \textbf{60 seconds} when the link latency is \(\leq\)30 seconds. & Test: Command/ack timing under simulated 30s latency. & \hyperref[fig:usecase-diagram-pdf]{UC05} (Remote intervention) \\
 \hline
-COM-DEG-001 & Essential & IT-L0-C2, IT-L1-6 & QUAL-RES-001, QUAL-SAF-001 & The system shall support safe operation under constrained communications, including operation at \(\geq\) \textbf{1 kbps} bandwidth, \(\leq\) \textbf{30 s} one-way latency, and intermittent connectivity, and shall enter safe-state if connectivity is lost continuously for \(>\) \textbf{10 minutes}. & Test: Fault-inject bandwidth, latency, and outage; verify safe-state trigger. \\
+COM-DEG-001 & Essential & IT-L0-C2, IT-L1-6 & QUAL-RES-001, QUAL-SAF-001 & The system shall support safe operation under constrained communications, including operation at \(\geq\) \textbf{1 kbps} bandwidth, \(\leq\) \textbf{30 s} one-way latency, and intermittent connectivity, and shall enter safe-state if connectivity is lost continuously for \(>\) \textbf{10 minutes}. & Test: Fault-inject bandwidth, latency, and outage; verify safe-state trigger. & \hyperref[fig:usecase-diagram-pdf]{UC06} (Handle degraded comms) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -389,35 +395,35 @@ COM-DEG-001 & Essential & IT-L0-C2, IT-L1-6 & QUAL-RES-001, QUAL-SAF-001 & The s
 \small
 \renewcommand{\arraystretch}{1.2}
 \setlength{\tabcolsep}{3pt}
-\begin{longtable}{|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.09\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.32\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.08\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.29\textwidth}|>{\raggedright\arraybackslash}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|}
 \hline
 \rowcolor{tableheader}
-\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} \\
+\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} & \textbf{Use Case Link} \\
 \hline
 \endfirsthead
 \hline
 \rowcolor{tableheader}
-\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} \\
+\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} & \textbf{Use Case Link} \\
 \hline
 \endhead
-\hline \multicolumn{6}{r}{{Continued on next page}} \\ \hline
+\hline \multicolumn{7}{r}{{Continued on next page}} \\ \hline
 \endfoot
 \hline
 \endlastfoot
 
-SAF-EMG-001 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect pressure deviations \(>\pm5\%\) from nominal setpoint within \textbf{5 seconds}. & Test: Inject simulated pressure spike; measure detection latency. \\
+SAF-EMG-001 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect pressure deviations \(>\pm5\%\) from nominal setpoint within \textbf{5 seconds}. & Test: Inject simulated pressure spike; measure detection latency. & \hyperref[fig:usecase-diagram-pdf]{UC07} (Detect anomalies) \\
 \hline
-SAF-EMG-002 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect temperature deviations \(>\pm10\%\) from nominal within \textbf{10 seconds}. & Test: Thermal chamber simulation or sensor-in-the-loop test. \\
+SAF-EMG-002 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect temperature deviations \(>\pm10\%\) from nominal within \textbf{10 seconds}. & Test: Thermal chamber simulation or sensor-in-the-loop test. & \hyperref[fig:usecase-diagram-pdf]{UC07} (Detect anomalies) \\
 \hline
-SAF-EMG-003 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect power supply deviations \(>\pm15\%\) from nominal within \textbf{10 seconds}. & Test: Power supply fault injection; measure detection latency. \\
+SAF-EMG-003 & Essential & BO-L1-4, BO-L2-4.1 & QUAL-SAF-001, QUAL-OPS-001 & The system shall detect power supply deviations \(>\pm15\%\) from nominal within \textbf{10 seconds}. & Test: Power supply fault injection; measure detection latency. & \hyperref[fig:usecase-diagram-pdf]{UC07} (Detect anomalies) \\
 \hline
-SAF-STATE-001 & Essential & BO-L2-4.2 & QUAL-SAF-001 & Upon detection of any abnormal condition, the system shall transition the submersible to a \textbf{safe operational state} defined as neutral buoyancy, minimal power consumption, and active communication beacon. & Integration test: End-to-end emergency scenario. \\
+SAF-STATE-001 & Essential & BO-L2-4.2 & QUAL-SAF-001 & Upon detection of any abnormal condition, the system shall transition the submersible to a \textbf{safe operational state} defined as neutral buoyancy, minimal power consumption, and active communication beacon. & Integration test: End-to-end emergency scenario. & \hyperref[fig:usecase-diagram-pdf]{UC08} (Enter safe state) \\
 \hline
-SYS-CONT-001 & Essential & BO-L1-5 & QUAL-RES-001, QUAL-SAF-001 & When non-critical degradation occurs, the system shall continue the mission in a degraded mode while alerting the operator and logging the degradation event. & Test: Inject non-critical fault; confirm degraded continuation and alert/log. \\
+SYS-CONT-001 & Essential & BO-L1-5 & QUAL-RES-001, QUAL-SAF-001 & When non-critical degradation occurs, the system shall continue the mission in a degraded mode while alerting the operator and logging the degradation event. & Test: Inject non-critical fault; confirm degraded continuation and alert/log. & \hyperref[fig:usecase-diagram-pdf]{UC09} (Continue in degraded mode) \\
 \hline
-SYS-TERM-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-TRC-001 & When termination is required, the system shall terminate the mission in an orderly manner by completing the current operation when safe, logging the shutdown reason, and entering safe-state. & Test: Inject critical fault; verify ordered termination sequence. \\
+SYS-TERM-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-TRC-001 & When termination is required, the system shall terminate the mission in an orderly manner by completing the current operation when safe, logging the shutdown reason, and entering safe-state. & Test: Inject critical fault; verify ordered termination sequence. & \hyperref[fig:usecase-diagram-pdf]{UC10} (Terminate mission) \\
 \hline
-SYS-REC-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-OPS-001 & After entering safe-state, the system shall support recovery coordination by continuously broadcasting a communication beacon and exposing last-known position and status to operators until recovery is confirmed. & Demo/Test: Simulate safe-state; verify beacon and status visibility. \\
+SYS-REC-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-OPS-001 & After entering safe-state, the system shall support recovery coordination by continuously broadcasting a communication beacon and exposing last-known position and status to operators until recovery is confirmed. & Demo/Test: Simulate safe-state; verify beacon and status visibility. & \hyperref[fig:usecase-diagram-pdf]{UC11} (Coordinate recovery) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -427,29 +433,29 @@ SYS-REC-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-OPS-001 & After entering 
 \small
 \renewcommand{\arraystretch}{1.2}
 \setlength{\tabcolsep}{3pt}
-\begin{longtable}{|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.09\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.32\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.08\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.29\textwidth}|>{\raggedright\arraybackslash}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|}
 \hline
 \rowcolor{tableheader}
-\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} \\
+\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} & \textbf{Use Case Link} \\
 \hline
 \endfirsthead
 \hline
 \rowcolor{tableheader}
-\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} \\
+\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} & \textbf{Use Case Link} \\
 \hline
 \endhead
-\hline \multicolumn{6}{r}{{Continued on next page}} \\ \hline
+\hline \multicolumn{7}{r}{{Continued on next page}} \\ \hline
 \endfoot
 \hline
 \endlastfoot
 
-DATA-LOG-001 & Essential & BO-L1-6, IT-L1-5 & QUAL-TRC-001 & The system shall log mission events and operator actions with timestamp (UTC), vehicle ID, and operator ID attribution. & Inspection/Test: Review log records for required fields. \\
+DATA-LOG-001 & Essential & BO-L1-6, IT-L1-5 & QUAL-TRC-001 & The system shall log mission events and operator actions with timestamp (UTC), vehicle ID, and operator ID attribution. & Inspection/Test: Review log records for required fields. & \hyperref[fig:usecase-diagram-pdf]{UC12} (Record operations) \\
 \hline
-DATA-LOG-002 & Essential & IT-L1-5, IT-L0-C3 & QUAL-SEC-001, QUAL-TRC-001 & The system shall store operational logs in an append-only form and retain them for at least \textbf{5 years} to support audit and investigation. & Inspection: Verify storage configuration and retention policy. \\
+DATA-LOG-002 & Essential & IT-L1-5, IT-L0-C3 & QUAL-SEC-001, QUAL-TRC-001 & The system shall store operational logs in an append-only form and retain them for at least \textbf{5 years} to support audit and investigation. & Inspection: Verify storage configuration and retention policy. & \hyperref[fig:usecase-diagram-pdf]{UC12} (Record operations) \\
 \hline
-DATA-LOG-003 & Essential & BO-L2-6.2, IT-L2-5.1 & QUAL-OPS-001, QUAL-TRC-001 & The system shall allow authorized retrieval and export of mission records for a \(\leq\)24-hour mission into a structured format (CSV and JSON) within \(\leq\) \textbf{2 minutes}. & Test: Export timed retrieval under representative data volume. \\
+DATA-LOG-003 & Essential & BO-L2-6.2, IT-L2-5.1 & QUAL-OPS-001, QUAL-TRC-001 & The system shall allow authorized retrieval and export of mission records for a \(\leq\)24-hour mission into a structured format (CSV and JSON) within \(\leq\) \textbf{2 minutes}. & Test: Export timed retrieval under representative data volume. & \hyperref[fig:usecase-diagram-pdf]{UC13} (Retrieve/export records) \\
 \hline
-DATA-LOG-004 & Desirable & BO-L1-7, BO-L2-6.2 & QUAL-OPS-001 & The system shall generate a post-mission summary report (mission timeline, anomalies, interventions) within \(\leq\) \textbf{10 minutes} after mission completion. & Test: Complete mission; measure report generation time and contents. \\
+DATA-LOG-004 & Desirable & BO-L1-7, BO-L2-6.2 & QUAL-OPS-001 & The system shall generate a post-mission summary report (mission timeline, anomalies, interventions) within \(\leq\) \textbf{10 minutes} after mission completion. & Test: Complete mission; measure report generation time and contents. & \hyperref[fig:usecase-diagram-pdf]{UC14} (Post-mission summary) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -459,23 +465,23 @@ DATA-LOG-004 & Desirable & BO-L1-7, BO-L2-6.2 & QUAL-OPS-001 & The system shall 
 \small
 \renewcommand{\arraystretch}{1.2}
 \setlength{\tabcolsep}{3pt}
-\begin{longtable}{|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.09\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.32\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.08\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.29\textwidth}|>{\raggedright\arraybackslash}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|}
 \hline
 \rowcolor{tableheader}
-\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} \\
+\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} & \textbf{Use Case Link} \\
 \hline
 \endfirsthead
 \hline
 \rowcolor{tableheader}
-\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} \\
+\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} & \textbf{Use Case Link} \\
 \hline
 \endhead
-\hline \multicolumn{6}{r}{{Continued on next page}} \\ \hline
+\hline \multicolumn{7}{r}{{Continued on next page}} \\ \hline
 \endfoot
 \hline
 \endlastfoot
 
-INT-SENS-001 & Essential & IT-L0-A1 & QUAL-RES-001 & The system shall integrate customer-supplied mission sensors using \textbf{ROS2 middleware} and \textbf{DDS} transport, and shall ingest sensor messages in a documented \textbf{JSON} schema defined in the Interface/API guide. & Test: Sensor-in-the-loop integration against the published schema. \\
+INT-SENS-001 & Essential & IT-L0-A1 & QUAL-RES-001 & The system shall integrate customer-supplied mission sensors using \textbf{ROS2 middleware} and \textbf{DDS} transport, and shall ingest sensor messages in a documented \textbf{JSON} schema defined in the Interface/API guide. & Test: Sensor-in-the-loop integration against the published schema. & \hyperref[fig:usecase-diagram-pdf]{UC15} (Sensor integration) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -485,27 +491,27 @@ INT-SENS-001 & Essential & IT-L0-A1 & QUAL-RES-001 & The system shall integrate 
 \small
 \renewcommand{\arraystretch}{1.2}
 \setlength{\tabcolsep}{3pt}
-\begin{longtable}{|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.09\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.32\textwidth}|>{\raggedright\arraybackslash}p{0.14\textwidth}|}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.08\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|>{\raggedright\arraybackslash}p{0.29\textwidth}|>{\raggedright\arraybackslash}p{0.15\textwidth}|>{\raggedright\arraybackslash}p{0.12\textwidth}|}
 \hline
 \rowcolor{tableheader}
-\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} \\
+\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} & \textbf{Use Case Link} \\
 \hline
 \endfirsthead
 \hline
 \rowcolor{tableheader}
-\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} \\
+\textbf{Req ID} & \textbf{Priority} & \textbf{Source} & \textbf{Quality Tags} & \textbf{Requirement} & \textbf{Verification} & \textbf{Use Case Link} \\
 \hline
 \endhead
-\hline \multicolumn{6}{r}{{Continued on next page}} \\ \hline
+\hline \multicolumn{7}{r}{{Continued on next page}} \\ \hline
 \endfoot
 \hline
 \endlastfoot
 
-SEC-ENC-001 & Essential & IT-L0-C3, IT-L1-4 & QUAL-SEC-001 & The system shall protect operational data using \textbf{AES-256} encryption for data at rest and for encrypted payloads in transit. & Inspection/Test: Verify crypto configuration and encrypted traffic capture. \\
+SEC-ENC-001 & Essential & IT-L0-C3, IT-L1-4 & QUAL-SEC-001 & The system shall protect operational data using \textbf{AES-256} encryption for data at rest and for encrypted payloads in transit. & Inspection/Test: Verify crypto configuration and encrypted traffic capture. & \hyperref[fig:usecase-diagram-pdf]{UC16} (Protect data) \\
 \hline
-SEC-AUTH-001 & Essential & IT-L0-C3, IT-L1-4 & QUAL-SEC-001 & The system shall enforce mutual authentication for system-to-system communications using \textbf{X.509 certificates}. & Test: Reject invalid/expired certificates; accept valid certificates only. \\
+SEC-AUTH-001 & Essential & IT-L0-C3, IT-L1-4 & QUAL-SEC-001 & The system shall enforce mutual authentication for system-to-system communications using \textbf{X.509 certificates}. & Test: Reject invalid/expired certificates; accept valid certificates only. & \hyperref[fig:usecase-diagram-pdf]{UC16} (Mutual authentication) \\
 \hline
-SEC-AUD-001 & Essential & IT-L0-C3, BO-L0-C4 & QUAL-SEC-001, QUAL-TRC-001 & The system shall maintain audit logs for access to operational data and for administrative configuration changes, including actor identity and timestamps. & Inspection/Test: Perform actions; confirm corresponding audit records. \\
+SEC-AUD-001 & Essential & IT-L0-C3, BO-L0-C4 & QUAL-SEC-001, QUAL-TRC-001 & The system shall maintain audit logs for access to operational data and for administrative configuration changes, including actor identity and timestamps. & Inspection/Test: Perform actions; confirm corresponding audit records. & \hyperref[fig:usecase-diagram-pdf]{UC17} (Audit access) \\
 \hline
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -717,14 +723,7 @@ ADD-002 & \textbf{Cost redaction note:} Any cost figures referenced from the Pro
 \section{Requirements Modeling}
 \label{sec:req-modeling}
 
-The following models are included to support stakeholder understanding and to maintain traceability between requirements and operational context.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.85\textwidth]{../Models/UseCase Model.jpg}
-\caption{Use Case Model: Representative operational interactions}
-\label{fig:usecase-model}
-\end{figure}
+The following models are included to support stakeholder understanding and to maintain traceability between requirements and operational context. Refer to Figure~\ref{fig:usecase-diagram-pdf} (Use Case Diagram) for the consolidated actor–system interactions used throughout this SRS.
 
 Additional Project Specification models (e.g., organization chart and roles/responsibilities) are adopted by reference from the Project Specification appendices to avoid divergence across artifacts.
 
@@ -801,5 +800,203 @@ Vendor (Brigman) & Verification \& Validation Lead & (TBD) \\
   \item Final selection of database product/version for TECH-DB-001 (if different from PostgreSQL-equivalent).
   \item Final JSON schemas for INT-SENS-001 (to be published with the Interface/API guide).
 \end{itemize}
+
+% =====================
+% FIGURES 
+% =====================
+
+\section{Figures}
+\label{sec:figures}
+
+\addtocounter{figure}{0}
+
+\begin{figure}[H]
+\centering
+\hyperref[tab:response-sequence]{\includegraphics[width=0.95\textwidth]{../Models/Use Case Diagram.pdf}}
+\caption{Use Case Diagram}
+\label{fig:usecase-diagram-pdf}
+\end{figure}
+
+\subsection*{Instructions}
+The diagram illustrates the primary actors (surface controller, mothership crew, autonomous submersible) and 
+their interactions with major system functions such as mission planning, launch/recovery, sensor telemetry, 
+fault handling, and data logging. Follow each actor’s swim lane to see how the mission progresses 
+from preparation to post-mission data review; the colored connectors highlight safety-critical flows 
+(emergency surfacing, manual override) that must remain available throughout operations.
+
+% =====================
+% RESPONSE SEQUENCE
+% =====================
+
+\newpage
+\setcounter{page}{1}
+\renewcommand{\thepage}{A-\arabic{page}}
+\section*{Appendix A: Response Sequence}
+\addcontentsline{toc}{subsection}{Response Sequence}
+
+\small
+\renewcommand{\arraystretch}{1.2}
+\setlength{\tabcolsep}{4pt}
+\phantomsection
+\label{tab:response-sequence}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.16\textwidth}|>{\raggedright\arraybackslash}p{0.62\textwidth}|>{\raggedright\arraybackslash}p{0.16\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Use Case No.} & \textbf{Use Case Flow (Description)} & \textbf{Use Case End Goal} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor{tableheader}
+\textbf{Use Case No.} & \textbf{Use Case Flow (Description)} & \textbf{Use Case End Goal} \\
+\hline
+\endhead
+\hline \multicolumn{3}{r}{{Continued on next page}} \\ \hline
+\endfoot
+\hline
+\endlastfoot
+
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC01} -- Initiate Emergency Retrieval} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item Pilot detects an emergency situation.
+  \item Pilot selects the emergency retrieval command.
+  \item System validates hardware interfaces.
+  \item System activates retrieval protocol.
+  \item Vessel begins return-to-surface procedure.
+\end{enumerate} & The vessel is safely retrieved during an emergency. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC02} -- Monitor Vessel Health} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System continuously receives vessel telemetry.
+  \item System checks pressure, temperature, and power levels.
+  \item System compares readings with safety thresholds.
+  \item System detects abnormal readings if thresholds are exceeded.
+  \item System prepares alerts for operators.
+\end{enumerate} & Vessel health is monitored continuously to detect issues early. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC03} -- Manual Control Override} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item Operator selects the manual override option.
+  \item System verifies operator authorization.
+  \item System disables autonomous control temporarily.
+  \item Operator sends manual navigation commands.
+\end{enumerate} & Operator gains direct control of the vessel when necessary. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC04} -- Execute Mission Controls Override} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System receives manual control commands.
+  \item System validates command parameters.
+  \item System applies override to mission controls.
+  \item System logs operator actions.
+  \item Vessel executes the override instructions.
+\end{enumerate} & Mission continues under manual control safely. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC05} -- Configure Mission Parameters} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item Fleet Controller opens mission configuration interface.
+  \item Controller enters mission parameters (depth, path, duration).
+  \item System validates parameter limits.
+  \item Controller confirms configuration.
+  \item System stores mission parameters.
+\end{enumerate} & Mission parameters are prepared for safe mission execution. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC06} -- Manage Fleet Mission} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item Fleet Controller views fleet dashboard.
+  \item Controller assigns missions to vessels.
+  \item System distributes mission data to vessels.
+  \item Controller monitors fleet progress.
+  \item System updates fleet status in real time.
+\end{enumerate} & Multiple vessels are coordinated efficiently. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC07} -- Review Mission Log} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item Mission Review Officer accesses mission log system.
+  \item Officer selects a completed mission.
+  \item System retrieves stored mission records.
+  \item System displays full mission timeline.
+\end{enumerate} & Mission performance is evaluated using stored logs. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC08} -- Synchronise Mission Data} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System collects mission data from vessels.
+  \item System encrypts data using secure protocols.
+  \item System synchronizes data with control station servers.
+  \item System verifies successful synchronization.
+  \item System updates mission data repository.
+\end{enumerate} & Mission data remains consistent across all systems. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC09} -- Auto-Trigger Retrieval} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System detects abnormal operating conditions.
+  \item System evaluates emergency thresholds.
+  \item System automatically triggers retrieval protocol.
+  \item Vessel receives retrieval command.
+  \item Vessel begins safe recovery procedure.
+\end{enumerate} & Automatic safety retrieval occurs during critical failures. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC10} -- Detect Abnormal Conditions} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System continuously monitors sensor data.
+  \item System evaluates pressure, temperature, and power metrics.
+  \item System compares metrics to defined limits.
+  \item System identifies abnormal condition.
+  \item System notifies alert subsystem.
+\end{enumerate} & Abnormal system conditions are detected quickly. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC11} -- Raise Health Alert} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System receives abnormal condition signal.
+  \item System generates health alert notification.
+  \item Alert is displayed on operator dashboard.
+  \item System logs the alert event.
+  \item Operator reviews and decides next action.
+\end{enumerate} & Operators are notified of system health issues. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC12} -- Validate Hardware Interfaces} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System checks connected hardware modules.
+  \item System tests communication interfaces.
+  \item System verifies sensor availability.
+  \item System confirms interface compatibility.
+  \item System reports validation status.
+\end{enumerate} & Hardware readiness is verified before operations. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC13} -- Log Operator Operations} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item Operator performs system action.
+  \item System captures action details.
+  \item System records timestamp and user identity.
+  \item System stores log entry securely.
+  \item Audit log is updated.
+\end{enumerate} & Operator activities are recorded for auditing. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC14} -- Autonomous Execution} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System loads configured mission parameters.
+  \item Vessel begins autonomous navigation.
+  \item System monitors execution progress.
+  \item System records telemetry data.
+  \item Mission continues until completion or interruption.
+\end{enumerate} & Vessel completes mission autonomously. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC15} -- Log Mission Data} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System collects mission telemetry data.
+  \item System records sensor readings.
+  \item System timestamps each data entry.
+  \item Data is formatted for storage.
+  \item Log records are prepared for database storage.
+\end{enumerate} & Mission telemetry data is recorded during operations. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC16} -- Store Mission Data} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item System receives mission log records.
+  \item System encrypts stored data.
+  \item System writes records to database storage.
+  \item System confirms successful storage.
+  \item Data repository is updated.
+\end{enumerate} & Mission data is securely stored in the system database. \\
+\hline
+\textbf{\hyperref[fig:usecase-diagram-pdf]{UC17} -- Retrieve Mission Data} & \textbf{Main Flow:}\begin{enumerate}[leftmargin=*,nosep]
+  \item Officer requests mission data retrieval.
+  \item System searches mission database.
+  \item System retrieves requested data.
+  \item System formats data for display.
+  \item Data is presented to the officer.
+\end{enumerate} & Stored mission data becomes accessible for analysis. \\
+\hline
+\end{longtable}
+\setlength{\tabcolsep}{6pt}
+\normalsize
+
+\newpage
+\setcounter{page}{1}
+\renewcommand{\thepage}{B-\arabic{page}}
+\section*{Appendix B: Wireframe}
+
 
 \end{document}
