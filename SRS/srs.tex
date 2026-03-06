@@ -795,10 +795,18 @@ Additional Project Specification models (e.g., organisation chart and roles/resp
 \rowcolor{tableheader}
 \textbf{Name} & \textbf{Employee ID} & \textbf{Signature} \\
 \hline
-Muhammad Ridwan Putra Jasni (Authenticator) & BDST-RE-BA-001 & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Signatures/signature_ridwan.jpg}} \\
+Muhammad Ridwan Putra Jasni & BDST-RE-BA-001 & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Signatures/signature_ridwan.jpg}} \\
+\hline
+Chng Zong Han & BDST-RE-BA-002 & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Signatures/signature_zonghan.jpg}} \\
+\hline
+Lin Yuhao & BDST-RE-BA-003 & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Signatures/signature_yuhao.jpg}} \\
+\hline
+Muhammad Mikhail Bin Mazlan & BDST-RE-BA-004 & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Signatures/signature_mikhail.jpg}} \\
+\hline
+Kannan s/o Rajamohan & BDST-RE-BA-005 & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Signatures/signature_kannan.jpg}} \\
 \hline
 \end{tabular}
-\caption{Vendor authenticator sign-off (signature provided)}
+\caption{Vendor team sign-off (signatures provided)}
 \label{tab:vendor-signoff}
 \end{table}
 
@@ -812,21 +820,21 @@ Muhammad Ridwan Putra Jasni (Authenticator) & BDST-RE-BA-001 & \makebox[\linewid
 \rowcolor{tableheader}
 \textbf{Organization} & \textbf{Role} & \textbf{Name (Designated)} \\
 \hline
-Customer (Triton Deepwater) & Project Leader / Requirements Approver & Sarah Whitman \\
+Customer (Triton Deepwater) & Project Leader / Requirements Approver & Role Holder \\
 \hline
-Customer (Triton Deepwater) & Safety \& Compliance Approver & (TBD) \\
+Customer (Triton Deepwater) & Safety \& Compliance Approver & Role Holder \\
 \hline
-Vendor (Brigman) & Engineering Delivery Lead & (TBD) \\
+Vendor (Brigman Deep Sea Technology) & Engineering Delivery Lead & Role Holder \\
 \hline
-Vendor (Brigman) & Verification \& Validation Lead & (TBD) \\
+Vendor (Brigman Deep Sea Technology) & Verification \& Validation Lead & Role Holder \\
 \hline
 \end{tabular}
-\caption{Designated approvers (placeholders where not yet nominated)}
+\caption{Designated approvers (role-based; named individuals to be recorded in formal approval transmittal)}
 \label{tab:designated-approvers}
 \end{table}
 
 \smallskip
-\noindent\textit{Where named individuals are not yet formally nominated at SRS baseline, the designated organisational role holder shall assume approval authority until official nomination is confirmed.}
+\noindent\textit{The designated organisational role holder at the time of SRS baseline approval shall assume approval authority. Named individuals may be recorded in the formal approval record or transmittal documentation. The SRS remains role-based to preserve governance continuity across personnel changes.}
 
 % =====================
 % 12. DECLARATIONS
@@ -834,13 +842,15 @@ Vendor (Brigman) & Verification \& Validation Lead & (TBD) \\
 \section{Declarations}
 \label{sec:declarations}
 
-\subsection{AI Assistance Declaration}
+\textbf{AI Tool Usage Declaration:} We acknowledge the use of AI tools (including ChatGPT) to assist with language refinement, structural organisation, and clarity of presentation. Prompts were used to review section structure, improve wording, and improve document flow. The output was used solely to refine phrasing and presentation. We confirm that no AI-generated analytical content, traceability decisions, models, or technical conclusions have been presented as our own work. All requirements analysis, codification, and validation were performed by the team.
 
-AI tools were used solely for drafting support and formatting clarity during preparation of this document. All requirements analysis, traceability decisions, modeling alignment, and codification were performed and validated by the project team. No AI-generated content was accepted without human review and approval.
+\textbf{Originality Declaration:} This Software Requirements Specification presents original requirements work by Brigman Deep Sea Technology. The BCIC framework is a proprietary methodology invented by Dr Kevin Anthony Jones and applied by us specifically to this project. All sources are cited in the References section.
 
-\subsection{Academic Integrity Declaration}
+\textbf{Software Compliance Declaration:} This SRS aligns with IEEE 830 principles and applies CRaM criteria (Correct, Relevant, Measurable) throughout requirements specification.
 
-This Software Requirements Specification is the original work of the project team. All sources consulted are cited in the References section. No plagiarism, unauthorised collaboration, or academic misconduct occurred in the preparation of this document.
+\textbf{Software Scope Declaration:} This SRS covers software requirements only. Hardware specifications and physical interfaces are customer-defined; the software integrates those components within the defined system boundary.
+
+\textbf{Academic Integrity Declaration:} No plagiarism, unauthorised collaboration, or academic misconduct occurred in the preparation of this document.
 
 \section*{Repository Information}
 \addcontentsline{toc}{section}{Repository Information}
@@ -879,12 +889,50 @@ This Software Requirements Specification is the original work of the project tea
 \renewcommand{\thepage}{G-\arabic{page}}
 \section*{Glossary}
 \addcontentsline{toc}{section}{Glossary}
-\begin{itemize}[leftmargin=*,nosep]
-  \item \textbf{BCIC:} Breakdown, Clarify, Interpret, Categorize.
-  \item \textbf{CRaM:} Correct, Relevant, and Measurable requirements organization principle.
-  \item \textbf{iRTM:} Integrated Requirements Traceability Matrix.
-  \item \textbf{Safe-state:} neutral buoyancy, minimal power, beacon active.
-\end{itemize}
+\begin{description}[leftmargin=*,style=nextline,font=\normalfont\bfseries]
+  \item[AES-256] Advanced Encryption Standard with 256-bit key length used for data encryption at rest and in transit.
+  \item[Anomaly Alert] A system-generated notification triggered when operational parameters deviate beyond defined thresholds.
+  \item[Append-Only Log] A logging mechanism where records can only be added and not modified or deleted, ensuring audit integrity.
+  \item[Autonomous Execution] Mission execution performed without continuous human control, based on pre-configured mission plans.
+  \item[Baseline (SRS Baseline)] The formally approved version of this SRS used as the reference point for design, implementation, and change control.
+  \item[BCIC] Breakdown, Clarify, Interpret, Categorize — the requirements derivation method applied in this SRS.
+  \item[Blackbox Logging] Redundant logging mechanism storing critical operational data both onboard the submersible and on the mothership for post-incident analysis.
+  \item[CHG-\textlangle AREA\textrangle-\textlangle NNN\textrangle] Codification scheme used for change mitigation controls in Section 8.
+  \item[COM-DEG-001] Requirement governing degraded communication handling and safe-state triggering under communication loss.
+  \item[Constrained Communications] Operational context characterised by low bandwidth, high latency, and intermittent connectivity.
+  \item[Contingency Control (CHG-CONT-*)] Pre-approved change control triggered by anticipated conditions such as regulatory updates or integration mismatches.
+  \item[CRaM] Correct, Relevant, and Measurable — requirements organisation principle applied throughout this SRS.
+  \item[DDS (Data Distribution Service)] Middleware transport protocol used for real-time, reliable, and scalable data exchange in distributed systems.
+  \item[Degraded Mode] Operational state in which the mission continues with limited functionality while alerting operators and logging the condition.
+  \item[Emergency Retrieval] Autonomous system-initiated ascent and recovery process triggered under catastrophic conditions.
+  \item[Fault Injection] Testing technique involving deliberate introduction of faults to verify detection and recovery behaviour.
+  \item[iRTM (Integrated Requirements Traceability Matrix)] Artifact mapping Project Specification clauses to SRS requirements, ensuring bidirectional traceability.
+  \item[JSON Schema] Structured data definition format used for defining and validating message payloads.
+  \item[McCall Quality Model] Software quality framework organising quality into Product Operation, Product Revision, and Product Transition perspectives.
+  \item[Mission Plan] Version-controlled structured definition of waypoints and mission phases for autonomous execution.
+  \item[Mission Run] An instantiated execution of a mission plan with runtime state tracking.
+  \item[Mutual Authentication] Security mechanism requiring both communicating parties to validate each other using digital certificates.
+  \item[Normative Language (``Shall'')] Mandatory wording used to indicate enforceable requirements.
+  \item[Open Issue Control (CHG-OISS-*)] Codified unresolved requirement item tracked with a responsible party and kill date.
+  \item[Operational Log Record] Timestamped record of mission or operator activity including attribution and severity classification.
+  \item[Product Specification (PS)] Customer-issued specification forming the source baseline for vendor requirement derivation.
+  \item[QUAL-\textlangle AREA\textrangle-\textlangle NNN\textrangle] Codification scheme for BDST Quality Model features aligned with McCall's model.
+  \item[Requirement ID Stability Rule] Rule stating that requirement identifiers remain unchanged across revisions to preserve traceability.
+  \item[Role-Based Access Control (RBAC)] Access control mechanism restricting permissions based on assigned user roles.
+  \item[ROS2] Robot Operating System version 2 middleware framework supporting distributed robotics applications.
+  \item[Safe-State] Defined operational condition characterised by neutral buoyancy, minimal power consumption, and active communication beacon.
+  \item[SDLC (Software Development Life Cycle)] Structured lifecycle including requirements, design, implementation, verification, and maintenance phases.
+  \item[SEC-AUD-001] Requirement governing audit logging for access and configuration changes.
+  \item[SEC-AUTH-001] Requirement governing X.509-based mutual authentication.
+  \item[SEC-ENC-001] Requirement governing encryption of operational data.
+  \item[Session Timeout] Security mechanism automatically terminating inactive sessions after a configured duration.
+  \item[Specifying Method (Vendor Provision)] Requirements introduced by the vendor beyond the PS baseline (technology stack, quality model, governance).
+  \item[Trace Type (DT\,/\,AT\,/\,VP)] Classification used in the iRTM: \textbf{DT} -- Direct Trace; \textbf{AT} -- Assumption Trace; \textbf{VP} -- Vendor Provision.
+  \item[Two-Factor Authentication (2FA)] Authentication mechanism requiring two independent verification factors.
+  \item[UDS (Unmanned Deep-sea Submersible)] The autonomous deep-sea platform controlled by the Abyss Navigator Suite.
+  \item[UTC (Coordinated Universal Time)] Standardised time reference used for all timestamped logs and mission records.
+  \item[Vendor Provision (VP)] Requirement introduced by the vendor under the Specifying method rather than directly derived from the PS.
+\end{description}
 % =====================
 % TBD List
 % =====================
@@ -895,7 +943,6 @@ This Software Requirements Specification is the original work of the project tea
 \section*{To Be Determined (TBD) List}
 \addcontentsline{toc}{section}{To Be Determined (TBD) List}
 \begin{itemize}[leftmargin=*,nosep]
-  \item Customer nomination of Safety \& Compliance approver name.
   \item Final selection of database product/version for TECH-DB-001 (if different from PostgreSQL-equivalent).
   \item Final JSON schemas for INT-SENS-001 (to be published with the Interface/API guide).
 \end{itemize}
