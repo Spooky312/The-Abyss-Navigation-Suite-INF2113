@@ -181,7 +181,7 @@ This Software Requirements Specification (SRS) defines the software requirements
   \item \textbf{Technology requirements:} \texttt{TECH-<AREA>-<NNN>} (e.g., \texttt{TECH-PLAT-001}).
   \item \textbf{Quality model features:} \texttt{QUAL-<AREA>-<NNN>} (e.g., \texttt{QUAL-SAF-001}).
   \item \textbf{iRTM entries:} \texttt{RTM-<NNN>} (e.g., \texttt{RTM-001}).
-  \item \textbf{Change mitigation controls:} \texttt{CHG-<AREA>-<NNN>} (e.g., \texttt{CHG-CTRL-001}).
+  \item \textbf{Change mitigation controls:} \texttt{CHG-<AREA>-<NNN>} (e.g., \texttt{CHG-CONT-001}, \texttt{CHG-OISS-001}, \texttt{CHG-HRCC-001}).
 \end{itemize}
 
 \textbf{Priority levels.} Priority is recorded as \textbf{Essential}, \textbf{Desirable}, or \textbf{Acceptable} to align with the Project Specification.
@@ -651,6 +651,12 @@ RTM-026 & IT-L1-6 & DT & Safe operation under degraded comm. & COM-DEG-001; SYS-
 \hline
 RTM-027 & IT-L2-5.1 & DT & Logs sufficient for review/accountability. & DATA-LOG-003; DATA-LOG-004 & Exportable records and review-ready reports. \\
 \hline
+RTM-028 & Vendor Provision & VP & Vendor-defined technology stack and integration standards. & TECH-PLAT-001; TECH-DB-001; TECH-NET-001; TECH-API-001 & Technology requirements introduced under the Specifying method. \\
+\hline
+RTM-029 & Vendor Provision & VP & Vendor-defined quality development model. & QUAL-SAF-001; QUAL-SEC-001; QUAL-RES-001; QUAL-TRC-001; QUAL-OPS-001 & Quality attributes structured under the McCall-aligned development model. \\
+\hline
+RTM-030 & Vendor Provision & VP & Vendor-defined change-mitigation controls. & CHG-CONT-001..003; CHG-OISS-001..002; CHG-HRCC-001..004 & Change governance introduced under Section 8. \\
+\hline
 \caption{iRTM: Project Specification (PS) to SRS traceability}\label{tab:irtm}
 \end{longtable}
 \normalsize
@@ -674,64 +680,80 @@ No requirement shall progress to implementation without corresponding design and
 % =====================
 \section{Change Mitigation Protocol}
 
-This protocol implements all three change mitigation strategies defined in
-Specifying methodology: anticipatory contingency requirements, open issues,
-and high-risk change control.
+This protocol implements all three change mitigation strategies defined in the Specifying methodology: anticipatory contingency controls, open issue controls, and high-risk change controls. All change mitigation items are codified under the scheme \texttt{CHG-<AREA>-<NNN>} as declared in Section~\ref{sec:codification}.
 
-\subsection{8.1 Anticipatory Contingency Requirements}
+\subsection{8.1 Contingency Controls}
 
-The following dormant requirements are pre-approved and may be activated
-without contract renegotiation if triggering conditions occur:
+All contingency-related change controls are codified under \texttt{CHG-CONT-<NNN>}. The following contingency controls are pre-approved and may be activated without contract renegotiation if triggering conditions occur.
 
-\begin{itemize}
-\item CONT-REG-001: If maritime regulatory requirements introduce new
-depth or reporting limits, system logging and reporting thresholds shall
-be configurable without architectural redesign.
+\begin{itemize}[leftmargin=*]
+  \item \textbf{CHG-CONT-001:} If regulatory obligations change during project execution, the baseline shall be reviewed and updated through formal impact analysis before implementation.
+  \begin{itemize}[nosep]
+    \item Impact assessment required.
+    \item Must be trace-linked in iRTM.
+    \item Must update affected requirement IDs.
+  \end{itemize}
 
-\item CONT-SENS-001: If customer-supplied sensor interface versions change,
-the system shall support backward-compatible schema adapters.
+  \item \textbf{CHG-CONT-002:} If customer-provided sensor interfaces deviate from agreed specifications, integration shall be suspended until compatibility validation is completed.
+  \begin{itemize}[nosep]
+    \item Impact assessment required.
+    \item Must be trace-linked in iRTM.
+    \item Must update affected requirement IDs (\texttt{INT-SENS-001}).
+  \end{itemize}
 
-\item CONT-COMM-001: If operational communication bandwidth reduces below
-1 kbps baseline, system shall prioritize safety telemetry over mission data.
+  \item \textbf{CHG-CONT-003:} If communications constraints exceed defined thresholds, degraded-mode operation shall be activated and logged.
+  \begin{itemize}[nosep]
+    \item Impact assessment required.
+    \item Must be trace-linked in iRTM.
+    \item Must update affected requirement IDs (\texttt{COM-DEG-001}, \texttt{SYS-CONT-001}).
+  \end{itemize}
 \end{itemize}
 
-\subsection{8.2 Open Issues Register}
+\subsection{8.2 Open Issue Controls}
 
-Open issues are requirements not fully resolved at SRS baseline and subject
-to structured negotiation.
+Open issues shall be codified under \texttt{CHG-OISS-<NNN>}. Open issues are requirements not fully resolved at SRS baseline and subject to structured negotiation.
 
 \begin{table}[h]
 \centering
-\begin{tabular}{|l|l|l|l|}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{0.14\textwidth}|p{0.40\textwidth}|p{0.20\textwidth}|p{0.16\textwidth}|}
 \hline
-Issue ID & Description & Responsible Party & Kill Date \\ \hline
-OI-001 & Final database product selection & Vendor & 30 days post-baseline \\
-OI-002 & Final JSON sensor schema approval & Customer & 45 days post-baseline \\
+\rowcolor{tableheader}
+\textbf{Issue ID} & \textbf{Description} & \textbf{Responsible Party} & \textbf{Kill Date} \\ \hline
+CHG-OISS-001 & Final confirmation of regulatory audit retention duration is pending. & Vendor & 30 days post-baseline \\
+\hline
+CHG-OISS-002 & Final bandwidth constraint values subject to field validation. & Customer & 45 days post-baseline \\
 \hline
 \end{tabular}
-\caption{Open Issues Register}
+\caption{Open Issue Controls Register}
 \label{tab:open-issues}
 \end{table}
 
-Open issues unresolved by kill date shall default to baseline assumptions.
-
-\subsection{8.3 High-Risk Change Control}
-
-High-risk requirements include:
-
-\begin{itemize}
-\item All SAF-* requirements
-\item COM-DEG-001
-\item SEC-ENC-001, SEC-AUTH-001
+Open issues:
+\begin{itemize}[leftmargin=*,nosep]
+  \item Must not invalidate approved requirements.
+  \item Must be resolved before baseline freeze.
+  \item Must be tracked until closure.
 \end{itemize}
 
-Any proposed modification to high-risk requirements shall:
+\subsection{8.3 High-Risk Change Controls}
 
-\begin{enumerate}
-\item Undergo formal impact analysis (safety, schedule, cost)
-\item Be reviewed by Customer Safety Approver
-\item Be approved by Vendor Authenticator
-\item Update iRTM and verification artifacts in the same revision
+High-risk changes shall be codified under \texttt{CHG-HRCC-<NNN>}. High-risk changes include architectural modifications, safety-state logic changes, security mechanism replacement, and autonomy execution logic changes.
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{CHG-HRCC-001:} Any modification to safe-state transition logic requires dual review and regression validation.
+  \item \textbf{CHG-HRCC-002:} Replacement of encryption mechanism requires security impact assessment and re-validation.
+  \item \textbf{CHG-HRCC-003:} Changes affecting autonomous navigation behavior require simulation validation prior to deployment.
+  \item \textbf{CHG-HRCC-004:} Changes affecting trace logging or auditability require trace matrix update before approval.
+\end{itemize}
+
+All high-risk changes require:
+\begin{enumerate}[leftmargin=*,nosep]
+  \item Formal impact analysis (safety, schedule, cost).
+  \item Stakeholder approval (Customer Safety Approver and Vendor Authenticator).
+  \item Trace update in iRTM.
+  \item Re-validation per Section~\ref{sec:quality-model}.
 \end{enumerate}
 
 % =====================
