@@ -462,6 +462,12 @@ SEC-AUTH-001 & Essential & IT-L0-C3, IT-L1-4 & QUAL-SEC-001 & The system shall e
 \hline
 SEC-AUD-001 & Essential & IT-L0-C3, BO-L0-C4 & QUAL-SEC-001, QUAL-TRC-001 & The system shall maintain audit logs for access to operational data and for administrative configuration changes, including actor identity and timestamps. & Inspection/Test: Perform actions; confirm corresponding audit records. & \hyperref[fig:usecase-diagram-pdf]{UC17} (Audit access) \\
 \hline
+SEC-ACC-001 & Essential & Vendor Provision & QUAL-SEC-001, QUAL-TRC-001 & The system shall enforce role-based access control (RBAC) such that each defined user role is granted only the permissions required for its operational scope. & Test: Attempt unauthorised actions per role; confirm access denial. & --- \\
+\hline
+SEC-2FA-001 & Desirable & Vendor Provision & QUAL-SEC-001 & The system shall support configurable two-factor authentication policies, including mandatory 2FA for administrative roles. & Test: Enable policy; confirm 2FA enforcement during login for administrative roles. & --- \\
+\hline
+SEC-SES-001 & Desirable & Vendor Provision & QUAL-SEC-001 & The system shall enforce configurable session timeout values and automatically terminate inactive sessions after the configured duration. & Test: Configure timeout; confirm automatic session termination after inactivity. & --- \\
+\hline
 \caption{Security \& Governance Requirements}\label{tab:req-security}
 \end{longtable}
 \setlength{\tabcolsep}{6pt}
@@ -657,6 +663,8 @@ RTM-029 & Vendor Provision & VP & Vendor-defined quality development model. & QU
 \hline
 RTM-030 & Vendor Provision & VP & Vendor-defined change-mitigation controls. & CHG-CONT-001..003; CHG-OISS-001..002; CHG-HRCC-001..004 & Change governance introduced under Section 8. \\
 \hline
+RTM-031 & Vendor Provision & VP & Access control and session governance provisions. & SEC-ACC-001; SEC-2FA-001; SEC-SES-001 & Security governance introduced under Section 4.6. \\
+\hline
 \caption{iRTM: Project Specification (PS) to SRS traceability}\label{tab:irtm}
 \end{longtable}
 \normalsize
@@ -757,31 +765,7 @@ All high-risk changes require:
 \end{enumerate}
 
 % =====================
-% 9. ADDENDA
-% =====================
-\section{Addenda}
-\label{sec:addenda}
-
-\begin{table}[H]
-\centering
-\small
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|p{0.16\textwidth}|p{0.74\textwidth}|}
-\hline
-\rowcolor{tableheader}
-\textbf{Addendum ID} & \textbf{Statement} \\
-\hline
-ADD-001 & \textbf{Project direction baseline:} This SRS assumes the customer direction change to a fully unmanned, autonomous-first operating model is in force for all missions. \\
-\hline
-ADD-002 & \textbf{Cost redaction note:} Any cost figures referenced from the Project Specification are treated as indicative and may be redacted in released versions to avoid biasing proposals. \\
-\hline
-\end{tabular}
-\caption{Addenda (purpose-appropriate notes adopted from the Project Specification)}
-\label{tab:addenda}
-\end{table}
-
-% =====================
-% 10. REQUIREMENTS MODELING
+% 9. REQUIREMENTS MODELING
 % =====================
 \section{Requirements Modeling}
 \label{sec:req-modeling}
@@ -793,7 +777,7 @@ The following models are included to support stakeholder understanding and to ma
   \item \textbf{Data Dictionary} (Appendix \hyperref[app:data-dictionary]{A}) -- defines all data entities, their attributes, data types, constraints, and descriptions that underpin the system's data model. Each entity is cross-referenced to the relevant use case flows in Appendix B and C.
 \end{itemize}
 
-Additional Project Specification models (e.g., organization chart and roles/responsibilities) are adopted by reference from the Project Specification appendices to avoid divergence across artifacts.
+Additional Project Specification models (e.g., organisation chart and roles/responsibilities) are either explicitly included within this SRS or incorporated via controlled cross-reference to the Project Specification appendices. No requirement-relevant model exists outside the trace-controlled SRS baseline; all cross-referenced models are version-controlled within the same project repository.
 
 % =====================
 % 11. SIGN-OFF
@@ -840,6 +824,23 @@ Vendor (Brigman) & Verification \& Validation Lead & (TBD) \\
 \caption{Designated approvers (placeholders where not yet nominated)}
 \label{tab:designated-approvers}
 \end{table}
+
+\smallskip
+\noindent\textit{Where named individuals are not yet formally nominated at SRS baseline, the designated organisational role holder shall assume approval authority until official nomination is confirmed.}
+
+% =====================
+% 12. DECLARATIONS
+% =====================
+\section{Declarations}
+\label{sec:declarations}
+
+\subsection{AI Assistance Declaration}
+
+AI tools were used solely for drafting support and formatting clarity during preparation of this document. All requirements analysis, traceability decisions, modeling alignment, and codification were performed and validated by the project team. No AI-generated content was accepted without human review and approval.
+
+\subsection{Academic Integrity Declaration}
+
+This Software Requirements Specification is the original work of the project team. All sources consulted are cited in the References section. No plagiarism, unauthorised collaboration, or academic misconduct occurred in the preparation of this document.
 
 \section*{Repository Information}
 \addcontentsline{toc}{section}{Repository Information}
@@ -2119,5 +2120,35 @@ Security policies are stored and enforced with clear change attribution. \\
 \setlength{\tabcolsep}{6pt}
 \normalsize
 
+% =====================
+% ADDENDA
+% =====================
+\clearpage
+\setcounter{page}{1}
+\renewcommand{\thepage}{An-\arabic{page}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{An-\arabic{table}}
+\section*{Addenda}
+\addcontentsline{toc}{section}{Addenda}
+\phantomsection
+\label{sec:addenda}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|p{0.16\textwidth}|p{0.74\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Addendum ID} & \textbf{Statement} \\
+\hline
+ADD-001 & \textbf{Project direction baseline:} This SRS assumes the customer direction change to a fully unmanned, autonomous-first operating model is in force for all missions. \\
+\hline
+ADD-002 & \textbf{Cost redaction note:} Any cost figures referenced from the Project Specification are treated as indicative and may be redacted in released versions to avoid biasing proposals. \\
+\hline
+\end{tabular}
+\caption{Addenda (purpose-appropriate notes adopted from the Project Specification)}
+\label{tab:addenda}
+\end{table}
 
 \end{document}
