@@ -369,7 +369,7 @@ SYS-CONT-001 & Essential & BO-L1-5 & QUAL-RES-001, QUAL-SAF-001 & When non-criti
 \hline
 SYS-TERM-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-TRC-001 & When termination is required, the system shall terminate the mission in an orderly manner by completing the current operation when safe, logging the shutdown reason, and entering safe-state. & Test: Inject critical fault; verify ordered termination sequence. & \hyperref[fig:usecase-diagram-pdf]{UC10} (Terminate mission) \\
 \hline
-SYS-REC-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-OPS-001 & After entering safe-state, the system shall support recovery coordination by continuously broadcasting a communication beacon and exposing last-known position and status to operators until recovery is confirmed. & Demo/Test: Simulate safe-state; verify beacon and status visibility. & \hyperref[fig:usecase-diagram-pdf]{UC11} (Coordinate recovery) \\
+SYS-REC-001 & Essential & BO-L1-5 & QUAL-SAF-001, QUAL-OPS-001 & The system shall autonomously initiate emergency retrieval procedures without operator command upon entry into safe-state due to critical failure. The system shall continuously broadcast a recovery beacon and expose last-known position and status to operators until recovery is confirmed. & Demo/Test: Simulate safe-state; verify beacon and status visibility. & \hyperref[fig:usecase-diagram-pdf]{UC11} (Coordinate recovery) \\
 \hline
 \caption{Safety \& Recovery Requirements}\label{tab:req-safety}
 \end{longtable}
@@ -513,7 +513,7 @@ Brigman Deep Sea Technology adopts BDST Quality Model v1.1, which is
 explicitly aligned with McCall’s Software Quality Model (1977) across
 the three perspectives: Product Operation, Product Revision, and Product Transition.
 
-\subsection{6.1 Alignment with McCall Quality Model}
+\subsection{Alignment with McCall Quality Model}
 
 \begin{table}[h]
 \centering
@@ -536,7 +536,7 @@ Product Transition & Reusability & Modular API schema (TECH-API-001) \\ \hline
 \label{tab:mccall-quality-model}
 \end{table}
 
-\subsection{6.2 BDST Quality Features}
+\subsection{BDST Quality Features}
 
 \begin{itemize}
 \item QUAL-SAF-001 (Safety Integrity): Measures detection latency, safe-state transition correctness, and recovery robustness under fault injection.
@@ -777,7 +777,7 @@ The following models are included to support stakeholder understanding and to ma
   \item \textbf{Data Dictionary} (Appendix \hyperref[app:data-dictionary]{A}) -- defines all data entities, their attributes, data types, constraints, and descriptions that underpin the system's data model. Each entity is cross-referenced to the relevant use case flows in Appendix B and C.
 \end{itemize}
 
-Additional Project Specification models (e.g., organisation chart and roles/responsibilities) are either explicitly included within this SRS or incorporated via controlled cross-reference to the Project Specification appendices. No requirement-relevant model exists outside the trace-controlled SRS baseline; all cross-referenced models are version-controlled within the same project repository.
+Additional Project Specification models (e.g., organisation chart and roles/responsibilities) are either explicitly included within this SRS or incorporated via controlled cross-reference to the Project Specification appendices. All requirement-relevant models are either embedded within this SRS or cross-referenced to version-controlled artifacts in the Project Repository. No requirement-driving model exists outside trace governance control. All external references are locked to baseline-controlled versions.
 
 % =====================
 % 11. SIGN-OFF
