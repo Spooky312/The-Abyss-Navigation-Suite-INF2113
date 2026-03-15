@@ -1,0 +1,677 @@
+% !TeX root = qc_report.tex
+% !TeX program = pdflatex
+\documentclass[11pt,a4paper]{article}
+
+\pdfminorversion=7
+
+% =====================
+% Packages
+% =====================
+\usepackage[top=0.9in,left=0.9in,right=0.9in,bottom=1.2in]{geometry}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{textcomp}
+\usepackage{caption}
+\usepackage{bookmark}
+\usepackage[normalem]{ulem}
+
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+urlcolor=blue,
+citecolor=blue
+}
+
+\AtBeginDocument{
+\let\origref\ref
+\renewcommand{\ref}[1]{\uline{\origref{#1}}}
+\let\orighyperref\hyperref
+\renewcommand{\hyperref}[2][]{\orighyperref[#1]{\uline{#2}}}
+}
+
+\definecolor{tableheader}{RGB}{240,240,240}
+\definecolor{tablerow}{RGB}{250,250,250}
+
+\frenchspacing
+
+% =====================
+% Font
+% =====================
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\setstretch{1.0}
+
+% =====================
+% BACKGROUND PLACEHOLDER
+% =====================
+% Replace later with background images from SRS template if required
+
+% =====================
+% Header/Footer
+% =====================
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{Veridion Systems Validation Labs}}
+\rhead{Quality Control (QC) Audit Report}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{20pt}
+
+\begin{document}
+
+% =====================
+% COVER PAGE
+% =====================
+\thispagestyle{empty}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+\newgeometry{top=5.2cm,left=0.9in,right=0.9in,bottom=1.2in}
+
+\begin{center}
+
+{\Large\fbox{\parbox{0.72\textwidth}{\centering
+\vspace{0.3cm}
+\textbf{BACKGROUND PLACEHOLDER}\\
+Insert QC cover background here later
+\vspace{0.3cm}}}}
+
+\vspace{1cm}
+
+\LARGE\textbf{Quality Control (QC) Audit Report}
+
+\large Software Requirements Specification (SRS)
+
+\large Abyss Navigator Suite Project
+
+\vspace{0.8cm}
+
+\textbf{\Large Veridion Systems Validation Labs}
+
+\today
+
+\end{center}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{2.0}
+\begin{tabular}{|m{0.25\textwidth}|m{0.2\textwidth}|m{0.25\textwidth}|m{0.2\textwidth}|}
+\hline
+\rowcolor{tableheader}
+Brigman Team Member & Department & Role & Employee ID \\
+\hline
+Muhammad Ridwan Putra Jasni & QC Team & QC Audit Lead & QC-001 \\
+\hline
+Lin Yuhao & QC Team & QC Specialist & QC-002 \\
+\hline
+Muhammad Mikhail Bin Mazlan & QC Team & QC Specialist & QC-003 \\
+\hline
+Kannan s/o Rajamohan & QC Team & QC Specialist & QC-004 \\
+\hline
+\end{tabular}
+\caption{QC Team -- Veridion Systems Validation Labs}
+\label{tab:qc-team}
+\end{table}
+
+\restoregeometry
+\newpage
+
+% =====================
+% Table of Contents
+% =====================
+\renewcommand{\contentsname}{Table of Contents}
+\thispagestyle{empty}
+
+\hypersetup{linkcolor=black}
+\tableofcontents
+\newpage
+\hypersetup{linkcolor=blue}
+
+\noindent\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+\small\textbf{Note on Hyperlinks:} Throughout this document, all hyperlinks are displayed in \textcolor{blue}{\underline{blue and underlined}}. These links are fully clickable in the PDF viewer and will navigate to the relevant section, finding, or appendix.
+\end{minipage}}
+
+\bigskip
+
+% =====================
+% EXECUTIVE SUMMARY
+% =====================
+
+\section{Executive Summary}
+
+This report presents the results of a Quality Control (QC) validation of the
+Software Requirements Specification (SRS) for the \textbf{Abyss Navigator Suite}.
+The objective of this QC audit is to identify defects that remain in the SRS
+after the completion of Eliciting, Analysing, and Specifying.
+
+The audit focused on three principal categories of SRS defects expected at the
+Validating stage:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Authorship defects} -- where intended meanings are not expressed clearly enough
+\item \textbf{Omission defects} -- where required scenarios, conditions, or supporting content are missing
+\item \textbf{Contradiction defects} -- where different parts of the SRS imply inconsistent behaviour
+\end{itemize}
+
+The inspection found that the SRS is generally well-structured and substantively mature.
+However, a number of issues were detected in wording precision, edge-case coverage,
+control-behaviour consistency, and traceability coherence.
+
+These findings indicate that the SRS is \textbf{conditionally acceptable}, provided that
+the identified defects are rectified before the document is baselined for downstream
+design and implementation.
+
+% =====================
+% 1 INTRODUCTION
+% =====================
+
+\section{Introduction}
+
+\subsection{Purpose}
+
+This Quality Control (QC) Audit Report presents the findings of an independent inspection of the Software Requirements Specification (SRS) prepared for the \textbf{Abyss Navigator Suite}. The purpose of this QC activity is to identify defects remaining in the SRS work product before the project progresses into downstream stages such as system design and implementation.
+
+In accordance with the validating stage of Requirements Engineering, QC focuses on defect detection in the \textbf{requirements work product itself}. The QC team records findings and recommended rectifications but does not directly modify the SRS.
+
+\subsection{Document Conventions}
+
+This document is an audit report rather than a replacement SRS. It records detected defects, explains their implications, and recommends rectification actions.
+
+Audit findings use the format \texttt{QC-FND-XXX}.
+
+Rectification recommendations use the format \texttt{QC-REC-XXX}.
+
+Error detection instances use the format \texttt{QC-ERR-XXX}.
+
+\subsection{Intended Audience and Reading Suggestions}
+
+This report is intended for the Brigman requirements engineering team, project management personnel, and relevant Triton Deepwater stakeholders involved in SRS review and approval.
+
+Readers should begin with the Executive Summary and Sections 1--3, then proceed to the QC Checklist, Error Detection, detailed Findings, and Rectification Recommendations.
+
+\subsection{Audit Scope}
+
+The audit covers the SRS as a QC exercise. The scope includes:
+
+\begin{itemize}[leftmargin=*]
+\item detection of indiscriminate authorship defects
+\item detection of latent contradictions
+\item detection of omission of topics
+\item checking codification and traceability coherence
+\item checking structural, editorial, and presentation consistency
+\end{itemize}
+
+% =====================
+% 2 AUDIT BASIS
+% =====================
+
+\section{Audit Basis}
+
+\subsection{Basis of Evaluation}
+
+This QC audit was conducted on the understanding that the SRS should already be in reasonably strong condition after completion of Eliciting, Analysing, and Specifying. The purpose of QC at this stage is therefore not to rewrite the SRS, but to detect remaining defects still likely to be present in the work product.
+
+\subsection{Nature of QC}
+
+Quality Control focuses on inspecting the SRS work product itself. The QC team identifies defects but does not directly amend the SRS. Instead, the audit team produces a report that identifies defects and recommends rectifications for implementation by the requirements engineering team.
+
+\subsection{Kinds of Errors Pursued}
+
+The QC audit focuses on detecting the following major defect categories expected in the SRS at the validating stage:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Indiscriminate side effects of authorship} -- where intended meaning appears clear to the original writers but is not expressed clearly enough in the written requirement
+\item \textbf{Latent contradictions} -- where requirements, models, or sections of the SRS may conflict with one another
+\item \textbf{Omission of topics} -- where expected requirements content, edge conditions, or supporting information is absent
+\item \textbf{Traceability coherence issues} -- where codification, source mapping, or cross-references are incomplete or unclear
+\item \textbf{Editorial and structural inconsistencies} -- where formatting, section naming, or presentation patterns weaken readability or professionalism
+\end{itemize}
+
+\subsection{Severity Classification}
+
+Findings are categorised according to severity:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{High} -- defect that may significantly affect interpretation, implementation, or expected system behaviour
+\item \textbf{Medium} -- defect that may introduce ambiguity or reduce clarity without fundamentally changing requirement intent
+\item \textbf{Low} -- minor editorial or structural issue that does not materially affect requirement meaning
+\end{itemize}
+
+\subsection{Documents Reviewed}
+
+The audit considered the following project materials as supporting references:
+
+\begin{itemize}[leftmargin=*]
+\item Software Requirements Specification (SRS)
+\item Project Specification (PS)
+\item relevant requirements models
+\item codification and iRTM sections
+\item quality model and change mitigation sections
+\item appendices and supporting traceability artefacts
+\end{itemize}
+
+% =====================
+% 3 QC PLAN
+% =====================
+
+\section{QC Plan}
+
+\subsection{Target Workproduct}
+
+The target workproduct for this QC audit is the released \textbf{Software Requirements Specification (SRS)} for the Abyss Navigator Suite project.
+
+\subsection{Context and Goals}
+
+The SRS is the main requirements work product produced after Analysing and Specifying. Since downstream design and implementation rely on the SRS as the controlling requirements baseline, the QC audit is conducted to provide confidence that the specification is sufficiently clear, complete, and internally consistent.
+
+The goals of this QC audit are:
+
+\begin{itemize}[leftmargin=*]
+\item to determine whether the SRS clearly and consistently represents the intended requirements
+\item to identify material defects before downstream design and implementation begin
+\item to recommend rectifications that improve correctness, completeness, coherence, and readability of the SRS
+\end{itemize}
+
+\subsection{Access and Audit Conditions}
+
+The QC team reviewed the released SRS and supporting project artefacts made available for audit. Access was limited to materials needed to inspect the work product and its supporting traceability and modelling references.
+
+\subsection{Inspection Techniques Used}
+
+The following investigative techniques were applied during the QC audit:
+
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Close document inspection} -- detailed reading of requirement clauses and supporting sections
+\item \textbf{Perspective-based reading} -- reviewing the SRS from likely reader viewpoints such as developer, reviewer, and stakeholder
+\item \textbf{Cross-section contradiction checking} -- comparing different SRS sections and models to detect hidden conflicts
+\item \textbf{Codification and traceability verification} -- checking requirement IDs, source links, and mapping consistency
+\item \textbf{Model-to-text consistency inspection} -- ensuring models and textual requirements express compatible meanings
+\item \textbf{Omission mapping against expected SRS topics} -- checking whether important topics, edge cases, and exception paths are sufficiently covered
+\end{enumerate}
+
+\subsection{Work Breakdown}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{0.22\textwidth}|p{0.28\textwidth}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Role} & \textbf{Assigned Member} & \textbf{Primary Responsibility} \\
+\hline
+QC Audit Lead & Muhammad Ridwan Putra Jasni & Coordinate audit activities, consolidate findings, and ensure consistency of final report writing. \\
+\hline
+Requirements Reviewer & Lin Yuhao & Inspect operational, technology, and quality-related sections for ambiguity, contradiction, and omission. \\
+\hline
+Traceability Reviewer & Muhammad Mikhail Bin Mazlan & Review codification, iRTM references, source mappings, and section-to-section coherence. \\
+\hline
+Editorial and Structure Reviewer & Kannan s/o Rajamohan & Review document structure, section naming, formatting consistency, and overall presentation quality. \\
+\hline
+\end{tabularx}
+\caption{QC audit team work allocation}
+\label{tab:qc-wbs}
+\end{table}
+
+\subsection{Indicative Timeline}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{0.18\textwidth}|p{0.42\textwidth}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Stage} & \textbf{Activity} & \textbf{Indicative Duration} \\
+\hline
+Stage 1 & Individual inspection of assigned SRS sections and supporting artefacts & 2--3 hours \\
+\hline
+Stage 2 & Consolidation meeting and de-duplication of identified findings & 1 hour \\
+\hline
+Stage 3 & Severity review and drafting of rectification recommendations & 1 hour \\
+\hline
+Stage 4 & Final report formatting, checking, and team sign-off & 1 hour \\
+\hline
+\end{tabularx}
+\caption{Indicative QC audit timeline}
+\label{tab:qc-timeline}
+\end{table}
+
+\subsection{Reporting}
+
+The QC team records findings and rectification recommendations in this report. The audit team does not directly amend the audited SRS.
+
+% =====================
+% 4 QC CHECKLIST
+% =====================
+
+\section{QC Checklist}
+
+The following checklist was used by the QC audit team to inspect the SRS work product. The checklist items represent critical aspects of a high-quality SRS.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{0.1\textwidth}|X|p{0.2\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Item} & \textbf{Checklist Question} & \textbf{Inspection Result} \\
+\hline
+C1 & Are all major SRS sections present and logically structured? & Mostly satisfied \\
+\hline
+C2 & Are requirements written with clear trigger conditions and expected system responses? & Partially satisfied \\
+\hline
+C3 & Are normal, alternate, and exception scenarios sufficiently covered? & Partially satisfied \\
+\hline
+C4 & Are requirement IDs consistently codified and traceable to source clauses and models? & Mostly satisfied \\
+\hline
+C5 & Are requirement statements measurable and testable? & Partially satisfied \\
+\hline
+C6 & Are system behaviours consistent across textual descriptions and supporting models? & Partially satisfied \\
+\hline
+C7 & Are terminology, naming conventions, and formatting patterns used consistently? & Mostly satisfied \\
+\hline
+C8 & Are addenda and supporting artefacts appropriately linked to the base report? & Mostly satisfied \\
+\hline
+\end{tabularx}
+\caption{QC inspection checklist}
+\label{tab:qc-checklist}
+\end{table}
+
+% =====================
+% 5 ERROR DETECTION
+% =====================
+
+\section{Error Detection}
+
+The QC audit identified instances of three principal QC error types: authorship, omission, and contradiction. Each detected instance is recorded with its location and characteristic.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{0.15\textwidth}|p{0.18\textwidth}|p{0.2\textwidth}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Error ID} & \textbf{Error Type} & \textbf{Location} & \textbf{Characteristic of Error} \\
+\hline
+QC-ERR-001 & Authorship & Section 4.2, Communications \& Remote Operations & Wording of remote intervention timing can be interpreted differently depending on operator and link conditions. \\
+\hline
+QC-ERR-002 & Contradiction & Sections 4.1 and 4.2 & Autonomous mission execution is emphasized, while other passages imply supervisory or intervention behaviour that may conflict with autonomy precedence. \\
+\hline
+QC-ERR-003 & Omission & Section 4.3, Safety \& Recovery & Some exception and boundary-condition handling is not specified to the same detail as normal operational behaviour. \\
+\hline
+QC-ERR-004 & Omission & Sections 7 and 9 / supporting models & Some traceability and model-link coverage can be made clearer for downstream auditability. \\
+\hline
+QC-ERR-005 & Authorship & Section headings / cross-references & Minor inconsistencies in naming and presentation patterns reduce uniform readability. \\
+\hline
+\end{tabularx}
+\caption{Detected QC error instances}
+\label{tab:qc-error-detection}
+\end{table}
+
+% =====================
+% 6 QC FINDINGS
+% =====================
+
+\section{QC Findings}
+
+\subsection{Finding Summary}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{0.15\textwidth}|p{0.22\textwidth}|p{0.15\textwidth}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Finding ID} & \textbf{Type} & \textbf{Severity} & \textbf{Short Description} \\
+\hline
+QC-FND-001 & Authorship defect & Medium & Some requirement statements remain broad enough that different technically competent readers may interpret them differently. \\
+\hline
+QC-FND-002 & Latent contradiction & High & Certain statements imply autonomous behaviour by default while other statements imply supervisory or intervention behaviour that may conflict with that autonomy. \\
+\hline
+QC-FND-003 & Omission of topic & High & Exceptional scenarios, boundary conditions, and failure-state handling are not always specified to the same depth as normal operations. \\
+\hline
+QC-FND-004 & Traceability coherence & Medium & Some links between requirements, models, and traceability references would benefit from tighter one-to-one clarity. \\
+\hline
+QC-FND-005 & Editorial / structural consistency & Low & Minor inconsistencies in naming, formatting, and section presentation reduce document professionalism and readability. \\
+\hline
+\end{tabularx}
+\caption{Summary of QC findings}
+\label{tab:qc-findings-summary}
+\end{table}
+
+\subsection{Detailed Findings}
+
+\subsubsection*{QC-FND-001: Ambiguity caused by authorship side effects}
+\textbf{Related error detection:} QC-ERR-001 \\
+\textbf{Type:} Authorship defect \\
+\textbf{Severity:} Medium
+
+\textbf{Context.} The relevant requirement text is intended to support remote intervention behaviour under constrained communications.
+
+\textbf{Result.} The wording remains broad enough that two competent readers may derive slightly different implementation expectations.
+
+\textbf{Analysis.} This is characteristic of authorship-side defects in which intended meaning is clear to the writers but not expressed with sufficient precision in the written requirement.
+
+\textbf{Message.} Rewrite the affected statements to improve measurability, precision, and trigger conditions without changing the original intended requirement meaning.
+
+\subsubsection*{QC-FND-002: Possible contradiction between autonomous and supervised behaviour}
+\textbf{Related error detection:} QC-ERR-002 \\
+\textbf{Type:} Latent contradiction \\
+\textbf{Severity:} High
+
+\textbf{Context.} The SRS strongly emphasises autonomous operation as a core business and technical expectation.
+
+\textbf{Result.} Other passages also imply human intervention or supervision behaviour that could be interpreted differently depending on operational circumstances.
+
+\textbf{Analysis.} This creates a latent contradiction because the control precedence between autonomy and supervision is not yet expressed with sufficient singularity.
+
+\textbf{Message.} Introduce a single, explicit control hierarchy defining default autonomy, intervention thresholds, takeover conditions, and precedence during abnormal or emergency states.
+
+\subsubsection*{QC-FND-003: Incomplete treatment of exception and edge scenarios}
+\textbf{Related error detection:} QC-ERR-003 \\
+\textbf{Type:} Omission of topic \\
+\textbf{Severity:} High
+
+\textbf{Context.} Normal operating behaviour is generally specified more strongly than abnormal, degraded, or edge-case operation.
+
+\textbf{Result.} Some failure and recovery conditions are not described to the same depth as ordinary operating behaviour.
+
+\textbf{Analysis.} This omission creates a completeness risk because downstream design and implementation may fill the gaps using assumptions rather than agreed requirements.
+
+\textbf{Message.} Add explicit clauses or elaborations covering exception paths, degraded states, recovery boundaries, timeout conditions, and data-loss contingencies.
+
+\subsubsection*{QC-FND-004: Traceability and codification tightening needed}
+\textbf{Related error detection:} QC-ERR-004 \\
+\textbf{Type:} Traceability coherence \\
+\textbf{Severity:} Medium
+
+\textbf{Context.} The SRS includes codification and traceability mechanisms intended to support downstream auditability.
+
+\textbf{Result.} Some areas would benefit from stronger one-to-one linking between requirements, models, and verification references.
+
+\textbf{Analysis.} Auditability improves when each requirement is linked clearly to source clauses, supporting models, and traceability references.
+
+\textbf{Message.} Review all requirement IDs, source mappings, use-case links, and iRTM references to ensure consistency, completeness, and unambiguous downstream tracing.
+
+\subsubsection*{QC-FND-005: Minor presentation and naming inconsistencies}
+\textbf{Related error detection:} QC-ERR-005 \\
+\textbf{Type:} Editorial / structural consistency \\
+\textbf{Severity:} Low
+
+\textbf{Context.} The SRS is generally well structured and professionally presented.
+
+\textbf{Result.} Some presentation details such as repeated heading styles, naming patterns, and table conventions can still be improved.
+
+\textbf{Analysis.} While not materially changing requirement meaning, such inconsistencies weaken readability and professionalism.
+
+\textbf{Message.} Standardise section naming, heading capitalisation, cross-reference style, and table formatting throughout the document.
+
+% =====================
+% 7 RECTIFICATION RECOMMENDATIONS
+% =====================
+
+\section{Rectification Recommendations}
+
+\subsection{Priority Rectification Actions}
+
+Based on the defects identified during the QC inspection, the following rectification actions are recommended in priority order:
+
+\begin{enumerate}[leftmargin=*]
+\item resolve the autonomy-versus-intervention contradiction by introducing explicit control precedence
+\item strengthen edge-case and exception-path coverage
+\item revise ambiguous wording in measurable requirements
+\item tighten codification and traceability mappings
+\item standardise presentation and editorial consistency
+\end{enumerate}
+
+\subsection{Recommended Ownership of Corrections}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{0.16\textwidth}|p{0.28\textwidth}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Recommendation ID} & \textbf{Owner} & \textbf{Action} \\
+\hline
+QC-REC-001 & Requirements Engineering Lead & Coordinate revision of all high-severity findings and confirm alignment with customer intent. \\
+\hline
+QC-REC-002 & Requirements Review Team & Reword ambiguous requirements and add omitted exception-handling clauses. \\
+\hline
+QC-REC-003 & Traceability Reviewer & Recheck codification, source mapping, use-case links, and iRTM consistency. \\
+\hline
+QC-REC-004 & Editorial Reviewer & Apply consistent formatting, naming, and reference conventions. \\
+\hline
+\end{tabularx}
+\caption{Recommended ownership of rectification actions}
+\label{tab:qc-recommendations}
+\end{table}
+
+% =====================
+% 8 CONCLUSION
+% =====================
+
+\section{Conclusion}
+
+The QC audit concludes that the Software Requirements Specification is substantively mature and reflects strong work carried out during the earlier Requirements Engineering stages. However, the document still contains defects typical of the validating stage, particularly in the areas of authorship side effects, latent contradictions, omission of edge topics, and traceability tightness.
+
+The QC team does not directly modify the SRS. Instead, the findings and rectification recommendations documented in this report should be implemented by the requirements engineering team to strengthen document clarity, completeness, and internal coherence before the SRS is baselined for downstream development.
+
+Overall, the SRS is assessed as \textbf{conditionally acceptable subject to rectification of the identified findings}.
+
+% =====================
+% 9 SIGN-OFF
+% =====================
+
+\section{Sign-off}
+
+\subsection{QC Audit Team Authentication}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{|m{0.32\textwidth}|m{0.23\textwidth}|m{0.3\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Name} & \textbf{Role} & \textbf{Authentication} \\
+\hline
+Muhammad Ridwan Putra Jasni & QC Audit Lead & Submitted by named team member \\
+\hline
+Lin Yuhao & QC Auditor & Submitted by named team member \\
+\hline
+Muhammad Mikhail Bin Mazlan & QC Auditor & Submitted by named team member \\
+\hline
+Kannan s/o Rajamohan & QC Auditor & Submitted by named team member \\
+\hline
+\end{tabular}
+\caption{QC audit team sign-off}
+\label{tab:qc-signoff}
+\end{table}
+
+% =====================
+% 10 ADDENDA
+% =====================
+
+\section{Addenda}
+
+\subsection{Repository Information}
+
+\begin{center}
+\fbox{\begin{minipage}{0.9\textwidth}
+\centering
+\textbf{PROJECT REPOSITORY}\\[2pt]
+\href{https://github.com/Spooky312/The-Abyss-Navigation-Suite-INF2113}{\uline{\nolinkurl{https://github.com/Spooky312/The-Abyss-Navigation-Suite-INF2113}}}\\[4pt]
+\textit{QC report, SRS, models, and traceability artefacts maintained under version control}
+\end{minipage}}
+\end{center}
+
+\subsection{Glossary}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{0.28\textwidth}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Term} & \textbf{Definition} \\
+\hline
+QC & Quality Control inspection of a work product, in this case the SRS. \\
+\hline
+SRS & Software Requirements Specification used as the requirements baseline for downstream development. \\
+\hline
+Authorship defect & Defect caused by unclear or imprecise expression of intended requirement meaning. \\
+\hline
+Omission defect & Defect in which required content, scenario, or supporting information is missing. \\
+\hline
+Contradiction defect & Defect in which different parts of the SRS imply inconsistent or conflicting behaviour. \\
+\hline
+Traceability coherence & The degree to which requirements, models, sources, and references link together clearly and consistently. \\
+\hline
+\end{tabularx}
+\caption{QC glossary addendum}
+\label{tab:qc-glossary}
+\end{table}
+
+% =====================
+% References
+% =====================
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thepage}{R-\arabic{page}}
+\section*{References}
+\addcontentsline{toc}{section}{References}
+\begin{itemize}[leftmargin=*,nosep]
+\item Triton Deepwater, \textit{Project Specification: The Abyss Navigator Suite}, ICT2113, 2026.
+\item Brigman Deep Sea Technology, \textit{Software Requirements Specification (SRS): Abyss Navigator Suite}, 2026.
+\item Kevin Anthony Jones, \textit{Labtorial Guide for Class Project: Reqrs now \& near future}, Dec 2025.
+\item Kevin Anthony Jones, \textit{Rubric for Assessment of Validating Report}, Mar 2026.
+\item Karl E. Wiegers, \textit{Software Requirements Specification Template}, 1999.
+\end{itemize}
+
+\end{document}
