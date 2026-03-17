@@ -40,6 +40,7 @@ citecolor=blue
 \definecolor{declarebox}{RGB}{255,250,230}
 \definecolor{highsev}{RGB}{255,220,220}
 \definecolor{medsev}{RGB}{255,243,205}
+\definecolor{sectionbg}{RGB}{230,240,255}
 
 \frenchspacing
 
@@ -83,7 +84,7 @@ citecolor=blue
 \vspace{0.2cm}
 \normalsize
 Issued by: \textbf{Paragon Assurance} \quad|\quad
-Addressed to: \textbf{Nevon Solutions}
+Addressed to: \textbf{Nevon Solutions and BioSec Educational Institution}
 \end{center}
 
 \vspace{0.3cm}
@@ -116,7 +117,7 @@ Addressed to: \textbf{Nevon Solutions}
 \small
 \textbf{Purpose.} This form is issued by Paragon Assurance as part of the QA audit of the Requirements Engineering (RE) process conducted by Nevon Solutions for the Biometric Student Attendance System project, commissioned by BioSec Educational Institution (Customer P1-BIOSEC).
 
-The QA audit identified artefacts that were expected to be present in the project repository but were absent or non-compliant at the time of inspection. Nevon Solutions is required to either upload the outstanding artefacts to the repository and confirm this below, or declare that the artefact is non-retrievable.
+The QA audit identified artefacts that were expected to be present in the project repository but were absent or non-compliant at the time of inspection. \textbf{Nevon Solutions} is required to either upload the outstanding vendor artefacts (Section A) to the repository and confirm this below, or declare that the artefact is non-retrievable. \textbf{BioSec Educational Institution} is required to provide or confirm the Customer approver signatures on the SRS sign-off page (Section B, item QA-E05-C).
 
 This declaration is required to formally close the audit findings and maintain the integrity of the process record.
 
@@ -135,6 +136,13 @@ This declaration is required to formally close the audit findings and maintain t
 % ARTEFACT CHECKLIST
 % =====================
 \subsection*{Artefact Checklist}
+
+% ------ SECTION A ------
+\noindent\colorbox{sectionbg}{\begin{minipage}{\dimexpr\textwidth-2\fboxsep\relax}
+\textbf{Section A --- Vendor Artefacts (Nevon Solutions)}
+\end{minipage}}
+
+\vspace{0.3cm}
 
 \renewcommand{\arraystretch}{2.0}
 \begin{longtable}{|p{0.65\textwidth}|p{0.14\textwidth}|p{0.14\textwidth}|}
@@ -184,17 +192,49 @@ This declaration is required to formally close the audit findings and maintain t
 \centering\checkbox \tabularnewline
 \hline
 
-% QA-E05 — Completed sign-off page
+\end{longtable}
+
+\vspace{0.4cm}
+
+% ------ SECTION B ------
+\noindent\colorbox{sectionbg}{\begin{minipage}{\dimexpr\textwidth-2\fboxsep\relax}
+\textbf{Section B --- SRS Sign-off Artefacts}
+\end{minipage}}
+
+\vspace{0.3cm}
+
+\renewcommand{\arraystretch}{2.0}
+\begin{longtable}{|p{0.65\textwidth}|p{0.14\textwidth}|p{0.14\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Artefact Required} & \textbf{Retrievable} & \textbf{Non-retrievable} \\
+\hline
+\endhead
+
+% QA-E05-V — Vendor approver signatures
 \rowcolor{highsev}
 \small
-\textbf{[QA-E05]} Completed SRS sign-off page (SRS Section 9) with signatures and dates from all four outstanding designated approvers:
+\textbf{[QA-E05-V]} Completed SRS sign-off page (SRS Section 9) with signatures and dates from the two outstanding \textbf{Vendor} designated approvers:
 \begin{itemize}[leftmargin=*,nosep,topsep=2pt,itemsep=1pt]
 \item James Koh -- Vendor Technical Lead
 \item Rachel Lee -- Vendor System Architect Lead
+\end{itemize}
+The SRS sign-off page currently reflects only one of five required signatures (Vendor Authenticator). Both Vendor approvers above show no signature or date.
+
+\textit{Relates to finding QA-FND-001.} &
+\centering\checkbox &
+\centering\checkbox \tabularnewline
+\hline
+
+% QA-E05-C — Customer approver signatures
+\rowcolor{highsev}
+\small
+\textbf{[QA-E05-C]} Completed SRS sign-off page (SRS Section 9) with signatures and dates from the two outstanding \textbf{Customer} designated approvers:
+\begin{itemize}[leftmargin=*,nosep,topsep=2pt,itemsep=1pt]
 \item Marcus Tan Wei Liang -- BioSec Project Manager
 \item Daniel Rodriguez -- BioSec Head of Operations
 \end{itemize}
-The SRS sign-off page currently reflects only one of five required signatures (Vendor Authenticator). The four above approvers show no signature or date.
+Both Customer approvers on the sign-off page show no signature or date.
 
 \textit{Relates to finding QA-FND-001.} &
 \centering\checkbox &
@@ -233,7 +273,9 @@ QA-E03 & \vspace{2.2cm} \tabularnewline
 \hline
 QA-E04 & \vspace{2.2cm} \tabularnewline
 \hline
-QA-E05 & \vspace{2.2cm} \tabularnewline
+QA-E05-V & \vspace{2.2cm} \tabularnewline
+\hline
+QA-E05-C & \vspace{2.2cm} \tabularnewline
 \hline
 \end{longtable}
 
@@ -242,9 +284,9 @@ QA-E05 & \vspace{2.2cm} \tabularnewline
 % =====================
 % SIGN-OFF
 % =====================
-\subsection*{Vendor Sign-off}
+\subsection*{Vendor Sign-off -- Nevon Solutions}
 
-\noindent By signing below, the authorised representative of Nevon Solutions confirms that the above responses are accurate and complete, and that all artefacts marked Retrievable have been committed to the repository at the location stated.
+\noindent By signing below, the authorised representative of Nevon Solutions confirms that the above responses for Section A and QA-E05-V are accurate and complete, and that all artefacts marked Retrievable have been committed to the repository at the location stated.
 
 \vspace{0.3cm}
 
@@ -263,11 +305,34 @@ QA-E05 & \vspace{2.2cm} \tabularnewline
 \caption*{Nevon Solutions -- Authorised Respondent}
 \end{table}
 
+\vspace{0.4cm}
+
+\subsection*{Customer Sign-off -- BioSec Educational Institution}
+
+\noindent By signing below, the authorised representative of BioSec Educational Institution confirms that the above responses for QA-E05-C are accurate and complete, and that the Customer approver signatures on the SRS sign-off page have been provided or a written declaration of non-retrievability has been submitted above.
+
+\vspace{0.3cm}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{2.4}
+\begin{tabular}{|m{0.28\textwidth}|m{0.28\textwidth}|m{0.24\textwidth}|m{0.12\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Name} & \textbf{Role} & \textbf{Signature} & \textbf{Date} \\
+\hline
+& & & \\
+\hline
+\end{tabular}
+\caption*{BioSec Educational Institution -- Authorised Respondent}
+\end{table}
+
 \vspace{0.3cm}
 
 \noindent\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
 \small
-\textbf{Return instructions.} Return this completed form, together with any repository commit confirmation or upload evidence, to the QA Auditor at Paragon Assurance (Zong Han, PA-QA-001) by the response due date above. Findings for which neither a retrieved artefact nor a signed declaration is received by the due date will remain open in the final QA Audit Report.
+\textbf{Return instructions.} Both Nevon Solutions and BioSec Educational Institution are required to complete and return this form. Return the completed form, together with any repository commit confirmation or upload evidence, to the QA Auditor at Paragon Assurance (Zong Han, PA-QA-001) by the response due date above. Findings for which neither a retrieved artefact nor a signed declaration is received by the due date will remain open in the final QA Audit Report.
 \end{minipage}}
 
 \end{document}

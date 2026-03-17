@@ -1,0 +1,297 @@
+% !TeX root = QA_Artefact_Declaration_Form_QC.tex
+% !TeX program = pdflatex
+\documentclass[11pt,a4paper]{article}
+
+\pdfminorversion=7
+
+% =====================
+% Packages
+% =====================
+\usepackage[top=1in,left=0.9in,right=0.9in,bottom=1.2in]{geometry}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{textcomp}
+\usepackage{caption}
+\usepackage{wasysym}   % for \Square (empty checkbox)
+\usepackage{amssymb}
+
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+urlcolor=blue,
+citecolor=blue
+}
+
+\definecolor{tableheader}{RGB}{240,240,240}
+\definecolor{formgray}{RGB}{248,248,248}
+\definecolor{declarebox}{RGB}{255,250,230}
+\definecolor{highsev}{RGB}{255,220,220}
+\definecolor{medsev}{RGB}{255,243,205}
+
+\frenchspacing
+
+% =====================
+% Font
+% =====================
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\setstretch{1.0}
+
+% =====================
+% Header/Footer
+% =====================
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{Paragon Assurance}}
+\rhead{QA Audit -- QC Artefact Declaration Form}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{20pt}
+
+% =====================
+% Helper: checkbox
+% =====================
+\newcommand{\checkbox}{\makebox[1em]{\Square}}
+
+\begin{document}
+
+% =====================
+% HEADER BLOCK
+% =====================
+\begin{center}
+\LARGE\textbf{QA Audit -- QC Artefact Declaration Form}
+
+\vspace{0.3cm}
+\large Requirements Engineering Process Audit \\
+\textbf{Biometric Student Attendance System}
+
+\vspace{0.2cm}
+\normalsize
+Issued by: \textbf{Paragon Assurance} \quad|\quad
+Addressed to: \textbf{Veridion Systems Validation Labs (QC Team)}
+\end{center}
+
+\vspace{0.3cm}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\textwidth}{|p{0.24\textwidth}|X|p{0.24\textwidth}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Form Reference} & QA-DECL-002 &
+\textbf{Audit Report Ref.} & PA-QA-2026-001 \\
+\hline
+\textbf{Date Issued} & 17 March 2026 &
+\textbf{Response Due} & \underline{\hspace{3cm}} \\
+\hline
+\textbf{Issued By} & Zong Han, PA-QA-001 &
+\textbf{Responded By} & \underline{\hspace{3cm}} \\
+\hline
+\end{tabularx}
+\end{table}
+
+\vspace{0.2cm}
+
+% =====================
+% QC TEAM ROSTER
+% =====================
+\noindent\colorbox{tableheader}{\begin{minipage}{\dimexpr\textwidth-2\fboxsep\relax}
+\textbf{QC Team Personnel on Record}
+\end{minipage}}
+
+\vspace{0.2cm}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\textwidth}{|p{0.05\textwidth}|p{0.34\textwidth}|X|p{0.16\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{No.} & \textbf{Name} & \textbf{Role} & \textbf{ID} \\
+\hline
+1 & Muhammad Ridwan Putra Jasni & QC Audit Lead & QC-001 \\
+\hline
+2 & Lin Yuhao & QC Specialist & QC-002 \\
+\hline
+3 & Muhammad Mikhail Bin Mazlan & QC Specialist & QC-003 \\
+\hline
+4 & Kannan s/o Rajamohan & QC Specialist & QC-004 \\
+\hline
+\end{tabularx}
+\end{table}
+
+\vspace{0.3cm}
+
+% =====================
+% PURPOSE
+% =====================
+\noindent\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+\small
+\textbf{Purpose.} This form is issued by Paragon Assurance to the QC team (Veridion Systems Validation Labs) as part of the QA oversight of the Requirements Engineering (RE) process audit conducted on the Biometric Student Attendance System project.
+
+Paragon Assurance is required to verify that the QC team produced and retained the requisite process artefacts in connection with its audit activities. The QC team is required to confirm whether each listed artefact was produced and can be produced for review, or to declare that the artefact is non-retrievable.
+
+This declaration is required to formally close the QA review of the QC process and maintain the integrity of the overall audit record.
+
+\medskip
+\textbf{Instructions.} For each artefact listed:
+\begin{itemize}[leftmargin=*,nosep,topsep=2pt]
+\item Tick \textbf{Retrievable} if the artefact was produced and can be submitted for review.
+\item Tick \textbf{Non-retrievable} if the artefact was not produced or cannot be located.
+\item If \textbf{Non-retrievable}, provide a written explanation in the \textbf{Declaration} section at the end of this form.
+\end{itemize}
+\end{minipage}}
+
+\vspace{0.5cm}
+
+% =====================
+% ARTEFACT CHECKLIST
+% =====================
+\subsection*{Artefact Checklist}
+
+\renewcommand{\arraystretch}{2.0}
+\begin{longtable}{|p{0.65\textwidth}|p{0.14\textwidth}|p{0.14\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Artefact Required} & \textbf{Retrievable} & \textbf{Non-retrievable} \\
+\hline
+\endhead
+
+% QA-QC-01 — QC Audit Plan
+\rowcolor{medsev}
+\small
+\textbf{[QA-QC-01]} QC Audit Plan documenting the planned scope, objectives, methodology, and schedule of the QC audit of the Biometric Student Attendance System SRS. This artefact constitutes the pre-audit planning evidence required by the QA checklist (V5).
+
+\textit{Relates to QA checklist item V5.} &
+\centering\checkbox &
+\centering\checkbox \tabularnewline
+\hline
+
+% QA-QC-02 — QC Checklist
+\rowcolor{medsev}
+\small
+\textbf{[QA-QC-02]} QC Checklist used during the audit, listing the inspection criteria applied to the SRS and recording the pass/fail or compliant/non-compliant status of each criterion. This artefact constitutes the primary evidence of a systematic, criteria-driven QC review process (V6).
+
+\textit{Relates to QA checklist item V6.} &
+\centering\checkbox &
+\centering\checkbox \tabularnewline
+\hline
+
+% QA-QC-03 — QC Findings/Report
+\rowcolor{medsev}
+\small
+\textbf{[QA-QC-03]} QC Findings documentation or QC Report summarising the outcomes of the audit, including all identified defects, observations, and recommendations. This artefact constitutes the formal output of the QC audit process (V7).
+
+\textit{Relates to QA checklist item V7.} &
+\centering\checkbox &
+\centering\checkbox \tabularnewline
+\hline
+
+% QA-QC-04 — Access to Analysing Report
+\rowcolor{medsev}
+\small
+\textbf{[QA-QC-04]} Confirmation of whether the QC team had access to, or reviewed, the Analysing Report (NS-AR-2026-001) as part of its audit activities. If the QC team reviewed this document, provide the reference and date on which it was made available. If access was not obtained, confirm this below and state the basis on which the QC audit proceeded without it.
+
+\textit{Relates to QA finding QA-FND-003 (Analysing Report not present in reviewed materials).} &
+\centering\checkbox &
+\centering\checkbox \tabularnewline
+\hline
+
+% QA-QC-05 — Observation on SRS sign-off
+\rowcolor{highsev}
+\small
+\textbf{[QA-QC-05]} QC team's recorded observation or finding regarding the SRS sign-off status (SRS Section 9) at the time of audit. At the time of the QA inspection, 4 of 5 designated approver fields on the sign-off page were blank (no signature or date). Confirm whether the QC audit recorded and documented this non-compliance, and provide the relevant section or finding reference from the QC report (QA-QC-03) where this is addressed.
+
+\textit{Relates to QA finding QA-FND-001 (SRS sign-off incomplete -- 4 of 5 approvers unsigned).} &
+\centering\checkbox &
+\centering\checkbox \tabularnewline
+\hline
+
+\end{longtable}
+
+\vspace{0.3cm}
+
+% =====================
+% DECLARATION
+% =====================
+\noindent\colorbox{declarebox}{\begin{minipage}{\dimexpr\textwidth-2\fboxsep\relax}
+\textbf{Declaration -- Non-retrievable Artefacts}
+
+\medskip
+For each item marked Non-retrievable above, provide a brief explanation below. State the artefact reference (e.g.\ QA-QC-01), the reason the artefact cannot be produced, and whether any partial or substitute evidence is available.
+\end{minipage}}
+
+\vspace{0.3cm}
+
+\renewcommand{\arraystretch}{1.4}
+\begin{longtable}{|p{0.1\textwidth}|p{0.83\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Item} & \textbf{Explanation (reason artefact cannot be retrieved; any substitute evidence)} \\
+\hline
+\endhead
+
+QA-QC-01 & \vspace{2.2cm} \tabularnewline
+\hline
+QA-QC-02 & \vspace{2.2cm} \tabularnewline
+\hline
+QA-QC-03 & \vspace{2.2cm} \tabularnewline
+\hline
+QA-QC-04 & \vspace{2.2cm} \tabularnewline
+\hline
+QA-QC-05 & \vspace{2.2cm} \tabularnewline
+\hline
+\end{longtable}
+
+\vspace{0.3cm}
+
+% =====================
+% SIGN-OFF
+% =====================
+\subsection*{QC Team Sign-off}
+
+\noindent By signing below, the QC Audit Lead confirms on behalf of Veridion Systems Validation Labs that the above responses are accurate and complete, and that all artefacts marked Retrievable can be produced for audit review upon request.
+
+\vspace{0.3cm}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{2.4}
+\begin{tabular}{|m{0.28\textwidth}|m{0.28\textwidth}|m{0.24\textwidth}|m{0.12\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Name} & \textbf{Role} & \textbf{Signature} & \textbf{Date} \\
+\hline
+Muhammad Ridwan Putra Jasni & QC Audit Lead (QC-001) & & \\
+\hline
+\end{tabular}
+\caption*{Veridion Systems Validation Labs -- QC Audit Lead}
+\end{table}
+
+\vspace{0.3cm}
+
+\noindent\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+\small
+\textbf{Return instructions.} Return this completed form, together with any supporting documentation or artefact references, to the QA Auditor at Paragon Assurance (Zong Han, PA-QA-001) by the response due date above. Findings for which neither a retrieved artefact nor a signed declaration is received by the due date will remain open in the final QA Audit Report.
+\end{minipage}}
+
+\end{document}
