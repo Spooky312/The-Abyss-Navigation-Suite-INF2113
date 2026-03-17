@@ -1,0 +1,708 @@
+% !TeX root = QA.tex
+% !TeX program = pdflatex
+\documentclass[11pt,a4paper]{article}
+
+\pdfminorversion=7
+
+% =====================
+% Packages
+% =====================
+\usepackage[top=0.9in,left=0.9in,right=0.9in,bottom=1.2in]{geometry}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{textcomp}
+\usepackage{caption}
+\usepackage{bookmark}
+\usepackage[normalem]{ulem}
+
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+urlcolor=blue,
+citecolor=blue
+}
+
+\AtBeginDocument{
+\let\origref\ref
+\renewcommand{\ref}[1]{\uline{\origref{#1}}}
+\let\orighyperref\hyperref
+\renewcommand{\hyperref}[2][]{\orighyperref[#1]{\uline{#2}}}
+}
+
+\definecolor{tableheader}{RGB}{240,240,240}
+\definecolor{tablerow}{RGB}{250,250,250}
+\definecolor{highsev}{RGB}{255,220,220}
+\definecolor{medsev}{RGB}{255,243,205}
+\definecolor{lowsev}{RGB}{220,240,220}
+
+\frenchspacing
+
+% =====================
+% Font
+% =====================
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\setstretch{1.0}
+
+% =====================
+% Header/Footer
+% =====================
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{Paragon Assurance}}
+\rhead{Quality Assurance (QA) Audit Report}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{20pt}
+
+\begin{document}
+
+% =====================
+% COVER PAGE
+% =====================
+\thispagestyle{empty}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+\newgeometry{top=5.2cm,left=0.9in,right=0.9in,bottom=1.2in}
+
+\begin{center}
+
+\LARGE\textbf{Quality Assurance (QA) Audit Report}
+
+\vspace{0.4cm}
+\large Requirements Engineering Process Audit
+
+\large \textbf{Biometric Student Attendance System}
+
+\vspace{0.2cm}
+\normalsize Customer: BioSec Educational Institution \quad|\quad Vendor: Nevon Solutions
+
+\vspace{0.8cm}
+
+\textbf{\Large Paragon Assurance}
+
+\vspace{0.3cm}
+\normalsize 16 March 2026
+
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{2.0}
+\begin{tabular}{|m{0.25\textwidth}|m{0.22\textwidth}|m{0.25\textwidth}|m{0.18\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{QA Team Member} & \textbf{Department} & \textbf{Role} & \textbf{Employee ID} \\
+\hline
+Zong Han & QA Audit Division & QA Auditor & PA-QA-001 \\
+\hline
+\end{tabular}
+\caption{QA Audit Personnel}
+\label{tab:qa-team}
+\end{table}
+
+\restoregeometry
+\newpage
+
+% =====================
+% Table of Contents
+% =====================
+\renewcommand{\contentsname}{Table of Contents}
+\thispagestyle{empty}
+
+\hypersetup{linkcolor=black}
+\tableofcontents
+\newpage
+\hypersetup{linkcolor=blue}
+
+\noindent\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+\small\textbf{Note on Hyperlinks:} Throughout this document, all hyperlinks are displayed in \textcolor{blue}{\underline{blue and underlined}}. These links are fully clickable in the PDF viewer and will navigate to the relevant section, finding, or annex.
+\end{minipage}}
+
+\bigskip
+
+% =====================
+% EXECUTIVE SUMMARY
+% =====================
+
+\section{Executive Summary}
+
+This report presents the results of a Quality Assurance (QA) audit of the Requirements Engineering (RE) process used to produce the Software Requirements Specification (SRS) for the \textbf{Biometric Student Attendance System} project, conducted by Paragon Assurance on behalf of BioSec Educational Institution.
+
+The QA audit evaluated the process by which Nevon Solutions conducted \textbf{Analysing}, \textbf{Specifying}, and \textbf{Validating} during the RE process. In contrast to Quality Control, which examines defects within the SRS work product, QA focuses on whether the \textbf{process that produced the SRS} followed disciplined and auditable Requirements Engineering practices.
+
+The audit found that Nevon Solutions demonstrated a generally structured and credible approach across the three RE methods. Requirements are properly codified, models have been revised with documented rationale, and the SRS incorporates well-formed iRTM tracing, quality model attributes, and change mitigation strategies. However, the audit identified \textbf{five process non-compliance instances}, one of which is assessed as High severity.
+
+The most significant finding is that the \textbf{SRS sign-off is substantially incomplete}: four of five designated approvers (two Nevon Solutions technical leads and two BioSec customer staff) have provided no signature or date, which means the Validating process has not reached closure. Additional findings relate to the absence of the Project Specification and Analysing Report from the repository, the absence of an IRC for the Analysing phase, and the iRTM not being maintained as a standalone extractable file.
+
+Overall, the QA audit concludes that the RE process shows a generally structured approach to requirement development, with five process non-compliance instances identified, one of which is assessed as High severity. The findings are documented in this report for the consideration of BioSec Customer C-staff.
+
+% =====================
+% 1 INTRODUCTION
+% =====================
+
+\section{Introduction}
+
+\subsection{Purpose}
+
+This Quality Assurance (QA) Audit Report evaluates the Requirements Engineering (RE) process used by Nevon Solutions in producing the Software Requirements Specification (NS-SRS-2026-001) for the Biometric Student Attendance System, commissioned by BioSec Educational Institution.
+
+While Quality Control (QC) focuses on detecting defects within the SRS itself, Quality Assurance focuses on evaluating whether the \textbf{process used to produce the requirements} followed appropriate, systematic, and auditable Requirements Engineering practices.
+
+\subsection{Document Conventions}
+
+This document is an audit report. It records detected process non-compliance instances, their evidence basis, and their severity.
+
+\begin{itemize}[leftmargin=*]
+\item Error detection instances use the format \texttt{QA-ERR-XXX}.
+\item Audit findings use the format \texttt{QA-FND-XXX}.
+\end{itemize}
+
+\subsection{Intended Audience and Reading Suggestions}
+
+This report is addressed to BioSec Customer C-staff and project governance. Readers should begin with the Executive Summary, then the QA Plan and Checklist (Sections 4--5), followed by Error Detection and Findings (Sections 6--7), and the Sign-off (Section 8).
+
+\subsection{Scope of QA Audit}
+
+The QA audit evaluates the process conducted during the following RE activities:
+
+\begin{itemize}[leftmargin=*]
+\item Analysing (regulated-revision of the Project Specification into SRS-ready requirements)
+\item Specifying (incorporation of development provisions, iRTM, models, and change mitigation into the SRS)
+\item Validating (BioSec customer sign-off and QC team audit activities)
+\end{itemize}
+
+The audit does \textbf{not} evaluate the Eliciting phase, as that is a customer-side activity not within the vendor's contracted scope under audit.
+
+% =====================
+% 2 AUDIT BASIS
+% =====================
+
+\section{Audit Basis}
+
+\subsection{Nature of QA}
+
+Quality Assurance audits the \textbf{process used to produce requirements}, not the SRS content or correctness of individual requirement statements. The QA auditor evaluates whether Nevon Solutions followed structured, documented, and evidence-based practices during Analysing, Specifying, and Validating.
+
+\subsection{Basis of Evaluation}
+
+The audit was conducted against the expectation that:
+
+\begin{itemize}[leftmargin=*]
+\item The Analysing process followed a planned, checklist-driven regulated-revision of the PS, producing codified and revised requirements with documentary evidence
+\item The Specifying process produced an SRS with traceable requirements (iRTM), proper model provenance, and a change mitigation framework
+\item The Validating process reached completion through both BioSec customer sign-off and a QC team audit with plan, checklist, and documented findings
+\end{itemize}
+
+\subsection{Kinds of Errors Pursued}
+
+The QA audit investigates \textbf{process non-compliance}: failure to follow expected RE method conduct. This includes:
+
+\begin{itemize}[leftmargin=*]
+\item Absence of process artefacts (plans, reports, checklists, IRC) that should be present at a given milestone
+\item Missing or incomplete sign-off at process milestones
+\item Artefacts not in accessible, standalone, or usable form
+\item Insufficient evidence that process steps were carried out
+\end{itemize}
+
+\subsection{Severity Classification}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{0.12\textwidth}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Severity} & \textbf{Definition} \\
+\hline
+\rowcolor{highsev}
+High & Process non-compliance that materially prevents a RE method from being considered complete or that undermines the integrity of the SRS as a validated artefact \\
+\hline
+\rowcolor{medsev}
+Medium & Process weakness that reduces auditability, evidence quality, or confidence in whether method steps were conducted correctly \\
+\hline
+\rowcolor{lowsev}
+Low & Minor documentary or structural weakness that does not materially undermine overall process conduct \\
+\hline
+\end{tabularx}
+\caption{Severity classification scheme}
+\label{tab:severity}
+\end{table}
+
+\subsection{Records Reviewed}
+
+The following project records were examined during the QA audit:
+
+\begin{itemize}[leftmargin=*]
+\item Project Specification (BS-PS-2026-001, Nevon Solutions / BioSec, 30 Jan 2026)
+\item Software Requirements Specification (NS-SRS-2026-001, Nevon Solutions, 3--6 Mar 2026, Version 0.8)
+\item Analysing repository artefacts: requirements files, requirement models, README, Gantt chart, wireframes, ERD, context diagram, data dictionary, Use Case Diagram
+\item SRS Appendices: Glossary, Issues List, Data Dictionary, iRTM, Change Request Form template
+\end{itemize}
+
+Note: The Analysing Report (NS-AR-2026-001) referenced in the SRS was not present in the reviewed repository folder and could not be directly examined.
+
+\medskip
+\noindent\textbf{Evidence streams.} The audit employed two evidence-gathering methods:
+\begin{itemize}[leftmargin=*]
+\item \textbf{Documentary evidence}: repository artefacts (requirements files, models, Gantt chart, README, templates), the SRS PDF (NS-SRS-2026-001), and the Project Specification (BS-PS-2026-001).
+\item \textbf{Interview evidence}: direct consultations with Nevon Solutions team members, BioSec Educational Institution staff, and the QC audit team, used to fill evidentiary gaps where artefacts are absent from the repository or where process steps cannot be verified from documents alone. Interviews for this audit are planned and are in progress; outcomes will be recorded in the relevant finding sections below.
+\end{itemize}
+
+% =====================
+% 3 QA PLAN
+% =====================
+
+\section{QA Plan}
+
+\subsection{Target Process Description}
+
+The target of this QA audit is the RE process conducted by Nevon Solutions for the Biometric Student Attendance System, covering the Analysing, Specifying, and Validating methods. The process is described as transforming BioSec's Project Specification into a validated, traceable SRS through three major methods:
+
+\begin{itemize}[leftmargin=*]
+\item \textbf{Analysing}: Regulated-revision of PS requirements into codified, SRS-ready requirements via Business Clarification (BC-01, 07/02/2026) and Technical Clarification (TC-02, 09/02/2026) sessions
+\item \textbf{Specifying}: Incorporation of analysed requirements, models, quality attributes, iRTM, and change mitigation strategies into the SRS (NS-SRS-2026-001)
+\item \textbf{Validating}: Customer sign-off by BioSec and independent QC audit of the SRS
+\end{itemize}
+
+\subsection{Context and Goals}
+
+BioSec Educational Institution commissioned Nevon Solutions to develop a Biometric Student Attendance Management System to replace manual paper-based attendance processes across five campuses. The RE process is the foundation upon which the development contract rests. QA is therefore conducted to confirm that the process which produced the SRS was sufficiently structured, evidenced, and complete.
+
+The goals of this QA audit are:
+
+\begin{itemize}[leftmargin=*]
+\item To determine whether Nevon Solutions followed systematic and sufficiently documented practices during the three RE methods
+\item To determine whether sufficient evidence exists to support each major process activity
+\item To identify process non-compliance instances that may affect confidence in the integrity of the resulting SRS and its suitability as a development baseline
+\end{itemize}
+
+\subsection{Access and Audit Conditions}
+
+The QA auditor reviewed documentation and artefacts available in the Biometric-Student-Attendance-System repository folder and the SRS PDF (NS-SRS-2026-001). Access to the full Analysing Report (NS-AR-2026-001) was not possible as it was not present in the audited materials. Any gaps arising from this limitation are noted in findings.
+
+The audit employed two evidence-gathering methods: (1) document and repository review of accessible artefacts, as described in the Records Reviewed section above; and (2) direct consultations with Nevon Solutions team members, BioSec Educational Institution staff, and the QC team performing the SRS validation audit. Consultations are used where artefacts are absent from the repository or where process conduct cannot be independently verified from documentary evidence alone, given the inherently dynamic nature of process activities. Interviews are planned and in progress; outcomes will be incorporated into the relevant finding sections once consultations are complete.
+
+\subsection{Work Breakdown}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{0.24\textwidth}|p{0.22\textwidth}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Audit Role} & \textbf{Assigned Auditor} & \textbf{Primary Responsibility} \\
+\hline
+QA Auditor & Zong Han (PA-QA-001) & Review all accessible process records, evaluate method compliance against expected RE conduct, identify process non-compliance instances, and prepare the final QA report for submission to BioSec Customer C-staff. \\
+\hline
+\end{tabularx}
+\caption{QA audit work allocation}
+\label{tab:qa-wbs}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{0.18\textwidth}|p{0.44\textwidth}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Stage} & \textbf{Activity} & \textbf{Duration} \\
+\hline
+Stage 1 & Review PS, SRS, and all accessible repository artefacts for Analysing, Specifying, and Validating evidence & 2 hours \\
+\hline
+Stage 1B & Conduct consultations with Nevon Solutions team members, BioSec Educational Institution staff, and the QC audit team to seek evidence for artefacts not found in the repository (PS possession, Analysing Report availability, IRC usage, sign-off status); record interview outcomes in findings & In progress \\
+\hline
+Stage 2 & Map observed records against expected RE method conduct using the QA Checklist & 1 hour \\
+\hline
+Stage 3 & Identify non-compliance instances and classify by severity & 1 hour \\
+\hline
+Stage 4 & Finalise QA report and prepare for sign-off and submission to BioSec Customer C-staff & 1 hour \\
+\hline
+\end{tabularx}
+\caption{Indicative QA audit timeline}
+\label{tab:qa-timeline}
+\end{table}
+
+% =====================
+% 4 QA CHECKLIST
+% =====================
+
+\section{QA Checklist}
+
+The following checklist was applied to the available process records to determine compliance with expected RE method conduct. The checklist is self-contained and covers each of the three audited methods with specific, evidence-testable items.
+
+\subsection{Analysing Method Checklist}
+
+\begin{longtable}{|p{0.08\textwidth}|p{0.55\textwidth}|p{0.27\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Item} & \textbf{Checklist Question} & \textbf{Result} \\
+\hline
+\endhead
+
+A1 & Is there evidence of a plan for the Analysing activity (task list, Gantt entry, or documented plan)? & Partially satisfied -- Gantt Chart present; no standalone Analysing plan \\
+\hline
+A2 & Does the team have the Project Specification (PS) accessible in the repository? & Not satisfied -- PS not in repo \\
+\hline
+A3 & Is there an Issue Resolution Checklist (IRC) for the Analysing phase, demonstrating that the PS was systematically reviewed clause by clause? & Not satisfied -- No IRC found \\
+\hline
+A4 & Were models from the PS carried forward into the Analysing artefacts? & Satisfied -- Context Diagram and Data Dictionary carried forward \\
+\hline
+A5 & Were carried-forward models revised where necessary, with both original and revised versions accessible? & Satisfied -- Originals in PS; revised versions in repo with dated rationale \\
+\hline
+A6 & Are requirements properly codified with unique identifiers in the repository? & Satisfied -- BOR-xxx and TR-xxx codification applied \\
+\hline
+A7 & Are requirements marked as Revised or Retained with supporting rationale? & Satisfied -- Notations present with clarification session references (BC-01, TC-02) \\
+\hline
+A8 & Is the Analysing Report accessible and present in the repository? & Not satisfied -- NS-AR-2026-001 referenced in SRS but absent from repo \\
+\hline
+\end{longtable}
+
+\subsection{Specifying Method Checklist}
+
+\begin{longtable}{|p{0.08\textwidth}|p{0.55\textwidth}|p{0.27\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Item} & \textbf{Checklist Question} & \textbf{Result} \\
+\hline
+\endhead
+
+S1 & Does the SRS explicitly reference the PS as its primary source document? & Satisfied -- Section 1.5 of SRS cites BS-PS-2026-001 \\
+\hline
+S2 & Does the SRS reference the Analysing Report as the basis for requirement content? & Satisfied -- NS-AR-2026-001 cited in Section 1.5 \\
+\hline
+S3 & Is an iRTM present tracing PS requirements through to SRS requirements? & Satisfied -- iRTM in SRS Appendix D (8 pages) \\
+\hline
+S4 & Is the iRTM available as a standalone usable file (e.g., Excel or Word) rather than only embedded in the SRS PDF? & Not satisfied -- iRTM is only in SRS PDF Appendix D; no separate file found \\
+\hline
+S5 & Are models used in the SRS (Context DFD, Use Case Diagram, ERD, Wireframes) sourced from and linked to artefacts in the Analysing repository? & Satisfied -- All figures reference Analysing repo originals \\
+\hline
+S6 & Is there a Change Mitigation strategy in the SRS with a usable Change Request Form template? & Satisfied -- SRS Section 8 CM\#1--3 with kill dates; template in repo \\
+\hline
+S7 & Does the SRS include a quality model with defined attributes and verification methods? & Satisfied -- Section 5.4 applies McCall's Quality Model with 11 attributes \\
+\hline
+\end{longtable}
+
+\subsection{Validating Method Checklist}
+
+\begin{longtable}{|p{0.08\textwidth}|p{0.55\textwidth}|p{0.27\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Item} & \textbf{Checklist Question} & \textbf{Result} \\
+\hline
+\endhead
+
+V1 & Has the SRS been signed off by the Vendor Project Lead (Authenticator)? & Satisfied -- Loh Wen Xuan signed 06/03/2026 \\
+\hline
+V2 & Have the Designated Vendor Approvers (Technical Lead, System Architect Lead) signed the SRS? & Not satisfied -- James Koh and Rachel Lee listed but no signatures or dates \\
+\hline
+V3 & Have the Designated Customer Approvers (BioSec Project Manager, Head of Operations) signed the SRS? & Not satisfied -- Marcus Tan Wei Liang and Daniel Rodriguez listed but no signatures or dates \\
+\hline
+V4 & Is there evidence that the vendor team conducted editorial checks (spell check, grammar check, editorial review) prior to submission? & Partially satisfied -- AI Declaration states AI tools used for formatting/editorial; no formal human editorial record \\
+\hline
+V5 & Is there evidence that the QC team had a plan for their audit of the SRS? & Cannot confirm -- QC plan not accessible in reviewed materials \\
+\hline
+V6 & Is there evidence that the QC team used a checklist for their audit? & Cannot confirm -- QC checklist not accessible \\
+\hline
+V7 & Is there evidence that the QC team saved their findings in a documented form? & Cannot confirm -- QC findings not accessible \\
+\hline
+\end{longtable}
+
+% =====================
+% 5 QA ERROR DETECTION
+% =====================
+
+\section{QA Error Detection}
+
+The QA audit identified the following instances of process non-compliance. Each instance is recorded with its location and characteristic.
+
+\begin{longtable}{|p{0.13\textwidth}|p{0.18\textwidth}|p{0.2\textwidth}|p{0.37\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Error ID} & \textbf{Type} & \textbf{Location} & \textbf{Characteristic of Error} \\
+\hline
+\endhead
+
+\rowcolor{highsev}
+QA-ERR-001 & Process non-compliance & Validating -- SRS Section 9 Sign-off & SRS sign-off is substantially incomplete. Four of five designated approvers (Vendor: James Koh, Rachel Lee; Customer: Marcus Tan Wei Liang, Daniel Rodriguez) show no signature or date, leaving the Validating process without formal closure. \\
+\hline
+
+\rowcolor{medsev}
+QA-ERR-002 & Process non-compliance & Analysing -- Repository & The Project Specification (BS-PS-2026-001), which is the primary input to the Analysing method, is not present in the audited repository. The analysing team cannot be confirmed to have had access to it via the repository record alone. \\
+\hline
+
+\rowcolor{medsev}
+QA-ERR-003 & Process non-compliance & Analysing -- Repository & The Analysing Report (NS-AR-2026-001, referenced in SRS Section 1.5 as dated 8 February 2026) is not present in the repository folder. Its absence means the full record of regulated-revision activity is not accessible to the auditor. \\
+\hline
+
+\rowcolor{medsev}
+QA-ERR-004 & Process non-compliance & Analysing -- IRC & No Issue Resolution Checklist (IRC) artefact was found in the repository. The IRC is the systematic tool for documenting that each PS clause was reviewed, interpreted, and actioned during Analysing. Without it, the completeness of the regulated-revision process cannot be independently confirmed. \\
+\hline
+
+\rowcolor{medsev}
+QA-ERR-005 & Process non-compliance & Specifying -- iRTM & The Inceptive Requirements Traceability Matrix (iRTM) is embedded only within the SRS PDF (Appendix D). No standalone extractable file (Excel or Word) for the iRTM was found in the repository, preventing it from being used as a living, updatable project management tool. \\
+\hline
+
+\end{longtable}
+
+% =====================
+% 6 QA FINDINGS
+% =====================
+
+\section{QA Findings}
+
+\subsection{Finding Summary}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{0.14\textwidth}|p{0.13\textwidth}|p{0.12\textwidth}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Finding ID} & \textbf{Related Error} & \textbf{Severity} & \textbf{Short Description} \\
+\hline
+\rowcolor{highsev}
+QA-FND-001 & QA-ERR-001 & High & SRS Validating closure not reached: four designated approver signatures absent \\
+\hline
+\rowcolor{medsev}
+QA-FND-002 & QA-ERR-002 & Medium & PS not present in repository; team possession cannot be verified from repo alone \\
+\hline
+\rowcolor{medsev}
+QA-FND-003 & QA-ERR-003 & Medium & Analysing Report (NS-AR-2026-001) not accessible in reviewed materials \\
+\hline
+\rowcolor{medsev}
+QA-FND-004 & QA-ERR-004 & Medium & No IRC found for Analysing; systematic clause-by-clause review cannot be independently confirmed \\
+\hline
+\rowcolor{medsev}
+QA-FND-005 & QA-ERR-005 & Medium & iRTM is PDF-only; no standalone extractable file exists for use as a living project management document \\
+\hline
+\end{tabularx}
+\caption{Summary of QA findings}
+\label{tab:qa-findings-summary}
+\end{table}
+
+\subsection{Detailed Findings}
+
+\subsubsection*{QA-FND-001 (High): SRS Validating closure not reached -- incomplete sign-off}
+
+\textbf{Related error:} QA-ERR-001 \\
+\textbf{Location:} SRS NS-SRS-2026-001, Section 9 ``SRS Sign off'' \\
+\textbf{Severity:} High
+
+\textbf{Context.}
+The Validating method in Requirements Engineering requires that the SRS, once prepared, be formally approved by the responsible parties before it can serve as an authoritative development baseline. The SRS includes a dedicated Sign-off section (Section 9) with a Vendor Authenticator slot, two Designated Vendor Approver slots (Technical Lead and System Architect Lead), and two Designated Customer Approver slots (BioSec Project Manager and Head of Operations). This sign-off structure indicates that the team understood the requirement for multi-party validation closure.
+
+\textbf{Evidence.}
+The Vendor Authenticator (Loh Wen Xuan, Project Lead) is signed and dated 06/03/2026. However:
+\begin{itemize}[leftmargin=*]
+\item Designated Vendor Approver -- James Koh (Technical Lead): no signature, no date
+\item Designated Vendor Approver -- Rachel Lee (System Architect Lead): no signature, no date
+\item Designated Customer Approver -- Marcus Tan Wei Liang (BioSec Project Manager): no signature, no date
+\item Designated Customer Approver -- Daniel Rodriguez (BioSec Head of Operations): no signature, no date
+\end{itemize}
+
+Four of five required sign-off slots are blank. The SRS states in its own text that ``All requirements derived from the Project Specification (BS-PS-2026-001) have been accounted for through the Analysing process'' -- but this claim requires the approval of the designated parties to be formally confirmed.
+
+The QA auditor also consulted the QC team regarding the sign-off status, as sign-off completion is part of the Validating method reviewed by both QA and QC. [\textbf{QC team consultation outcome to be recorded here after consultation.}] The QA auditor further consulted BioSec Educational Institution staff to seek clarification on the absence of signatures from the two designated BioSec approvers (Marcus Tan Wei Liang and Daniel Rodriguez). [\textbf{BioSec consultation outcome to be recorded here after consultation.}]
+
+\textbf{Analysis.}
+This is a High severity process non-compliance. The Validating method requires sign-off to mark the transition of the SRS from draft to approved baseline. Without the signatures of the Vendor Technical Lead, Vendor System Architect, BioSec Project Manager, and BioSec Head of Operations, the SRS has not formally cleared the Validating phase. Any downstream development activity that relies on the SRS as a completed, validated baseline would be doing so on an incomplete process record.
+
+\subsubsection*{QA-FND-002 (Medium): PS not present in repository}
+
+\textbf{Related error:} QA-ERR-002 \\
+\textbf{Location:} Biometric-Student-Attendance-System repository (root and all sub-folders) \\
+\textbf{Severity:} Medium
+
+\textbf{Context.}
+The Project Specification (BS-PS-2026-001) is the primary input document for the Analysing method. As stated in the QA Guidelines, the standard for this method requires that the team be able to demonstrate possession of the PS. The repository is the primary expected location for such evidence; its presence there constitutes the strongest form of documentary proof of access.
+
+\textbf{Evidence.}
+A review of the repository folder structure (root, requirements/, requirement-models/) reveals no copy of the PS. The PS \textit{is} referenced correctly in the SRS (Section 1.5: ``BioSec Project Specification, Document ID: BS-PS-2026-001, Version 1.0'') and the requirements files contain citations to PS clauses (e.g., ``Retained from PS'', ``Revised from PS''). These cross-references confirm that the team worked from the PS, but the PS itself is not in the repository.
+
+The QA auditor consulted with the Nevon Solutions team to ascertain whether the PS was held in a form not reflected in the repository. [\textbf{Interview outcome to be recorded here after consultation.}]
+
+\textbf{Analysis.}
+The absence of the PS from the repository means that independent verification of the team's access to and use of the source document relies entirely on internal citations within the analysed artefacts, rather than on the PS itself being a retrievable repository item. This is a Medium severity concern because the cross-reference evidence is suggestive but not as strong as direct possession evidence.
+
+\subsubsection*{QA-FND-003 (Medium): Analysing Report (NS-AR-2026-001) not accessible}
+
+\textbf{Related error:} QA-ERR-003 \\
+\textbf{Location:} Biometric-Student-Attendance-System repository; SRS Section 1.5 reference \\
+\textbf{Severity:} Medium
+
+\textbf{Context.}
+The Analysing Report is the formal output of the Analysing method, recording the regulated-revision activity, issue identification, clarification outcomes, and final categorisation decisions. It is expected to be a distinct deliverable, separate from the SRS, providing the full audit trail of how PS content was transformed into SRS-ready requirements.
+
+\textbf{Evidence.}
+The SRS (Section 1.5) cites: ``Nevon Solutions Analysing Report, Document ID: NS-AR-2026-001, Version 1.0, 8 February 2026.'' The QA Auditor (Independent) note in SRS Section 1.3 also states ``Supporting process documentation, including the Analysing Report (NS-AR-2026-001), meeting minutes, and repository records, will be made available separately.'' Despite this undertaking, the Analysing Report was not provided in the materials available for review.
+
+The QA auditor sought clarification from the Nevon Solutions team and QC auditors regarding the availability of NS-AR-2026-001. [\textbf{Interview outcome to be recorded here after consultation.}]
+
+\textbf{Analysis.}
+The absence of the Analysing Report from the accessible materials means the full record of the regulated-revision process cannot be examined. The QA audit can verify the \textit{outputs} of Analysing (codified requirements, model revisions) but cannot independently confirm the \textit{process} by which those outputs were produced. This is a Medium severity concern because the process evidence trail is incomplete despite the output artefacts being present. The SRS itself (Section 1.3) states the Analysing Report ``will be made available separately'' to QA auditors; at the time of this audit it was not.
+
+\subsubsection*{QA-FND-004 (Medium): No IRC found for Analysing phase}
+
+\textbf{Related error:} QA-ERR-004 \\
+\textbf{Location:} Biometric-Student-Attendance-System repository (all folders) \\
+\textbf{Severity:} Medium
+
+\textbf{Context.}
+The Issue Resolution Checklist (IRC) is the primary systematic tool used during Analysing to confirm that each PS clause was reviewed, any issues identified, and the outcome documented. It functions similarly to the QC checklist -- it must be in a usable, standalone form so that team members can check off items as they work through each clause.
+
+\textbf{Evidence.}
+No IRC document was found in the repository (root, requirements/, or requirement-models/ folders). The README describes the repository contents and does not mention an IRC. The requirements files contain internal rationale notations (``Retained from PS'', ``Revised from PS -- original lacked...'') which represent the outcome of analysis, but these are not the same as a systematic, pre-structured checklist confirming that every PS clause was reviewed in a disciplined pass.
+
+The QA auditor raised the absence of the IRC with the Nevon Solutions team during consultation. [\textbf{Interview outcome to be recorded here after consultation.}]
+
+\textbf{Analysis.}
+The individual requirement notations provide partial evidence that analysis occurred on a per-requirement basis. However, without an IRC, it is not possible to independently confirm that the Analysing process was conducted systematically across the entire PS, that no clauses were inadvertently skipped, and that team responsibilities were documented. This is a Medium severity finding.
+
+\subsubsection*{QA-FND-005 (Medium): iRTM is PDF-only; no standalone file in repository}
+
+\textbf{Related error:} QA-ERR-005 \\
+\textbf{Location:} SRS NS-SRS-2026-001, Appendix D; Biometric-Student-Attendance-System repository \\
+\textbf{Severity:} Medium
+
+\textbf{Context.}
+The Inceptive Requirements Traceability Matrix (iRTM) is described in the SRS (Section 7) as ``a living document'' that ``will be horizontally right-appended in subsequent SDLC stages to track the fulfilment of requirements through to deployment.'' For the iRTM to function as such a living management tool, the standard for this artefact requires a standalone extractable file (Excel or Word), enabling downstream use and updating independently of the SRS PDF. No such standalone file was found in the repository.
+
+\textbf{Evidence.}
+The iRTM is present in the SRS as Appendix D (described as ``eight pages'' in the Table of Contents). A review of the repository folder found no separate Excel or Word file for the iRTM. The repository does contain a \texttt{BioSec Gantt Chart.xlsx} and a \texttt{Change Request Form Template.docx}, demonstrating that the team is capable of maintaining standalone files -- but this practice was not applied to the iRTM.
+
+\textbf{Analysis.}
+Embedding the iRTM solely within the SRS PDF means it cannot be easily extracted, updated, or handed off to downstream project management for use in tracking requirement fulfilment. The SRS itself (Section 7) states the iRTM will be ``horizontally right-appended in subsequent SDLC stages'', which presupposes a standalone file format. No such file was found in the repository. This is a Medium severity finding.
+
+% =====================
+% 7 SIGN-OFF
+% =====================
+
+\section{Sign-off}
+
+This Quality Assurance Audit Report has been prepared by Paragon Assurance and is submitted to BioSec Educational Institution Customer C-staff. The QA Auditor confirms that this report represents an honest and evidence-based assessment of the RE process records accessible at the time of audit.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{2.0}
+\begin{tabular}{|m{0.3\textwidth}|m{0.25\textwidth}|m{0.2\textwidth}|m{0.15\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Name} & \textbf{Organisation} & \textbf{Signature} & \textbf{Date} \\
+\hline
+Zong Han & Paragon Assurance & & 16 March 2026 \\
+\hline
+\end{tabular}
+\caption{QA Audit Sign-off -- Submission to BioSec Customer C-staff}
+\label{tab:qa-signoff}
+\end{table}
+
+% =====================
+% 8 ADDENDA
+% =====================
+
+\section{Addenda}
+
+\subsection*{Annex 1: Repository Access Information}
+
+\begin{center}
+\fbox{\begin{minipage}{0.9\textwidth}
+\centering
+\textbf{NEVON SOLUTIONS ANALYSING REPOSITORY}\\[2pt]
+\href{https://github.com/wenxuannx/Biometric-Student-Attendance-System}{\uline{\nolinkurl{https://github.com/wenxuannx/Biometric-Student-Attendance-System}}}\\[4pt]
+\textit{As referenced in SRS NS-SRS-2026-001, Section 1.5}
+\end{minipage}}
+\end{center}
+
+\subsection*{Annex 2: Positive Process Observations}
+
+The following aspects of the RE process were observed to be compliant and are noted for completeness:
+
+\begin{itemize}[leftmargin=*]
+\item Requirements are properly codified with structured IDs (BOR-0-xx, BOR-1-xxx, TR-0-xx, TR-1-xxx) enabling systematic traceability
+\item The Context Diagram and Data Dictionary from the PS were both carried forward and revised in the Analysing phase, with the original (PS Appendix D) and revised versions (repository) both accessible
+\item Requirement revisions cite specific clarification sessions (BC-01 on 07/02/2026, TC-02 on 09/02/2026) providing a partial audit trail
+\item The SRS Quality Model (Section 5.4) applies McCall's model with 11 named attributes covering Operation, Revision, and Transition dimensions, each with defined verification methods
+\item Change Mitigation strategies (Section 8) are well-formed with three strategy types, kill dates on open issues, and a standalone Change Request Form template in the repository
+\item The SRS contains a signed Declaration (03/03/2026) acknowledging AI tool use and affirming team accountability for all analytical content
+\end{itemize}
+
+\subsection*{Annex 3: Glossary}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{0.28\textwidth}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Term} & \textbf{Definition} \\
+\hline
+QA & Quality Assurance: audit of the process used to produce a requirements work product, as distinct from Quality Control which examines the work product itself \\
+\hline
+RE process & The vendor-side conduct of Requirements Engineering methods (Analysing, Specifying, Validating) relevant to producing the SRS \\
+\hline
+Process non-compliance & A weakness or deficiency indicating incomplete adherence to expected method conduct or supporting evidence \\
+\hline
+Regulated-revision & Controlled, traceable revision of Project Specification clauses into codified, SRS-ready requirements through BCIC (Breakdown, Clarification, Interpretation, Codification) \\
+\hline
+IRC & Issue Resolution Checklist: a systematic, standalone checklist used during Analysing to confirm each PS clause has been reviewed and actioned \\
+\hline
+iRTM & Inceptive Requirements Traceability Matrix: a living document tracing PS requirements to SRS requirements, intended to be extended through subsequent SDLC stages \\
+\hline
+Annex & A standalone copy of an external or supporting document appended to the report for reference; numbered sequentially (Annex 1, Annex 2, etc.) \\
+\hline
+PS & Project Specification: the customer-authored document defining the requirements that the vendor analyses and specifies \\
+\hline
+SRS & Software Requirements Specification: the vendor-authored document produced through the Specifying method, serving as the contractual development baseline \\
+\hline
+\end{tabularx}
+\caption{QA Audit Glossary (Annex 3)}
+\label{tab:qa-glossary}
+\end{table}
+
+% =====================
+% References
+% =====================
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thepage}{R-\arabic{page}}
+\section*{References}
+\addcontentsline{toc}{section}{References}
+\begin{itemize}[leftmargin=*,nosep]
+\item BioSec Educational Institution, \textit{Project Specification: Biometric Student Attendance Management System}, Document ID: BS-PS-2026-001, Version 1.0, 30 January 2026.
+\item Nevon Solutions, \textit{Software Requirements Specification: Biometric Student Attendance System}, Document ID: NS-SRS-2026-001, Version 0.8, 3 March 2026 (signed 6 March 2026).
+\item Nevon Solutions, \textit{Analysing Report: Biometric Student Attendance System}, Document ID: NS-AR-2026-001, Version 1.0, 8 February 2026 (referenced; not available for direct review).
+\item Kevin Anthony Jones, \textit{Labtorial Guide for Class Project: Reqrs now \& near future} (QA Guidelines Transcript), Mar 2026.
+\item Kevin Anthony Jones, \textit{Rubric for Assessment of Validating Report (Replacement)}, ICT2113, Mar 2026.
+\item Karl E. Wiegers, \textit{IEEE Recommended Practice for Software Requirements Specifications}, IEEE Std 830-1998.
+\end{itemize}
+
+\end{document}

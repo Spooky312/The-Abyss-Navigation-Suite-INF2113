@@ -1,0 +1,916 @@
+﻿So, now, I'm doing this because last year I had written instructions and you may, I forgot
+to delete a sentence in the rubric I said that's, or the lab guide that said I'd have
+written instructions.
+But last year it was just very difficult to get across the nuances of what I want you
+to understand because QA, although it's not more difficult, there's more things that are
+creative.
+It's more about you thinking.
+The guys that are doing the QC, it's pretty straightforward.
+Okay, they're just looking at one document, they're seeing that the document has got typos,
+it's got inconsistencies, it's got omissions, that type of thing, okay?
+So it's really easy.
+But you guys, it's more a case of thinking, which I know you know how to do.
+I know you know how to think.
+Okay, so, the idea is that you are at the behest of another company.
+So you all represent individual companies.
+There's only one of you, it doesn't need a QA team.
+And in fact, a QA team would make this more unworkable.
+So in practice, they have larger teams for the work products and they have smaller teams
+for the process.
+Because actually, there's a consistency problem that will immediately be lost over a process,
+whereas if one guy does it, or one girl, so if one person does it, then they sort of remember
+where they are, they make sure everything is going, going, going, okay?
+So that's why there's just one of you.
+So don't ask for two, just stick with the one.
+That's the way you have to do it because I think it's best.
+Okay, now, so you're at the behest of a company.
+A company is paying you.
+So you are going to audit them.
+You are not allowed to audit another company using the money that has been sent to you
+by the customer.
+So the RE process is what you're supposed to be auditing.
+The RE process has four major methods, eliciting, analysis, specifying, and validating.
+Four different methods.
+So do you do them all?
+Right.
+Which one do you not do?
+Right, because that's from a different company from what's paying you.
+So that's the number one lesson I want to make sure you take away, even though, I mean,
+it may seem simple when I tell you, but you still have to know this.
+So you're only doing analysis, specifying, and validating.
+Now with validating, you're obviously you're doing your customer, which is the left-hand
+side of that list.
+The list on the far right where it says P2, the left-hand side is your customer.
+So who's your customer?
+Right.
+So the idea is that you have to now be synced in with me.
+Customers are on the left, you are the right.
+Now with respect to the customer, actually it's very simple, right?
+The customer has the documents and does all the process.
+But there's something not quite accurate about that statement I just gave you.
+Because the validating is actually a shared process.
+It's being done by your QC.
+So not only do you have to have the customer as part of your QA for the validating, you
+also have to have your QA team.
+Sorry, sorry, QC team.
+Okay?
+So no eliciting, analysis and specifying purely with the customer.
+And then for the validating, part of it is with the customer and part of it is with the
+QC.
+So are we okay so far?
+So the QC is not on that.
+They're not there.
+So it's like, for example, because I'm 1684, so they're requesting our company to like
+QC.
+That's the lower, that's the last row on the column, right?
+Yeah, you're quite correct.
+You have requested 0602.
+Where's 0602?
+So you've requested them to do your company.
+But you are no longer that company.
+You are a separate company now.
+You are a QA company.
+So for the next two weeks, forget about everything else.
+You're just the QA company.
+So if when we get later on into the discussion here, you have to visit your customer company,
+you have to figure it out from this.
+Okay?
+So we can actually go case by case if you want.
+But for now, just believe that you are a QA company.
+So the QC company is entirely different from you.
+So you both have separate profiles.
+Okay?
+It's very unusual that they'd be in the same company.
+So because the job is so different.
+So you, QA, the rest of your teammates QC, and then your customer is on the left-hand
+side.
+You're on the right.
+So I always talk about you as being on the right, so customer is on the left.
+Now with that out of the circle, remember that when I talk about customer and vendor.
+You are the vendors.
+So let's start with analysis.
+So you're looking at a process.
+What does that mean?
+When you're looking at a process?
+Obviously, there's start.
+There's flow.
+There's transition to the next stage or the next method.
+Then there's start, flow.
+Then there's transition, start, flow, and then eventually it ends.
+Okay?
+So that's the process.
+So start, flow, stop, and transition.
+Start, flow, stop, and transition.
+Okay?
+Now let's look at analyzing.
+So where does the process start?
+What happens?
+Bring the BCIC out.
+BCIC is part of the analyzing.
+It's the major, if you like, method within a method or methods within a method.
+So yes, that's what I'm talking about.
+It's analyzing, right?
+So where are you going to start?
+You're looking at the process.
+What are you going to start to look at?
+Ah, good.
+Okay, now let's talk about the PS.
+Okay, we said you're not going to be looking at the eliciting process, right?
+But anything that's referenced in any one of the methods that you are looking at is
+fair game for you.
+Is.
+So because the PS is referenced in the analyzing, you may look at it.
+So when you're looking at the PS and it's a reference, what do you just -- what are
+you looking for?
+What do you think?
+What are you looking for?
+Okay, I think the first part of what you said was right.
+The second part, no, you don't look for ambiguity.
+And I think -- I'm going to transpose what I think you said.
+Okay, basically you just need to see that the guys that reference the PS have a copy
+of it.
+Now in any process, you can't trust anything.
+Just because they say they looked at it doesn't mean they actually looked at it.
+You are verifying they looked at it.
+Now you obviously cannot check every single hour of the day to see if they read it.
+But what you can do is at least ensure they have a copy.
+They must have it in their hot little hands.
+Or where else could it be?
+Repo.
+So that brings up another thing you're going to look at in the analysis.
+You're going to look at the repo.
+So for the PS, yes, check they have it.
+Now there was some groups that didn't put it in the repo.
+Some.
+So how do you check that they have it?
+Say again?
+No, let's say they don't have it in the repo.
+Let's say you've looked at it.
+Yes, exactly.
+It's that simple.
+It's that simple.
+Ask them if they've got it.
+And if they don't show it to you, then you say we asked and they didn't show it.
+However, what is the mechanism or the technique that you're doing when you ask them?
+What kind of technique would you use?
+It's from eliciting.
+What are the types of techniques you use in eliciting?
+Interviews.
+Focus groups.
+So those are the two main things that you can use as your technique to ask the customer.
+If you have them all there, the customer team, and you say, "Do you have it?"
+Someone's going to say, "Yeah, I got it on my computer."
+Great.
+So then you just ask to see it.
+But if it's an interview, you have to believe that person has it in the first place.
+So you can see how different techniques will give you the different answer on how you're
+going to do your report.
+But the key is don't trust anything.
+You have to see.
+You have to believe because you've seen.
+So that's great.
+That's good.
+Fantastic.
+So part of your job then could be to schedule interviews or focus groups or whatever with
+the customer.
+That's also part of your process for things that you cannot verify upfront.
+So we've gone through a lot of things now.
+We've gone through the PS.
+We've gone through the repo.
+We've gone through the idea that there may be documents that are not there.
+So how do you try and validate them?
+But let's say it's something where they say, "I deleted it by accident."
+What do you do then?
+Unfortunately that doesn't work because if they do it after the fact, then you're not
+getting as much, I guess you could say confidence that they aren't tricking you.
+What do I ask for in your reports upfront that tell me something about your honesty?
+Declaration.
+Exactly.
+So if you come to the point where there's something you want, they say, "We did have
+it but we lost it," or something like that, then you ask for a declaration.
+Now a declaration is not perfect as a form of evidence, but it is a legal thing.
+And so if they sign something and it's untruthful, it has to say what the declaration is all
+about.
+That's why when I...
+I think some of you, I said your declarations weren't good enough or you needed to sign
+them because it's a legal way of saying, "I really am earnest and I honestly lost it,
+but we did have it and we honestly used it."
+So that's why you do a declaration.
+It's for that at least halfway evidence.
+So there's a couple of things.
+Now you know what you have to do in a couple of things.
+You should be remembering these because I'm going to ask you about the thing called a
+checklist.
+Now you've done analyzing, I think, pretty well.
+What are some other things you might want to look at in the analyzing?
+Things that could be problematic?
+And maybe on your analyzing report, I said you were missing something.
+Yes but that's probably more for the SRS.
+So we're still in the analyzing phase.
+Louder?
+No, I don't think that's...
+But it's not really that but sort of related to that idea.
+The caring for of diagram.
+Say again?
+The caring for of diagram.
+Yes.
+Okay so did you all hear him?
+Go ahead.
+The caring for of diagram.
+Remember you had models in the PS, right?
+And then remember I was telling you I'm going to look to see that it's carried into analyzing.
+You must revise it.
+So there's actually two things here.
+The first thing is that you did carry it over.
+So you have to check.
+You have to say to them, "I saw in the PS there was models but you haven't carried them forward.
+Can you prove that you did carry them forward?"
+Because it should be in the repo, right?
+But the second thing you have to check for with respect to models is did they revise
+them?
+Now if they did revise them then they must show proof that they've got...
+And this is how I look for this in your repos.
+I looked for the original and the revised separately.
+And I might have even told some of you that you didn't say this was revised so I don't
+know what you've done with them.
+I don't know whether this is a mistake or not.
+So not only carried forward but were they revised?
+The process in analyzing says you should, right?
+Because generally the customer is not that good at models, right?
+And there's usually also old models.
+For instance I think you remember I told you that the customer doesn't like to draw a
+model so essentially they use what's existing and then they just throw it in their PS and
+say this is what we want.
+But you guys are not expected to just take them at their word.
+You as the vendors, not the QA, you guys as the vendors should check it out to make sure
+that those models aren't that correct.
+A few of your use cases weren't that good so I think you should have changed them.
+So the revision is also important.
+So you should be able to see both copies in somewhere, either in the repo or in the analyzing
+report or something, okay?
+So you can see there's a lot more to the process but it's not hard.
+It's just you have to think about it.
+You have to just be suspicious.
+Anything else that you think maybe in analyzing is worthwhile checking up on?
+Okay, good.
+So basically the idea of the revision of requirements is also something you should just make sure
+that is done.
+It's really unthinkable that that wouldn't have been done because if you look at the
+now going to codification, if you look at the stuff in your PS, how many of you didn't
+actually codify anything in the PS?
+There was about half of you that didn't.
+That's a mistake.
+It should have been codified when it went into the repo.
+So that's another thing you should look for, okay?
+So are we finished analyzing?
+You think that's okay?
+Is that enough?
+Anything else you can come up with that you think we should check or you want to just
+ask if we should check?
+Then you all fail.
+There's one last thing there.
+What was in breakdown?
+Yes.
+So you have to check that.
+If they say they used an IRC, but when you look at the documentation you can't find
+it anywhere or it's in the middle of the report, which it shouldn't be there in the first place
+really, but if it's in the middle of the report and it's like over two or three pages, is
+that useful?
+Can you actually take that out and then give it to all the team members and have them fill
+it in?
+Because that's what they have to do, right?
+Once they've checked something they have to fill it in.
+They have to say, "Yes, I checked that."
+So as far as the IRC is concerned, you want to check that it's there first of all, and
+secondly you have to check that it was used.
+So they should, by all rights, and I don't know whether you guys did this or not when
+you were vendors, but from all rights you should have actually had a real live IRC and
+you honestly should have gone through your part of whatever the PSU had been told you
+were going to do, and then you should have checked things off, whatever the IRC had actually...
+Because my IRC was on one page, one slide, you could have pulled that off, you could
+have used that as it was, or you could have made your own IRC or something, but that's
+what you're looking for, that not only did they make it, but that they used it.
+Now there's something else.
+One more thing.
+Actually I gave it away when I was talking about the IRC.
+One more thing.
+I have done this for most of the methods.
+I said that you have to do something very, very first, the very first thing you have
+to do on almost all the methods.
+I might have forgotten it, but I definitely didn't forget it for validating.
+What's the first thing you should do?
+Let's consider the IRC to be the second thing you do.
+So what's the first thing you do?
+Close, close.
+The project scope is part of it.
+So how do you use the scope to help you do the work?
+The checklist is for doing details of the work, but before you do the checklist you
+have to actually have a, begins with a P. How about next letter L?
+No, no, no.
+You've got some work you have to do, right?
+So you just dive in, you know exactly what you're going to do at which time and you're
+going to be following this and this.
+Is that the way it really works?
+So what do you do beforehand?
+You plan it.
+So do they have a plan for the analyzing?
+Do they have a checklist for analyzing?
+Have they done the analyzing and what is the end result?
+So for the plan it should be written down, but it may not be.
+So what would be the, what would you want to do if you found out that, well okay, okay
+you guys know this already.
+I'm sure that you guys had a task list.
+I'm sure that all of your groups, they said somehow either verbally or on chat, they said
+okay you're going to do this part of the PS, you're going to do this part, you're going
+to do this part, right?
+You guys had something like that, right?
+That's a plan, right?
+So was it done verbally or was it done on chat or was it done in a physical document
+for your teams when you did this?
+If it was a physical document it would be simple, right?
+Verbal, okay that's a bit of a problem.
+Declaration time.
+How many of you did it on chat?
+But it was a start, right?
+That's good.
+That's good.
+What do you need to do then for your QA that they have a plan?
+Print on the chat.
+Yeah.
+So this is what I'm trying to say.
+It's not so hard to figure this out.
+It's just the creativeness on how to get the evidence from it.
+Now it's not perfect but okay so they had a semi plan.
+Remember you're not necessarily looking at the quality or the goodness or the integrity
+of what they've done.
+What you're looking for is the completeness of the flow.
+So as long as the flow is complete meaning that against a policy document or against
+some kind of instruction that is comprehensive across the whole business that this workflow
+has gone according to an honest effort.
+That's what you're looking for, an honest effort.
+So yeah so your text, fine.
+That's okay.
+Now can you get to the text?
+Probably, so just make a shot of it.
+Now let's say you've got a shot of this text.
+How do you include it in your report?
+This will apply to anything where you've had, it's an external element and then you made
+a copy and you want to put it in your report.
+Anything.
+So how do you do that?
+Almost, not quite.
+Say again?
+Reference.
+Okay, almost but not quite.
+So what's in between?
+Even the letters are in between.
+An annex.
+An annex is a copy, a physical copy of some document.
+So the document has to be a standalone external thing.
+Like for instance the copy, the history of a chat.
+That's a standalone document, right?
+It doesn't go into anything else, right?
+Let's say you have a standards like ISO whatever, whatever.
+So that's a standalone document, right?
+But instead of referencing it from the point of view of the document, I reference our chats
+on WhatsApp.
+Instead of doing it that way where you force the person to look through all of the WhatsApp
+chats before he comes to the one that you were thinking of, all you do is you make a
+copy of that particular thing and put it into the annex of the document.
+Annexes I explained in the glossary so just check it.
+Annexes are numbers and appendices are letters.
+So annex one, annex two, annex three, etc.
+So exactly the same format except just different spelling.
+This applies to anything, any of your evidence including your declarations.
+If your declarations are done as a standalone thing because they're not really part of a
+report, they're not detailed in a report, then just include them as an annex.
+Now if you were doing a legal document just to make sure because you might have heard
+this word, you know like when you see these courtroom dramas and then they say I want
+to see exhibit five.
+So actually if this was a legal document, if your report was legal, you'd call them
+exhibits.
+But because this is not legal, you can call them annexes.
+So annex and that applies all across the board to any of the processes.
+Now I think we're finished with analyzing.
+Okay so let's go to specifying.
+So how do we start?
+What's the start of specifying?
+Yes, so you want to check on that.
+So most of you have that in the SRS.
+Most usually there's a reference, so you just want to take a quick look to see that that
+was done because it's part of the process, the template.
+What's next?
+So you want to check on that.
+Okay, requirements.
+So with respect to requirements, you won't be looking at the idea that the requirements
+are good, okay?
+That's not your job.
+You just want to know something about the requirements and what is that something?
+Not its goodness.
+No, no, not anything to do with its goodness, nothing like that.
+Say again?
+Okay, that wasn't quite the way I would have put it.
+I'm not exactly sure what you mean.
+Is it detail?
+No, no, not that.
+You just want to know where it came from.
+So you just need to check the repo.
+So just to check to make sure those requirements that are there have all been brought over
+into the thing.
+So you don't check for the goodness, you don't check whether it's a shall or anything like
+that.
+You just say, okay, there was 50 requirements in the repo.
+There's only 45 in the SRS.
+Uh-oh, five are missing.
+Okay, the problem with that is that you're then starting to get involved with the document
+itself in terms of its goodness, whereas if you're just checking that everything was taken
+over from the repo to the requirements, that's no different than checking that all the models
+that are in the PS have come through.
+So as long as it's part of the process, but to jump to the IRTM, isn't it the same as
+the checklist?
+Right?
+Isn't it the same as the checklist, the IRC?
+How so?
+Say again?
+I'm not quite sure what you mean.
+I mean, the IRTM itself is more than just the fact it's carried over.
+If there's anything missing, then the guys that are doing QC have to check for that.
+But what is the point about the IRTM?
+It's supposed to be something that you can take out and use somewhere else, right?
+Say again?
+No, no, not if it's realistic.
+That'll again be the QC.
+So the only thing you need to check is whether it is a file or whether it can be made into
+a file quickly, because the IRTM is supposed to...
+Yes, it traces.
+It's inceptive.
+Remember I means inceptive.
+You said it can be made into a file, so we're expecting the thing itself to be in one page
+and not like linked into another page.
+Right.
+Now, if that's impossible because it's such a long document, then at least you could have
+pages that are all in the same annex or appendix.
+And then what would happen is you would have to withdraw them out and make a database file
+from that.
+Now if...
+Right now everybody gave their SRSs on PDF, right?
+Okay.
+So where did the PDF come from?
+How many of you have PDF editors?
+None of you.
+So where did the PDF come from?
+Word document or Excel, right?
+That's what you want to look for.
+You want to see that word document and you just want to see that the table in Word goes
+from this point to this point contiguously.
+Did any of you actually get involved in that part of your SRS?
+Any of you here actually get involved with that part?
+You drew up the IRTM.
+Then am I telling you the right thing here?
+My IRTM is one of the Excel files.
+Oh, okay.
+Okay, so if it's a separate file, that's great.
+That's perfect.
+Just find it.
+Exactly like with the PS, just find it.
+Okay?
+So the PDF is not really indicative except for the fact that it all be in the same appendix.
+What you want is the real file, the Excel file or the Word file and then you check it out.
+If it's there, if it's like one file, perfect.
+So that's the point is the IRTM is got to be handed out to someone just like the IRC
+has to be handed out to someone.
+So it's got to be in a file.
+Say again?
+It could be there.
+It could be there.
+It's possible.
+I think some of the companies, some of the companies not just in your group but in other
+lab groups, they actually put the SRS also into the repro with the analyzing report.
+Did any of you do that?
+Say again?
+Say that again.
+I'm sorry.
+Oh, okay.
+Really?
+Oh, okay.
+Okay.
+Okay.
+That's a bit of a weird one.
+Okay.
+I mean you need access.
+So whatever platform they're using, just ask for the access.
+You know, just ask them to make it public for you.
+Okay.
+So that brings us back to talking to the customer.
+So this is still part of the part where the customer is totally under control.
+Okay.
+So we have to talk to them.
+So you may wish to also get them to open up some stuff for you and things like that.
+If the repo is on a different platform or whatever.
+Okay.
+So not just asking them questions about can you show me something, you can ask other questions
+as well.
+Whether you do them all in one go or whether you do them separately, it's up to you.
+Maybe you can have it as a chat that's running and then you just record your own chat to
+make sure that you've got everything that you had on your checklist done.
+Okay.
+So that is the IRTM.
+Okay.
+So it's a separate document.
+You check for the separate document.
+Okay.
+What else?
+Change mitigation.
+What are you going to check for that?
+Yeah.
+So these are forward instructions that actually would be executed by the PM.
+Okay.
+So there's not really a lot you can check about it.
+So is there anything you think you want to check about it?
+You can already check it.
+Yeah.
+It's really kind of hard to check.
+What you could check for if certain companies have this is you could just check if they
+mentioned that they have a template just to see the template.
+But again, you're not checking it for goodness.
+You're just checking to see that this template actually exists if they say they need it with
+respect to that particular thing.
+Okay.
+So that's pretty well it from analyzing to the end of specifying.
+Again, you don't check the SRS for goodness.
+You're not really interested.
+Just the fact that it has a reference, that it literally has a basis.
+So its main basis is from the repository and then models.
+So you might want to check if there was any models that were done during specifying.
+And if there were, essentially, do you see the source document for them like the JPG
+or anything like that?
+Just to know that they do have a proper history.
+For instance, if they came from the PS, you've already checked their credentials because
+you saw that when you did the analyzing, you saw the old one, you saw the revised one.
+So now that it's done here in analyzing, you don't need to check it anymore.
+But if there's something else, you still need to see the original.
+Even if it's the same, the original doesn't need to be changed because it was done during
+specifying.
+So you just need to see it, that's all.
+Maybe change management or mitigation, not that much to do.
+But models, just check for originals.
+So now we're now to validating.
+So basically, the number one key thing here is that the customer does do a few things.
+So what do you think are the few things that the customer would do?
+Oh, the SRS, of course.
+You're validating the SRS, but the process that makes the SRS, we've gone through the
+analyzing and the specifying.
+So we've got an SRS here.
+It's now being validated.
+So the customer does a very minor validation.
+What do you think that is?
+Sign author.
+Excellent.
+Excellent.
+It has to be signed.
+Excellent.
+There's a few companies that have not done that.
+If it's not signed, it's not complete.
+So that process was not finished.
+You can say right away.
+To sign it after validation is meaningless, really.
+Okay, so sign off.
+Yes, good.
+What else?
+What else would they do?
+What would you do if you've been writing a document and then you wanted to hand it into
+me?
+What would you normally do?
+Yeah, what kind of checks?
+Say again?
+Yeah, what else?
+Oh no, no, that's too much.
+Spell checker.
+Grammar checker.
+Spell checker.
+Now editorial checks should be done, like for instance there's a couple of companies,
+I don't know whether it's here or not, that when they handed in their SRS they actually
+duplicated sections.
+So I see a section that says some title in the first part of the document and then I
+see another section with the same title but a different number.
+So there's these two sections.
+Surely the editor should have gone through and checked that.
+So you can do a simple thing and that is just to ask them, did they do spell check, did
+they do grammar check, did they do editorial check?
+And then if they don't know what editorial check is, now you can tell them.
+Especially when you're doing a large document, it's always nice if you have someone to just
+editorialize, just go through it and just make sure that there's no obvious issues with
+it.
+Okay?
+Now that's enough for them.
+So now you want to look at the QC.
+How are you going to start?
+I think you're going to kick yourself.
+You are not at firm, right?
+They are not at firm.
+You start off with a plan, then a checklist, you do, and then findings.
+What are you going to do with them?
+Same thing, you're going to check for their plan, you're going to check for their checklist.
+And then you're going to check that they did what they did correctly, that they proved
+they did all of those steps, and that they saved their findings.
+I mean they can't just say, "I got findings," but you can't find out where the findings
+are.
+They've got to have saved it.
+Where do they save it?
+Mostly in their report.
+So you have to see that it's there.
+That's about it, I think, for them, but that's just a fair amount of just being diligent.
+Just go through everything.
+And go through with a fine-tooth comb, especially since you're both auditors, so you both have
+this basic skill, and that you should do it the right way, and you're applying that template,
+if you like, to another company that's doing auditing.
+They have five people or four people for a plan, so you need to see that this person
+is doing this, this person is doing that.
+Checklist, they should have an IRC kind of idea.
+Screen, they have the SRS, so you've checked that.
+Yeah, they have it.
+And then did they, according to their task list, check everything off?
+Great.
+And then finally they've saved their findings in some database or some Excel file or something
+like that.
+So that's it.
+Now, we mentioned a lot of things, right?
+So some of you have memorized it, some of you have written it down.
+I'd like to make a suggestion to you.
+It's okay if you don't want to take it up, but I think it will help you out.
+I suggest that you consider yourselves part of a society like IEEE, but you are the society
+of QA people for P2.
+And you sit down for the next 20 minutes or so, and you come together on a plan, what
+QA is going to do, and you come up with a checklist, what QA is going to look at.
+If you do that together, it doesn't mean all your reports are going to be the same, because
+you're looking at different companies.
+So your checklist and your plan will obviously have to kind of like, once the generic aspect
+is put down on paper, then you can meld it to your particular company that you're doing,
+and your findings will definitely be different.
+Definitely.
+You'll have different customers as well, so they'll all be different.
+And you won't spend so much time on spinning the wheel, where you'll basically all come
+out with kind of the same plan anyway, and the same checklist anyway.
+But you can share your knowledge here, and you can come up with a pretty good checklist
+and a pretty good plan.
+So I kind of think that would be the way to go.
+That's the way I would want to go.
+Okay?
+So it's up to you.
+I leave that up to you.
+Once around the table, are there any more questions that have come up as we're finalizing
+this stuff?
+So any questions at all?
+So would you like to start?
+You sure?
+No questions?
+Okay.
+Can I just recommend that some of you, like you look a little bit uncertain.
+I'm not sure whether you are happy or you.
+If you're uncertain, try this technique, okay?
+You just start talking.
+It'll be rubbish, it doesn't matter.
+Just start talking.
+And then sure enough, something will come out, the question will eventually come.
+And it's okay if you take 30 seconds and just talk.
+So see, see this?
+Just to clarify, you just start talking.
+So we have QA and QC, so they're both different documents.
+So when we sign off, we do all the checklists for QA and QC.
+This sign off is different confirm.
+Yes, yes.
+So if I'm understanding correctly, the flow for this thing, you're doing a check for NSC,
+specify and validate it.
+That's under QA.
+Okay, yes.
+Okay, so I'll imagine the document to be something like a QA document that we flag,
+the three sections, NSC should what?
+Specify the Chinese, validate the Chinese, and the sign off for QA.
+Then QC, what is how will it work?
+Okay, so basically they should do the same thing, but just different content.
+What do you mean by different content?
+Well, like the plan will not be to go through the process and all these little things that
+we talked about, say you're going to check their chat, you're going to check their document
+that exists, and you're going to check the repo and all this.
+They won't do that.
+They'll just strictly look at the SOS, and I've given them three different types of problems
+to try and find, the authorship, the omissions, and then the contradictions.
+But you're not looking for any of that.
+So their checklists will be different.
+Okay, so the authorship is where you, you as an author can't see your own errors.
+The omissions is where it becomes obvious after you do some stuff that I've given them hints on
+that just like I've given you hints about, you can check different things and declarations.
+They won't be doing any declarations.
+So for the omissions, you're going to be checking a different way.
+You're going to do scenario checking, persona checking, and assumption checking.
+And then the final thing is latent contradictions where if you're reading through the document,
+sometimes you can read that they've said one thing here, but it's actually contradicted way down here
+in another section.
+I've actually run across that in several of the SRSs.
+So, but you have to see the whole SRS to get a feel for that.
+So those are the three things they're going to do as far as kind of family of things.
+And then within them, they'll have each of them have a checklist.
+So for the QC side, they're just doing more of like the final detail correction within the report itself?
+Oh yeah, just within the report, yeah, yeah.
+But they may not check, for instance, on the signatures.
+It depends on them, but you have to check it because it's part of the process to say that it's gone from draft to complete.
+So that is correctness, then ours is more completeness.
+Yeah, I guess, but they're still looking for omissions.
+So that's kind of completeness too, isn't it?
+It's the anti-completeness.
+Yours is more workflow, the flow of the work.
+So if I said to you flow includes start and end, which I did say, right?
+You have to check to make sure the end is actually complete or that it's reached.
+So one of them is the sign off, but they won't be looking at the SRS that way.
+So that's why I'm saying is that, you know, there's things that may overlap, but they also may not,
+because you don't know yet what they're going to actually be looking at.
+That's when you do the workflow check of them, then you'll know for sure what they've said,
+because you'll see their checklist and you'll know that if you have actually overlapped on some.
+Okay, stop for a second.
+I didn't say you have to.
+I said I recommend it so that you guys don't spend a lot of time just dreaming up stuff.
+That, you know, if some of you remembered part of what I've said
+and some of you had written down some other parts and just get together and just say,
+"Okay, this is what we want to do."
+So it wasn't obligatory. It was an option. It was a suggestion.
+What about QC? What is doing that?
+Ah, now QC. Okay, the question that the QA people asked was, "Should we brief our QC?"
+We have a different company to check.
+Yes, but you will be checking them on validation.
+So what I said to those guys is, "Let's take a vote."
+Do you want to -- because if one of you briefs them, you all have to brief them.
+You can't have one team having the advantage of being briefed.
+So is that something any of you are considering?
+And then if you are, let's put it to a vote.
+Of course, I won't be voting.
+Do you want to consider telling your QC team what they're in for?
+Essentially briefing them on plan, checklist, due, findings.
+Because that's the first thing you're going to look at.
+You aren't considering yes or no?
+No.
+I'm voting yes.
+Ah, no.
+No.
+Oh, we're tied. Okay.
+Yes?
+No. Okay. Tied.
+Yes.
+Yes.
+Okay, so it looks like -- are you with us here?
+Okay.
+Okay, so this one is split.
+So I think you really need it to be unanimous.
+So just think about it, and if you want to come back and sort of work out why,
+to convince other people, I think that's a good idea.
+I think generally you all want to do your best, right?
+So if one team gets the briefing, you all get the briefing.
+That's the point.
+And if you don't agree, then no one gets briefed.
+Okay, so as long as you follow that rule so that no one gets an undue advantage.
+Can I ask about the report itself, right?
+Like you said earlier, do we need evidence to support our -- what we say?
+For example, like the model stuff, right?
+You said you check whether it's still consistent, right?
+Do you need to check to show, like, oh, this is the original one,
+and this is how it looks right now?
+Do we need, like, evidence in the NX?
+Yeah. Okay, just let me answer this question.
+So I think what you're saying -- I'm not positive --
+but I think what you're saying is that when you present something,
+that you should have the evidence for that in your report.
+Is that what you meant?
+Okay, so the answer is yes.
+So if you say something in the presentation, it must be there in your report.
+If you say that they did not --
+I followed the rules.
+Yeah, well, let's say they did not revise their models.
+Then you say in your thing, we've got a declaration or something that says they did
+or something like that or whatever.
+So as long as you've got evidence that you checked it
+and you came up with a finding, either they did or they didn't,
+then that has to be in the report.
+As far as your presentation, you should probably keep it short,
+maybe two minutes or three minutes at most, just on the findings,
+not on your plan, not on your checklist, just on your findings.
+And then try to explain to everybody that, you know,
+this particular finding is important because it flows, you know,
+it's a checkpoint in the flow.
+And we found that it was not done or it was done,
+but the evidence is a little bit sparse or something like that.
+Okay, so four slides, maybe four slides at most.
+[inaudible]
+Shorter than the QC.
+By what?
+No, no, probably you'll end up -- I mean, your main document may be shorter.
+You might have a few more annexes and that type of thing.
+It depends on their checklist.
+I mean, one of the teams was talking about --
+they went through with me on the individual aspects of each of the three problems
+that they have to look for, and that's approximately 24 items,
+so maybe 20 items.
+But anyway, so if each item takes one minute to talk about,
+that's, you know, 20 minutes, right?
+So you can't have that, so you've got to shorten what you're going to say.
+But in the report, they would have the full details,
+so they might have a lot of stuff there.
+But who knows what they find.
+But where's yours?
+I've gone through it with you, and theoretically, if you all agree,
+you've made a nice little plan, a nice little checklist,
+so you're obviously going to optimize that and make sure that everybody is keen with that,
+and then that would be a large portion of your report.
+Then the evidence and the findings would be -- maybe it's half and half, something like that.
+So I think if you can come together, I think you'll find that your report is actually
+pretty reasonably maybe only 10 pages.
+And then the rest are annexes or perhaps other things,
+but annexes are probably the main thing.
+And you just need to reference your annex.
+You know, this finding, reference this annex.
+Okay?
+Would there be an appendix?
+Maybe. Maybe if there's detail with respect to your search for the evidence.
+Well, you're searching for evidence, right?
+It's like you've got a checklist, and it says, "Check for plan."
+And, you know, it's not anywhere in the documentation.
+So then you have to go to them, you have to have an interview or a focus group,
+and at that time they said it may be in a chat, "I don't know."
+So you have to sit there and sort of arrange with them to get it, and then you get it,
+and it's not quite right, so then you have to go back to them.
+It may be a very prolonged type of thing, so maybe you spend, you know, 400 words on it.
+You might want to put that in an appendix.
+It's difficult to say, but I, if you just ask my opinion,
+and my opinion is that I think your reports will be slightly shorter.
+But your presentations will definitely be shorter,
+because if they've got four people and each person's doing two or three slides,
+just like you did for the first report, right?
+How many slides did you do approximately on average?
+Like ten.
+No, no, I mean just you alone.
+Around two.
+Good?
+Two.
+Okay, so yeah, so, you know, that meant eight to ten slides roughly, give or take,
+whereas yours should only be three or four at most, at most.
+If you're only going to talk for two minutes, I would say no more than two slides,
+just like what you did for the summary.
+Most of you did, you know, quite a reasonable amount of slides.
+You know, it was just two usually.
+Yeah, so I think that's all I wanted to say.
+I mean, I think that if there's no more questions,
+that you can now just say if you all want to stay and do your plan
+and then check list and distribute it,
+someone just be responsible to send it to everybody else.
+[inaudible]
+Okay, so your reports are separate.
+So zip them together, but they're separate.
+And along with the two reports, there's going to be two presentations.
+Now, for the actual files, they're separate.
+But for the presentation, just do what you did on the summary.
+So you hook the two of them together in the one PC, okay?
+But separate files on the zip thing.
+So you've got the zip now with four files.
+And then there's also the AI reviews, which I'll probably go through tomorrow.
+But basically each of the two, the QC and QA, will do a separate AI review.
+So that's six files now.
+So just take the six files and just zip it together and just put that on the folder, the drop box folder.
+Does that answer your question, Mr. Okay?
+Any other questions?
+Does all of the presentation have QC and QA?
+Yes, it does. It's always QC first, QA second.
+This is where the fun comes in.
+So just, it's okay.
+It's okay to point out things that were lacking.
+But it's not okay to tell them how to fix it.
+So nowhere in your report do you ever talk about fixing anything.
+You just say what you saw.
+And similar to them, they should be just saying what they saw.
+In real life, the QA probably takes years to fix.
+So QA will happen and then maybe two years later the company will decide upon a fix.
+With QC, the company can decide very quickly.
+So it's possible that QC on the SRS could be fixed within one week.
+Maybe less, but generally one week.
+And then it's released after that week.
+Okay, so for QA, it would never get solved right away anyway.
+And you aren't equipped to really give a solution.
+Did I tell you the story about IBM?
+Some of them, I told you it was wrong.
+Eventually they pointed to the hard drive.
+So they began a QA on the hard drive.
+And they checked everything.
+They checked the raw materials, they checked the incoming designs,
+and then they checked the code and the other things, the manufacture techniques,
+and then they checked the distributions, the tests and everything.
+They couldn't find the error at all.
+So the QA said, "We can't tell you why."
+So what did they do?
+What did IBM do?
+They sold it.
+They sold their factory.
+There's no way to really fix it because the QA didn't really come up with anything.
+And that can happen.
+So that just reinforces the idea that the QA is not really solvable right away anyway.
+So you would never come up with a, you would never try and suggest a solution.
+The company has to decide how they're going to solve a QA problem.
+Because it's part of their business process.
+Okay? So I'll leave you to it then.
+If you want to get together, I think you should.
