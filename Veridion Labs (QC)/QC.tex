@@ -97,7 +97,7 @@ citecolor=blue
 
 \large Software Requirements Specification (SRS)
 
-\large Smart Contract Enabled Pharmaceutical Supply Chain System
+\large Biometric Student Attendance System
 
 \vspace{0.8cm}
 
@@ -159,7 +159,7 @@ Kannan s/o Rajamohan & QC Team & QC Specialist & QC-004 \\
 % =====================
 \section{Executive Summary}
 
-This report presents the results of a Quality Control (QC) validation of the Software Requirements Specification (SRS) for the \textbf{Smart Contract Enabled Pharmaceutical Supply Chain System}. The objective of this QC audit is to identify defects that remain in the SRS after the completion of Eliciting, Analysing, and Specifying.
+This report presents the results of a Quality Control (QC) validation of the Software Requirements Specification (SRS) for the \textbf{Biometric Student Attendance System}, prepared by Nevon Solutions for BioSec Educational Institution (Document ID: NS-SRS-2026-001, Version 0.8, dated 3 March 2026). The objective of this QC audit is to identify defects that remain in the SRS after the completion of Eliciting, Analysing, and Specifying.
 
 The audit focused on three principal categories of SRS defects expected at the Validating stage:
 \begin{itemize}[leftmargin=*]
@@ -168,9 +168,9 @@ The audit focused on three principal categories of SRS defects expected at the V
 \item \textbf{Contradiction defects} -- where different parts of the SRS imply inconsistent behaviour.
 \end{itemize}
 
-The inspection found that the SRS is generally well-structured and covers most core functional areas. However, a number of issues were detected including contradictory requirements (MFA scope, blockchain confirmation time), missing exception-handling scenarios (blockchain failure, invalid QR codes, password recovery), vague statements, and typographical errors. A glossary is absent, and some cross-references are inconsistent.
+The inspection found that the SRS is generally well-structured and covers most core functional areas including biometric attendance recording, leave management, compliance monitoring, and push notifications. However, a number of defects were detected including a contradiction in the scope of two-factor authentication enforcement, an inconsistency in attendance status terminology across sections, missing requirements for biometric enrolment, password recovery, offline limit handling, and session scheduling, as well as grammatical and editorial errors. The SRS sign-off section also contains blank approver signatures.
 
-These findings indicate that the SRS is \textbf{conditionally acceptable}, subject to the customer's review of the identified defects. No recommendations for correction are provided; the customer will determine any necessary actions.
+These findings indicate that the SRS is \textbf{conditionally acceptable}, subject to BioSec's review of the identified defects. No recommendations for correction are provided; the customer will determine any necessary actions.
 
 % =====================
 % 1 INTRODUCTION
@@ -178,7 +178,7 @@ These findings indicate that the SRS is \textbf{conditionally acceptable}, subje
 \section{Introduction}
 
 \subsection{Purpose}
-This Quality Control (QC) Audit Report presents the findings of an independent inspection of the Software Requirements Specification (SRS) prepared for the \textbf{Smart Contract Enabled Pharmaceutical Supply Chain System}. The purpose of this QC activity is to identify defects remaining in the SRS work product before the project progresses into downstream stages such as system design and implementation.
+This Quality Control (QC) Audit Report presents the findings of an independent inspection of the Software Requirements Specification (SRS) prepared for the \textbf{Biometric Student Attendance System} (NS-SRS-2026-001). The purpose of this QC activity is to identify defects remaining in the SRS work product before the project progresses into downstream stages such as system design and implementation.
 
 In accordance with the validating stage of Requirements Engineering, QC focuses on defect detection in the \textbf{requirements work product itself}. The QC team records findings but does not propose fixes; the customer determines any corrective actions.
 
@@ -190,22 +190,22 @@ Audit findings use the format \texttt{QC-FND-XXX}.
 Error detection instances use the format \texttt{QC-ERR-XXX}.
 
 \subsection{Intended Audience and Reading Suggestions}
-This report is intended for the Medicare Plus requirements engineering team, project management personnel, and relevant stakeholders involved in SRS review and approval.
+This report is intended for the BioSec Educational Institution requirements engineering team, project management personnel, and relevant stakeholders involved in SRS review and approval.
 
 Readers should begin with the Executive Summary and Sections 1--3, then proceed to the QC Checklist, Error Detection, and detailed Findings.
 
 \subsection{Audit Scope}
-The audit covers the SRS as a QC exercise. The scope includes:
+The audit covers the SRS (NS-SRS-2026-001) as a QC exercise. The scope includes:
 \begin{itemize}[leftmargin=*]
 \item detection of authorship defects (ambiguity, vagueness, grammatical errors)
-\item detection of latent contradictions
-\item detection of omission of topics (missing scenarios, exception paths)
+\item detection of latent contradictions across sections
+\item detection of omission of topics (missing scenarios, exception paths, uncovered capabilities)
 \item checking codification and traceability coherence
 \item checking structural, editorial, and presentation consistency
 \end{itemize}
 
 % =====================
-% 2 AUDIT BASIS (SHORTENED)
+% 2 AUDIT BASIS
 % =====================
 \section{Audit Basis}
 
@@ -230,39 +230,39 @@ This audit assumes the SRS is mature after earlier RE stages. QC inspects the wo
 
 \subsection{Documents Reviewed}
 \begin{itemize}[leftmargin=*]
-\item SRS (Smart Contract Enabled Pharmaceutical Supply Chain System, 6 March 2026)
-\item Project Specification (background)
-\item Requirements models (context, sequence, architecture diagrams)
-\item Codification and iRTM sections
-\item Quality model and change mitigation sections
-\item Appendices and traceability artefacts
+\item SRS: Biometric Student Attendance System (NS-SRS-2026-001, Version 0.8, 3 March 2026)
+\item BioSec Project Specification (BS-PS-2026-001, Version 1.0)
+\item Requirements models: Context DFD, Wireframes, Use Case Diagram, ERD (Figures 1--4)
+\item Inceptive Requirements Traceability Matrix (iRTM, Appendix D)
+\item Change Mitigation Strategies (Section 8)
+\item Data Dictionary (Appendix C) and Glossary (Appendix A)
 \end{itemize}
 
 % =====================
-% 3 QC PLAN (SHORTENED)
+% 3 QC PLAN
 % =====================
 \section{QC Plan}
 
 \subsection{Target Workproduct}
-The \textbf{Software Requirements Specification (SRS)} for the Smart Contract Enabled Pharmaceutical Supply Chain System.
+The \textbf{Software Requirements Specification (SRS)} for the Biometric Student Attendance System, prepared by Nevon Solutions for BioSec Educational Institution (NS-SRS-2026-001, Version 0.8).
 
 \subsection{Context and Goals}
-The SRS is the baseline for downstream development. This audit verifies its clarity, completeness, and consistency, documenting defects for customer action.
+The SRS serves as the contractual baseline for all downstream design, development, testing, and delivery activities. This audit verifies the SRS's clarity, completeness, and internal consistency, documenting any detected defects for BioSec's consideration and action.
 
 \subsection{Access and Audit Conditions}
-The QC team reviewed the released SRS and supporting artefacts provided for audit.
+The QC team reviewed the released SRS document and all supporting artefacts provided for audit, including diagrams, appendices, the iRTM, and change mitigation strategies.
 
 \subsection{Inspection Techniques Used}
 \begin{enumerate}[leftmargin=*]
 \item Close document inspection
-\item Perspective-based reading (developer, tester, PM, compliance)
+\item Perspective-based reading (developer, tester, PM, compliance officer)
 \item Cross-section contradiction checking
 \item Codification and traceability verification
 \item Model-to-text consistency inspection
 \item Omission mapping against expected SRS topics
-\item Scenario-based reading (supply-chain scenarios)
+\item Scenario-based reading (biometric attendance and leave management scenarios)
 \item Assumption reading
-\item Double-checking dates, facts, figures
+\item Double-checking dates, facts, figures, and identifiers
 \item Spellcheck and grammar review
 \end{enumerate}
 
@@ -280,7 +280,7 @@ The QC team records findings in this report; the audit team does not amend the S
 % =====================
 \section{QC Checklist}
 
-The following checklist was used by the QC audit team to inspect the SRS work product. The checklist items represent critical aspects of a high-quality SRS, derived from industry standards and lecture guidelines.
+The following checklist was used by the QC audit team to inspect the SRS work product. The checklist items represent critical aspects of a high-quality SRS, derived from industry standards and lecture guidelines, and are assessed against the Biometric Student Attendance System SRS specifically.
 
 For readability in the main report, the full checklist register is presented in \hyperref[tab:qc-checklist]{Appendix B, QC inspection checklist}. The appendix table records each checklist item together with the inspection result applied during the audit.
 
@@ -310,19 +310,29 @@ For readability in the main report, the consolidated error detection register is
 \rowcolor{tableheader}
 \textbf{Finding ID} & \textbf{Type} & \textbf{Severity} & \textbf{Short Description} \\
 \hline
-QC-FND-001 & Contradiction & High & Conflicting statements about MFA requirements (all users vs. only administrators). \\
+QC-FND-001 & Contradiction & High & 2FA required for parents and teachers in UI requirements but only for administrators in security NFRs. \\
 \hline
-QC-FND-002 & Contradiction & High & Inconsistent blockchain confirmation time targets (30 seconds vs. 10 seconds). \\
+QC-FND-002 & Contradiction & High & Attendance status terminology inconsistent -- ``Attended'' vs ``Present'' used across sections and data dictionary. \\
 \hline
-QC-FND-003 & Contradiction & High & Conflicting RPO/RTO values between NFR-19 and CM-5. \\
+QC-FND-003 & Contradiction & Medium & Report generation time stated without query-type distinction in stimulus/response, contradicting NFR-PERF-03. \\
 \hline
-QC-FND-004 & Omission & High & Missing exception handling for blockchain failures, invalid QR codes, password recovery, and migration failure. \\
+QC-FND-004 & Omission & High & No requirement for biometric enrolment process -- how students are initially registered in the system. \\
 \hline
-QC-FND-005 & Omission & Medium & No glossary or definitions section; acronyms undefined within SRS. \\
+QC-FND-005 & Omission & High & Account lockout specified but no password reset or account recovery flow requirement exists. \\
 \hline
-QC-FND-006 & Authorship & Medium & Vague or ambiguous terms (e.g., "periodic") and non-measurable criteria. \\
+QC-FND-006 & Omission & High & Offline mode limit specified but no requirement for what happens when limit is exceeded or sync conflicts arise. \\
 \hline
-QC-FND-007 & Authorship & Low & Typographical errors (duplicate "shall") and structural inconsistencies (duplicate section heading). \\
+QC-FND-007 & Omission & Medium & Sessions referenced throughout but no requirement defining how sessions are created or managed. \\
+\hline
+QC-FND-008 & Authorship & Medium & ``Periodic synchronisation'' in Section 2.2 is vague and inconsistent with the specific 5-minute figure in FR-COM-01. \\
+\hline
+QC-FND-009 & Authorship & Low & Grammatical error in QA-USAB-01 -- double verb construction ``shall allow \ldots{} must be able to''. \\
+\hline
+QC-FND-010 & Authorship & Low & UR-WEB-08 and UR-WEB-09 use lowercase ``the portal shall'' inconsistent with all other requirements. \\
+\hline
+QC-FND-011 & Authorship & Low & SRS sign-off section contains entirely blank approver signatures and dates for all four designated approvers. \\
+\hline
+QC-FND-012 & Omission & Medium & RBAC used extensively throughout but not defined in Appendix A Glossary. \\
 \hline
 \end{tabularx}
 \caption{Summary of QC findings}
@@ -331,105 +341,148 @@ QC-FND-007 & Authorship & Low & Typographical errors (duplicate "shall") and str
 
 \subsection{Detailed Findings}
 
-\subsubsection*{QC-FND-001: Contradiction in Multi-Factor Authentication Scope}
+\subsubsection*{QC-FND-001: Contradiction in Two-Factor Authentication Scope}
 \textbf{Related error detection:} QC-ERR-001 \\
 \textbf{Type:} Contradiction \\
 \textbf{Severity:} High
 
-\textbf{Context.} Section 1.4.1 (In-Scope Deliverables) states that MFA is required for "all user accounts". Section 3.2 FR-2.6 limits MFA to "all administrative accounts".
+\textbf{Context.} Section 3.1 UR-MOB-06 requires a 2-Factor Authentication screen process for ``parent and teacher'' mobile application users. Section 5.3 NFR-SEC-03 separately mandates that the system ``shall enforce two-factor authentication (2FA) for all administrator accounts accessing the web portal'' -- with no mention of parents or teachers.
 
-\textbf{Result.} A developer or implementer cannot determine whether non-administrative users (e.g., suppliers, transporters, customers) must use MFA.
+\textbf{Result.} A developer cannot determine whether 2FA is required for all three user classes or only administrators. Implementing 2FA for parents and teachers incurs additional development effort and user experience considerations not reflected in the NFR.
 
-\textbf{Analysis.} These two statements are mutually exclusive; one must be incorrect or the scope must be clarified. This is a latent contradiction that will lead to inconsistent implementation unless resolved.
+\textbf{Analysis.} These two requirements are mutually inconsistent on the scope of 2FA enforcement. One must be incorrect or the SRS must be clarified to specify a single authoritative position on which user classes require 2FA.
 
-\subsubsection*{QC-FND-002: Contradiction in Blockchain Transaction Confirmation Time}
-\textbf{Related error detection:} QC-ERR-008 \\
+\subsubsection*{QC-FND-002: Contradiction in Attendance Status Terminology}
+\textbf{Related error detection:} QC-ERR-002 \\
 \textbf{Type:} Contradiction \\
 \textbf{Severity:} High
 
-\textbf{Context.} Section 1.4.1 (Performance Requirements) specifies blockchain transaction confirmation as "<30 seconds for standard transactions". Section 5.1 NFR-2 requires confirmation "within 10 seconds for standard operations".
+\textbf{Context.} Section 3.1 UR-MOB-01 states attendance status is shown as ``Attended, Absent, Late, or Excused''. Section 4.3.2 Stimulus/Response Sequences states the system displays records with status ``Excused, Attended, Late, Absent''. However, Appendix C Table C.4 AttendanceRecord defines the status ENUM as ``Present, Late, Absent, Excused'' -- using ``Present'' rather than ``Attended''.
 
-\textbf{Result.} Two different performance targets exist for the same operation, creating ambiguity for design and testing.
+\textbf{Result.} The database schema uses a different status value from the UI and functional requirements. This will cause implementation inconsistency between the data layer and presentation layer unless one authoritative value is confirmed.
 
-\textbf{Analysis.} The SRS provides conflicting non-functional requirements. The customer must decide which target is correct.
+\textbf{Analysis.} The term ``Attended'' in UI requirements directly conflicts with ``Present'' in the data dictionary. This is a latent contradiction that will surface during development and testing.
 
-\subsubsection*{QC-FND-003: Contradiction in Recovery Objectives}
-\textbf{Related error detection:} QC-ERR-011 \\
+\subsubsection*{QC-FND-003: Contradiction in Report Generation Time Specification}
+\textbf{Related error detection:} QC-ERR-003 \\
 \textbf{Type:} Contradiction \\
-\textbf{Severity:} High
+\textbf{Severity:} Medium
 
-\textbf{Context.} NFR-19 (Section 5.4) sets RPO $\leq$ 24 hours and RTO $\leq$ 4 hours. CM-5 (Section 6.2.5) sets RTO $\leq$ 2 hours and RPO $\leq$ 30 minutes.
+\textbf{Context.} Section 4.6.2 Stimulus/Response Sequences states that ``the administrator generates an attendance report, which the system returns within 10--60 seconds depending on data volume'', without distinguishing query types. NFR-PERF-03 specifies ``within 10 seconds for single class queries and within 60 seconds for institution-wide reports''.
 
-\textbf{Result.} These values are significantly different and cannot both be true.
+\textbf{Result.} The stimulus/response description omits the distinction between single-class and institution-wide queries, making the behaviour ambiguous for testers and architects relying on that section.
 
-\textbf{Analysis.} The SRS contains contradictory disaster recovery targets, which will confuse architects and operators.
+\textbf{Analysis.} While NFR-PERF-03 is precise, the omission of the distinction in Section 4.6.2 creates an inconsistency between how the feature is described functionally and how it is measured non-functionally.
 
-\subsubsection*{QC-FND-004: Omission of Critical Exception and Edge Cases}
-\textbf{Related error detection:} QC-ERR-003, QC-ERR-005, QC-ERR-007, QC-ERR-010 \\
+\subsubsection*{QC-FND-004: Omission of Biometric Enrolment Process}
+\textbf{Related error detection:} QC-ERR-004 \\
 \textbf{Type:} Omission \\
 \textbf{Severity:} High
 
-\textbf{Context.} The SRS specifies normal operational behaviour but omits several important exception scenarios:
-\begin{itemize}
-\item No password reset/recovery process despite account lockout.
-\item No handling of blockchain unavailability or transaction failure.
-\item No behaviour defined for invalid or tampered QR codes during product verification.
-\item No detailed requirements for data migration validation or failure handling.
-\end{itemize}
+\textbf{Context.} The SRS extensively describes biometric fingerprint scanning for attendance recording across Sections 3.2, 4, and Appendix C. However, there is no requirement anywhere in the SRS defining how students are initially enrolled into the biometric system -- the fingerprint registration process, who performs it, under what conditions, and what happens if enrolment fails or is rejected.
 
-\textbf{Result.} Downstream design and implementation may fill these gaps with assumptions, leading to inconsistent or incorrect system behaviour in edge cases.
+\textbf{Result.} Without enrolment requirements, the development team has no specification for a core prerequisite of the entire biometric attendance function. The system cannot operate without students being enrolled, yet the SRS is silent on this process.
 
-\textbf{Analysis.} These omissions represent significant completeness risks, particularly in a regulatory and safety-critical domain.
+\textbf{Analysis.} This is a significant functional omission. The biometric attendance system is entirely dependent on prior enrolment, making this a high-severity gap in the requirements baseline.
 
-\subsubsection*{QC-FND-005: Missing Glossary}
+\subsubsection*{QC-FND-005: Omission of Password Reset and Account Recovery}
+\textbf{Related error detection:} QC-ERR-005 \\
+\textbf{Type:} Omission \\
+\textbf{Severity:} High
+
+\textbf{Context.} NFR-SEC-04 specifies that the system shall lock user accounts after a configurable number of failed login attempts. Section 4.2.2 Stimulus/Response confirms that after five unsuccessful attempts, the account is locked. However, no requirement in the SRS defines how a user recovers access -- there is no password reset, account unlock, or self-service recovery flow specified anywhere.
+
+\textbf{Result.} Users who trigger the lockout policy have no defined path to regain access. Administrators, parents, and teachers could be permanently locked out with no recovery mechanism, directly impacting system usability and operational continuity.
+
+\textbf{Analysis.} Account lockout without a corresponding recovery mechanism is an incomplete functional capability. This omission will require resolution before the system can be deployed to real users.
+
+\subsubsection*{QC-FND-006: Omission of Offline Limit Exceeded Handling}
+\textbf{Related error detection:} QC-ERR-006 \\
+\textbf{Type:} Omission \\
+\textbf{Severity:} High
+
+\textbf{Context.} Section 2.5 specifies that the system must support offline attendance viewing and leave request drafting for up to 48 hours, with a 50MB local storage limit. NFR-SEC-09 confirms cached data is auto-purged after 48 hours. However, there is no requirement specifying what happens when the 48-hour offline limit is exceeded mid-session, or how data synchronisation conflicts are resolved when connectivity is restored after an offline period.
+
+\textbf{Result.} If a user exceeds the 48-hour offline limit, the system behaviour is undefined. Similarly, if locally drafted leave requests conflict with server-side data upon reconnection, there is no specified resolution strategy.
+
+\textbf{Analysis.} Offline mode is an explicitly scoped capability. The absence of requirements for limit-exceeded behaviour and conflict resolution leaves developers to make assumptions that may be inconsistent with stakeholder expectations.
+
+\subsubsection*{QC-FND-007: Omission of Session Creation and Management Requirements}
+\textbf{Related error detection:} QC-ERR-007 \\
+\textbf{Type:} Omission \\
+\textbf{Severity:} Medium
+
+\textbf{Context.} BR-02 states that attendance capture is only permitted during ``officially scheduled academic sessions'' and that scans outside session windows are rejected. FR-ATT-03 references a ``session\_id'' as a stored field in AttendanceRecord. The AttendanceRecord data dictionary (Appendix C, Table C.4) also references a ``session\_id FK to scheduled academic session''. However, no requirement anywhere in the SRS defines how academic sessions are created, configured, scheduled, or managed within the system.
+
+\textbf{Result.} The system cannot enforce BR-02 or populate session\_id without sessions being defined in the system. The SRS assumes sessions exist but never specifies how they come to exist.
+
+\textbf{Analysis.} This is a functional gap. Session management is a prerequisite for the attendance capture business rule to function correctly.
+
+\subsubsection*{QC-FND-008: Ambiguous Use of ``Periodic Synchronisation''}
+\textbf{Related error detection:} QC-ERR-008 \\
+\textbf{Type:} Authorship \\
+\textbf{Severity:} Medium
+
+\textbf{Context.} Section 2.2 Product Functions describes attendance data access as providing ``role-scoped mobile access for parents (child only) and teachers (assigned classes only), with periodic synchronisation''. FR-COM-01 specifies that mobile applications shall synchronise attendance data with the backend ``every 5 minutes when connected''.
+
+\textbf{Result.} The word ``periodic'' in Section 2.2 is vague and does not communicate the 5-minute interval. A reader relying on the product functions summary alone would not know the synchronisation frequency.
+
+\textbf{Analysis.} While FR-COM-01 is precise, the inconsistency between vague language in the product summary and specific language in the functional requirement reduces overall document clarity.
+
+\subsubsection*{QC-FND-009: Grammatical Error in QA-USAB-01}
+\textbf{Related error detection:} QC-ERR-009 \\
+\textbf{Type:} Authorship \\
+\textbf{Severity:} Low
+
+\textbf{Context.} Section 5.4.1 QA-USAB-01 states: ``The system shall allow parent and teacher users must be able to complete primary tasks \ldots{} within three interactions from the home screen''.
+
+\textbf{Result.} The double verb construction ``shall allow \ldots{} must be able to'' is grammatically incorrect and creates ambiguity about the nature of the obligation -- whether the system is the subject of the requirement or the users are.
+
+\textbf{Analysis.} While the intended meaning is reasonably clear from context, the grammatical error introduces imprecision in a quality attribute requirement that should be unambiguous for verification purposes.
+
+\subsubsection*{QC-FND-010: Capitalisation Inconsistency in UR-WEB-08 and UR-WEB-09}
+\textbf{Related error detection:} QC-ERR-010 \\
+\textbf{Type:} Authorship \\
+\textbf{Severity:} Low
+
+\textbf{Context.} Section 3.1 requirements UR-WEB-08 and UR-WEB-09 begin with lowercase: ``the portal shall display an activity log\ldots{}'' and ``the portal shall include a 2-Factor Authentication screen\ldots{}''. All other interface requirements in the same section (UR-GUI-01 through UR-WEB-07 and UR-WEB-10) begin with a capitalised ``The''.
+
+\textbf{Result.} The inconsistency reduces document professionalism and suggests an editorial oversight in the final review of Section 3.1.
+
+\textbf{Analysis.} While this does not affect the meaning of the requirements, it is indicative of an insufficient final editorial pass prior to SRS release.
+
+\subsubsection*{QC-FND-011: Unsigned SRS Sign-off Section}
+\textbf{Related error detection:} QC-ERR-011 \\
+\textbf{Type:} Authorship \\
+\textbf{Severity:} Low
+
+\textbf{Context.} Section 9 SRS Sign-off contains a Designated Approvers table for both Vendor (Nevon Solutions: James Koh -- Technical Lead, Rachel Lee -- System Architect Lead) and Customer (BioSec: Marcus Tan Wei Liang -- Project Manager, Daniel Rodriguez -- Head of Operations). All four approver rows have entirely blank Signature and Date fields.
+
+\textbf{Result.} The SRS was released without designated approver sign-off. The document's own sign-off certifies that it ``constitutes the approved development baseline'', but the approver table contradicts this by showing no approvals.
+
+\textbf{Analysis.} While the Project Lead (Loh Wen Xuan) has signed the Vendor Authenticator section, the absence of designated approver signatures raises a question about whether the SRS was formally reviewed and approved by all required parties before release.
+
+\subsubsection*{QC-FND-012: RBAC Not Defined in Glossary}
 \textbf{Related error detection:} QC-ERR-012 \\
 \textbf{Type:} Omission \\
 \textbf{Severity:} Medium
 
-\textbf{Context.} The SRS contains numerous acronyms (HSA, MOH, PDPC, IMDA, GMP, RPO, RTO, etc.) but provides no glossary or definitions section.
+\textbf{Context.} The acronym RBAC (Role-Based Access Control) is used throughout the SRS -- in Section 4.1 heading, FR-RBAC-01, QA-INTEG-01, and multiple other locations. Appendix A Glossary defines 27 terms including FR, NFR, BOR, TR, and other abbreviations, but RBAC is not among them.
 
-\textbf{Result.} Readers unfamiliar with the domain may misinterpret requirements.
+\textbf{Result.} A reader unfamiliar with RBAC would not find a definition in the SRS itself despite RBAC being central to the system's security architecture.
 
-\textbf{Analysis.} Including a glossary is a standard practice to ensure clarity and shared understanding.
-
-\subsubsection*{QC-FND-006: Ambiguous and Non-Measurable Requirements}
-\textbf{Related error detection:} QC-ERR-004, QC-ERR-009 \\
-\textbf{Type:} Authorship \\
-\textbf{Severity:} Medium
-
-\textbf{Context.} Several requirements use vague or undefined terms:
-\begin{itemize}
-\item FR-3.9: "periodic GPS updates" -- frequency not specified.
-\item QF-3 Measurable Criteria: "100\% enforcement of role-based access control" -- lacks testable definition.
-\end{itemize}
-
-\textbf{Result.} These requirements cannot be verified objectively and may be interpreted differently by different stakeholders.
-
-\textbf{Analysis.} The intended meaning is clear to the authors, but the written statements lack precision needed for implementation and testing.
-
-\subsubsection*{QC-FND-007: Editorial and Structural Inconsistencies}
-\textbf{Related error detection:} QC-ERR-002, QC-ERR-006 \\
-\textbf{Type:} Authorship \\
-\textbf{Severity:} Low
-
-\textbf{Context.} Minor errors reduce document professionalism:
-\begin{itemize}
-\item Duplicate "shall" in NFR-4 and NFR-7.
-\item Duplicate section heading 1.4.3 appearing twice with different content.
-\end{itemize}
-
-\textbf{Result.} While these do not affect requirement meaning, they detract from readability and suggest insufficient editorial review.
-
-\textbf{Analysis.} Such errors are typical of early-stage documents and can be easily corrected.
+\textbf{Analysis.} Given that RBAC is one of the most frequently referenced concepts in the SRS and the Glossary explicitly defines other abbreviations of similar nature, the omission of RBAC is an inconsistency in the addenda.
 
 % =====================
 % 7 CONCLUSION
 % =====================
 \section{Conclusion}
 
-The QC audit concludes that the Software Requirements Specification is substantively mature and reflects strong work carried out during the earlier Requirements Engineering stages. However, the document still contains defects typical of the validating stage, particularly in the areas of contradictions (MFA scope, performance targets, recovery objectives), omissions (exception handling, recovery processes, glossary), and authorship clarity (vague terms, editorial errors).
+The QC audit concludes that the Software Requirements Specification for the Biometric Student Attendance System is substantively well-structured and reflects considerable work carried out during the earlier Requirements Engineering stages. The SRS demonstrates thorough coverage of functional areas including biometric scanning, leave management, compliance monitoring, notification delivery, and traceability.
 
-The QC team does not directly modify the SRS. Instead, the findings documented in this report are presented for customer consideration. The customer will determine what actions, if any, should be taken to address the identified defects.
+However, the document contains defects typical of the validating stage. Two high-severity contradictions were identified -- the scope of 2FA enforcement and the inconsistency in attendance status terminology between the UI requirements and the data dictionary -- both of which will directly impact implementation correctness. Three high-severity omissions were found concerning the biometric enrolment process, the absence of a password recovery mechanism, and undefined behaviour at the offline mode limit. Additional medium and low severity authorship and omission defects were also detected.
+
+The QC team does not directly modify the SRS. Instead, the findings documented in this report are presented for BioSec's consideration. The customer will determine what actions, if any, should be taken to address the identified defects.
 
 Overall, the SRS is assessed as \textbf{conditionally acceptable}, pending customer review and resolution of the findings.
 
@@ -482,23 +535,25 @@ Kannan s/o Rajamohan & QC Auditor & \makebox[\linewidth][c]{\includegraphics[hei
 \rowcolor{tableheader}
 \textbf{Term} & \textbf{Definition} \\
 \hline
-QC & Quality Control inspection of a work product, in this case the SRS. \\
+QC & Quality Control -- independent inspection of a work product to detect defects, in this case the SRS. \\
 \hline
-SRS & Software Requirements Specification used as the requirements baseline for downstream development. \\
+SRS & Software Requirements Specification -- the requirements baseline document for downstream development. \\
 \hline
-Authorship defect & Defect caused by unclear or imprecise expression of intended requirement meaning. \\
+Authorship defect & Defect caused by unclear, imprecise, or grammatically incorrect expression of an intended requirement meaning. \\
 \hline
-Omission defect & Defect in which required content, scenario, or supporting information is missing. \\
+Omission defect & Defect in which required content, scenario, capability, or supporting information is absent from the SRS. \\
 \hline
-Contradiction defect & Defect in which different parts of the SRS imply inconsistent or conflicting behaviour. \\
+Contradiction defect & Defect in which different parts of the SRS imply inconsistent or conflicting system behaviour. \\
 \hline
-Traceability coherence & The degree to which requirements, models, sources, and references link together clearly and consistently. \\
+Traceability coherence & The degree to which requirements, models, sources, and cross-references link together clearly and consistently throughout the SRS. \\
 \hline
-MFA & Multi-Factor Authentication. \\
+2FA & Two-Factor Authentication -- a security mechanism requiring two forms of verification before granting access. \\
 \hline
-RPO & Recovery Point Objective -- maximum acceptable age of files restored from backup. \\
+RBAC & Role-Based Access Control -- a method of restricting system access based on the roles assigned to users. \\
 \hline
-RTO & Recovery Time Objective -- maximum acceptable downtime. \\
+PDPA & Personal Data Protection Act 2012 (Singapore) -- the legislation governing collection, use, and disclosure of personal data. \\
+\hline
+iRTM & Inceptive Requirements Traceability Matrix -- a matrix tracing PS requirements to SRS requirements. \\
 \hline
 \end{tabularx}
 \caption{QC glossary addendum}
@@ -530,11 +585,11 @@ RTO & Recovery Time Objective -- maximum acceptable downtime. \\
 \hline
 QC Audit Lead & Muhammad Ridwan Putra Jasni & Coordinate audit activities, consolidate findings, ensure consistency of final report, apply cross-section contradiction checking and assumption reading. \\
 \hline
-Requirements Reviewer & Lin Yuhao & Inspect operational, technology, and quality-related sections for ambiguity, contradiction, and omission; perform perspective-based reading (developer, tester) and scenario-based reading. \\
+Requirements Reviewer & Lin Yuhao & Inspect functional and non-functional requirement sections for ambiguity, contradiction, and omission; perform perspective-based reading (developer, tester) and scenario-based reading for biometric attendance and leave management flows. \\
 \hline
-Traceability Reviewer & Muhammad Mikhail Bin Mazlan & Review codification, iRTM references, source mappings, and section-to-section coherence; double-check all identifiers and cross-references. \\
+Traceability Reviewer & Muhammad Mikhail Bin Mazlan & Review iRTM references, source mappings, data dictionary, and section-to-section coherence; double-check all identifiers, cross-references, and figure citations. \\
 \hline
-Editorial and Structure Reviewer & Kannan s/o Rajamohan & Review document structure, section naming, formatting consistency, and overall presentation quality; conduct spellcheck and grammar review, verify figures and tables. \\
+Editorial and Structure Reviewer & Kannan s/o Rajamohan & Review document structure, section naming, formatting consistency, and overall presentation quality; conduct spellcheck and grammar review, verify figures, tables, and sign-off completeness. \\
 \hline
 \end{tabularx}
 \caption{QC audit team work allocation}
@@ -567,7 +622,7 @@ Stage 4 & Final report formatting, checking, and team sign-off & 1 hour \\
 \end{table}
 
 % =====================
-% APPENDIX B
+% APPENDIX B: CHECKLIST
 % =====================
 \clearpage
 \pagenumbering{arabic}
@@ -602,72 +657,72 @@ Stage 4 & Final report formatting, checking, and team sign-off & 1 hour \\
 
 \rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{1. Introduction Section}} \\
 \hline
-QC1 & Completeness & Does the Introduction explicitly define the system purpose, target user base, and operational boundaries (in-scope vs. out-of-scope)? & Satisfied \\
+QC1 & Correctness & Does the Introduction explicitly define the system purpose, target user base, and operational boundaries (in-scope vs. out-of-scope)? & Satisfied \\
 \hline
-QC2 & Completeness & Does the Introduction state the specific business problem and identify measurable business goals or KPIs? & Partially satisfied \\
+QC2 & Completeness & Does the Introduction identify all intended audiences and provide reading guidance for each? & Satisfied \\
 \hline
-QC3 & Consistency & Is the system name, project title, and version number identical across title page, headers/footers, and body? & Satisfied \\
+QC3 & Consistency & Is the system name, document ID, version number, and project title consistent across the title page, header, and body? & Satisfied \\
 \hline
 
 \rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{2. Glossary / Definitions Section}} \\
 \hline
-QC4 & Completeness & Are all domain-specific terms, acronyms, and technical abbreviations defined in a Glossary? & Not satisfied (missing) \\
+QC4 & Completeness & Are all domain-specific acronyms and abbreviations used in the SRS defined in the Glossary? & Partially satisfied (RBAC missing) \\
 \hline
-QC5 & Relevance & Does every term defined in the Glossary appear at least once in the body? & Not applicable \\
+QC5 & Relevance & Does every term defined in the Glossary appear at least once in the SRS body? & Satisfied \\
 \hline
-QC6 & Consistency & Is each system role or entity referred to consistently using the same term throughout? & Satisfied \\
+QC6 & Consistency & Is each system role or entity referred to by a consistent term throughout the document? & Partially satisfied \\
 \hline
 
 \rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{3. Overall Description Section}} \\
 \hline
 QC7 & Completeness & Are all user classes identified with their technical expertise, access privileges, and responsibilities? & Satisfied \\
 \hline
-QC8 & Completeness & Does the SRS specify the intended operational environment (OS, browsers, hardware, network)? & Satisfied \\
+QC8 & Completeness & Does the SRS specify the intended operational environment (OS, platform, hardware, network)? & Satisfied \\
 \hline
-QC9 & Consistency & Are all listed dependencies and constraints adhered to and not contradicted by later requirements? & Partially satisfied \\
+QC9 & Correctness & Are product function descriptions measurably correct and consistent with detailed requirements in later sections? & Partially satisfied \\
 \hline
 
 \rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{4. Functional Requirements Section}} \\
 \hline
-QC10 & Correctness & Does each requirement describe a single behaviour using precise, testable language (avoiding vague terms)? & Partially satisfied \\
+QC10 & Correctness & Does each functional requirement describe a single, testable behaviour using precise language? & Partially satisfied \\
 \hline
-QC11 & Testability & Does each functional requirement define trigger inputs, expected behaviour, and output/error state? & Partially satisfied \\
+QC11 & Completeness & Does the SRS include requirements for all critical system processes, including biometric enrolment? & Not satisfied \\
 \hline
 QC12 & Consistency & Is every requirement assigned a unique identifier following a consistent naming convention? & Satisfied \\
 \hline
 
 \rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{5. Interface Requirements Section}} \\
 \hline
-QC13 & Completeness & Does the Interface section describe purpose, data exchanged, and communication method for each external interface? & Partially satisfied \\
+QC13 & Completeness & Does the Interface section describe purpose, data exchanged, and communication method for each external interface? & Satisfied \\
 \hline
-QC14 & Correctness & Is the trigger condition, expected data payload, and error handling defined for each interface? & Partially satisfied \\
+QC14 & Correctness & Are trigger conditions, expected data payloads, and error handling defined for each external interface? & Partially satisfied \\
 \hline
-QC15 & Consistency & Does every external interface listed correspond to at least one functional requirement? & Satisfied \\
+QC15 & Consistency & Do all interface requirements use consistent capitalisation and grammatical structure? & Not satisfied \\
 \hline
 
 \rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{6. Non-Functional Requirements Section}} \\
 \hline
-QC16 & Testability & Are all NFRs quantified with measurable limits (e.g., response time $\leq$ 2 sec for 95\% of queries)? & Partially satisfied \\
+QC16 & Measurability & Are all NFRs quantified with measurable, testable limits (e.g., response time, availability percentage)? & Partially satisfied \\
 \hline
-QC17 & Completeness & Does the SRS address all relevant NFR categories (performance, security, reliability, usability, maintainability)? & Satisfied \\
+QC17 & Completeness & Does the SRS address all relevant NFR categories (performance, security, safety, reliability, usability, maintainability)? & Satisfied \\
 \hline
-QC18 & Consistency & Do the NFRs logically align with system constraints (e.g., storage capacity consistent with data volume)? & Satisfied \\
+QC18 & Consistency & Are NFR obligations internally consistent -- e.g., 2FA scope consistent across UR-MOB-06 and NFR-SEC-03? & Not satisfied \\
 \hline
 
-\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{7. Addenda / Supporting Artifacts}} \\
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{7. Addenda / Supporting Artefacts}} \\
 \hline
-QC19 & Traceability & If an iRTM is included, does it map requirements to business goals and validation artifacts? & Satisfied \\
+QC19 & Traceability & Does the iRTM map all PS requirements to corresponding SRS requirements with correct cardinality? & Satisfied \\
 \hline
-QC20 & Correctness & Does every diagram include a descriptive title, legend, and standard notation accurately representing the system? & Partially satisfied \\
+QC20 & Correctness & Does every diagram include a descriptive title, revision note, and standard notation accurately representing the system? & Satisfied \\
 \hline
-QC21 & Consistency & Do all cross-references, figure numbers, and table citations point to correct existing sections/artifacts? & Partially satisfied \\
+QC21 & Completeness & Is the SRS sign-off section fully completed with signatures and dates from all designated approvers? & Not satisfied \\
 \hline
 
 \end{longtable}
 \endgroup
 
 % =====================
-% APPENDIX C
+% APPENDIX C: ERROR DETECTION TABLE
 % =====================
 \clearpage
 \pagenumbering{arabic}
@@ -683,7 +738,7 @@ QC21 & Consistency & Do all cross-references, figure numbers, and table citation
 \setlength{\LTpost}{0pt}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.4}
-\begin{longtable}{|>{\RaggedRight\arraybackslash}p{0.15\textwidth}|>{\RaggedRight\arraybackslash}p{0.18\textwidth}|>{\RaggedRight\arraybackslash}p{0.25\textwidth}|>{\RaggedRight\arraybackslash}p{0.42\textwidth}|}
+\begin{longtable}{|>{\RaggedRight\arraybackslash}p{0.13\textwidth}|>{\RaggedRight\arraybackslash}p{0.16\textwidth}|>{\RaggedRight\arraybackslash}p{0.27\textwidth}|>{\RaggedRight\arraybackslash}p{0.44\textwidth}|}
 \caption{Detected QC error instances}\label{tab:qc-error-detection}\\
 \hline
 \rowcolor{tableheader}
@@ -700,29 +755,29 @@ QC21 & Consistency & Do all cross-references, figure numbers, and table citation
 \hline
 \endlastfoot
 
-QC-ERR-001 & Contradiction & Section 1.4.1 (In-Scope Deliverables, Authentication \& Security) vs Section 3.2 FR-2.6 & Section 1.4.1 requires MFA for "all user accounts", while FR-2.6 requires MFA only for "all administrative accounts". These statements directly conflict on the scope of MFA enforcement. \\
+QC-ERR-001 & Contradiction & Section 3.1 UR-MOB-06 vs Section 5.3 NFR-SEC-03 & UR-MOB-06 requires a 2-Factor Authentication screen for ``parent and teacher'' mobile app users. NFR-SEC-03 enforces 2FA only for ``all administrator accounts accessing the web portal''. These statements directly conflict on which user classes require 2FA. \\
 \hline
-QC-ERR-002 & Authorship & Section 5.1 NFR-4 and NFR-7 & Duplicate word "shall" appears in both requirements: "The system shall shall complete 95\% of API responses within 2 seconds" and similar for database queries. This is a typographical error. \\
+QC-ERR-002 & Contradiction & Section 3.1 UR-MOB-01 vs Section 4.3.2 vs Appendix C Table C.4 & UR-MOB-01 and Section 4.3.2 use the status value ``Attended'', while the AttendanceRecord data dictionary (Table C.4) defines the status ENUM as ``Present, Late, Absent, Excused'' -- using ``Present'' instead of ``Attended''. The UI layer and data layer use different values for the same status. \\
 \hline
-QC-ERR-003 & Omission & Section 3.2 (User \& Role Management) & FR-2.5 specifies account lockout after failed attempts, but no requirement exists for password reset or account recovery flow. This is a missing functional capability. \\
+QC-ERR-003 & Contradiction & Section 4.6.2 Stimulus/Response Sequences vs NFR-PERF-03 & Section 4.6.2 states reports are returned ``within 10--60 seconds depending on data volume'' without distinguishing between query types. NFR-PERF-03 specifies 10 seconds for single class queries and 60 seconds for institution-wide reports. The omission of this distinction in Section 4.6.2 creates an inconsistency with the NFR. \\
 \hline
-QC-ERR-004 & Authorship & Section 3.3 FR-3.9 & The term "periodic" is used without definition: "submit periodic GPS updates". The frequency or condition for updates is not specified, making the requirement ambiguous. \\
+QC-ERR-004 & Omission & Entire SRS -- Sections 3.2, 4, Appendix C & The SRS specifies extensive biometric scanning behaviour but contains no requirement for the student biometric enrolment process -- how fingerprints are initially registered, who performs the enrolment, what constitutes a successful enrolment, or how enrolment failures are handled. \\
 \hline
-QC-ERR-005 & Omission & Section 3.1 (Blockchain Infrastructure) & FR-1.1 through FR-1.4 describe recording transactions on the blockchain, but there is no requirement addressing failure scenarios (e.g., blockchain network unavailable, transaction timeout, consensus failure). \\
+QC-ERR-005 & Omission & Section 4.2, NFR-SEC-04 & NFR-SEC-04 specifies account lockout after failed login attempts, and Section 4.2.2 confirms lockout after five failures. However, no requirement defines a password reset, account unlock, or self-service recovery process. Users who trigger lockout have no defined path to regain access. \\
 \hline
-QC-ERR-006 & Authorship & Section 1.4.3 System Boundaries & The section number 1.4.3 appears twice (pages 9 and 10) with different content, indicating a numbering or structural error. \\
+QC-ERR-006 & Omission & Section 2.5, NFR-SEC-09 & Section 2.5 and NFR-SEC-09 specify a 48-hour offline mode with auto-purge of cached data. No requirement specifies what happens when this limit is exceeded mid-session, nor how data sync conflicts are resolved when connectivity is restored after an offline period. \\
 \hline
-QC-ERR-007 & Omission & Section 3.4 (Product Verification) & FR-4.1 allows customers to retrieve product lifecycle trace, but no requirement specifies system behavior when a scanned QR code is invalid, tampered, or not found in the blockchain. \\
+QC-ERR-007 & Omission & BR-02, FR-ATT-03, Appendix C Table C.4 & BR-02 states attendance capture is only permitted during ``officially scheduled academic sessions''. FR-ATT-03 and the AttendanceRecord data dictionary reference a session\_id. However, no requirement defines how academic sessions are created, scheduled, or managed in the system. \\
 \hline
-QC-ERR-008 & Contradiction & Section 1.4.1 (Performance Requirements) vs Section 5.1 NFR-2 & Section 1.4.1 specifies blockchain transaction confirmation time as "<30 seconds for standard transactions". NFR-2 requires confirmation "within 10 seconds for standard operations". These targets are inconsistent. \\
+QC-ERR-008 & Authorship & Section 2.2 Product Functions vs FR-COM-01 & Section 2.2 describes attendance data access with ``periodic synchronisation'' -- a vague term with no frequency specified. FR-COM-01 specifies synchronisation every 5 minutes when connected. The imprecise language in Section 2.2 is inconsistent with the specific figure in FR-COM-01. \\
 \hline
-QC-ERR-009 & Authorship & Section 5.5.3 QF-3 Tamper Resistance, Measurable Criteria & The criterion "100\% enforcement of role-based access control" is not measurable as written; it lacks a testable definition (e.g., how enforcement is verified). \\
+QC-ERR-009 & Authorship & Section 5.4.1 QA-USAB-01 & QA-USAB-01 states ``The system shall allow parent and teacher users must be able to complete primary tasks \ldots{} within three interactions''. The double verb construction ``shall allow \ldots{} must be able to'' is grammatically incorrect, creating ambiguity about the nature of the obligation. \\
 \hline
-QC-ERR-010 & Omission & Section 6.5 (Migration \& Transition) & While migration tools are mentioned, there are no functional requirements detailing the data migration process, validation of migrated data, or handling of migration failures. \\
+QC-ERR-010 & Authorship & Section 3.1 UR-WEB-08 and UR-WEB-09 & UR-WEB-08 begins ``the portal shall display an activity log\ldots{}'' and UR-WEB-09 begins ``the portal shall include a 2-Factor Authentication screen\ldots{}'' -- both use lowercase ``the''. All other requirements in Section 3.1 (UR-GUI-01 through UR-WEB-07, UR-WEB-10) begin with the capitalised ``The''. \\
 \hline
-QC-ERR-011 & Contradiction & Section 5.4 NFR-19 vs Section 6.2.5 CM-5 & NFR-19 specifies backup RPO $\leq$ 24 hours and RTO $\leq$ 4 hours. CM-5 states RTO $\leq$ 2 hours and RPO $\leq$ 30 minutes. These recovery objectives conflict. \\
+QC-ERR-011 & Authorship & Section 9 SRS Sign-off & The Designated Approvers table lists four approvers -- James Koh (Technical Lead), Rachel Lee (System Architect Lead), Marcus Tan Wei Liang (BioSec Project Manager), and Daniel Rodriguez (BioSec Head of Operations) -- all with entirely blank Signature and Date fields, indicating the SRS was released without their formal approval. \\
 \hline
-QC-ERR-012 & Omission & Entire document & The SRS lacks a glossary or definitions section, leaving many acronyms (HSA, MOH, PDPC, etc.) undefined within the document itself. \\
+QC-ERR-012 & Omission & Appendix A Glossary vs Sections 4.1, FR-RBAC-01, QA-INTEG-01 & The acronym RBAC is used extensively throughout the SRS including in the Section 4.1 heading, FR-RBAC-01, and QA-INTEG-01. Appendix A Glossary defines 27 terms but does not include RBAC, leaving the acronym undefined within the SRS. \\
 \hline
 \end{longtable}
 \endgroup
@@ -738,8 +793,8 @@ QC-ERR-012 & Omission & Entire document & The SRS lacks a glossary or definition
 \phantomsection
 \addcontentsline{toc}{section}{References}
 \begin{itemize}[leftmargin=*,nosep]
-\item Medicare Plus, \textit{Project Specification: Smart Contract Enabled Pharmaceutical Supply Chain System}, ICT2113, 2026.
-\item Brigman Deep Sea Technology, \textit{Software Requirements Specification (SRS): Smart Contract Enabled Pharmaceutical Supply Chain System}, 2026.
+\item BioSec Educational Institution, \textit{Project Specification: Biometric Student Attendance System} (BS-PS-2026-001, Version 1.0), ICT2113, 2026.
+\item Nevon Solutions, \textit{Software Requirements Specification (SRS): Biometric Student Attendance System} (NS-SRS-2026-001, Version 0.8), 3 March 2026.
 \item Kevin Anthony Jones, \textit{Labtorial Guide for Class Project: Reqrs now \& near future}, Dec 2025.
 \item Kevin Anthony Jones, \textit{Rubric for Assessment of Validating Report}, Mar 2026.
 \end{itemize}
