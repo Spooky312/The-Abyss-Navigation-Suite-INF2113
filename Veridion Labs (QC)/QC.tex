@@ -125,7 +125,7 @@ Muhammad Mikhail Bin Mazlan & QC Team & QC Specialist & QC-003 \\
 Kannan s/o Rajamohan & QC Team & QC Specialist & QC-004 \\
 \hline
 \end{tabular}
-\caption{QC Team -- Veridion Labs}
+\caption{Table 1: Veridion Labs QC Audit Team}
 \label{tab:qc-team}
 \end{table}
 
@@ -267,10 +267,10 @@ The QC team reviewed the released SRS document and all supporting artefacts prov
 \end{enumerate}
 
 \subsection{Work Breakdown}
-Team roles and responsibilities are detailed in \hyperref[tab:qc-wbs]{Appendix A, Table A.1}.
+Team roles and responsibilities are detailed in \hyperref[tab:qc-wbs]{Appendix A, Table A-1: QC Audit Team Work Allocation}.
 
 \subsection{Indicative Timeline}
-The audit schedule is shown in \hyperref[tab:qc-timeline]{Appendix A, Table A.2}.
+The audit schedule is shown in \hyperref[tab:qc-timeline]{Appendix A, Table A-2: Indicative QC Audit Timeline}.
 
 \subsection{Reporting}
 The QC team records findings in this report; the audit team does not amend the SRS.
@@ -282,7 +282,7 @@ The QC team records findings in this report; the audit team does not amend the S
 
 The following checklist was used by the QC audit team to inspect the SRS work product. The checklist items represent critical aspects of a high-quality SRS, derived from industry standards and lecture guidelines, and are assessed against the Biometric Student Attendance System SRS specifically.
 
-For readability in the main report, the full checklist register is presented in \hyperref[tab:qc-checklist]{Appendix B, QC inspection checklist}. The appendix table records each checklist item together with the inspection result applied during the audit.
+For readability in the main report, the full checklist register is presented in \hyperref[tab:qc-checklist]{Appendix B, Table B-1: QC Inspection Checklist}. The appendix table records each checklist item together with the inspection result applied during the audit.
 
 % =====================
 % 5 ERROR DETECTION
@@ -291,7 +291,7 @@ For readability in the main report, the full checklist register is presented in 
 
 The QC audit identified instances of three principal QC error types: authorship, omission, and contradiction. Each detected instance was recorded with its location in the SRS and the characteristic of the defect observed during inspection.
 
-For readability in the main report, the consolidated error detection register is presented in \hyperref[tab:qc-error-detection]{Appendix C, Detected QC error instances}. The appendix table serves as the detailed supporting record for the findings discussed in Section~\ref{sec:qc-findings}. A summary of all findings is separately provided in \hyperref[tab:qc-findings-summary]{Appendix D, Table D.1 -- QC Findings Summary}.
+For readability in the main report, the consolidated error detection register is presented in \hyperref[tab:qc-error-detection]{Appendix C, Table C-1: Detected QC Error Instances}. The appendix table serves as the detailed supporting record for the findings discussed in Section~\ref{sec:qc-findings}. A summary of all findings is separately provided in \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary}.
 
 % =====================
 % 6 QC FINDINGS
@@ -301,13 +301,13 @@ For readability in the main report, the consolidated error detection register is
 
 \subsection{Finding Summary}
 
-The audit identified 12 findings across three defect types. A consolidated summary of all findings is provided in \hyperref[tab:qc-findings-summary]{Appendix D, Table D.1 -- QC Findings Summary}. Detailed analysis for each finding is presented in Section~\ref{subsec:detailed-findings} below.
+The audit identified 12 findings across three defect types. A consolidated summary of all findings is provided in \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary}. Detailed analysis for each finding is presented in Section~\ref{subsec:detailed-findings} below.
 
 \subsection{Detailed Findings}
 \label{subsec:detailed-findings}
 
 \subsubsection*{QC-FND-001: Contradiction in Two-Factor Authentication Scope}
-Two conflicting requirements exist on which user classes must use 2FA. UR-MOB-06 mandates 2FA for parents and teachers on the mobile app, while NFR-SEC-03 restricts 2FA only to administrators on the web portal. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D.1} for the finding summary entry. \\
+Two conflicting requirements exist on which user classes must use 2FA. UR-MOB-06 mandates 2FA for parents and teachers on the mobile app, while NFR-SEC-03 restricts 2FA only to administrators on the web portal. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
 \textbf{Related error detection:} QC-ERR-001 \\
 \textbf{Type:} Contradiction \\
 \textbf{Severity:} High
@@ -319,7 +319,7 @@ Two conflicting requirements exist on which user classes must use 2FA. UR-MOB-06
 \textbf{Analysis.} These two requirements are mutually inconsistent on the scope of 2FA enforcement. One must be incorrect or the SRS must be clarified to specify a single authoritative position on which user classes require 2FA.
 
 \subsubsection*{QC-FND-002: Contradiction in Attendance Status Terminology}
-The attendance status value ``Attended'' used in the UI requirements conflicts with ``Present'' used in the AttendanceRecord data dictionary ENUM, creating a direct inconsistency between the presentation layer and the data layer. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D.1} for the finding summary entry. \\
+The attendance status value ``Attended'' used in the UI requirements conflicts with ``Present'' used in the AttendanceRecord data dictionary ENUM, creating a direct inconsistency between the presentation layer and the data layer. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
 \textbf{Related error detection:} QC-ERR-002 \\
 \textbf{Type:} Contradiction \\
 \textbf{Severity:} High
@@ -331,7 +331,7 @@ The attendance status value ``Attended'' used in the UI requirements conflicts w
 \textbf{Analysis.} The term ``Attended'' in UI requirements directly conflicts with ``Present'' in the data dictionary. This is a latent contradiction that will surface during development and testing.
 
 \subsubsection*{QC-FND-003: Contradiction in Report Generation Time Specification}
-The stimulus/response description for report generation omits the query-type distinction that NFR-PERF-03 explicitly requires, creating an inconsistency between functional description and non-functional measurement. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D.1} for the finding summary entry. \\
+The stimulus/response description for report generation omits the query-type distinction that NFR-PERF-03 explicitly requires, creating an inconsistency between functional description and non-functional measurement. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
 \textbf{Related error detection:} QC-ERR-003 \\
 \textbf{Type:} Contradiction \\
 \textbf{Severity:} Medium
@@ -343,7 +343,7 @@ The stimulus/response description for report generation omits the query-type dis
 \textbf{Analysis.} While NFR-PERF-03 is precise, the omission of the distinction in Section 4.6.2 creates an inconsistency between how the feature is described functionally and how it is measured non-functionally.
 
 \subsubsection*{QC-FND-004: Omission of Biometric Enrolment Process}
-The SRS specifies extensive biometric scanning behaviour but is entirely silent on the student fingerprint enrolment process -- a prerequisite capability without which the attendance system cannot function. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D.1} for the finding summary entry. \\
+The SRS specifies extensive biometric scanning behaviour but is entirely silent on the student fingerprint enrolment process -- a prerequisite capability without which the attendance system cannot function. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
 \textbf{Related error detection:} QC-ERR-004 \\
 \textbf{Type:} Omission \\
 \textbf{Severity:} High
@@ -355,7 +355,7 @@ The SRS specifies extensive biometric scanning behaviour but is entirely silent 
 \textbf{Analysis.} This is a significant functional omission. The biometric attendance system is entirely dependent on prior enrolment, making this a high-severity gap in the requirements baseline.
 
 \subsubsection*{QC-FND-005: Omission of Password Reset and Account Recovery}
-The SRS specifies account lockout after failed login attempts but provides no requirement for how locked-out users can recover access, leaving a critical gap in the authentication lifecycle. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D.1} for the finding summary entry. \\
+The SRS specifies account lockout after failed login attempts but provides no requirement for how locked-out users can recover access, leaving a critical gap in the authentication lifecycle. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
 \textbf{Related error detection:} QC-ERR-005 \\
 \textbf{Type:} Omission \\
 \textbf{Severity:} High
@@ -367,7 +367,7 @@ The SRS specifies account lockout after failed login attempts but provides no re
 \textbf{Analysis.} Account lockout without a corresponding recovery mechanism is an incomplete functional capability. This omission will require resolution before the system can be deployed to real users.
 
 \subsubsection*{QC-FND-006: Omission of Offline Limit Exceeded Handling}
-The SRS defines a 48-hour offline mode but contains no requirement for system behaviour when this limit is exceeded or for resolving data conflicts upon reconnection. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D.1} for the finding summary entry. \\
+The SRS defines a 48-hour offline mode but contains no requirement for system behaviour when this limit is exceeded or for resolving data conflicts upon reconnection. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
 \textbf{Related error detection:} QC-ERR-006 \\
 \textbf{Type:} Omission \\
 \textbf{Severity:} High
@@ -379,7 +379,7 @@ The SRS defines a 48-hour offline mode but contains no requirement for system be
 \textbf{Analysis.} Offline mode is an explicitly scoped capability. The absence of requirements for limit-exceeded behaviour and conflict resolution leaves developers to make assumptions that may be inconsistent with stakeholder expectations.
 
 \subsubsection*{QC-FND-007: Omission of Session Creation and Management Requirements}
-Academic sessions are referenced extensively as a prerequisite for attendance capture, but no requirement in the SRS defines how sessions are created, scheduled, or managed within the system. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D.1} for the finding summary entry. \\
+Academic sessions are referenced extensively as a prerequisite for attendance capture, but no requirement in the SRS defines how sessions are created, scheduled, or managed within the system. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
 \textbf{Related error detection:} QC-ERR-007 \\
 \textbf{Type:} Omission \\
 \textbf{Severity:} Medium
@@ -391,7 +391,7 @@ Academic sessions are referenced extensively as a prerequisite for attendance ca
 \textbf{Analysis.} This is a functional gap. Session management is a prerequisite for the attendance capture business rule to function correctly.
 
 \subsubsection*{QC-FND-008: Ambiguous Use of ``Periodic Synchronisation''}
-The product functions summary uses the vague term ``periodic synchronisation'' without specifying a frequency, inconsistent with the precise 5-minute figure stated in FR-COM-01. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D.1} for the finding summary entry. \\
+The product functions summary uses the vague term ``periodic synchronisation'' without specifying a frequency, inconsistent with the precise 5-minute figure stated in FR-COM-01. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
 \textbf{Related error detection:} QC-ERR-008 \\
 \textbf{Type:} Authorship \\
 \textbf{Severity:} Medium
@@ -403,7 +403,7 @@ The product functions summary uses the vague term ``periodic synchronisation'' w
 \textbf{Analysis.} While FR-COM-01 is precise, the inconsistency between vague language in the product summary and specific language in the functional requirement reduces overall document clarity.
 
 \subsubsection*{QC-FND-009: Grammatical Error in QA-USAB-01}
-A double verb construction in QA-USAB-01 -- ``shall allow \ldots{} must be able to'' -- is grammatically incorrect and introduces ambiguity about the nature of the obligation. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D.1} for the finding summary entry. \\
+A double verb construction in QA-USAB-01 -- ``shall allow \ldots{} must be able to'' -- is grammatically incorrect and introduces ambiguity about the nature of the obligation. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
 \textbf{Related error detection:} QC-ERR-009 \\
 \textbf{Type:} Authorship \\
 \textbf{Severity:} Low
@@ -415,7 +415,7 @@ A double verb construction in QA-USAB-01 -- ``shall allow \ldots{} must be able 
 \textbf{Analysis.} While the intended meaning is reasonably clear from context, the grammatical error introduces imprecision in a quality attribute requirement that should be unambiguous for verification purposes.
 
 \subsubsection*{QC-FND-010: Capitalisation Inconsistency in UR-WEB-08 and UR-WEB-09}
-Requirements UR-WEB-08 and UR-WEB-09 begin with a lowercase ``the portal shall'' while all other requirements in Section 3.1 consistently use the capitalised ``The portal shall'', indicating an editorial oversight. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D.1} for the finding summary entry. \\
+Requirements UR-WEB-08 and UR-WEB-09 begin with a lowercase ``the portal shall'' while all other requirements in Section 3.1 consistently use the capitalised ``The portal shall'', indicating an editorial oversight. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
 \textbf{Related error detection:} QC-ERR-010 \\
 \textbf{Type:} Authorship \\
 \textbf{Severity:} Low
@@ -427,7 +427,7 @@ Requirements UR-WEB-08 and UR-WEB-09 begin with a lowercase ``the portal shall''
 \textbf{Analysis.} While this does not affect the meaning of the requirements, it is indicative of an insufficient final editorial pass prior to SRS release.
 
 \subsubsection*{QC-FND-011: Unsigned SRS Sign-off Section}
-All four designated approvers in the SRS sign-off section -- two from Nevon Solutions and two from BioSec -- have entirely blank signature and date fields, indicating the SRS was released without their formal approval. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D.1} for the finding summary entry. \\
+All four designated approvers in the SRS sign-off section -- two from Nevon Solutions and two from BioSec -- have entirely blank signature and date fields, indicating the SRS was released without their formal approval. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
 \textbf{Related error detection:} QC-ERR-011 \\
 \textbf{Type:} Authorship \\
 \textbf{Severity:} Low
@@ -439,7 +439,7 @@ All four designated approvers in the SRS sign-off section -- two from Nevon Solu
 \textbf{Analysis.} While the Project Lead (Loh Wen Xuan) has signed the Vendor Authenticator section, the absence of designated approver signatures raises a question about whether the SRS was formally reviewed and approved by all required parties before release.
 
 \subsubsection*{QC-FND-012: RBAC Not Defined in Glossary}
-RBAC is one of the most frequently referenced acronyms in the SRS but is absent from Appendix A Glossary, which defines 27 other terms including abbreviations of similar nature. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D.1} for the finding summary entry. \\
+RBAC is one of the most frequently referenced acronyms in the SRS but is absent from Appendix A Glossary, which defines 27 other terms including abbreviations of similar nature. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
 \textbf{Related error detection:} QC-ERR-012 \\
 \textbf{Type:} Omission \\
 \textbf{Severity:} Medium
@@ -488,7 +488,7 @@ Muhammad Mikhail Bin Mazlan & QC Auditor & \makebox[\linewidth][c]{\includegraph
 Kannan s/o Rajamohan & QC Auditor & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Brigman/Signatures/signature_kannan.jpg}} \\
 \hline
 \end{tabular}
-\caption{QC audit team sign-off}
+\caption{Table 2: QC Audit Team Sign-Off}
 \label{tab:qc-signoff}
 \end{table}
 
@@ -533,7 +533,7 @@ PDPA & Personal Data Protection Act 2012 (Singapore) -- the legislation governin
 iRTM & Inceptive Requirements Traceability Matrix -- a matrix tracing PS requirements to SRS requirements. \\
 \hline
 \end{tabularx}
-\caption{QC glossary addendum}
+\caption{Table G-1: QC Report Glossary}
 \label{tab:qc-glossary}
 \end{table}
 
@@ -569,7 +569,7 @@ Traceability Reviewer & Muhammad Mikhail Bin Mazlan & Review iRTM references, so
 Editorial and Structure Reviewer & Kannan s/o Rajamohan & Review document structure, section naming, formatting consistency, and overall presentation quality; conduct spellcheck and grammar review, verify figures, tables, and sign-off completeness. \\
 \hline
 \end{tabularx}
-\caption{QC audit team work allocation}
+\caption{Table A-1: QC Audit Team Work Allocation}
 \label{tab:qc-wbs}
 \end{table}
 
@@ -594,7 +594,7 @@ Stage 3 & Severity review and documentation of findings & 1 hour \\
 Stage 4 & Final report formatting, checking, and team sign-off & 1 hour \\
 \hline
 \end{tabularx}
-\caption{Indicative QC audit timeline}
+\caption{Table A-2: Indicative QC Audit Timeline}
 \label{tab:qc-timeline}
 \end{table}
 
@@ -616,7 +616,7 @@ Stage 4 & Final report formatting, checking, and team sign-off & 1 hour \\
 \small
 \renewcommand{\arraystretch}{1.35}
 \begin{longtable}{|>{\RaggedRight\arraybackslash}p{0.08\textwidth}|>{\RaggedRight\arraybackslash}p{0.14\textwidth}|>{\RaggedRight\arraybackslash}p{0.56\textwidth}|>{\RaggedRight\arraybackslash}p{0.16\textwidth}|}
-\caption{QC inspection checklist}\label{tab:qc-checklist}\\
+\caption{Table B-1: QC Inspection Checklist}\label{tab:qc-checklist}\\
 \hline
 \rowcolor{tableheader}
 \textbf{Item} & \textbf{Focus} & \textbf{QC Checklist Item} & \textbf{\shortstack[l]{Inspection\\Result}} \\
@@ -716,7 +716,7 @@ QC21 & Completeness & Is the SRS sign-off section fully completed with signature
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.4}
 \begin{longtable}{|>{\RaggedRight\arraybackslash}p{0.13\textwidth}|>{\RaggedRight\arraybackslash}p{0.16\textwidth}|>{\RaggedRight\arraybackslash}p{0.27\textwidth}|>{\RaggedRight\arraybackslash}p{0.44\textwidth}|}
-\caption{Detected QC error instances}\label{tab:qc-error-detection}\\
+\caption{Table C-1: Detected QC Error Instances}\label{tab:qc-error-detection}\\
 \hline
 \rowcolor{tableheader}
 \textbf{Error ID} & \textbf{Error Type} & \textbf{Location} & \textbf{Characteristic of Error} \\
@@ -777,7 +777,7 @@ QC-ERR-012 & Omission & Appendix A Glossary vs Sections 4.1, FR-RBAC-01, QA-INTE
 \small
 \renewcommand{\arraystretch}{1.4}
 \begin{longtable}{|>{\RaggedRight\arraybackslash}p{0.13\textwidth}|>{\RaggedRight\arraybackslash}p{0.16\textwidth}|>{\RaggedRight\arraybackslash}p{0.13\textwidth}|>{\RaggedRight\arraybackslash}p{0.16\textwidth}|>{\RaggedRight\arraybackslash}p{0.42\textwidth}|}
-\caption{QC findings summary}\label{tab:qc-findings-summary}\\
+\caption{Table D-1: QC Findings Summary}\label{tab:qc-findings-summary}\\
 \hline
 \rowcolor{tableheader}
 \textbf{Finding ID} & \textbf{Type} & \textbf{Severity} & \textbf{Related Error} & \textbf{Short Description} \\
