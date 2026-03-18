@@ -367,35 +367,94 @@ The QC team records findings and rectification recommendations in this report. T
 
 The following checklist was used by the QC audit team to inspect the SRS work product. The checklist items represent critical aspects of a high-quality SRS.
 
-\begin{table}[H]
-\centering
+\begingroup
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
+\setlength{\tabcolsep}{4pt}
 \small
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{|p{0.1\textwidth}|X|p{0.2\textwidth}|}
+\renewcommand{\arraystretch}{1.35}
+\begin{longtable}{|>{\RaggedRight\arraybackslash}p{0.08\textwidth}|>{\RaggedRight\arraybackslash}p{0.14\textwidth}|>{\RaggedRight\arraybackslash}p{0.56\textwidth}|>{\RaggedRight\arraybackslash}p{0.16\textwidth}|}
+\caption{QC inspection checklist}\label{tab:qc-checklist}\\
 \hline
 \rowcolor{tableheader}
-\textbf{Item} & \textbf{Checklist Question} & \textbf{Inspection Result} \\
+\textbf{Item} & \textbf{Focus} & \textbf{QC Checklist Item} & \textbf{\shortstack[l]{Inspection\\Result}} \\
 \hline
-C1 & Are all major SRS sections present and logically structured? & Mostly satisfied \\
+\endfirsthead
 \hline
-C2 & Are requirements written with clear trigger conditions and expected system responses? & Partially satisfied \\
+\rowcolor{tableheader}
+\textbf{Item} & \textbf{Focus} & \textbf{QC Checklist Item} & \textbf{\shortstack[l]{Inspection\\Result}} \\
 \hline
-C3 & Are normal, alternate, and exception scenarios sufficiently covered? & Partially satisfied \\
+\endhead
+\hline \multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
 \hline
-C4 & Are requirement IDs consistently codified and traceable to source clauses and models? & Mostly satisfied \\
+\endlastfoot
+
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{1. Introduction Section}} \\
 \hline
-C5 & Are requirement statements measurable and testable? & Partially satisfied \\
+QC1 & Completeness & Does the Introduction explicitly define the system purpose, the target user base, and the operational boundaries (clearly stating what is in-scope vs. out-of-scope)? & \\
 \hline
-C6 & Are system behaviours consistent across textual descriptions and supporting models? & Partially satisfied \\
+QC2 & Completeness & Does the Introduction state the specific business problem being solved and identify the measurable business goals or key performance indicators (KPIs) the system must achieve? & \\
 \hline
-C7 & Are terminology, naming conventions, and formatting patterns used consistently? & Mostly satisfied \\
+QC3 & Consistency & Is the system name, project title, and version number identical across the title page, headers/footers, and all body sections without variation? & \\
 \hline
-C8 & Are addenda and supporting artefacts appropriately linked to the base report? & Mostly satisfied \\
+
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{2. Glossary / Definitions Section}} \\
 \hline
-\end{tabularx}
-\caption{QC inspection checklist}
-\label{tab:qc-checklist}
-\end{table}
+QC4 & Completeness & Are all domain-specific terms, acronyms, and technical abbreviations used in the text explicitly defined in the Glossary? & \\
+\hline
+QC5 & Relevance & Does every term defined in the Glossary appear at least once within the body of the SRS? & \\
+\hline
+QC6 & Consistency & Is each system role or entity referred to consistently using the same term throughout the SRS (e.g., avoiding interchangeable use of "user", "customer", and "client")? & \\
+\hline
+
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{3. Overall Description Section}} \\
+\hline
+QC7 & Completeness & Are all user classes identified with their specific technical expertise levels, access privileges, and distinct system responsibilities? & \\
+\hline
+QC8 & Completeness & Does the SRS specify the intended operational environment (e.g., supported operating systems, hardware platforms, browser requirements, or network conditions)? & \\
+\hline
+QC9 & Consistency & Are all listed dependencies (e.g., third-party software) and constraints (e.g., legacy system limits) adhered to and not contradicted by later functional requirements? & \\
+\hline
+
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{4. Functional Requirements Section}} \\
+\hline
+QC10 & Correctness & Does each requirement describe a single system behaviour using precise and testable language, avoiding vague terms such as "fast", "user-friendly", or "efficient"? & \\
+\hline
+QC11 & Testability & Does each functional requirement define the triggering inputs, the expected system behavior, and the resulting output or error state? & \\
+\hline
+QC12 & Consistency & Is every requirement assigned a unique identifier following a consistent naming convention (e.g., FR-AUTH-01)? & \\
+\hline
+
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{5. Interface Requirements Section}} \\
+\hline
+QC13 & Completeness & Does the Interface section describe the purpose, data exchanged, and communication method for each external interface (e.g., APIs, user interfaces, hardware connections)? & \\
+\hline
+QC14 & Correctness & Is the trigger condition, expected data payload, and error handling defined for each interface interaction? & \\
+\hline
+QC15 & Consistency & Does every external interface listed correspond to at least one functional requirement documented in the Functional Requirements section? & \\
+\hline
+
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{6. Non-Functional Requirements Section}} \\
+\hline
+QC16 & Testability & Are all Non-Functional Requirements quantified with measurable and testable limits (e.g., response time $\leq$ 2 seconds for 95\% of queries under normal load)? & \\
+\hline
+QC17 & Completeness & Does the SRS address all relevant Non-Functional Requirement categories (e.g., performance, security, reliability, usability, maintainability)? & \\
+\hline
+QC18 & Consistency & Do the Non-Functional Requirements logically align with system constraints (e.g., required storage capacity consistent with expected data volume)? & \\
+\hline
+
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{7. Addenda / Supporting Artifacts}} \\
+\hline
+QC19 & Traceability & If a Requirements Traceability Matrix (RTM) is included, does it map requirements to business goals and validation artifacts such as test cases? & \\
+\hline
+QC20 & Correctness & Does every diagram (e.g., UML diagram, flowchart, ERD) include a descriptive title, legend, and standard notation that accurately represents the system elements described in the SRS? & \\
+\hline
+QC21 & Consistency & Do all cross-references, figure numbers, and table citations point to the correct existing sections and artifacts without broken or mismatched references? & \\
+\hline
+
+\end{longtable}
+\endgroup
 
 % =====================
 % 5 ERROR DETECTION
