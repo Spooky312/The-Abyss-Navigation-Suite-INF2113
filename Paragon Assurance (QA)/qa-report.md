@@ -6,7 +6,8 @@
 
 **Document ID:** PA-QAR-2026-001
 **Version:** 1.0
-**Date:** 19 March 2026
+**Date:** 18 March 2026
+**Audit Period:** 15–18 March 2026
 **Prepared by:** Paragon Assurance
 **Submitted to:** BioSec Educational Institution (Customer C)
 
@@ -43,7 +44,7 @@ The principal process artefacts reviewed are:
 
 - Analysing Report, Document ID: NS-AR-2026-001, Version 1.0, dated 08 February 2026
 - Software Requirements Specification (SRS), Document ID: NS-SRS-2026-001, Version 0.8, dated 03 March 2026
-- QC Audit Report, Veridion Labs (QC), as provided to the QA team
+- QC Audit Report, Veridion Labs (QC), as provided to the QA auditor
 - Requirements repository artefacts (GitHub: https://github.com/wenxuannx/Biometric-Student-Attendance-System)
 - Clarification session minutes: BC-01 (07/02/2026) and TC-02 (09/02/2026)
 
@@ -56,7 +57,7 @@ The QA audit was conducted to establish the degree of compliance of Nevon Soluti
 The audit identified **nine (9) process non-compliance instances**. Three (3) are classified as High severity, two (2) as Medium severity, two (2) as Medium-Low severity, and two (2) as Low severity. Key non-compliance areas are:
 
 - The SRS sign-off section (§9) was initially submitted to QC/QA audit with all designated approver fields blank. Sign-off was subsequently obtained on 06/03/2026 — three days after the document date — confirming the SRS was circulated externally before formal authorisation was in place.
-- One of three formally deferred open issues (CM-OI-03, Biometric Template Format, kill date 15/03/2026) has expired as of the audit date without documented resolution or confirmed fallback activation. Two further open issues (CM-OI-01, CM-OI-02) expire on 20/03/2026.
+- One of three formally deferred open issues (CM-OI-03, Biometric Template Format, kill date 15/03/2026) expired on the first day of the audit period (15/03/2026) without documented resolution or confirmed fallback activation. Two further open issues (CM-OI-01, CM-OI-02) expire on 20/03/2026, two days after the audit close date.
 - A contradictory 2FA scope specification was not resolved during the Clarify phase.
 - The biometric student enrolment process — a prerequisite for all scan-based system functions — was not elicited during the Analysing phase and is entirely absent from the SRS.
 - A cross-section attendance status terminology inconsistency was not detected or corrected during the Specifying phase, confirmed directly by Data Dictionary Table C.4 (status field: Present, Late, Absent, Excused) diverging from SRS §3.1 UR-MOB-01 (Attended, Absent, Late, or Excused).
@@ -65,7 +66,7 @@ The audit identified **nine (9) process non-compliance instances**. Three (3) ar
 - Data Dictionary Table C.2 specifies the biometric fingerprint field without indicating the AES-256 encryption mandated by SRS NFR-SEC-01 and NFR-DB-03, indicating the Specifying phase did not verify cross-artefact security consistency.
 - Data Dictionary Table C.1 introduces a specific password storage technology (SHA-256) for the password_hash field without backing from any SRS requirement, constituting an unauthorised design decision embedded in a requirements artefact.
 
-The QA team presents these findings without amendment to BioSec for review and decision.
+The QA auditor presents these findings without amendment to BioSec for review and decision.
 
 ---
 
@@ -181,7 +182,7 @@ The following table lists all process non-compliance instances detected during t
 
 | Error ID | Location | Characteristic |
 |---|---|---|
-| PA-ERR-001 | Analysing Report §3.5 (p.10); SRS §8.2 CM#2 table (p.18); SRS §2.5 (p.3), §6.5 NFR-DOC-03 (p.16) | Three open issues were formally deferred into SRS via CM#2 with kill dates. CM-OI-03 (Biometric Template Format, kill date 15/03/2026) has expired as of the audit date (19/03/2026) with no resolution or confirmed fallback activation documented. CM-OI-01 and CM-OI-02 expire 20/03/2026. |
+| PA-ERR-001 | Analysing Report §3.5 (p.10); SRS §8.2 CM#2 table (p.18); SRS §2.5 (p.3), §6.5 NFR-DOC-03 (p.16) | Three open issues were formally deferred into SRS via CM#2 with kill dates. CM-OI-03 (Biometric Template Format, kill date 15/03/2026) expired on the first day of the audit period (15/03/2026) with no resolution or confirmed fallback activation documented. CM-OI-01 and CM-OI-02 expire 20/03/2026, two days after audit close. |
 | PA-ERR-002 | SRS §9 (p.19 of SRS body); QC Report QC-FND-011; SRS cover page (03/03/2026) vs sign-off date (06/03/2026) | The SRS was initially submitted to QC/QA with all sign-off fields blank (confirmed by QC-FND-011). Sign-off was subsequently completed on 06/03/2026 — three days after the SRS document date — indicating the SRS was circulated externally before formal authorisation was obtained. |
 | PA-ERR-003 | SRS §3.1 UR-MOB-06 (p.5); SRS §5.3 NFR-SEC-03 (p.13); Analysing Report §3.3 BC-01 outcomes (p.8) | 2FA is required of parents and teachers in UR-MOB-06 but restricted to administrators only in NFR-SEC-03. This contradiction was not identified or resolved during the Clarify phase. |
 | PA-ERR-004 | SRS §4 System Features (pp.7–12); Analysing Report §3.3 BC-01 outcomes (p.8), §3.4 TC-02 outcomes (p.9); repository bizops-requirements.md | No biometric student enrolment requirement exists anywhere in the SRS or requirements repository, despite enrolment being a logical prerequisite of all scan-based operations. Analysing phase clarification sessions did not elicit this process. |
@@ -212,18 +213,18 @@ Each finding below presents a CRaM analysis of the non-compliance instance, with
 
 The Analysing Report §3.5 (p.10) documented three open issues that could not be resolved during clarification sessions. In the SRS, these were formally codified as CM#2 (Open Issues) items in §8.2 (p.17–18), each assigned a kill date and fallback mechanism. The BioSec sign-off on the SRS (06/03/2026) confirms BioSec accepted the SRS inclusive of these open issues and their kill dates. The CM#2 mechanism in itself represents a legitimate process instrument for managing unresolved issues.
 
-However, the following non-compliance is noted as of the audit date (19/03/2026):
+However, the following non-compliance is noted as of the audit close date (18/03/2026):
 
 **CM-OI-03 (Biometric Template Storage Format) — Kill date 15 March 2026 — EXPIRED:**
-The kill date of 15/03/2026 has passed. Per SRS §8.2, "if not resolved by that date, the fallback action takes effect." The stated fallback for CM-OI-03 is: "ISO/IEC 19794-2 as default for interoperability." No documentation of the fallback activation has been presented to the QA team. The process requires that when a kill date passes, the fallback is formally activated and the iRTM updated (per SRS §8.2 and §7). Neither has been evidenced.
+The kill date of 15/03/2026 fell on the first day of the audit period. Per SRS §8.2, "if not resolved by that date, the fallback action takes effect." The stated fallback for CM-OI-03 is: "ISO/IEC 19794-2 as default for interoperability." No documentation of the fallback activation was presented to the QA auditor at any point during the audit period (15–18/03/2026). The process requires that when a kill date passes, the fallback is formally activated and the iRTM updated (per SRS §8.2 and §7). Neither has been evidenced.
 
 **CM-OI-01 (MCS Integration Security) — Kill date 20 March 2026:**
-This open issue expires tomorrow. No resolution or pre-resolution communication has been presented to the QA team.
+This open issue expires two days after the audit close date. No resolution or pre-resolution communication was presented to the QA auditor during the audit period.
 
 **CM-OI-02 (Disaster Recovery RPO/RTO) — Kill date 20 March 2026:**
-This open issue also expires tomorrow. No resolution has been presented.
+This open issue also expires two days after the audit close date. No resolution was presented during the audit period.
 
-The Analysing Report §3.5 originally stated the RPO/RTO deadline as 20/02/2026. The SRS CM#2 table extended this to 20/03/2026. While the BioSec sign-off on the SRS implies acceptance of the new kill dates, no formal deferral or extension document for the original Analysing Report deadline was independently presented to the QA team.
+The Analysing Report §3.5 originally stated the RPO/RTO deadline as 20/02/2026. The SRS CM#2 table extended this to 20/03/2026. While the BioSec sign-off on the SRS implies acceptance of the new kill dates, no formal deferral or extension document for the original Analysing Report deadline was independently presented to the QA auditor.
 
 **Evidence:**
 
@@ -235,7 +236,7 @@ The Analysing Report §3.5 originally stated the RPO/RTO deadline as 20/02/2026.
 | SRS | §6.5 NFR-DOC-03, p.16 | RPO/RTO "still pending BioSec approval" |
 | SRS | §9, p.19 | BioSec signed off on SRS "inclusive of open issues" on 06/03/2026 |
 
-**Confirmation:** The CM-OI-03 kill date of 15/03/2026 precedes the audit date of 19/03/2026. The SRS text and CM#2 table are reproduced in evidence above. No fallback activation documentation has been presented. CM-OI-01 and CM-OI-02 expire the day following this report's date.
+**Confirmation:** The CM-OI-03 kill date of 15/03/2026 coincides with the first day of the audit period (15/03/2026). The SRS CM#2 table and SRS §2.5 text are reproduced in evidence above. No fallback activation documentation was presented at any point during the audit period. CM-OI-01 and CM-OI-02 expire on 20/03/2026, two days after the audit close date of 18/03/2026.
 
 ---
 
@@ -508,15 +509,15 @@ The Specifying phase's quality review of the Data Dictionary did not identify th
 
 ## 6. Sign-Off
 
-This QA Audit Report (PA-QAR-2026-001, Version 1.0) is submitted to BioSec Educational Institution (Customer C) by Paragon Assurance. The seven (7) process non-compliance findings documented herein represent the complete output of the QA audit of Nevon Solutions' Requirements Engineering process for the Biometric Student Attendance System. No modifications to any Nevon Solutions process artefact have been made by the QA team.
+This QA Audit Report (PA-QAR-2026-001, Version 1.0) is submitted to BioSec Educational Institution (Customer C) by Paragon Assurance. The nine (9) process non-compliance findings documented herein represent the complete output of the QA audit of Nevon Solutions' Requirements Engineering process for the Biometric Student Attendance System. No modifications to any Nevon Solutions process artefact have been made by the QA auditor.
 
-The QA team presents these findings to BioSec for review and decision.
+The QA auditor presents these findings to BioSec for review and decision.
 
 ---
 
 | Role | Name | Signature | Date |
 |---|---|---|---|
-| QA Auditor | Zong Han | ________________ | 19/03/2026 |
+| QA Auditor | Zong Han | ________________ | 18/03/2026 |
 
 ---
 
