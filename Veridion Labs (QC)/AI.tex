@@ -1,0 +1,165 @@
+% !TeX root = QC_AI_Review.tex
+% !TeX program = pdflatex
+\documentclass[11pt,a4paper]{article}
+
+\pdfminorversion=7
+
+% =====================
+% Packages (matching QC styling)
+% =====================
+\usepackage[top=0.9in,left=0.9in,right=0.9in,bottom=1.2in]{geometry}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{eso-pic}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{textcomp}
+\usepackage{caption}
+\usepackage{bookmark}
+\usepackage[normalem]{ulem}
+
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+urlcolor=blue,
+citecolor=blue
+}
+
+\definecolor{tableheader}{RGB}{240,240,240}
+\definecolor{tablerow}{RGB}{250,250,250}
+
+\frenchspacing
+
+% =====================
+% Font (same as QC)
+% =====================
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\setstretch{1.0}
+
+% =====================
+% BACKGROUND IMAGES SETUP
+% =====================
+\AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \includegraphics[width=\paperwidth,height=\paperheight]{VL Letterhead.pdf}%
+  }%
+}
+
+% =====================
+% Header/Footer (matching QC)
+% =====================
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{Veridion Labs}}
+\rhead{AI Review Note}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{20pt}
+
+\begin{document}
+
+% =====================
+% COVER PAGE
+% =====================
+\thispagestyle{empty}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+\newgeometry{top=5.2cm,left=0.9in,right=0.9in,bottom=1.2in}
+
+\begin{center}
+\includegraphics[width=0.8\textwidth]{VL Logo.png}\\[0.5cm]
+
+\LARGE\textbf{AI Review – QC Audit Support}
+
+\large Biometric Student Attendance System
+
+\vspace{0.8cm}
+
+\textbf{\Large Veridion Labs}
+
+\today
+
+\end{center}
+
+\restoregeometry
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{Veridion Labs}}
+\rhead{AI Review Note}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\newpage
+
+% =====================
+% CONTENT (Prompts and Responses)
+% =====================
+\setcounter{page}{1}
+\noindent The following prompts were used with an AI assistant during the QC audit process to assist in identifying potential defects in the \textbf{Biometric Student Attendance System} SRS (NS-SRS-2026-001, Version 0.8). The responses provided by the AI were considered alongside manual inspection.
+
+\subsection*{Prompt 1}
+\textit{“Review the attached SRS for contradictions in authentication requirements, particularly around two-factor authentication (2FA).”}
+
+\textbf{AI Response:}
+\begin{quote}
+In Section 3.1 (User Interfaces), UR-MOB-06 states: “The parent and teacher authentication shall include a 2-Factor Authentication screen process.” However, Section 5.3 NFR-SEC-03 requires: “The system shall enforce two-factor authentication (2FA) for all administrator accounts.” This is a direct contradiction: the first requires 2FA for parents and teachers, the second only for administrators. The scope of 2FA enforcement is inconsistent and must be resolved.
+\end{quote}
+
+\subsection*{Prompt 2}
+\textit{“Identify any missing exception-handling requirements in the leave submission and MCS integration functional requirements.”}
+
+\textbf{AI Response:}
+\begin{quote}
+FR-LEAVE-02 and FR-SW-02 describe MCS validation with retry logic (5-second timeout, 3 retries with exponential backoff). However, there is no requirement addressing what happens when the MCS is completely unavailable, when validation times out after all retries are exhausted, or when the MCS returns an ambiguous or unresolved status. The system behaviour in these failure scenarios is not specified. Additionally, FR-LEAVE-02 and FR-LEAVE-03 conflict: one says a leave request shall not be recorded if MCS validation fails, while the other requires recording all submissions with outcome. This ambiguity needs resolution.
+\end{quote}
+
+\subsection*{Prompt 3}
+\textit{“Point out any vague or undefined terms in the user interface requirements.”}
+
+\textbf{AI Response:}
+\begin{quote}
+UR-GUI-03 states: “The parent and teacher mobile application shall be mobile user friendly with simple navigation.” The term “mobile user friendly” is subjective and not measurable. It should be replaced with specific usability criteria, such as task completion time, number of clicks, or completion rate. Similarly, QA-USAB-01 contains a grammatical error: “allow parent and teacher users must be able to” – this is malformed and should be corrected.
+\end{quote}
+
+\subsection*{Prompt 4}
+\textit{“Check for compound requirements that combine multiple distinct behaviours in a single clause.”}
+
+\textbf{AI Response:}
+\begin{quote}
+Several requirements are compound and should be decomposed for atomicity and testability:
+\begin{itemize}
+\item UR-WEB-05 combines reports screen, multiple report categories, and CSV/PDF export behaviour.
+\item UR-WEB-06 combines add, edit, and delete user operations in one clause.
+\item FR-SW-02 bundles timeout policy, retry behaviour, failure logging, and administrator notification.
+\item FR-RBAC-03 groups role assignment updates, credential resets, account unlocks, and change logging.
+\end{itemize}
+Each of these should be split into separate atomic requirements.
+\end{quote}
+
+\subsection*{Prompt 5}
+\textit{“Identify any cross-reference errors or inconsistencies in open issue tracking.”}
+
+\textbf{AI Response:}
+\begin{quote}
+Section 1.3 (Intended Audience) directs the Project Manager to “Section 6 for the iRTM and change mitigation strategy.” However, the iRTM is located in Appendix D and the change mitigation strategy is in Section 8. This is an incorrect cross-reference.
+
+Section 2.7 (Assumptions and Dependencies) mentions that “data mapping specifications are a pending open issue,” but Appendix B (Issues List) contains only CM-OI-01 to CM-OI-03 and does not include this data-mapping issue. An unresolved issue is mentioned but not formally tracked in the open issues list.
+\end{quote}
+
+\end{document}
