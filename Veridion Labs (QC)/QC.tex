@@ -205,133 +205,75 @@ The audit covers the SRS as a QC exercise. The scope includes:
 \end{itemize}
 
 % =====================
-% 2 AUDIT BASIS
+% 2 AUDIT BASIS (SHORTENED)
 % =====================
 \section{Audit Basis}
 
-\subsection{Basis of Evaluation}
-This QC audit was conducted on the understanding that the SRS should already be in reasonably strong condition after completion of Eliciting, Analysing, and Specifying. The purpose of QC at this stage is therefore not to rewrite the SRS, but to detect remaining defects still likely to be present in the work product.
-
-\subsection{Nature of QC}
-Quality Control focuses on inspecting the SRS work product itself. The QC team identifies defects but does not directly amend the SRS. Instead, the audit team produces a report that identifies defects for consideration by the customer.
+\subsection{Basis and Nature of QC}
+This audit assumes the SRS is mature after earlier RE stages. QC inspects the work product itself, identifying defects without direct amendment. The audit team reports findings for customer consideration.
 
 \subsection{Kinds of Errors Pursued}
-The QC audit focuses on detecting the following major defect categories expected in the SRS at the validating stage:
 \begin{itemize}[leftmargin=*]
-\item \textbf{Indiscriminate side effects of authorship} -- where intended meaning is clear to the writers but not expressed with sufficient precision.
-\item \textbf{Latent contradictions} -- where requirements, models, or sections conflict with one another.
-\item \textbf{Omission of topics} -- where expected requirements content, edge conditions, or supporting information is absent.
-\item \textbf{Traceability coherence issues} -- where codification, source mapping, or cross-references are incomplete or unclear.
-\item \textbf{Editorial and structural inconsistencies} -- where formatting, section naming, or presentation patterns weaken readability or professionalism.
+\item \textbf{Authorship:} unclear expression of intended meaning.
+\item \textbf{Latent contradictions:} conflicting requirements across sections.
+\item \textbf{Omission:} missing topics, edge conditions, or supporting information.
+\item \textbf{Traceability:} incomplete codification, source mapping, or cross-references.
+\item \textbf{Editorial:} formatting, naming, or presentation inconsistencies.
 \end{itemize}
 
 \subsection{Severity Classification}
-Findings are categorised according to severity:
 \begin{itemize}[leftmargin=*]
-\item \textbf{High} -- defect that may significantly affect interpretation, implementation, or expected system behaviour.
-\item \textbf{Medium} -- defect that may introduce ambiguity or reduce clarity without fundamentally changing requirement intent.
-\item \textbf{Low} -- minor editorial or structural issue that does not materially affect requirement meaning.
+\item \textbf{High:} significantly affects interpretation, implementation, or expected behaviour.
+\item \textbf{Medium:} introduces ambiguity without changing core intent.
+\item \textbf{Low:} minor editorial issues with no material impact.
 \end{itemize}
 
 \subsection{Documents Reviewed}
-The audit considered the following project materials as supporting references:
 \begin{itemize}[leftmargin=*]
-\item Software Requirements Specification (SRS) for the Smart Contract Enabled Pharmaceutical Supply Chain System, version as of 6 March 2026.
-\item Project Specification (assumed background).
-\item Relevant requirements models (context diagram, sequence diagram, architecture diagram).
-\item Codification and iRTM sections.
-\item Quality model and change mitigation sections.
-\item Appendices and supporting traceability artefacts.
+\item SRS (Smart Contract Enabled Pharmaceutical Supply Chain System, 6 March 2026)
+\item Project Specification (background)
+\item Requirements models (context, sequence, architecture diagrams)
+\item Codification and iRTM sections
+\item Quality model and change mitigation sections
+\item Appendices and traceability artefacts
 \end{itemize}
 
 % =====================
-% 3 QC PLAN
+% 3 QC PLAN (SHORTENED)
 % =====================
 \section{QC Plan}
 
 \subsection{Target Workproduct}
-The target workproduct for this QC audit is the released \textbf{Software Requirements Specification (SRS)} for the Smart Contract Enabled Pharmaceutical Supply Chain System project.
+The \textbf{Software Requirements Specification (SRS)} for the Smart Contract Enabled Pharmaceutical Supply Chain System.
 
 \subsection{Context and Goals}
-The SRS is the main requirements work product produced after Analysing and Specifying. Since downstream design and implementation rely on the SRS as the controlling requirements baseline, the QC audit is conducted to provide confidence that the specification is sufficiently clear, complete, and internally consistent.
-
-The goals of this QC audit are:
-\begin{itemize}[leftmargin=*]
-\item to determine whether the SRS clearly and consistently represents the intended requirements.
-\item to identify material defects before downstream design and implementation begin.
-\item to document defects for customer consideration.
-\end{itemize}
+The SRS is the baseline for downstream development. This audit verifies its clarity, completeness, and consistency, documenting defects for customer action.
 
 \subsection{Access and Audit Conditions}
-The QC team reviewed the released SRS and supporting project artefacts made available for audit. Access was limited to materials needed to inspect the work product and its supporting traceability and modelling references.
+The QC team reviewed the released SRS and supporting artefacts provided for audit.
 
 \subsection{Inspection Techniques Used}
-The following investigative techniques, drawn from industry best practices and the lecture material, were applied during the QC audit:
 \begin{enumerate}[leftmargin=*]
-\item \textbf{Close document inspection} -- detailed reading of requirement clauses and supporting sections.
-\item \textbf{Perspective-based reading} -- reviewing the SRS from likely reader viewpoints such as developer, tester, project manager, and compliance officer.
-\item \textbf{Cross-section contradiction checking} -- comparing different SRS sections and models to detect hidden conflicts (e.g., performance targets, security scopes).
-\item \textbf{Codification and traceability verification} -- checking requirement IDs, source links, iRTM mappings, and cross-references.
-\item \textbf{Model-to-text consistency inspection} -- ensuring models (diagrams) and textual requirements express compatible meanings.
-\item \textbf{Omission mapping against expected SRS topics} -- checking whether important topics, edge cases, and exception paths are sufficiently covered (e.g., failure handling, recovery processes).
-\item \textbf{Scenario-based reading} -- testing the SRS against realistic supply-chain scenarios (order placement, product verification, blockchain outage).
-\item \textbf{Assumption reading} -- identifying assumptions that contradict documented requirements or have been rendered redundant.
-\item \textbf{Double-checking} -- verifying dates, facts, figures, and proper names for consistency.
-\item \textbf{Spellcheck and grammar review} -- using automated tools plus manual reading to catch typographical errors.
+\item Close document inspection
+\item Perspective-based reading (developer, tester, PM, compliance)
+\item Cross-section contradiction checking
+\item Codification and traceability verification
+\item Model-to-text consistency inspection
+\item Omission mapping against expected SRS topics
+\item Scenario-based reading (supply-chain scenarios)
+\item Assumption reading
+\item Double-checking dates, facts, figures
+\item Spellcheck and grammar review
 \end{enumerate}
 
 \subsection{Work Breakdown}
-The QC audit team consisted of four members, with one member also serving as the QA auditor (not reflected in this QC report). The work was allocated as follows:
-
-\begin{table}[H]
-\centering
-\small
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{|p{0.22\textwidth}|p{0.28\textwidth}|X|}
-\hline
-\rowcolor{tableheader}
-\textbf{Role} & \textbf{Assigned Member} & \textbf{Primary Responsibility} \\
-\hline
-QC Audit Lead & Muhammad Ridwan Putra Jasni & Coordinate audit activities, consolidate findings, ensure consistency of final report, apply cross-section contradiction checking and assumption reading. \\
-\hline
-Requirements Reviewer & Lin Yuhao & Inspect operational, technology, and quality-related sections for ambiguity, contradiction, and omission; perform perspective-based reading (developer, tester) and scenario-based reading. \\
-\hline
-Traceability Reviewer & Muhammad Mikhail Bin Mazlan & Review codification, iRTM references, source mappings, and section-to-section coherence; double-check all identifiers and cross-references. \\
-\hline
-Editorial and Structure Reviewer & Kannan s/o Rajamohan & Review document structure, section naming, formatting consistency, and overall presentation quality; conduct spellcheck and grammar review, verify figures and tables. \\
-\hline
-\end{tabularx}
-\caption{QC audit team work allocation}
-\label{tab:qc-wbs}
-\end{table}
+Team roles and responsibilities are detailed in \hyperref[tab:qc-wbs]{Appendix A, Table A.1}.
 
 \subsection{Indicative Timeline}
-The audit was conducted over a single day, with the following estimated timeline:
-
-\begin{table}[H]
-\centering
-\small
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{|p{0.18\textwidth}|p{0.42\textwidth}|X|}
-\hline
-\rowcolor{tableheader}
-\textbf{Stage} & \textbf{Activity} & \textbf{Indicative Duration} \\
-\hline
-Stage 1 & Individual inspection of assigned SRS sections using selected techniques (close reading, perspective-based, scenario-based) & 3 hours \\
-\hline
-Stage 2 & Consolidation meeting and de-duplication of identified findings & 1 hour \\
-\hline
-Stage 3 & Severity review and documentation of findings & 1 hour \\
-\hline
-Stage 4 & Final report formatting, checking, and team sign-off & 1 hour \\
-\hline
-\end{tabularx}
-\caption{Indicative QC audit timeline}
-\label{tab:qc-timeline}
-\end{table}
+The audit schedule is shown in \hyperref[tab:qc-timeline]{Appendix A, Table A.2}.
 
 \subsection{Reporting}
-The QC team records findings in this report. The audit team does not directly amend the audited SRS.
+The QC team records findings in this report; the audit team does not amend the SRS.
 
 % =====================
 % 4 QC CHECKLIST
@@ -340,7 +282,7 @@ The QC team records findings in this report. The audit team does not directly am
 
 The following checklist was used by the QC audit team to inspect the SRS work product. The checklist items represent critical aspects of a high-quality SRS, derived from industry standards and lecture guidelines.
 
-For readability in the main report, the full checklist register is presented in \hyperref[tab:qc-checklist]{Appendix A, QC inspection checklist}. The appendix table records each checklist item together with the inspection result applied during the audit.
+For readability in the main report, the full checklist register is presented in \hyperref[tab:qc-checklist]{Appendix B, QC inspection checklist}. The appendix table records each checklist item together with the inspection result applied during the audit.
 
 % =====================
 % 5 ERROR DETECTION
@@ -349,7 +291,7 @@ For readability in the main report, the full checklist register is presented in 
 
 The QC audit identified instances of three principal QC error types: authorship, omission, and contradiction. Each detected instance was recorded with its location in the SRS and the characteristic of the defect observed during inspection.
 
-For readability in the main report, the consolidated error detection register is presented in \hyperref[tab:qc-error-detection]{Appendix A, Detected QC error instances}. The appendix table serves as the detailed supporting record for the findings discussed in Section~\ref{sec:qc-findings}.
+For readability in the main report, the consolidated error detection register is presented in \hyperref[tab:qc-error-detection]{Appendix C, Detected QC error instances}. The appendix table serves as the detailed supporting record for the findings discussed in Section~\ref{sec:qc-findings}.
 
 % =====================
 % 6 QC FINDINGS
@@ -507,13 +449,13 @@ Overall, the SRS is assessed as \textbf{conditionally acceptable}, pending custo
 \rowcolor{tableheader}
 \textbf{Name} & \textbf{Role} & \textbf{Authentication} \\
 \hline
-Muhammad Ridwan Putra Jasni & QC Audit Lead & Submitted by named team member \\
+Muhammad Ridwan Putra Jasni & QC Audit Lead & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Brigman/Signatures/signature_ridwan.jpg}} \\
 \hline
-Lin Yuhao & QC Auditor & Submitted by named team member \\
+Lin Yuhao & QC Auditor & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Brigman/Signatures/signature_yuhao.jpg}} \\
 \hline
-Muhammad Mikhail Bin Mazlan & QC Auditor & Submitted by named team member \\
+Muhammad Mikhail Bin Mazlan & QC Auditor & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Brigman/Signatures/signature_mikhail.jpg}} \\
 \hline
-Kannan s/o Rajamohan & QC Auditor & Submitted by named team member \\
+Kannan s/o Rajamohan & QC Auditor & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Brigman/Signatures/signature_kannan.jpg}} \\
 \hline
 \end{tabular}
 \caption{QC audit team sign-off}
@@ -523,6 +465,10 @@ Kannan s/o Rajamohan & QC Auditor & Submitted by named team member \\
 % =====================
 % 9 ADDENDA
 % =====================
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thepage}{G-\arabic{page}}
 \section{Addenda}
 
 \subsection{Glossary}
@@ -566,12 +512,70 @@ RTO & Recovery Time Objective -- maximum acceptable downtime. \\
 \pagenumbering{arabic}
 \setcounter{page}{1}
 \renewcommand{\thepage}{A-\arabic{page}}
-\section*{Appendix A: Supporting Tables}
+\section*{Appendix A: QC Plan Tables}
 \phantomsection
-\addcontentsline{toc}{section}{Appendix A: Supporting Tables}
+\addcontentsline{toc}{section}{Appendix A: QC Plan Tables}
 
-\subsection*{A.1 QC Checklist}
-\addcontentsline{toc}{subsection}{A.1 QC Checklist}
+\subsection*{A.1 QC Audit Team Work Allocation}
+\addcontentsline{toc}{subsection}{A.1 QC Audit Team Work Allocation}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{0.22\textwidth}|p{0.28\textwidth}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Role} & \textbf{Assigned Member} & \textbf{Primary Responsibility} \\
+\hline
+QC Audit Lead & Muhammad Ridwan Putra Jasni & Coordinate audit activities, consolidate findings, ensure consistency of final report, apply cross-section contradiction checking and assumption reading. \\
+\hline
+Requirements Reviewer & Lin Yuhao & Inspect operational, technology, and quality-related sections for ambiguity, contradiction, and omission; perform perspective-based reading (developer, tester) and scenario-based reading. \\
+\hline
+Traceability Reviewer & Muhammad Mikhail Bin Mazlan & Review codification, iRTM references, source mappings, and section-to-section coherence; double-check all identifiers and cross-references. \\
+\hline
+Editorial and Structure Reviewer & Kannan s/o Rajamohan & Review document structure, section naming, formatting consistency, and overall presentation quality; conduct spellcheck and grammar review, verify figures and tables. \\
+\hline
+\end{tabularx}
+\caption{QC audit team work allocation}
+\label{tab:qc-wbs}
+\end{table}
+
+\subsection*{A.2 Indicative QC Audit Timeline}
+\addcontentsline{toc}{subsection}{A.2 Indicative QC Audit Timeline}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.4}
+\begin{tabularx}{\textwidth}{|p{0.18\textwidth}|p{0.42\textwidth}|X|}
+\hline
+\rowcolor{tableheader}
+\textbf{Stage} & \textbf{Activity} & \textbf{Indicative Duration} \\
+\hline
+Stage 1 & Individual inspection of assigned SRS sections using selected techniques (close reading, perspective-based, scenario-based) & 3 hours \\
+\hline
+Stage 2 & Consolidation meeting and de-duplication of identified findings & 1 hour \\
+\hline
+Stage 3 & Severity review and documentation of findings & 1 hour \\
+\hline
+Stage 4 & Final report formatting, checking, and team sign-off & 1 hour \\
+\hline
+\end{tabularx}
+\caption{Indicative QC audit timeline}
+\label{tab:qc-timeline}
+\end{table}
+
+% =====================
+% APPENDIX B
+% =====================
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thepage}{B-\arabic{page}}
+\section*{Appendix B: QC Checklist}
+\phantomsection
+\addcontentsline{toc}{section}{Appendix B: QC Checklist}
 
 \begingroup
 \setlength{\LTpre}{0pt}
@@ -662,8 +666,16 @@ QC21 & Consistency & Do all cross-references, figure numbers, and table citation
 \end{longtable}
 \endgroup
 
-\subsection*{A.2 Error Detection Table}
-\addcontentsline{toc}{subsection}{A.2 Error Detection Table}
+% =====================
+% APPENDIX C
+% =====================
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thepage}{C-\arabic{page}}
+\section*{Appendix C: Error Detection Table}
+\phantomsection
+\addcontentsline{toc}{section}{Appendix C: Error Detection Table}
 
 \setcounter{table}{0}
 \begingroup
