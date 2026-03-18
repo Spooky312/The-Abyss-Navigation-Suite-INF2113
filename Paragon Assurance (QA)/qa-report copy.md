@@ -7,12 +7,15 @@
 **Document ID:** PA-QAR-2026-001
 **Version:** 1.0
 **Date:** 19 March 2026
-**Prepared by:** Paragon Assurance
+**Prepared by:** Paragon Assurance QA Audit Team
 **Submitted to:** BioSec Educational Institution (Customer C)
 
 | Name | Role |
 |---|---|
-| Zong Han | QA Auditor |
+| [QA Audit Lead Name] | QA Audit Lead |
+| [QA Auditor 1 Name] | QA Auditor |
+| [QA Auditor 2 Name] | QA Auditor |
+| [QA Auditor 3 Name] | QA Auditor |
 
 ---
 
@@ -53,17 +56,15 @@ The QA audit was conducted to establish the degree of compliance of Nevon Soluti
 
 ### 1.3 Summary of Findings
 
-The audit identified **nine (9) process non-compliance instances**. Three (3) are classified as High severity, two (2) as Medium severity, two (2) as Medium-Low severity, and two (2) as Low severity. Key non-compliance areas are:
+The audit identified **seven (7) process non-compliance instances**. Two (2) are classified as High severity, three (3) as High-to-Medium severity, one (1) as Medium severity, and one (1) as Low severity. Key non-compliance areas are:
 
-- The SRS sign-off section (§9) was initially submitted to QC/QA audit with all designated approver fields blank. Sign-off was subsequently obtained on 06/03/2026 — three days after the document date — confirming the SRS was circulated externally before formal authorisation was in place.
-- One of three formally deferred open issues (CM-OI-03, Biometric Template Format, kill date 15/03/2026) has expired as of the audit date without documented resolution or confirmed fallback activation. Two further open issues (CM-OI-01, CM-OI-02) expire on 20/03/2026.
+- Three open issues from the Analysing phase remain unresolved in the submitted SRS despite a stated resolution deadline of 20 February 2026.
+- The SRS sign-off section (§9) was submitted to external audit with all four designated approver fields blank, indicating the SRS was not formally authorised by BioSec before handover.
 - A contradictory 2FA scope specification was not resolved during the Clarify phase.
 - The biometric student enrolment process — a prerequisite for all scan-based system functions — was not elicited during the Analysing phase and is entirely absent from the SRS.
-- A cross-section attendance status terminology inconsistency was not detected or corrected during the Specifying phase, confirmed directly by Data Dictionary Table C.4 (status field: Present, Late, Absent, Excused) diverging from SRS §3.1 UR-MOB-01 (Attended, Absent, Late, or Excused).
+- A cross-section attendance status terminology inconsistency was not detected or corrected during the Specifying phase.
 - The SRS was submitted at Version 0.8, below the Version 1.0 threshold expected for a document released to external audit.
 - A grammatical defect in requirement QA-USAB-01 was not corrected by the Specifying phase editorial review.
-- Data Dictionary Table C.2 specifies the biometric fingerprint field without indicating the AES-256 encryption mandated by SRS NFR-SEC-01 and NFR-DB-03, indicating the Specifying phase did not verify cross-artefact security consistency.
-- Data Dictionary Table C.1 introduces a specific password storage technology (SHA-256) for the password_hash field without backing from any SRS requirement, constituting an unauthorised design decision embedded in a requirements artefact.
 
 The QA team presents these findings without amendment to BioSec for review and decision.
 
@@ -109,12 +110,12 @@ See Annex A for the detailed team work allocation and indicative audit timeline.
 
 The audit was structured in four phases:
 
-| Phase | Activities | Assignee |
+| Phase | Activities | Assignee(s) |
 |---|---|---|
-| Phase 1: Document Review | Review of all process artefacts; Analysing Report, SRS, QC report, repository | Zong Han |
-| Phase 2: Checklist Assessment | Completion of QA Checklist against each process phase | Zong Han |
-| Phase 3: Error Detection & Evidence | Identification and documentation of non-compliance instances | Zong Han |
-| Phase 4: Finding Analysis & Sign-off | CRaM analysis, evidence consolidation, report finalisation | Zong Han |
+| Phase 1: Document Review | Review of all process artefacts; Analysing Report, SRS, QC report, repository | All team members |
+| Phase 2: Checklist Assessment | Completion of QA Checklist against each process phase | QA Auditors |
+| Phase 3: Error Detection & Evidence | Identification and documentation of non-compliance instances | QA Auditors |
+| Phase 4: Finding Analysis & Sign-off | CRaM analysis, evidence consolidation, report finalisation | QA Audit Lead |
 
 ---
 
@@ -137,7 +138,7 @@ The following checklist is self-contained and addresses process compliance acros
 | A.3 | Were clarification sessions conducted with all relevant stakeholder groups? | S | BC-01 (07/02/2026) included BioSec Academic Administrator, Parent Representative, Campus Operations Manager, Account Manager. TC-02 (09/02/2026) included BioSec IT Manager, Network Infrastructure Lead. Both sessions are documented in §3.3 and §3.4 of Analysing Report. |
 | A.4 | Were meeting minutes formally recorded with attendees, focus, and outcomes documented? | S | Both BC-01 and TC-02 are documented in Analysing Report §3.3 and §3.4 with attendees, clarification focus, and key outcomes. |
 | A.5 | Were all compound requirements decomposed into atomic requirements? | S | Analysing Report §2.2–2.3 documents decomposition of BOR-1-MOB-02, BOR-1-MOB-03, BOR-1-WEB-01, BOR-1-WEB-02, TR-1-BE-01, and TR-1-BE-05 into atomic requirements with traceability. |
-| A.6 | Were open issues formally deferred with kill dates and fallback mechanisms documented? | PS | Three open issues formally deferred via SRS §8.2 CM#2 with kill dates and fallbacks; BioSec signed off on SRS inclusive of these (06/03/2026). However, CM-OI-03 kill date (15/03/2026) has passed without documented fallback activation. See Error PA-ERR-001. |
+| A.6 | Were open issues formally documented with resolution deadlines? | PS | Analysing Report §3.5 documents three open issues with stated deadlines and assigned parties. However, the RPO/RTO deadline of 20/02/2026 was not met prior to SRS finalisation (see Error PA-ERR-001). |
 | A.7 | Was the biometric enrolment process elicited as part of the Analysing phase? | NS | No enrolment requirement appears in either the repository or the SRS. BC-01 and TC-02 outcomes make no reference to enrolment. See Error PA-ERR-004. |
 
 ---
@@ -152,7 +153,7 @@ The following checklist is self-contained and addresses process compliance acros
 | B.4 | Were all open issues from the Analysing phase resolved before SRS finalisation? | NS | All three open issues in Analysing Report §3.5 remain unresolved in the submitted SRS. See Error PA-ERR-001. |
 | B.5 | Were contradictory requirements identified during Clarify and resolved before Specifying? | NS | The 2FA scope contradiction between UR-MOB-06 and NFR-SEC-03 was not resolved. BC-01 outcomes make no reference to 2FA scope. See Error PA-ERR-003. |
 | B.6 | Was the SRS reviewed for editorial quality prior to release? | PS | The SRS is generally well-structured. However, QA-USAB-01 (§5.4.1) contains an uncorrected grammatical defect (PA-ERR-007), and UR-WEB-08 and UR-WEB-09 use inconsistent capitalisation (QC-FND-010). |
-| B.7 | Was the SRS formally authorised by designated BioSec stakeholders (§9 Sign-off) before external handover? | PS | Updated SRS §9 shows full sign-off (5 parties, dated 06/03/2026). However, the SRS document date is 03/03/2026 and QC-FND-011 confirmed sign-off was blank at initial submission. Sign-off obtained 3 days after document date and after external audit had begun. See Error PA-ERR-002. |
+| B.7 | Was the SRS formally authorised by designated BioSec stakeholders (§9 Sign-off)? | NS | All four sign-off fields in SRS §9 are blank. See Error PA-ERR-002. |
 | B.8 | Was the SRS submitted at a final (≥ Version 1.0) version? | NS | SRS bears Version 0.8. See Error PA-ERR-006. |
 
 ---
@@ -162,14 +163,12 @@ The following checklist is self-contained and addresses process compliance acros
 | ID | Checklist Item | Rating | Notes |
 |---|---|---|---|
 | C.1 | Are all required process artefacts present? (Paper Napkin Model, Context DFD, Data Dictionary, ERD, Use Case Diagram, Wireframes, iRTM, Gantt Chart) | S | All artefacts listed in SRS Table of Contents and repository README are present. Figures 1–4 and Appendices A–E confirmed. |
-| C.2 | Are process artefacts internally consistent with SRS content? | NS | Three inconsistencies confirmed from direct Data Dictionary inspection: (1) Table C.4 status ENUM uses "Present, Late, Absent, Excused" while SRS §3.1 uses "Attended"; (2) Table C.2 fingerprint_hash field carries no AES-256 encryption specification despite NFR-SEC-01 and NFR-DB-03; (3) Table C.1 password_hash field specifies SHA-256 with no SRS requirement basis. See Errors PA-ERR-005, PA-ERR-008, PA-ERR-009. |
+| C.2 | Are process artefacts internally consistent with SRS content? | PS | The Context DFD (Appendix A) documents six external entities consistent with §2.1. However, the Data Dictionary (Appendix C, Table C.4) uses attendance status values that are inconsistent with SRS §3.1 and §4.3.2 (confirmed by QC-FND-002). |
 | C.3 | Do all deliverables carry a Declaration of Use of AI Tools and a Declaration on Plagiarism and Originality? | S | Both the Analysing Report (pp.3–4) and the SRS (pp.4–5 of body) carry both declarations, signed by Project Lead Loh Wen Xuan. |
 | C.4 | Is the requirements repository structured correctly with all required fields per requirement? (ID, Statement, Rationale, Acceptance Criteria, Dependencies, Priority, Status) | S | Repository README confirms all seven fields per requirement. Sample review of bizops-requirements.md confirms compliance. |
 | C.5 | Are Change Mitigation Strategies documented in the SRS? | S | SRS §8 documents three change mitigation strategies (CM#1: Anticipatory Contingency Requirements, CM#2: Open Issues, CM#3: High-Risk Change Control Process). |
 | C.6 | Is a Risk Analysis present in the Analysing Report? | S | Analysing Report §5 documents seven risks with likelihood and impact ratings. |
 | C.7 | Are version control and document metadata (version, date, document ID, prepared by) complete across all deliverables? | PS | Analysing Report (v1.0) and SRS (v0.8) both carry full metadata. SRS v0.8 is below expected release threshold (PA-ERR-006). |
-| C.8 | Do all Data Dictionary fields containing biometric data include explicit AES-256 encryption notation consistent with SRS security requirements? | NS | Table C.2 fingerprint_hash field describes the biometric field as a "hash" with no AES-256 encryption specification. NFR-SEC-01 and NFR-DB-03 require AES-256 for all biometric data at rest. See Error PA-ERR-008. |
-| C.9 | Are Data Dictionary field descriptions free of technology or algorithm choices not backed by SRS requirements? | NS | Table C.1 password_hash field specifies "SHA256 hash" — a specific algorithm choice with no SRS backing. Description also incorrectly uses "Encrypted" to describe a hash function. See Error PA-ERR-009. |
 
 ---
 
@@ -181,15 +180,13 @@ The following table lists all process non-compliance instances detected during t
 
 | Error ID | Location | Characteristic |
 |---|---|---|
-| PA-ERR-001 | Analysing Report §3.5 (p.10); SRS §8.2 CM#2 table (p.18); SRS §2.5 (p.3), §6.5 NFR-DOC-03 (p.16) | Three open issues were formally deferred into SRS via CM#2 with kill dates. CM-OI-03 (Biometric Template Format, kill date 15/03/2026) has expired as of the audit date (19/03/2026) with no resolution or confirmed fallback activation documented. CM-OI-01 and CM-OI-02 expire 20/03/2026. |
-| PA-ERR-002 | SRS §9 (p.19 of SRS body); QC Report QC-FND-011; SRS cover page (03/03/2026) vs sign-off date (06/03/2026) | The SRS was initially submitted to QC/QA with all sign-off fields blank (confirmed by QC-FND-011). Sign-off was subsequently completed on 06/03/2026 — three days after the SRS document date — indicating the SRS was circulated externally before formal authorisation was obtained. |
+| PA-ERR-001 | Analysing Report §3.5 (p.10); SRS §2.5 (p.3), §3.3 (p.6), §6.5 NFR-DOC-03 (p.16) | Three open issues documented with resolution deadlines in the Analysing phase remain unresolved in the SRS dated 11+ days after the RPO/RTO stated deadline. |
+| PA-ERR-002 | SRS §9 SRS Sign-off (p.19 of SRS body) | All four designated approver fields (Name, Signature, Date) in the SRS sign-off section are blank. The SRS was presented to external audit without customer authorisation. |
 | PA-ERR-003 | SRS §3.1 UR-MOB-06 (p.5); SRS §5.3 NFR-SEC-03 (p.13); Analysing Report §3.3 BC-01 outcomes (p.8) | 2FA is required of parents and teachers in UR-MOB-06 but restricted to administrators only in NFR-SEC-03. This contradiction was not identified or resolved during the Clarify phase. |
 | PA-ERR-004 | SRS §4 System Features (pp.7–12); Analysing Report §3.3 BC-01 outcomes (p.8), §3.4 TC-02 outcomes (p.9); repository bizops-requirements.md | No biometric student enrolment requirement exists anywhere in the SRS or requirements repository, despite enrolment being a logical prerequisite of all scan-based operations. Analysing phase clarification sessions did not elicit this process. |
-| PA-ERR-005 | SRS §3.1 UR-MOB-01 (p.5); SRS §4.3.2 (p.9); Data Dictionary Table C.4 (status ENUM: Present, Late, Absent, Excused) | Attendance status terminology is inconsistent: UR-MOB-01 uses "Attended, Absent, Late, or Excused"; §4.3.2 uses "Excused, Attended, Late, Absent"; Data Dictionary Table C.4 status ENUM uses "Present" — not "Attended." Three-way inconsistency not resolved during Specifying phase. |
+| PA-ERR-005 | SRS §3.1 UR-MOB-01 (p.5); SRS §4.3.2 (p.9); QC Report QC-FND-002 | Attendance status terminology is inconsistent across SRS sections: UR-MOB-01 uses "Attended, Absent, Late, or Excused"; §4.3.2 uses "Excused, Attended, Late, Absent." QC further confirmed "Attended" vs "Present" divergence with Data Dictionary Table C.4. Not resolved during Specifying phase. |
 | PA-ERR-006 | SRS cover page; Analysing Report cover page | SRS submitted to QC/QA audit at Version 0.8 (dated 03/03/2026). The preceding Analysing Report was released at Version 1.0 (08/02/2026). The SRS was handed over before the Specifying process was completed to a final version. |
 | PA-ERR-007 | SRS §5.4.1 QA-USAB-01 (p.14) | QA-USAB-01 reads: "The system shall allow parent and teacher users must be able to complete primary tasks..." The double-predicate construction ("shall allow...must be able to") is grammatically malformed and was not corrected during Specifying phase editorial review. |
-| PA-ERR-008 | Data Dictionary Table C.2 Student (fingerprint_hash field); SRS §5.3 NFR-SEC-01 (p.13); SRS §6.1 NFR-DB-03 (p.15) | Data Dictionary Table C.2 describes the fingerprint_hash field as "Biometric hash for attendance matching" with no indication of AES-256 encryption. SRS NFR-SEC-01 and NFR-DB-03 both require biometric data to be encrypted with AES-256 at rest. The Specifying phase did not verify that the Data Dictionary reflected the SRS's mandatory security requirements. |
-| PA-ERR-009 | Data Dictionary Table C.1 UserAccount (password_hash field); SRS §4–§6 (no password hashing requirement) | Data Dictionary Table C.1 describes the password_hash field as "Encrypted password (SHA256 hash)". No SRS requirement specifies SHA-256 as the password storage algorithm. SHA-256 is also incorrectly described as "Encrypted" (it is a hash function). A specific technology choice was introduced into the requirements artefact without SRS basis. |
 
 ---
 
@@ -201,86 +198,68 @@ Each finding below presents a CRaM analysis of the non-compliance instance, with
 
 ---
 
-### PA-FND-001 — CM-OI-03 Kill Date Expired; CM-OI-01 and CM-OI-02 Imminent
+### PA-FND-001 — Open Issues Unresolved at SRS Finalisation
 
 **Error ID:** PA-ERR-001
 **Error Type:** Process Non-Compliance
-**Severity:** Medium
-**Process Phase:** Analysing Method — Open Issue Management; Specifying Method — CM#2 Protocol
+**Severity:** High
+**Process Phase:** Analysing Method — Open Issue Management; Specifying Method — SRS Finalisation
 
 **Analysis:**
 
-The Analysing Report §3.5 (p.10) documented three open issues that could not be resolved during clarification sessions. In the SRS, these were formally codified as CM#2 (Open Issues) items in §8.2 (p.17–18), each assigned a kill date and fallback mechanism. The BioSec sign-off on the SRS (06/03/2026) confirms BioSec accepted the SRS inclusive of these open issues and their kill dates. The CM#2 mechanism in itself represents a legitimate process instrument for managing unresolved issues.
+The RE process requires that open issues documented during the Analysing phase are resolved — or formally deferred with customer consent — before the SRS is finalised and released to external audit. The Analysing Report §3.5 (p.10) explicitly documents three open issues with stated deadlines:
 
-However, the following non-compliance is noted as of the audit date (19/03/2026):
+1. **MCS Integration Security** — specific encryption handshake protocol for the MCS API. No deadline given; Nevon Solutions to coordinate with MCS vendor.
+2. **Disaster Recovery RPO/RTO** — BioSec to confirm acceptable RPO and RTO for attendance data by **20 February 2026**.
+3. **Biometric Template Storage Format** — confirmation on ISO/IEC 19794-2 conformance requirement.
 
-**CM-OI-03 (Biometric Template Storage Format) — Kill date 15 March 2026 — EXPIRED:**
-The kill date of 15/03/2026 has passed. Per SRS §8.2, "if not resolved by that date, the fallback action takes effect." The stated fallback for CM-OI-03 is: "ISO/IEC 19794-2 as default for interoperability." No documentation of the fallback activation has been presented to the QA team. The process requires that when a kill date passes, the fallback is formally activated and the iRTM updated (per SRS §8.2 and §7). Neither has been evidenced.
+The SRS, dated **03 March 2026** (11 days after the RPO/RTO deadline), retains all three issues as unresolved:
 
-**CM-OI-01 (MCS Integration Security) — Kill date 20 March 2026:**
-This open issue expires tomorrow. No resolution or pre-resolution communication has been presented to the QA team.
+- SRS §2.5 (p.3): "Biometric template storage format is a pending open issue (see Appendix B). Development shall proceed with ISO/IEC 19794-2 until the open issue is resolved, with a kill date of 15 March 2026."
+- SRS §3.3 (p.6), MCS External System Integration: "Encryption handshake protocol is an open issue pending MCS vendor documentation."
+- SRS §6.5 NFR-DOC-03 (p.16): "Disaster recovery RPO/RTO specifications are still pending BioSec approval."
 
-**CM-OI-02 (Disaster Recovery RPO/RTO) — Kill date 20 March 2026:**
-This open issue also expires tomorrow. No resolution has been presented.
-
-The Analysing Report §3.5 originally stated the RPO/RTO deadline as 20/02/2026. The SRS CM#2 table extended this to 20/03/2026. While the BioSec sign-off on the SRS implies acceptance of the new kill dates, no formal deferral or extension document for the original Analysing Report deadline was independently presented to the QA team.
+The RPO/RTO deadline of 20/02/2026 passed without resolution, and no formal deferral documentation has been presented to the QA team. The SRS was finalised and submitted for external audit with all three open issues intact. This constitutes a failure of the open issue resolution protocol required before SRS release.
 
 **Evidence:**
 
 | Source | Location | Content |
 |---|---|---|
-| Analysing Report | §3.5, p.10 | Three open issues; RPO/RTO stated deadline 20/02/2026 |
-| SRS | §8.2 CM#2 table, p.17–18 | CM-OI-01: kill 20/03/2026; CM-OI-02: kill 20/03/2026; CM-OI-03: kill 15/03/2026 |
-| SRS | §2.5, p.3 | Biometric template format open; kill date 15/03/2026 |
-| SRS | §6.5 NFR-DOC-03, p.16 | RPO/RTO "still pending BioSec approval" |
-| SRS | §9, p.19 | BioSec signed off on SRS "inclusive of open issues" on 06/03/2026 |
+| Analysing Report | §3.5, p.10 | Three open issues with RPO/RTO deadline of 20/02/2026 |
+| SRS | §2.5, p.3 | Biometric template storage still open; kill date 15/03/2026 |
+| SRS | §3.3, p.6 | MCS encryption handshake still an open issue |
+| SRS | §6.5 NFR-DOC-03, p.16 | Disaster recovery RPO/RTO "still pending BioSec approval" |
 
-**Confirmation:** The CM-OI-03 kill date of 15/03/2026 precedes the audit date of 19/03/2026. The SRS text and CM#2 table are reproduced in evidence above. No fallback activation documentation has been presented. CM-OI-01 and CM-OI-02 expire the day following this report's date.
+**Confirmation:** The SRS date of 03/03/2026 post-dates the RPO/RTO resolution deadline of 20/02/2026. The SRS text itself acknowledges all three issues as unresolved. No resolution or deferral documentation was presented to the QA team.
 
 ---
 
-### PA-FND-002 — SRS Circulated to External Audit Before Sign-off Was Obtained
+### PA-FND-002 — Incomplete SRS Sign-off at Time of Audit Handover
 
 **Error ID:** PA-ERR-002
 **Error Type:** Process Non-Compliance
 **Severity:** High
-**Process Phase:** Specifying Method — SRS Authorisation and Release Protocol
+**Process Phase:** Specifying Method — SRS Authorisation
 
 **Analysis:**
 
-The Specifying method requires that the completed SRS is formally reviewed and authorised by designated stakeholders before the document is released to external parties. The updated SRS §9 (p.19) now shows a completed sign-off table with five signatories across two parties:
+The Specifying method requires that the completed SRS is formally reviewed and authorised by designated customer and vendor stakeholders before the document is released to external parties (QC/QA audit teams). SRS §9 (p.19 of the SRS body) provides a sign-off table that includes fields for Name, Signature, and Date for four designated roles.
 
-**Vendor Authenticator:** Loh Wen Xuan (Project Lead), signed, dated 06/03/2026
-**Designated Approvers – Vendor (Nevon Solutions):**
-- Technical Lead: James Koh, signed, dated 06/03/2026
-- System Architect Lead: Rachel Lee, signed, dated 06/03/2026
+The QA team reviewed SRS §9 and confirmed that all four rows in the sign-off table are entirely blank — no names, no signatures, no dates are recorded for any of the four designated approver positions. The SRS was submitted to external audit in this state. This means:
 
-**Designated Approvers – Customer (BioSec):**
-- Project Manager: Marcus Tan Wei Liang, signed, dated 06/03/2026
-- Head of Operations: Daniel Rodriguez, signed, dated 06/03/2026
+(a) No designated Nevon Solutions representative formally certified the SRS as complete before release, and
+(b) No BioSec representative formally accepted the SRS as the contractual requirements baseline before the document was handed over to QC and QA teams.
 
-The sign-off is complete and genuine in the updated version. However, the process non-compliance lies in the sequence of events:
-
-1. The SRS cover page bears the document date of **03/03/2026**.
-2. All five sign-off dates are **06/03/2026** — three days later.
-3. The QC team (Veridion Labs) independently confirmed that the SRS sign-off section was blank at the time of their inspection (QC-FND-011), which aligns with the initial version of the SRS having no sign-off.
-4. The git repository for the customer's BioSec system shows the SRS was subsequently updated (commit: "Update SRS_1561W.pdf"), with the sign-off-complete version uploaded after the initial blank-sign-off version.
-
-This sequence confirms that: (a) the SRS was prepared and submitted to external QC/QA on or around 03/03/2026 without any sign-off, and (b) sign-off from both vendor and customer parties was obtained on 06/03/2026 and the document updated retroactively. The process requires sign-off before external release — not after.
-
-Additionally, the SRS §9 preamble states "By signing below, **the Project Lead** certifies the following..." but the sign-off structure includes two vendor approvers and two BioSec approvers beyond the Project Lead. The preamble is inconsistent with the multi-party sign-off structure.
+The Analysing Report sign-off (p.3) is correctly completed and bears the signature of Project Lead Loh Wen Xuan dated 13/02/2026. The corresponding SRS sign-off (§9) having no completed entries indicates this authorisation step was omitted or bypassed in the Specifying process.
 
 **Evidence:**
 
 | Source | Location | Content |
 |---|---|---|
-| SRS (updated) | §9, p.19 of SRS body | All five sign-off fields completed; all dated 06/03/2026 |
-| SRS cover page | Cover | Document date: 03/03/2026 — three days before sign-off |
-| QC Report | QC-FND-011 | Independent confirmation: sign-off was blank at time of QC inspection |
-| Git repository | Commit: "Update SRS_1561W.pdf" | SRS updated after initial submission, consistent with sign-off being added post-release |
-| Analysing Report | Declaration, p.3 | Correctly completed sign-off prior to release: Loh Wen Xuan, dated 13/02/2026 |
+| SRS | §9, p.19 of SRS body | Sign-off table: all four rows blank (Name, Signature, Date all empty) |
+| Analysing Report | Declaration, p.3 | Correctly completed sign-off: Loh Wen Xuan, signature present, dated 13/02/2026 |
 
-**Confirmation:** The three-day gap between the SRS document date (03/03) and all sign-off dates (06/03), combined with QC-FND-011's independent observation of blank sign-off fields and the git repository's subsequent update commit, together confirm that the SRS was released to external audit before formal authorisation was obtained from any party.
+**Confirmation:** Direct inspection of SRS §9 confirms all sign-off fields are blank. By contrast, the equivalent section in the Analysing Report is correctly completed, confirming that the sign-off protocol is known to and used by the team — the omission in the SRS sign-off is therefore unexplained by process ignorance.
 
 ---
 
@@ -375,10 +354,9 @@ The ordering and presentation of the four values differ across these two section
 |---|---|---|
 | SRS | §3.1 UR-MOB-01, p.5 | Attendance status: "Attended, Absent, Late, or Excused" |
 | SRS | §4.3.2, p.9 | Attendance status: "Excused, Attended, Late, Absent" |
-| Data Dictionary | Table C.4 AttendanceRecord, status field | ENUM defined as: "Present, Late, Absent, Excused" — uses "Present", not "Attended" |
-| QC Report | QC-FND-002 | Independent confirmation of "Attended" vs "Present" inconsistency; classified High severity |
+| QC Report | QC-FND-002 | Independent confirmation of "Attended" vs "Present" inconsistency with Data Dictionary Table C.4; classified High severity |
 
-**Confirmation:** All three sources are directly observable. The Data Dictionary Table C.4 status ENUM definition — "Present, Late, Absent, Excused" — was read directly from the repository file `data-dictionary.md` and contains "Present" as the first valid status value. This confirms a three-way inconsistency across the SRS body and the Data Dictionary that was not resolved during the Specifying phase.
+**Confirmation:** The two SRS references above are reproduced directly from the document. The QC team's independent inspection of the Data Dictionary (Appendix C) confirmed the third divergent value "Present." These inconsistencies were present in the submitted SRS at Version 0.8 and were not corrected prior to handover.
 
 ---
 
@@ -434,76 +412,6 @@ The phrase "The system shall allow parent and teacher users **must be able to** 
 
 ---
 
-### PA-FND-008 — Data Dictionary fingerprint_hash Field Lacks Mandatory AES-256 Encryption Specification
-
-**Error ID:** PA-ERR-008
-**Error Type:** Process Non-Compliance
-**Severity:** Medium
-**Process Phase:** Specifying Method — Cross-Artefact Consistency Review
-
-**Analysis:**
-
-The Specifying method requires that supporting artefacts — including the Data Dictionary — are consistent with the SRS requirements. Two SRS requirements explicitly mandate AES-256 encryption for biometric data at rest:
-
-- **SRS §5.3 NFR-SEC-01** (p.13): "The system shall encrypt biometric data, including fingerprint templates, at rest using AES-256 and in transit using TLS 1.2 or higher. No plaintext biometric data shall be stored or transmitted at any point."
-- **SRS §6.1 NFR-DB-03** (p.15–16): "All biometric template data in the database to be encrypted with AES-256. No plaintext biometric data shall be written to the database at any time."
-
-The Data Dictionary Table C.2 – Student defines the following field:
-
-| Field Name | Data Type | Description | Example |
-|---|---|---|---|
-| fingerprint_hash | VARCHAR(256) | Biometric hash for attendance matching | (hash) |
-
-The field description states "Biometric hash for attendance matching" and carries no indication of AES-256 encryption. The field is named `fingerprint_hash` — a "hash" is a one-way transformation, which is a fundamentally different operation from AES-256 encryption, which is reversible. The two SRS requirements above require the biometric data to be *encrypted* (AES-256), not merely *hashed*. The Data Dictionary entry for this field does not reflect the SRS's encryption mandate.
-
-The Specifying phase should have verified that all Data Dictionary fields containing biometric data included explicit notation of AES-256 encryption consistent with NFR-SEC-01 and NFR-DB-03. This consistency check was not performed or was inadequate.
-
-**Evidence:**
-
-| Source | Location | Content |
-|---|---|---|
-| Data Dictionary | Table C.2 Student, fingerprint_hash field | "Biometric hash for attendance matching" — no AES-256 encryption specified; field named as hash not encrypted value |
-| SRS | §5.3 NFR-SEC-01, p.13 | "encrypt biometric data, including fingerprint templates, at rest using AES-256... No plaintext biometric data shall be stored" |
-| SRS | §6.1 NFR-DB-03, p.15–16 | "All biometric template data in the database to be encrypted with AES-256" |
-
-**Confirmation:** The Data Dictionary file `data-dictionary.md` was read directly from the repository. Table C.2's fingerprint_hash field contains no AES-256 notation. NFR-SEC-01 and NFR-DB-03 are reproduced from the SRS above and unambiguously require AES-256 for biometric data at rest. The discrepancy between the Data Dictionary's field description and the SRS security requirements is directly observable.
-
----
-
-### PA-FND-009 — Data Dictionary Introduces Unspecified Technology Decision for Password Storage
-
-**Error ID:** PA-ERR-009
-**Error Type:** Process Non-Compliance
-**Severity:** Low
-**Process Phase:** Specifying Method — Requirements Artefact Quality Control
-
-**Analysis:**
-
-The Data Dictionary is a requirements modelling artefact produced during the Analysing phase and embedded in the SRS as Appendix C. As a requirements artefact, it should specify data structures and field semantics at the requirements level — consistent with SRS requirements — without introducing technology or algorithm choices that have no requirements basis.
-
-Data Dictionary Table C.1 – UserAccount defines the following field:
-
-| Field Name | Data Type | Description | Example |
-|---|---|---|---|
-| password_hash | VARCHAR(256) | Encrypted password (SHA256 hash) | (hash) |
-
-This entry introduces **SHA-256** as the specific algorithm for password storage. The QA team reviewed the entirety of the SRS (Sections 1–8, Appendices A–E) and confirms that no SRS requirement specifies SHA-256, or any other hashing or encryption algorithm, for user password storage. The SRS §5.3 security requirements address biometric data encryption (NFR-SEC-01), MCS API authentication (NFR-SEC-05), and account lockout (NFR-SEC-04), but are silent on password storage algorithms.
-
-Additionally, the field description uses the term "Encrypted password" to describe a SHA-256 hash. SHA-256 is a cryptographic hash function — a one-way operation — and is not encryption. The description is technically inaccurate. This inaccuracy in a requirements artefact introduces ambiguity about whether the stored value is a hash or an encrypted (and therefore decryptable) value.
-
-The Specifying phase's quality review of the Data Dictionary did not identify that Table C.1 contained an unspecified algorithm choice and an incorrect technical descriptor.
-
-**Evidence:**
-
-| Source | Location | Content |
-|---|---|---|
-| Data Dictionary | Table C.1 UserAccount, password_hash field | "Encrypted password (SHA256 hash)" — specifies SHA-256 with no SRS basis; incorrectly describes SHA-256 as "Encrypted" |
-| SRS | §4–§6, all security requirements | Full review: no requirement mandates any password hashing or storage algorithm |
-
-**Confirmation:** The Data Dictionary file `data-dictionary.md` was read directly from the repository. Table C.1's password_hash field contains the string "SHA256 hash." A review of all SRS security requirements (NFR-SEC-01 through NFR-SEC-09, §5.3) returns no reference to SHA-256 or any password hashing specification.
-
----
-
 ---
 
 ## 6. Sign-Off
@@ -516,7 +424,10 @@ The QA team presents these findings to BioSec for review and decision.
 
 | Role | Name | Signature | Date |
 |---|---|---|---|
-| QA Auditor | Zong Han | ________________ | 19/03/2026 |
+| QA Audit Lead | [QA Audit Lead Name] | ________________ | 19/03/2026 |
+| QA Auditor | [QA Auditor 1 Name] | ________________ | 19/03/2026 |
+| QA Auditor | [QA Auditor 2 Name] | ________________ | 19/03/2026 |
+| QA Auditor | [QA Auditor 3 Name] | ________________ | 19/03/2026 |
 
 ---
 
@@ -526,11 +437,14 @@ The QA team presents these findings to BioSec for review and decision.
 
 ### Annex A — QA Team Work Allocation and Indicative Audit Timeline
 
-#### A.1 Auditor
+#### A.1 Team Work Allocation
 
-| Name | Role | Responsibilities |
+| Team Member | Role | Assigned Responsibilities |
 |---|---|---|
-| Zong Han | QA Auditor | Full audit: document review, checklist assessment (Domains A–C), error detection (PA-ERR-001 to PA-ERR-009), finding analysis, report drafting and sign-off |
+| [QA Audit Lead] | QA Audit Lead | Overall audit management; Finding analysis (PA-FND-001 to PA-FND-007); Report drafting and sign-off |
+| [QA Auditor 1] | QA Auditor | Domain A checklist (Analysing Method); Error detection PA-ERR-001, PA-ERR-004; Evidence consolidation |
+| [QA Auditor 2] | QA Auditor | Domain B checklist (Specifying Method); Error detection PA-ERR-002, PA-ERR-003, PA-ERR-005; Evidence consolidation |
+| [QA Auditor 3] | QA Auditor | Domain C checklist (Artefact Integrity); Error detection PA-ERR-006, PA-ERR-007; QC report cross-reference |
 
 #### A.2 Indicative Audit Timeline
 
