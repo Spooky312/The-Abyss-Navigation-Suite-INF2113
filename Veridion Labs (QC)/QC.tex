@@ -130,13 +130,19 @@ Kannan s/o Rajamohan & QC Team & QC Specialist & QC-004 \\
 \end{table}
 
 \restoregeometry
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{Veridion Labs}}
+\rhead{Quality Control (QC) Audit Report}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
 \newpage
 
 % =====================
 % TABLE OF CONTENTS
 % =====================
 \renewcommand{\contentsname}{Table of Contents}
-\thispagestyle{empty}
+\thispagestyle{fancy}
 \hypersetup{linkcolor=black}
 \tableofcontents
 \newpage
@@ -334,161 +340,22 @@ The QC team records findings in this report. The audit team does not directly am
 
 The following checklist was used by the QC audit team to inspect the SRS work product. The checklist items represent critical aspects of a high-quality SRS, derived from industry standards and lecture guidelines.
 
-\begingroup
-\setlength{\LTpre}{0pt}
-\setlength{\LTpost}{0pt}
-\setlength{\tabcolsep}{4pt}
-\small
-\renewcommand{\arraystretch}{1.35}
-\begin{longtable}{|>{\RaggedRight\arraybackslash}p{0.08\textwidth}|>{\RaggedRight\arraybackslash}p{0.14\textwidth}|>{\RaggedRight\arraybackslash}p{0.56\textwidth}|>{\RaggedRight\arraybackslash}p{0.16\textwidth}|}
-\caption{QC inspection checklist}\label{tab:qc-checklist}\\
-\hline
-\rowcolor{tableheader}
-\textbf{Item} & \textbf{Focus} & \textbf{QC Checklist Item} & \textbf{\shortstack[l]{Inspection\\Result}} \\
-\hline
-\endfirsthead
-\hline
-\rowcolor{tableheader}
-\textbf{Item} & \textbf{Focus} & \textbf{QC Checklist Item} & \textbf{\shortstack[l]{Inspection\\Result}} \\
-\hline
-\endhead
-\hline \multicolumn{4}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-
-\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{1. Introduction Section}} \\
-\hline
-QC1 & Completeness & Does the Introduction explicitly define the system purpose, target user base, and operational boundaries (in-scope vs. out-of-scope)? & Satisfied \\
-\hline
-QC2 & Completeness & Does the Introduction state the specific business problem and identify measurable business goals or KPIs? & Partially satisfied \\
-\hline
-QC3 & Consistency & Is the system name, project title, and version number identical across title page, headers/footers, and body? & Satisfied \\
-\hline
-
-\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{2. Glossary / Definitions Section}} \\
-\hline
-QC4 & Completeness & Are all domain-specific terms, acronyms, and technical abbreviations defined in a Glossary? & Not satisfied (missing) \\
-\hline
-QC5 & Relevance & Does every term defined in the Glossary appear at least once in the body? & Not applicable \\
-\hline
-QC6 & Consistency & Is each system role or entity referred to consistently using the same term throughout? & Satisfied \\
-\hline
-
-\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{3. Overall Description Section}} \\
-\hline
-QC7 & Completeness & Are all user classes identified with their technical expertise, access privileges, and responsibilities? & Satisfied \\
-\hline
-QC8 & Completeness & Does the SRS specify the intended operational environment (OS, browsers, hardware, network)? & Satisfied \\
-\hline
-QC9 & Consistency & Are all listed dependencies and constraints adhered to and not contradicted by later requirements? & Partially satisfied \\
-\hline
-
-\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{4. Functional Requirements Section}} \\
-\hline
-QC10 & Correctness & Does each requirement describe a single behaviour using precise, testable language (avoiding vague terms)? & Partially satisfied \\
-\hline
-QC11 & Testability & Does each functional requirement define trigger inputs, expected behaviour, and output/error state? & Partially satisfied \\
-\hline
-QC12 & Consistency & Is every requirement assigned a unique identifier following a consistent naming convention? & Satisfied \\
-\hline
-
-\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{5. Interface Requirements Section}} \\
-\hline
-QC13 & Completeness & Does the Interface section describe purpose, data exchanged, and communication method for each external interface? & Partially satisfied \\
-\hline
-QC14 & Correctness & Is the trigger condition, expected data payload, and error handling defined for each interface? & Partially satisfied \\
-\hline
-QC15 & Consistency & Does every external interface listed correspond to at least one functional requirement? & Satisfied \\
-\hline
-
-\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{6. Non-Functional Requirements Section}} \\
-\hline
-QC16 & Testability & Are all NFRs quantified with measurable limits (e.g., response time $\leq$ 2 sec for 95\% of queries)? & Partially satisfied \\
-\hline
-QC17 & Completeness & Does the SRS address all relevant NFR categories (performance, security, reliability, usability, maintainability)? & Satisfied \\
-\hline
-QC18 & Consistency & Do the NFRs logically align with system constraints (e.g., storage capacity consistent with data volume)? & Satisfied \\
-\hline
-
-\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{7. Addenda / Supporting Artifacts}} \\
-\hline
-QC19 & Traceability & If an iRTM is included, does it map requirements to business goals and validation artifacts? & Satisfied \\
-\hline
-QC20 & Correctness & Does every diagram include a descriptive title, legend, and standard notation accurately representing the system? & Partially satisfied \\
-\hline
-QC21 & Consistency & Do all cross-references, figure numbers, and table citations point to correct existing sections/artifacts? & Partially satisfied \\
-\hline
-
-\end{longtable}
-\endgroup
+For readability in the main report, the full checklist register is presented in \hyperref[tab:qc-checklist]{Appendix A, QC inspection checklist}. The appendix table records each checklist item together with the inspection result applied during the audit.
 
 % =====================
 % 5 ERROR DETECTION
 % =====================
 \section{Error Detection}
 
-The QC audit identified instances of three principal QC error types: authorship, omission, and contradiction. Each detected instance is recorded with its location and characteristic.
+The QC audit identified instances of three principal QC error types: authorship, omission, and contradiction. Each detected instance was recorded with its location in the SRS and the characteristic of the defect observed during inspection.
 
-\vspace{1\baselineskip}
-\setcounter{table}{4}
-\begingroup
-\setlength{\LTpre}{0pt}
-\setlength{\LTpost}{0pt}
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.4}
-\begin{longtable}{|>{\RaggedRight\arraybackslash}p{0.15\textwidth}|>{\RaggedRight\arraybackslash}p{0.18\textwidth}|>{\RaggedRight\arraybackslash}p{0.25\textwidth}|>{\RaggedRight\arraybackslash}p{0.42\textwidth}|}
-\hline
-\rowcolor{tableheader}
-\textbf{Error ID} & \textbf{Error Type} & \textbf{Location} & \textbf{Characteristic of Error} \\
-\hline
-\endfirsthead
-\hline
-\rowcolor{tableheader}
-\textbf{Error ID} & \textbf{Error Type} & \textbf{Location} & \textbf{Characteristic of Error} \\
-\hline
-\endhead
-\hline \multicolumn{4}{r}{{Continued on next page}} \\
-\endfoot
-\hline
-\endlastfoot
-
-QC-ERR-001 & Contradiction & Section 1.4.1 (In-Scope Deliverables, Authentication \& Security) vs Section 3.2 FR-2.6 & Section 1.4.1 requires MFA for "all user accounts", while FR-2.6 requires MFA only for "all administrative accounts". These statements directly conflict on the scope of MFA enforcement. \\
-\hline
-QC-ERR-002 & Authorship & Section 5.1 NFR-4 and NFR-7 & Duplicate word "shall" appears in both requirements: "The system shall shall complete 95\% of API responses within 2 seconds" and similar for database queries. This is a typographical error. \\
-\hline
-QC-ERR-003 & Omission & Section 3.2 (User \& Role Management) & FR-2.5 specifies account lockout after failed attempts, but no requirement exists for password reset or account recovery flow. This is a missing functional capability. \\
-\hline
-QC-ERR-004 & Authorship & Section 3.3 FR-3.9 & The term "periodic" is used without definition: "submit periodic GPS updates". The frequency or condition for updates is not specified, making the requirement ambiguous. \\
-\hline
-QC-ERR-005 & Omission & Section 3.1 (Blockchain Infrastructure) & FR-1.1 through FR-1.4 describe recording transactions on the blockchain, but there is no requirement addressing failure scenarios (e.g., blockchain network unavailable, transaction timeout, consensus failure). \\
-\hline
-QC-ERR-006 & Authorship & Section 1.4.3 System Boundaries & The section number 1.4.3 appears twice (pages 9 and 10) with different content, indicating a numbering or structural error. \\
-\hline
-QC-ERR-007 & Omission & Section 3.4 (Product Verification) & FR-4.1 allows customers to retrieve product lifecycle trace, but no requirement specifies system behavior when a scanned QR code is invalid, tampered, or not found in the blockchain. \\
-\hline
-QC-ERR-008 & Contradiction & Section 1.4.1 (Performance Requirements) vs Section 5.1 NFR-2 & Section 1.4.1 specifies blockchain transaction confirmation time as "<30 seconds for standard transactions". NFR-2 requires confirmation "within 10 seconds for standard operations". These targets are inconsistent. \\
-\hline
-QC-ERR-009 & Authorship & Section 5.5.3 QF-3 Tamper Resistance, Measurable Criteria & The criterion "100\% enforcement of role-based access control" is not measurable as written; it lacks a testable definition (e.g., how enforcement is verified). \\
-\hline
-QC-ERR-010 & Omission & Section 6.5 (Migration \& Transition) & While migration tools are mentioned, there are no functional requirements detailing the data migration process, validation of migrated data, or handling of migration failures. \\
-\hline
-QC-ERR-011 & Contradiction & Section 5.4 NFR-19 vs Section 6.2.5 CM-5 & NFR-19 specifies backup RPO $\leq$ 24 hours and RTO $\leq$ 4 hours. CM-5 states RTO $\leq$ 2 hours and RPO $\leq$ 30 minutes. These recovery objectives conflict. \\
-\hline
-QC-ERR-012 & Omission & Entire document & The SRS lacks a glossary or definitions section, leaving many acronyms (HSA, MOH, PDPC, etc.) undefined within the document itself. \\
-\hline
-\end{longtable}
-\endgroup
-\begin{center}
-\addtocounter{table}{-1}
-\captionof{table}{Detected QC error instances}
-\label{tab:qc-error-detection}
-\end{center}
+For readability in the main report, the consolidated error detection register is presented in \hyperref[tab:qc-error-detection]{Appendix A, Detected QC error instances}. The appendix table serves as the detailed supporting record for the findings discussed in Section~\ref{sec:qc-findings}.
 
 % =====================
 % 6 QC FINDINGS
 % =====================
 \section{QC Findings}
+\label{sec:qc-findings}
 
 \subsection{Finding Summary}
 
@@ -658,17 +525,6 @@ Kannan s/o Rajamohan & QC Auditor & Submitted by named team member \\
 % =====================
 \section{Addenda}
 
-\subsection{Repository Information}
-
-\begin{center}
-\fbox{\begin{minipage}{0.9\textwidth}
-\centering
-\textbf{PROJECT REPOSITORY}\\[2pt]
-\href{https://github.com/Spooky312/The-Abyss-Navigation-Suite-INF2113}{\uline{\nolinkurl{https://github.com/Spooky312/The-Abyss-Navigation-Suite-INF2113}}}\\[4pt]
-\textit{QC report, SRS, models, and traceability artefacts maintained under version control}
-\end{minipage}}
-\end{center}
-
 \subsection{Glossary}
 
 \begin{table}[H]
@@ -704,6 +560,162 @@ RTO & Recovery Time Objective -- maximum acceptable downtime. \\
 \end{table}
 
 % =====================
+% APPENDIX A
+% =====================
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thepage}{A-\arabic{page}}
+\section*{Appendix A: Supporting Tables}
+\phantomsection
+\addcontentsline{toc}{section}{Appendix A: Supporting Tables}
+
+\subsection*{A.1 QC Checklist}
+\addcontentsline{toc}{subsection}{A.1 QC Checklist}
+
+\begingroup
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
+\setlength{\tabcolsep}{4pt}
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{longtable}{|>{\RaggedRight\arraybackslash}p{0.08\textwidth}|>{\RaggedRight\arraybackslash}p{0.14\textwidth}|>{\RaggedRight\arraybackslash}p{0.56\textwidth}|>{\RaggedRight\arraybackslash}p{0.16\textwidth}|}
+\caption{QC inspection checklist}\label{tab:qc-checklist}\\
+\hline
+\rowcolor{tableheader}
+\textbf{Item} & \textbf{Focus} & \textbf{QC Checklist Item} & \textbf{\shortstack[l]{Inspection\\Result}} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor{tableheader}
+\textbf{Item} & \textbf{Focus} & \textbf{QC Checklist Item} & \textbf{\shortstack[l]{Inspection\\Result}} \\
+\hline
+\endhead
+\hline \multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{1. Introduction Section}} \\
+\hline
+QC1 & Completeness & Does the Introduction explicitly define the system purpose, target user base, and operational boundaries (in-scope vs. out-of-scope)? & Satisfied \\
+\hline
+QC2 & Completeness & Does the Introduction state the specific business problem and identify measurable business goals or KPIs? & Partially satisfied \\
+\hline
+QC3 & Consistency & Is the system name, project title, and version number identical across title page, headers/footers, and body? & Satisfied \\
+\hline
+
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{2. Glossary / Definitions Section}} \\
+\hline
+QC4 & Completeness & Are all domain-specific terms, acronyms, and technical abbreviations defined in a Glossary? & Not satisfied (missing) \\
+\hline
+QC5 & Relevance & Does every term defined in the Glossary appear at least once in the body? & Not applicable \\
+\hline
+QC6 & Consistency & Is each system role or entity referred to consistently using the same term throughout? & Satisfied \\
+\hline
+
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{3. Overall Description Section}} \\
+\hline
+QC7 & Completeness & Are all user classes identified with their technical expertise, access privileges, and responsibilities? & Satisfied \\
+\hline
+QC8 & Completeness & Does the SRS specify the intended operational environment (OS, browsers, hardware, network)? & Satisfied \\
+\hline
+QC9 & Consistency & Are all listed dependencies and constraints adhered to and not contradicted by later requirements? & Partially satisfied \\
+\hline
+
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{4. Functional Requirements Section}} \\
+\hline
+QC10 & Correctness & Does each requirement describe a single behaviour using precise, testable language (avoiding vague terms)? & Partially satisfied \\
+\hline
+QC11 & Testability & Does each functional requirement define trigger inputs, expected behaviour, and output/error state? & Partially satisfied \\
+\hline
+QC12 & Consistency & Is every requirement assigned a unique identifier following a consistent naming convention? & Satisfied \\
+\hline
+
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{5. Interface Requirements Section}} \\
+\hline
+QC13 & Completeness & Does the Interface section describe purpose, data exchanged, and communication method for each external interface? & Partially satisfied \\
+\hline
+QC14 & Correctness & Is the trigger condition, expected data payload, and error handling defined for each interface? & Partially satisfied \\
+\hline
+QC15 & Consistency & Does every external interface listed correspond to at least one functional requirement? & Satisfied \\
+\hline
+
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{6. Non-Functional Requirements Section}} \\
+\hline
+QC16 & Testability & Are all NFRs quantified with measurable limits (e.g., response time $\leq$ 2 sec for 95\% of queries)? & Partially satisfied \\
+\hline
+QC17 & Completeness & Does the SRS address all relevant NFR categories (performance, security, reliability, usability, maintainability)? & Satisfied \\
+\hline
+QC18 & Consistency & Do the NFRs logically align with system constraints (e.g., storage capacity consistent with data volume)? & Satisfied \\
+\hline
+
+\rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{7. Addenda / Supporting Artifacts}} \\
+\hline
+QC19 & Traceability & If an iRTM is included, does it map requirements to business goals and validation artifacts? & Satisfied \\
+\hline
+QC20 & Correctness & Does every diagram include a descriptive title, legend, and standard notation accurately representing the system? & Partially satisfied \\
+\hline
+QC21 & Consistency & Do all cross-references, figure numbers, and table citations point to correct existing sections/artifacts? & Partially satisfied \\
+\hline
+
+\end{longtable}
+\endgroup
+
+\subsection*{A.2 Error Detection Table}
+\addcontentsline{toc}{subsection}{A.2 Error Detection Table}
+
+\setcounter{table}{0}
+\begingroup
+\setlength{\LTpre}{0pt}
+\setlength{\LTpost}{0pt}
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.4}
+\begin{longtable}{|>{\RaggedRight\arraybackslash}p{0.15\textwidth}|>{\RaggedRight\arraybackslash}p{0.18\textwidth}|>{\RaggedRight\arraybackslash}p{0.25\textwidth}|>{\RaggedRight\arraybackslash}p{0.42\textwidth}|}
+\caption{Detected QC error instances}\label{tab:qc-error-detection}\\
+\hline
+\rowcolor{tableheader}
+\textbf{Error ID} & \textbf{Error Type} & \textbf{Location} & \textbf{Characteristic of Error} \\
+\hline
+\endfirsthead
+\hline
+\rowcolor{tableheader}
+\textbf{Error ID} & \textbf{Error Type} & \textbf{Location} & \textbf{Characteristic of Error} \\
+\hline
+\endhead
+\hline \multicolumn{4}{r}{{Continued on next page}} \\
+\endfoot
+\hline
+\endlastfoot
+
+QC-ERR-001 & Contradiction & Section 1.4.1 (In-Scope Deliverables, Authentication \& Security) vs Section 3.2 FR-2.6 & Section 1.4.1 requires MFA for "all user accounts", while FR-2.6 requires MFA only for "all administrative accounts". These statements directly conflict on the scope of MFA enforcement. \\
+\hline
+QC-ERR-002 & Authorship & Section 5.1 NFR-4 and NFR-7 & Duplicate word "shall" appears in both requirements: "The system shall shall complete 95\% of API responses within 2 seconds" and similar for database queries. This is a typographical error. \\
+\hline
+QC-ERR-003 & Omission & Section 3.2 (User \& Role Management) & FR-2.5 specifies account lockout after failed attempts, but no requirement exists for password reset or account recovery flow. This is a missing functional capability. \\
+\hline
+QC-ERR-004 & Authorship & Section 3.3 FR-3.9 & The term "periodic" is used without definition: "submit periodic GPS updates". The frequency or condition for updates is not specified, making the requirement ambiguous. \\
+\hline
+QC-ERR-005 & Omission & Section 3.1 (Blockchain Infrastructure) & FR-1.1 through FR-1.4 describe recording transactions on the blockchain, but there is no requirement addressing failure scenarios (e.g., blockchain network unavailable, transaction timeout, consensus failure). \\
+\hline
+QC-ERR-006 & Authorship & Section 1.4.3 System Boundaries & The section number 1.4.3 appears twice (pages 9 and 10) with different content, indicating a numbering or structural error. \\
+\hline
+QC-ERR-007 & Omission & Section 3.4 (Product Verification) & FR-4.1 allows customers to retrieve product lifecycle trace, but no requirement specifies system behavior when a scanned QR code is invalid, tampered, or not found in the blockchain. \\
+\hline
+QC-ERR-008 & Contradiction & Section 1.4.1 (Performance Requirements) vs Section 5.1 NFR-2 & Section 1.4.1 specifies blockchain transaction confirmation time as "<30 seconds for standard transactions". NFR-2 requires confirmation "within 10 seconds for standard operations". These targets are inconsistent. \\
+\hline
+QC-ERR-009 & Authorship & Section 5.5.3 QF-3 Tamper Resistance, Measurable Criteria & The criterion "100\% enforcement of role-based access control" is not measurable as written; it lacks a testable definition (e.g., how enforcement is verified). \\
+\hline
+QC-ERR-010 & Omission & Section 6.5 (Migration \& Transition) & While migration tools are mentioned, there are no functional requirements detailing the data migration process, validation of migrated data, or handling of migration failures. \\
+\hline
+QC-ERR-011 & Contradiction & Section 5.4 NFR-19 vs Section 6.2.5 CM-5 & NFR-19 specifies backup RPO $\leq$ 24 hours and RTO $\leq$ 4 hours. CM-5 states RTO $\leq$ 2 hours and RPO $\leq$ 30 minutes. These recovery objectives conflict. \\
+\hline
+QC-ERR-012 & Omission & Entire document & The SRS lacks a glossary or definitions section, leaving many acronyms (HSA, MOH, PDPC, etc.) undefined within the document itself. \\
+\hline
+\end{longtable}
+\endgroup
+
+% =====================
 % REFERENCES
 % =====================
 \clearpage
@@ -711,6 +723,7 @@ RTO & Recovery Time Objective -- maximum acceptable downtime. \\
 \setcounter{page}{1}
 \renewcommand{\thepage}{R-\arabic{page}}
 \section*{References}
+\phantomsection
 \addcontentsline{toc}{section}{References}
 \begin{itemize}[leftmargin=*,nosep]
 \item Medicare Plus, \textit{Project Specification: Smart Contract Enabled Pharmaceutical Supply Chain System}, ICT2113, 2026.
