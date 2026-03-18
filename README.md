@@ -17,19 +17,29 @@ This repository contains all regulated-revision requirements and requirements mo
 
 ```
 /
-├── requirements/
-│   ├── business-operations.md
-│   └── technical.md
+├── documents/
+│   ├── Analysing Report_1561W.pdf
+│   ├── IRC_Nevon_Solutions.pdf
+│   ├── Project Specification_1561W.pdf
+│   ├── SRS_1561W.pdf
+│   ├── iRTM.docx
+│   └── srs_template-ieee.doc
 ├── requirement-models/
 │   ├── paper-napkin-model.jpg
 │   ├── context-diagram.pdf
 │   ├── data-dictionary.md
 │   ├── ERD.pdf
-│   ├── gantt-chart.png
+│   ├── Use Case Diagram.png
+│   ├── BioSec Gantt Chart.xlsx
+│   ├── Change Request Form Template.docx
+│   ├── Nevon Risk Analysis Matrix.docx
 │   └── wireframes/
-│       ├── parent-mobile-app/
-│       ├── teacher-mobile-app/
-│       └── admin-web-portal/
+│       ├── parent-mobile-app.pdf
+│       ├── teachers-mobile-app.pdf
+│       └── Administrator Wireframes.pdf
+├── requirements/
+│   ├── bizops-requirements.md
+│   └── technical-requirements.md
 └── README.md
 ```
 
@@ -54,24 +64,24 @@ Requirements are organised by category and ready for export into the SRS.
 ## Requirements Modelling
 
 ### 2D Paper Napkin Model
-File: `requirment-models/paper-napkin-model.jpg`
+File: `requirement-models/paper-napkin-model.jpg`
 
 A conceptual sketch produced during the BC-01 Business Clarification Session on 07/02/2026. It captures the early-stage system overview discussed with stakeholders, covering biometric verification flow, notification timing logic, leave application workflow, and compliance threshold configuration. This model informed subsequent refinements to the context diagram and data structures.
 
 ### Context Diagram (Revised)
-File: `requirment-models/context-diagram.pdf`
+File: `requirement-models/context-diagram.pdf`
 
 A revised version of the Context Diagram originally provided in the BioSec Project Specification. Updated following the TC-02 Technical Clarification Session on 09/02/2026 to reflect all external system interfaces identified during analysis. The diagram shows data flows between the Biometric Student Attendance System and six external entities: Parent, Teacher, Administrator, Medical Certificate System, Firebase/APNS, Fingerprint Scanner, and School Management Database.
 
 ### Gantt Chart
-File: `requirment-models/BioSec Gantt Chart.xlsx`
+File: `requirement-models/BioSec Gantt Chart.xlsx`
 
 A project timeline chart maintained for the Project Manager, showing milestones, task durations, and delivery schedule across the full project lifecycle. 
 
 ---
 
 ### Data Dictionary Tables (Revised)
-File: `requirment-models/data-dictionary.md`
+File: `requirement-models/data-dictionary.md`
 
 A revised data dictionary updated after clarification sessions. Contains nine tables covering all core data entities. Tables C.7 (NotificationLog), C.8 (BiometricScan), and C.9 (ExternalSystemLog) are newly added to support external system integrations and clarified requirements identified during the TC-02 session.
 
