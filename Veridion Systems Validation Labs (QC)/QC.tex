@@ -59,12 +59,7 @@ citecolor=blue
 \setstretch{1.0}
 
 % =====================
-% BACKGROUND PLACEHOLDER
-% =====================
-% Replace later with background images from SRS template if required
-
-% =====================
-% Header/Footer
+% HEADER/FOOTER
 % =====================
 \pagestyle{fancy}
 \fancyhf{}
@@ -99,7 +94,7 @@ Insert QC cover background here later
 
 \large Software Requirements Specification (SRS)
 
-\large Abyss Navigator Suite Project
+\large Smart Contract Enabled Pharmaceutical Supply Chain System
 
 \vspace{0.8cm}
 
@@ -135,11 +130,10 @@ Kannan s/o Rajamohan & QC Team & QC Specialist & QC-004 \\
 \newpage
 
 % =====================
-% Table of Contents
+% TABLE OF CONTENTS
 % =====================
 \renewcommand{\contentsname}{Table of Contents}
 \thispagestyle{empty}
-
 \hypersetup{linkcolor=black}
 \tableofcontents
 \newpage
@@ -154,67 +148,49 @@ Kannan s/o Rajamohan & QC Team & QC Specialist & QC-004 \\
 % =====================
 % EXECUTIVE SUMMARY
 % =====================
-
 \section{Executive Summary}
 
-This report presents the results of a Quality Control (QC) validation of the
-Software Requirements Specification (SRS) for the \textbf{Abyss Navigator Suite}.
-The objective of this QC audit is to identify defects that remain in the SRS
-after the completion of Eliciting, Analysing, and Specifying.
+This report presents the results of a Quality Control (QC) validation of the Software Requirements Specification (SRS) for the \textbf{Smart Contract Enabled Pharmaceutical Supply Chain System}. The objective of this QC audit is to identify defects that remain in the SRS after the completion of Eliciting, Analysing, and Specifying.
 
-The audit focused on three principal categories of SRS defects expected at the
-Validating stage:
-
+The audit focused on three principal categories of SRS defects expected at the Validating stage:
 \begin{itemize}[leftmargin=*]
-\item \textbf{Authorship defects} -- where intended meanings are not expressed clearly enough
-\item \textbf{Omission defects} -- where required scenarios, conditions, or supporting content are missing
-\item \textbf{Contradiction defects} -- where different parts of the SRS imply inconsistent behaviour
+\item \textbf{Authorship defects} -- where intended meanings are not expressed clearly enough.
+\item \textbf{Omission defects} -- where required scenarios, conditions, or supporting content are missing.
+\item \textbf{Contradiction defects} -- where different parts of the SRS imply inconsistent behaviour.
 \end{itemize}
 
-The inspection found that the SRS is generally well-structured and substantively mature.
-However, a number of issues were detected in wording precision, edge-case coverage,
-control-behaviour consistency, and traceability coherence.
+The inspection found that the SRS is generally well-structured and covers most core functional areas. However, a number of issues were detected including contradictory requirements (MFA scope, blockchain confirmation time), missing exception-handling scenarios (blockchain failure, invalid QR codes, password recovery), vague statements, and typographical errors. A glossary is absent, and some cross-references are inconsistent.
 
-These findings indicate that the SRS is \textbf{conditionally acceptable}, provided that
-the identified defects are rectified before the document is baselined for downstream
-design and implementation.
+These findings indicate that the SRS is \textbf{conditionally acceptable}, subject to the customer's review of the identified defects. No recommendations for correction are provided; the customer will determine any necessary actions.
 
 % =====================
 % 1 INTRODUCTION
 % =====================
-
 \section{Introduction}
 
 \subsection{Purpose}
+This Quality Control (QC) Audit Report presents the findings of an independent inspection of the Software Requirements Specification (SRS) prepared for the \textbf{Smart Contract Enabled Pharmaceutical Supply Chain System}. The purpose of this QC activity is to identify defects remaining in the SRS work product before the project progresses into downstream stages such as system design and implementation.
 
-This Quality Control (QC) Audit Report presents the findings of an independent inspection of the Software Requirements Specification (SRS) prepared for the \textbf{Abyss Navigator Suite}. The purpose of this QC activity is to identify defects remaining in the SRS work product before the project progresses into downstream stages such as system design and implementation.
-
-In accordance with the validating stage of Requirements Engineering, QC focuses on defect detection in the \textbf{requirements work product itself}. The QC team records findings and recommended rectifications but does not directly modify the SRS.
+In accordance with the validating stage of Requirements Engineering, QC focuses on defect detection in the \textbf{requirements work product itself}. The QC team records findings but does not propose fixes; the customer determines any corrective actions.
 
 \subsection{Document Conventions}
-
-This document is an audit report rather than a replacement SRS. It records detected defects, explains their implications, and recommends rectification actions.
+This document is an audit report rather than a replacement SRS. It records detected defects and explains their implications.
 
 Audit findings use the format \texttt{QC-FND-XXX}.
-
-Rectification recommendations use the format \texttt{QC-REC-XXX}.
 
 Error detection instances use the format \texttt{QC-ERR-XXX}.
 
 \subsection{Intended Audience and Reading Suggestions}
+This report is intended for the Medicare Plus requirements engineering team, project management personnel, and relevant stakeholders involved in SRS review and approval.
 
-This report is intended for the Brigman requirements engineering team, project management personnel, and relevant Triton Deepwater stakeholders involved in SRS review and approval.
-
-Readers should begin with the Executive Summary and Sections 1--3, then proceed to the QC Checklist, Error Detection, detailed Findings, and Rectification Recommendations.
+Readers should begin with the Executive Summary and Sections 1--3, then proceed to the QC Checklist, Error Detection, and detailed Findings.
 
 \subsection{Audit Scope}
-
 The audit covers the SRS as a QC exercise. The scope includes:
-
 \begin{itemize}[leftmargin=*]
-\item detection of indiscriminate authorship defects
+\item detection of authorship defects (ambiguity, vagueness, grammatical errors)
 \item detection of latent contradictions
-\item detection of omission of topics
+\item detection of omission of topics (missing scenarios, exception paths)
 \item checking codification and traceability coherence
 \item checking structural, editorial, and presentation consistency
 \end{itemize}
@@ -222,92 +198,81 @@ The audit covers the SRS as a QC exercise. The scope includes:
 % =====================
 % 2 AUDIT BASIS
 % =====================
-
 \section{Audit Basis}
 
 \subsection{Basis of Evaluation}
-
 This QC audit was conducted on the understanding that the SRS should already be in reasonably strong condition after completion of Eliciting, Analysing, and Specifying. The purpose of QC at this stage is therefore not to rewrite the SRS, but to detect remaining defects still likely to be present in the work product.
 
 \subsection{Nature of QC}
-
-Quality Control focuses on inspecting the SRS work product itself. The QC team identifies defects but does not directly amend the SRS. Instead, the audit team produces a report that identifies defects and recommends rectifications for implementation by the requirements engineering team.
+Quality Control focuses on inspecting the SRS work product itself. The QC team identifies defects but does not directly amend the SRS. Instead, the audit team produces a report that identifies defects for consideration by the customer.
 
 \subsection{Kinds of Errors Pursued}
-
 The QC audit focuses on detecting the following major defect categories expected in the SRS at the validating stage:
-
 \begin{itemize}[leftmargin=*]
-\item \textbf{Indiscriminate side effects of authorship} -- where intended meaning appears clear to the original writers but is not expressed clearly enough in the written requirement
-\item \textbf{Latent contradictions} -- where requirements, models, or sections of the SRS may conflict with one another
-\item \textbf{Omission of topics} -- where expected requirements content, edge conditions, or supporting information is absent
-\item \textbf{Traceability coherence issues} -- where codification, source mapping, or cross-references are incomplete or unclear
-\item \textbf{Editorial and structural inconsistencies} -- where formatting, section naming, or presentation patterns weaken readability or professionalism
+\item \textbf{Indiscriminate side effects of authorship} -- where intended meaning is clear to the writers but not expressed with sufficient precision.
+\item \textbf{Latent contradictions} -- where requirements, models, or sections conflict with one another.
+\item \textbf{Omission of topics} -- where expected requirements content, edge conditions, or supporting information is absent.
+\item \textbf{Traceability coherence issues} -- where codification, source mapping, or cross-references are incomplete or unclear.
+\item \textbf{Editorial and structural inconsistencies} -- where formatting, section naming, or presentation patterns weaken readability or professionalism.
 \end{itemize}
 
 \subsection{Severity Classification}
-
 Findings are categorised according to severity:
-
 \begin{itemize}[leftmargin=*]
-\item \textbf{High} -- defect that may significantly affect interpretation, implementation, or expected system behaviour
-\item \textbf{Medium} -- defect that may introduce ambiguity or reduce clarity without fundamentally changing requirement intent
-\item \textbf{Low} -- minor editorial or structural issue that does not materially affect requirement meaning
+\item \textbf{High} -- defect that may significantly affect interpretation, implementation, or expected system behaviour.
+\item \textbf{Medium} -- defect that may introduce ambiguity or reduce clarity without fundamentally changing requirement intent.
+\item \textbf{Low} -- minor editorial or structural issue that does not materially affect requirement meaning.
 \end{itemize}
 
 \subsection{Documents Reviewed}
-
 The audit considered the following project materials as supporting references:
-
 \begin{itemize}[leftmargin=*]
-\item Software Requirements Specification (SRS)
-\item Project Specification (PS)
-\item relevant requirements models
-\item codification and iRTM sections
-\item quality model and change mitigation sections
-\item appendices and supporting traceability artefacts
+\item Software Requirements Specification (SRS) for the Smart Contract Enabled Pharmaceutical Supply Chain System, version as of 6 March 2026.
+\item Project Specification (assumed background).
+\item Relevant requirements models (context diagram, sequence diagram, architecture diagram).
+\item Codification and iRTM sections.
+\item Quality model and change mitigation sections.
+\item Appendices and supporting traceability artefacts.
 \end{itemize}
 
 % =====================
 % 3 QC PLAN
 % =====================
-
 \section{QC Plan}
 
 \subsection{Target Workproduct}
-
-The target workproduct for this QC audit is the released \textbf{Software Requirements Specification (SRS)} for the Abyss Navigator Suite project.
+The target workproduct for this QC audit is the released \textbf{Software Requirements Specification (SRS)} for the Smart Contract Enabled Pharmaceutical Supply Chain System project.
 
 \subsection{Context and Goals}
-
 The SRS is the main requirements work product produced after Analysing and Specifying. Since downstream design and implementation rely on the SRS as the controlling requirements baseline, the QC audit is conducted to provide confidence that the specification is sufficiently clear, complete, and internally consistent.
 
 The goals of this QC audit are:
-
 \begin{itemize}[leftmargin=*]
-\item to determine whether the SRS clearly and consistently represents the intended requirements
-\item to identify material defects before downstream design and implementation begin
-\item to recommend rectifications that improve correctness, completeness, coherence, and readability of the SRS
+\item to determine whether the SRS clearly and consistently represents the intended requirements.
+\item to identify material defects before downstream design and implementation begin.
+\item to document defects for customer consideration.
 \end{itemize}
 
 \subsection{Access and Audit Conditions}
-
 The QC team reviewed the released SRS and supporting project artefacts made available for audit. Access was limited to materials needed to inspect the work product and its supporting traceability and modelling references.
 
 \subsection{Inspection Techniques Used}
-
-The following investigative techniques were applied during the QC audit:
-
+The following investigative techniques, drawn from industry best practices and the lecture material, were applied during the QC audit:
 \begin{enumerate}[leftmargin=*]
-\item \textbf{Close document inspection} -- detailed reading of requirement clauses and supporting sections
-\item \textbf{Perspective-based reading} -- reviewing the SRS from likely reader viewpoints such as developer, reviewer, and stakeholder
-\item \textbf{Cross-section contradiction checking} -- comparing different SRS sections and models to detect hidden conflicts
-\item \textbf{Codification and traceability verification} -- checking requirement IDs, source links, and mapping consistency
-\item \textbf{Model-to-text consistency inspection} -- ensuring models and textual requirements express compatible meanings
-\item \textbf{Omission mapping against expected SRS topics} -- checking whether important topics, edge cases, and exception paths are sufficiently covered
+\item \textbf{Close document inspection} -- detailed reading of requirement clauses and supporting sections.
+\item \textbf{Perspective-based reading} -- reviewing the SRS from likely reader viewpoints such as developer, tester, project manager, and compliance officer.
+\item \textbf{Cross-section contradiction checking} -- comparing different SRS sections and models to detect hidden conflicts (e.g., performance targets, security scopes).
+\item \textbf{Codification and traceability verification} -- checking requirement IDs, source links, iRTM mappings, and cross-references.
+\item \textbf{Model-to-text consistency inspection} -- ensuring models (diagrams) and textual requirements express compatible meanings.
+\item \textbf{Omission mapping against expected SRS topics} -- checking whether important topics, edge cases, and exception paths are sufficiently covered (e.g., failure handling, recovery processes).
+\item \textbf{Scenario-based reading} -- testing the SRS against realistic supply-chain scenarios (order placement, product verification, blockchain outage).
+\item \textbf{Assumption reading} -- identifying assumptions that contradict documented requirements or have been rendered redundant.
+\item \textbf{Double-checking} -- verifying dates, facts, figures, and proper names for consistency.
+\item \textbf{Spellcheck and grammar review} -- using automated tools plus manual reading to catch typographical errors.
 \end{enumerate}
 
 \subsection{Work Breakdown}
+The QC audit team consisted of four members, with one member also serving as the QA auditor (not reflected in this QC report). The work was allocated as follows:
 
 \begin{table}[H]
 \centering
@@ -318,13 +283,13 @@ The following investigative techniques were applied during the QC audit:
 \rowcolor{tableheader}
 \textbf{Role} & \textbf{Assigned Member} & \textbf{Primary Responsibility} \\
 \hline
-QC Audit Lead & Muhammad Ridwan Putra Jasni & Coordinate audit activities, consolidate findings, and ensure consistency of final report writing. \\
+QC Audit Lead & Muhammad Ridwan Putra Jasni & Coordinate audit activities, consolidate findings, ensure consistency of final report, apply cross-section contradiction checking and assumption reading. \\
 \hline
-Requirements Reviewer & Lin Yuhao & Inspect operational, technology, and quality-related sections for ambiguity, contradiction, and omission. \\
+Requirements Reviewer & Lin Yuhao & Inspect operational, technology, and quality-related sections for ambiguity, contradiction, and omission; perform perspective-based reading (developer, tester) and scenario-based reading. \\
 \hline
-Traceability Reviewer & Muhammad Mikhail Bin Mazlan & Review codification, iRTM references, source mappings, and section-to-section coherence. \\
+Traceability Reviewer & Muhammad Mikhail Bin Mazlan & Review codification, iRTM references, source mappings, and section-to-section coherence; double-check all identifiers and cross-references. \\
 \hline
-Editorial and Structure Reviewer & Kannan s/o Rajamohan & Review document structure, section naming, formatting consistency, and overall presentation quality. \\
+Editorial and Structure Reviewer & Kannan s/o Rajamohan & Review document structure, section naming, formatting consistency, and overall presentation quality; conduct spellcheck and grammar review, verify figures and tables. \\
 \hline
 \end{tabularx}
 \caption{QC audit team work allocation}
@@ -332,6 +297,7 @@ Editorial and Structure Reviewer & Kannan s/o Rajamohan & Review document struct
 \end{table}
 
 \subsection{Indicative Timeline}
+The audit was conducted over a single day, with the following estimated timeline:
 
 \begin{table}[H]
 \centering
@@ -342,11 +308,11 @@ Editorial and Structure Reviewer & Kannan s/o Rajamohan & Review document struct
 \rowcolor{tableheader}
 \textbf{Stage} & \textbf{Activity} & \textbf{Indicative Duration} \\
 \hline
-Stage 1 & Individual inspection of assigned SRS sections and supporting artefacts & 2--3 hours \\
+Stage 1 & Individual inspection of assigned SRS sections using selected techniques (close reading, perspective-based, scenario-based) & 3 hours \\
 \hline
 Stage 2 & Consolidation meeting and de-duplication of identified findings & 1 hour \\
 \hline
-Stage 3 & Severity review and drafting of rectification recommendations & 1 hour \\
+Stage 3 & Severity review and documentation of findings & 1 hour \\
 \hline
 Stage 4 & Final report formatting, checking, and team sign-off & 1 hour \\
 \hline
@@ -356,16 +322,14 @@ Stage 4 & Final report formatting, checking, and team sign-off & 1 hour \\
 \end{table}
 
 \subsection{Reporting}
-
-The QC team records findings and rectification recommendations in this report. The audit team does not directly amend the audited SRS.
+The QC team records findings in this report. The audit team does not directly amend the audited SRS.
 
 % =====================
 % 4 QC CHECKLIST
 % =====================
-
 \section{QC Checklist}
 
-The following checklist was used by the QC audit team to inspect the SRS work product. The checklist items represent critical aspects of a high-quality SRS.
+The following checklist was used by the QC audit team to inspect the SRS work product. The checklist items represent critical aspects of a high-quality SRS, derived from industry standards and lecture guidelines.
 
 \begingroup
 \setlength{\LTpre}{0pt}
@@ -392,65 +356,65 @@ The following checklist was used by the QC audit team to inspect the SRS work pr
 
 \rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{1. Introduction Section}} \\
 \hline
-QC1 & Completeness & Does the Introduction explicitly define the system purpose, the target user base, and the operational boundaries (clearly stating what is in-scope vs. out-of-scope)? & \\
+QC1 & Completeness & Does the Introduction explicitly define the system purpose, target user base, and operational boundaries (in-scope vs. out-of-scope)? & Satisfied \\
 \hline
-QC2 & Completeness & Does the Introduction state the specific business problem being solved and identify the measurable business goals or key performance indicators (KPIs) the system must achieve? & \\
+QC2 & Completeness & Does the Introduction state the specific business problem and identify measurable business goals or KPIs? & Partially satisfied \\
 \hline
-QC3 & Consistency & Is the system name, project title, and version number identical across the title page, headers/footers, and all body sections without variation? & \\
+QC3 & Consistency & Is the system name, project title, and version number identical across title page, headers/footers, and body? & Satisfied \\
 \hline
 
 \rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{2. Glossary / Definitions Section}} \\
 \hline
-QC4 & Completeness & Are all domain-specific terms, acronyms, and technical abbreviations used in the text explicitly defined in the Glossary? & \\
+QC4 & Completeness & Are all domain-specific terms, acronyms, and technical abbreviations defined in a Glossary? & Not satisfied (missing) \\
 \hline
-QC5 & Relevance & Does every term defined in the Glossary appear at least once within the body of the SRS? & \\
+QC5 & Relevance & Does every term defined in the Glossary appear at least once in the body? & Not applicable \\
 \hline
-QC6 & Consistency & Is each system role or entity referred to consistently using the same term throughout the SRS (e.g., avoiding interchangeable use of "user", "customer", and "client")? & \\
+QC6 & Consistency & Is each system role or entity referred to consistently using the same term throughout? & Satisfied \\
 \hline
 
 \rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{3. Overall Description Section}} \\
 \hline
-QC7 & Completeness & Are all user classes identified with their specific technical expertise levels, access privileges, and distinct system responsibilities? & \\
+QC7 & Completeness & Are all user classes identified with their technical expertise, access privileges, and responsibilities? & Satisfied \\
 \hline
-QC8 & Completeness & Does the SRS specify the intended operational environment (e.g., supported operating systems, hardware platforms, browser requirements, or network conditions)? & \\
+QC8 & Completeness & Does the SRS specify the intended operational environment (OS, browsers, hardware, network)? & Satisfied \\
 \hline
-QC9 & Consistency & Are all listed dependencies (e.g., third-party software) and constraints (e.g., legacy system limits) adhered to and not contradicted by later functional requirements? & \\
+QC9 & Consistency & Are all listed dependencies and constraints adhered to and not contradicted by later requirements? & Partially satisfied \\
 \hline
 
 \rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{4. Functional Requirements Section}} \\
 \hline
-QC10 & Correctness & Does each requirement describe a single system behaviour using precise and testable language, avoiding vague terms such as "fast", "user-friendly", or "efficient"? & \\
+QC10 & Correctness & Does each requirement describe a single behaviour using precise, testable language (avoiding vague terms)? & Partially satisfied \\
 \hline
-QC11 & Testability & Does each functional requirement define the triggering inputs, the expected system behavior, and the resulting output or error state? & \\
+QC11 & Testability & Does each functional requirement define trigger inputs, expected behaviour, and output/error state? & Partially satisfied \\
 \hline
-QC12 & Consistency & Is every requirement assigned a unique identifier following a consistent naming convention (e.g., FR-AUTH-01)? & \\
+QC12 & Consistency & Is every requirement assigned a unique identifier following a consistent naming convention? & Satisfied \\
 \hline
 
 \rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{5. Interface Requirements Section}} \\
 \hline
-QC13 & Completeness & Does the Interface section describe the purpose, data exchanged, and communication method for each external interface (e.g., APIs, user interfaces, hardware connections)? & \\
+QC13 & Completeness & Does the Interface section describe purpose, data exchanged, and communication method for each external interface? & Partially satisfied \\
 \hline
-QC14 & Correctness & Is the trigger condition, expected data payload, and error handling defined for each interface interaction? & \\
+QC14 & Correctness & Is the trigger condition, expected data payload, and error handling defined for each interface? & Partially satisfied \\
 \hline
-QC15 & Consistency & Does every external interface listed correspond to at least one functional requirement documented in the Functional Requirements section? & \\
+QC15 & Consistency & Does every external interface listed correspond to at least one functional requirement? & Satisfied \\
 \hline
 
 \rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{6. Non-Functional Requirements Section}} \\
 \hline
-QC16 & Testability & Are all Non-Functional Requirements quantified with measurable and testable limits (e.g., response time $\leq$ 2 seconds for 95\% of queries under normal load)? & \\
+QC16 & Testability & Are all NFRs quantified with measurable limits (e.g., response time $\leq$ 2 sec for 95\% of queries)? & Partially satisfied \\
 \hline
-QC17 & Completeness & Does the SRS address all relevant Non-Functional Requirement categories (e.g., performance, security, reliability, usability, maintainability)? & \\
+QC17 & Completeness & Does the SRS address all relevant NFR categories (performance, security, reliability, usability, maintainability)? & Satisfied \\
 \hline
-QC18 & Consistency & Do the Non-Functional Requirements logically align with system constraints (e.g., required storage capacity consistent with expected data volume)? & \\
+QC18 & Consistency & Do the NFRs logically align with system constraints (e.g., storage capacity consistent with data volume)? & Satisfied \\
 \hline
 
 \rowcolor{tablerow}\multicolumn{4}{|l|}{\textbf{7. Addenda / Supporting Artifacts}} \\
 \hline
-QC19 & Traceability & If a Requirements Traceability Matrix (RTM) is included, does it map requirements to business goals and validation artifacts such as test cases? & \\
+QC19 & Traceability & If an iRTM is included, does it map requirements to business goals and validation artifacts? & Satisfied \\
 \hline
-QC20 & Correctness & Does every diagram (e.g., UML diagram, flowchart, ERD) include a descriptive title, legend, and standard notation that accurately represents the system elements described in the SRS? & \\
+QC20 & Correctness & Does every diagram include a descriptive title, legend, and standard notation accurately representing the system? & Partially satisfied \\
 \hline
-QC21 & Consistency & Do all cross-references, figure numbers, and table citations point to the correct existing sections and artifacts without broken or mismatched references? & \\
+QC21 & Consistency & Do all cross-references, figure numbers, and table citations point to correct existing sections/artifacts? & Partially satisfied \\
 \hline
 
 \end{longtable}
@@ -459,10 +423,10 @@ QC21 & Consistency & Do all cross-references, figure numbers, and table citation
 % =====================
 % 5 ERROR DETECTION
 % =====================
-
 \section{Error Detection}
 
 The QC audit identified instances of three principal QC error types: authorship, omission, and contradiction. Each detected instance is recorded with its location and characteristic.
+
 \vspace{1\baselineskip}
 \setcounter{table}{4}
 \begingroup
@@ -485,33 +449,30 @@ The QC audit identified instances of three principal QC error types: authorship,
 \endfoot
 \hline
 \endlastfoot
-QC-ERR-001 & Contradiction & Section 3.1 UR-MOB-06 vs Section 4.2 User Authentication vs Section 5.3 NFR-SEC-03 & The UI requirements say parents and teachers authentication shall include 2FA; however, the authentication feature in Section 4.2 only specifies username/password plus session token for parents/teachers, while Section 5.3 explicitly requires 2FA only for administrators. This creates conflicting statements on who actually must use 2FA. \\
+
+QC-ERR-001 & Contradiction & Section 1.4.1 (In-Scope Deliverables, Authentication \& Security) vs Section 3.2 FR-2.6 & Section 1.4.1 requires MFA for "all user accounts", while FR-2.6 requires MFA only for "all administrative accounts". These statements directly conflict on the scope of MFA enforcement. \\
 \hline
-QC-ERR-002 & Contradiction & Section 4.5 Attendance Notification & The description and stimulus/response for this feature talk only about notifications to parents, but FR-NOTIF-09 later adds teacher push notifications for attendance events. That broadens the feature scope in a way not reflected in the section description or sequence. \\
+QC-ERR-002 & Authorship & Section 5.1 NFR-4 and NFR-7 & Duplicate word "shall" appears in both requirements: "The system shall shall complete 95\% of API responses within 2 seconds" and similar for database queries. This is a typographical error. \\
 \hline
-QC-ERR-003 & Omission & Section 2.7 Assumptions and Dependencies & The SRS says data mapping specifications are a pending open issue, but Appendix B's official open issues list contains only CM-OI-01 to CM-OI-03 and does not include this data-mapping issue. So an unresolved issue is mentioned but not formally tracked. \\
+QC-ERR-003 & Omission & Section 3.2 (User \& Role Management) & FR-2.5 specifies account lockout after failed attempts, but no requirement exists for password reset or account recovery flow. This is a missing functional capability. \\
 \hline
-QC-ERR-004 & Omission & Section 4.2 User Authentication & The document states that accounts lock after failed login attempts, but there is no clear functional requirement for password reset / recovery flow for parents and teachers after lockout. Since authentication and account lockout are specified, recovery handling is a notable missing topic. \\
+QC-ERR-004 & Authorship & Section 3.3 FR-3.9 & The term "periodic" is used without definition: "submit periodic GPS updates". The frequency or condition for updates is not specified, making the requirement ambiguous. \\
 \hline
-QC-ERR-005 & Authorship & Section 1.3 Intended Audience and Reading Suggestions & The Project Manager is told to read Section 6 for the iRTM and change mitigation strategy, but those topics are actually in Section 7 and Section 8. This is a cross-reference error caused by inconsistent document wording/editing. \\
+QC-ERR-005 & Omission & Section 3.1 (Blockchain Infrastructure) & FR-1.1 through FR-1.4 describe recording transactions on the blockchain, but there is no requirement addressing failure scenarios (e.g., blockchain network unavailable, transaction timeout, consensus failure). \\
 \hline
-QC-ERR-006 & Contradiction & Section 4.4 Leave Submission vs FR-LEAVE-03 & FR-LEAVE-02 says a leave request shall not be recorded if MCS validation fails or is unresolved, but FR-LEAVE-03 says the system shall record all leave submissions with timestamp, user ID, student ID, reason, and MCS outcome. That can be read as conflicting: is a failed submission recorded as a leave request, or not recorded at all? \\
+QC-ERR-006 & Authorship & Section 1.4.3 System Boundaries & The section number 1.4.3 appears twice (pages 9 and 10) with different content, indicating a numbering or structural error. \\
 \hline
-QC-ERR-007 & Omission & Section 5.2 Safety / Section 6.1 Database / Section 8.2 Open Issues & Disaster recovery is acknowledged as dependent on unresolved RPO/RTO, but the SRS does not clearly state the actual recovery behavior, restoration sequence, or failover handling while the issue remains open. Given the importance of attendance data, the recovery topic is under-specified. \\
+QC-ERR-007 & Omission & Section 3.4 (Product Verification) & FR-4.1 allows customers to retrieve product lifecycle trace, but no requirement specifies system behavior when a scanned QR code is invalid, tampered, or not found in the blockchain. \\
 \hline
-QC-ERR-008 & Authorship & Section 5.4.1 QA-USAB-01 & The clause says “The system shall allow parent and teacher users must be able to...”, which is grammatically malformed. This is a classic authorship error where intended meaning is clear, but the exact text is poorly expressed. \\
+QC-ERR-008 & Contradiction & Section 1.4.1 (Performance Requirements) vs Section 5.1 NFR-2 & Section 1.4.1 specifies blockchain transaction confirmation time as "<30 seconds for standard transactions". NFR-2 requires confirmation "within 10 seconds for standard operations". These targets are inconsistent. \\
 \hline
-QC-ERR-009 & Omission & Section 4.3 Attendance Information Access / Section 4.6 Oversight & Attendance viewing and reporting are covered, but there is no clearly defined requirement for correction workflow when an attendance record is wrong other than the scan-failure manual override. A fuller exception-handling path for disputed records appears missing. \\
+QC-ERR-009 & Authorship & Section 5.5.3 QF-3 Tamper Resistance, Measurable Criteria & The criterion "100\% enforcement of role-based access control" is not measurable as written; it lacks a testable definition (e.g., how enforcement is verified). \\
 \hline
-QC-ERR-010 & Authorship & Section 3.1 UR-WEB-05 & The requirement is compound / incongruent because it combines multiple distinct functions in one clause: a reports screen, several report categories, and CSV/PDF export behaviour. This reduces atomicity, clarity, and testability. \\
+QC-ERR-010 & Omission & Section 6.5 (Migration \& Transition) & While migration tools are mentioned, there are no functional requirements detailing the data migration process, validation of migrated data, or handling of migration failures. \\
 \hline
-QC-ERR-011 & Authorship / Contradiction & Section 3.1 UR-WEB-06 vs Section 4.1 FR-RBAC-04 & The requirement is compound / incongruent because it combines listing users with add, edit, and delete operations in one clause. It is also potentially inconsistent with FR-RBAC-04, which specifies account deactivation and retention for audit, making the wording “delete users” questionable. \\
+QC-ERR-011 & Contradiction & Section 5.4 NFR-19 vs Section 6.2.5 CM-5 & NFR-19 specifies backup RPO $\leq$ 24 hours and RTO $\leq$ 4 hours. CM-5 states RTO $\leq$ 2 hours and RPO $\leq$ 30 minutes. These recovery objectives conflict. \\
 \hline
-QC-ERR-012 & Authorship & Section 3.3 FR-SW-02 & The requirement is compound / incongruent because it bundles timeout policy, retry behaviour, failure logging, and administrator notification into one clause. These are distinct technical behaviours expressed together rather than as atomic requirements. \\
-\hline
-QC-ERR-013 & Authorship & Section 4.1 FR-RBAC-03 & The requirement is compound / incongruent because it groups role assignment updates, credential resets, account unlocks, and change logging into one clause. These are separate administrative behaviours and reduce atomicity when kept together. \\
-\hline
-QC-ERR-014 & Authorship & Section 4.6 FR-OVS-02 & The requirement is mildly compound / incongruent because it combines threshold configuration, immediate effect of changes, and audit logging in one clause. The meaning is understandable, but it is less atomic than the surrounding requirements. \\
+QC-ERR-012 & Omission & Entire document & The SRS lacks a glossary or definitions section, leaving many acronyms (HSA, MOH, PDPC, etc.) undefined within the document itself. \\
 \hline
 \end{longtable}
 \endgroup
@@ -524,7 +485,6 @@ QC-ERR-014 & Authorship & Section 4.6 FR-OVS-02 & The requirement is mildly comp
 % =====================
 % 6 QC FINDINGS
 % =====================
-
 \section{QC Findings}
 
 \subsection{Finding Summary}
@@ -538,15 +498,19 @@ QC-ERR-014 & Authorship & Section 4.6 FR-OVS-02 & The requirement is mildly comp
 \rowcolor{tableheader}
 \textbf{Finding ID} & \textbf{Type} & \textbf{Severity} & \textbf{Short Description} \\
 \hline
-QC-FND-001 & Authorship defect & Medium & Some requirement statements remain broad enough that different technically competent readers may interpret them differently. \\
+QC-FND-001 & Contradiction & High & Conflicting statements about MFA requirements (all users vs. only administrators). \\
 \hline
-QC-FND-002 & Latent contradiction & High & Certain statements imply autonomous behaviour by default while other statements imply supervisory or intervention behaviour that may conflict with that autonomy. \\
+QC-FND-002 & Contradiction & High & Inconsistent blockchain confirmation time targets (30 seconds vs. 10 seconds). \\
 \hline
-QC-FND-003 & Omission of topic & High & Exceptional scenarios, boundary conditions, and failure-state handling are not always specified to the same depth as normal operations. \\
+QC-FND-003 & Contradiction & High & Conflicting RPO/RTO values between NFR-19 and CM-5. \\
 \hline
-QC-FND-004 & Traceability coherence & Medium & Some links between requirements, models, and traceability references would benefit from tighter one-to-one clarity. \\
+QC-FND-004 & Omission & High & Missing exception handling for blockchain failures, invalid QR codes, password recovery, and migration failure. \\
 \hline
-QC-FND-005 & Editorial / structural consistency & Low & Minor inconsistencies in naming, formatting, and section presentation reduce document professionalism and readability. \\
+QC-FND-005 & Omission & Medium & No glossary or definitions section; acronyms undefined within SRS. \\
+\hline
+QC-FND-006 & Authorship & Medium & Vague or ambiguous terms (e.g., "periodic") and non-measurable criteria. \\
+\hline
+QC-FND-007 & Authorship & Low & Typographical errors (duplicate "shall") and structural inconsistencies (duplicate section heading). \\
 \hline
 \end{tabularx}
 \caption{Summary of QC findings}
@@ -555,129 +519,111 @@ QC-FND-005 & Editorial / structural consistency & Low & Minor inconsistencies in
 
 \subsection{Detailed Findings}
 
-\subsubsection*{QC-FND-001: Ambiguity caused by authorship side effects}
+\subsubsection*{QC-FND-001: Contradiction in Multi-Factor Authentication Scope}
 \textbf{Related error detection:} QC-ERR-001 \\
-\textbf{Type:} Authorship defect \\
-\textbf{Severity:} Medium
-
-\textbf{Context.} The relevant requirement text is intended to support remote intervention behaviour under constrained communications.
-
-\textbf{Result.} The wording remains broad enough that two competent readers may derive slightly different implementation expectations.
-
-\textbf{Analysis.} This is characteristic of authorship-side defects in which intended meaning is clear to the writers but not expressed with sufficient precision in the written requirement.
-
-\textbf{Message.} Rewrite the affected statements to improve measurability, precision, and trigger conditions without changing the original intended requirement meaning.
-
-\subsubsection*{QC-FND-002: Possible contradiction between autonomous and supervised behaviour}
-\textbf{Related error detection:} QC-ERR-002 \\
-\textbf{Type:} Latent contradiction \\
+\textbf{Type:} Contradiction \\
 \textbf{Severity:} High
 
-\textbf{Context.} The SRS strongly emphasises autonomous operation as a core business and technical expectation.
+\textbf{Context.} Section 1.4.1 (In-Scope Deliverables) states that MFA is required for "all user accounts". Section 3.2 FR-2.6 limits MFA to "all administrative accounts".
 
-\textbf{Result.} Other passages also imply human intervention or supervision behaviour that could be interpreted differently depending on operational circumstances.
+\textbf{Result.} A developer or implementer cannot determine whether non-administrative users (e.g., suppliers, transporters, customers) must use MFA.
 
-\textbf{Analysis.} This creates a latent contradiction because the control precedence between autonomy and supervision is not yet expressed with sufficient singularity.
+\textbf{Analysis.} These two statements are mutually exclusive; one must be incorrect or the scope must be clarified. This is a latent contradiction that will lead to inconsistent implementation unless resolved.
 
-\textbf{Message.} Introduce a single, explicit control hierarchy defining default autonomy, intervention thresholds, takeover conditions, and precedence during abnormal or emergency states.
-
-\subsubsection*{QC-FND-003: Incomplete treatment of exception and edge scenarios}
-\textbf{Related error detection:} QC-ERR-003 \\
-\textbf{Type:} Omission of topic \\
+\subsubsection*{QC-FND-002: Contradiction in Blockchain Transaction Confirmation Time}
+\textbf{Related error detection:} QC-ERR-008 \\
+\textbf{Type:} Contradiction \\
 \textbf{Severity:} High
 
-\textbf{Context.} Normal operating behaviour is generally specified more strongly than abnormal, degraded, or edge-case operation.
+\textbf{Context.} Section 1.4.1 (Performance Requirements) specifies blockchain transaction confirmation as "<30 seconds for standard transactions". Section 5.1 NFR-2 requires confirmation "within 10 seconds for standard operations".
 
-\textbf{Result.} Some failure and recovery conditions are not described to the same depth as ordinary operating behaviour.
+\textbf{Result.} Two different performance targets exist for the same operation, creating ambiguity for design and testing.
 
-\textbf{Analysis.} This omission creates a completeness risk because downstream design and implementation may fill the gaps using assumptions rather than agreed requirements.
+\textbf{Analysis.} The SRS provides conflicting non-functional requirements. The customer must decide which target is correct.
 
-\textbf{Message.} Add explicit clauses or elaborations covering exception paths, degraded states, recovery boundaries, timeout conditions, and data-loss contingencies.
+\subsubsection*{QC-FND-003: Contradiction in Recovery Objectives}
+\textbf{Related error detection:} QC-ERR-011 \\
+\textbf{Type:} Contradiction \\
+\textbf{Severity:} High
 
-\subsubsection*{QC-FND-004: Traceability and codification tightening needed}
-\textbf{Related error detection:} QC-ERR-004 \\
-\textbf{Type:} Traceability coherence \\
+\textbf{Context.} NFR-19 (Section 5.4) sets RPO $\leq$ 24 hours and RTO $\leq$ 4 hours. CM-5 (Section 6.2.5) sets RTO $\leq$ 2 hours and RPO $\leq$ 30 minutes.
+
+\textbf{Result.} These values are significantly different and cannot both be true.
+
+\textbf{Analysis.} The SRS contains contradictory disaster recovery targets, which will confuse architects and operators.
+
+\subsubsection*{QC-FND-004: Omission of Critical Exception and Edge Cases}
+\textbf{Related error detection:} QC-ERR-003, QC-ERR-005, QC-ERR-007, QC-ERR-010 \\
+\textbf{Type:} Omission \\
+\textbf{Severity:} High
+
+\textbf{Context.} The SRS specifies normal operational behaviour but omits several important exception scenarios:
+\begin{itemize}
+\item No password reset/recovery process despite account lockout.
+\item No handling of blockchain unavailability or transaction failure.
+\item No behaviour defined for invalid or tampered QR codes during product verification.
+\item No detailed requirements for data migration validation or failure handling.
+\end{itemize}
+
+\textbf{Result.} Downstream design and implementation may fill these gaps with assumptions, leading to inconsistent or incorrect system behaviour in edge cases.
+
+\textbf{Analysis.} These omissions represent significant completeness risks, particularly in a regulatory and safety-critical domain.
+
+\subsubsection*{QC-FND-005: Missing Glossary}
+\textbf{Related error detection:} QC-ERR-012 \\
+\textbf{Type:} Omission \\
 \textbf{Severity:} Medium
 
-\textbf{Context.} The SRS includes codification and traceability mechanisms intended to support downstream auditability.
+\textbf{Context.} The SRS contains numerous acronyms (HSA, MOH, PDPC, IMDA, GMP, RPO, RTO, etc.) but provides no glossary or definitions section.
 
-\textbf{Result.} Some areas would benefit from stronger one-to-one linking between requirements, models, and verification references.
+\textbf{Result.} Readers unfamiliar with the domain may misinterpret requirements.
 
-\textbf{Analysis.} Auditability improves when each requirement is linked clearly to source clauses, supporting models, and traceability references.
+\textbf{Analysis.} Including a glossary is a standard practice to ensure clarity and shared understanding.
 
-\textbf{Message.} Review all requirement IDs, source mappings, use-case links, and iRTM references to ensure consistency, completeness, and unambiguous downstream tracing.
+\subsubsection*{QC-FND-006: Ambiguous and Non-Measurable Requirements}
+\textbf{Related error detection:} QC-ERR-004, QC-ERR-009 \\
+\textbf{Type:} Authorship \\
+\textbf{Severity:} Medium
 
-\subsubsection*{QC-FND-005: Minor presentation and naming inconsistencies}
-\textbf{Related error detection:} QC-ERR-005 \\
-\textbf{Type:} Editorial / structural consistency \\
+\textbf{Context.} Several requirements use vague or undefined terms:
+\begin{itemize}
+\item FR-3.9: "periodic GPS updates" -- frequency not specified.
+\item QF-3 Measurable Criteria: "100\% enforcement of role-based access control" -- lacks testable definition.
+\end{itemize}
+
+\textbf{Result.} These requirements cannot be verified objectively and may be interpreted differently by different stakeholders.
+
+\textbf{Analysis.} The intended meaning is clear to the authors, but the written statements lack precision needed for implementation and testing.
+
+\subsubsection*{QC-FND-007: Editorial and Structural Inconsistencies}
+\textbf{Related error detection:} QC-ERR-002, QC-ERR-006 \\
+\textbf{Type:} Authorship \\
 \textbf{Severity:} Low
 
-\textbf{Context.} The SRS is generally well structured and professionally presented.
+\textbf{Context.} Minor errors reduce document professionalism:
+\begin{itemize}
+\item Duplicate "shall" in NFR-4 and NFR-7.
+\item Duplicate section heading 1.4.3 appearing twice with different content.
+\end{itemize}
 
-\textbf{Result.} Some presentation details such as repeated heading styles, naming patterns, and table conventions can still be improved.
+\textbf{Result.} While these do not affect requirement meaning, they detract from readability and suggest insufficient editorial review.
 
-\textbf{Analysis.} While not materially changing requirement meaning, such inconsistencies weaken readability and professionalism.
-
-\textbf{Message.} Standardise section naming, heading capitalisation, cross-reference style, and table formatting throughout the document.
-
-% =====================
-% 7 RECTIFICATION RECOMMENDATIONS
-% =====================
-
-\section{Rectification Recommendations}
-
-\subsection{Priority Rectification Actions}
-
-Based on the defects identified during the QC inspection, the following rectification actions are recommended in priority order:
-
-\begin{enumerate}[leftmargin=*]
-\item resolve the autonomy-versus-intervention contradiction by introducing explicit control precedence
-\item strengthen edge-case and exception-path coverage
-\item revise ambiguous wording in measurable requirements
-\item tighten codification and traceability mappings
-\item standardise presentation and editorial consistency
-\end{enumerate}
-
-\subsection{Recommended Ownership of Corrections}
-
-\begin{table}[H]
-\centering
-\small
-\renewcommand{\arraystretch}{1.4}
-\begin{tabularx}{\textwidth}{|p{0.16\textwidth}|p{0.28\textwidth}|X|}
-\hline
-\rowcolor{tableheader}
-\textbf{Recommendation ID} & \textbf{Owner} & \textbf{Action} \\
-\hline
-QC-REC-001 & Requirements Engineering Lead & Coordinate revision of all high-severity findings and confirm alignment with customer intent. \\
-\hline
-QC-REC-002 & Requirements Review Team & Reword ambiguous requirements and add omitted exception-handling clauses. \\
-\hline
-QC-REC-003 & Traceability Reviewer & Recheck codification, source mapping, use-case links, and iRTM consistency. \\
-\hline
-QC-REC-004 & Editorial Reviewer & Apply consistent formatting, naming, and reference conventions. \\
-\hline
-\end{tabularx}
-\caption{Recommended ownership of rectification actions}
-\label{tab:qc-recommendations}
-\end{table}
+\textbf{Analysis.} Such errors are typical of early-stage documents and can be easily corrected.
 
 % =====================
-% 8 CONCLUSION
+% 7 CONCLUSION
 % =====================
-
 \section{Conclusion}
 
-The QC audit concludes that the Software Requirements Specification is substantively mature and reflects strong work carried out during the earlier Requirements Engineering stages. However, the document still contains defects typical of the validating stage, particularly in the areas of authorship side effects, latent contradictions, omission of edge topics, and traceability tightness.
+The QC audit concludes that the Software Requirements Specification is substantively mature and reflects strong work carried out during the earlier Requirements Engineering stages. However, the document still contains defects typical of the validating stage, particularly in the areas of contradictions (MFA scope, performance targets, recovery objectives), omissions (exception handling, recovery processes, glossary), and authorship clarity (vague terms, editorial errors).
 
-The QC team does not directly modify the SRS. Instead, the findings and rectification recommendations documented in this report should be implemented by the requirements engineering team to strengthen document clarity, completeness, and internal coherence before the SRS is baselined for downstream development.
+The QC team does not directly modify the SRS. Instead, the findings documented in this report are presented for customer consideration. The customer will determine what actions, if any, should be taken to address the identified defects.
 
-Overall, the SRS is assessed as \textbf{conditionally acceptable subject to rectification of the identified findings}.
+Overall, the SRS is assessed as \textbf{conditionally acceptable}, pending customer review and resolution of the findings.
 
 % =====================
-% 9 SIGN-OFF
+% 8 SIGN-OFF
 % =====================
-
 \section{Sign-off}
 
 \subsection{QC Audit Team Authentication}
@@ -705,9 +651,8 @@ Kannan s/o Rajamohan & QC Auditor & Submitted by named team member \\
 \end{table}
 
 % =====================
-% 10 ADDENDA
+% 9 ADDENDA
 % =====================
-
 \section{Addenda}
 
 \subsection{Repository Information}
@@ -744,13 +689,66 @@ Contradiction defect & Defect in which different parts of the SRS imply inconsis
 \hline
 Traceability coherence & The degree to which requirements, models, sources, and references link together clearly and consistently. \\
 \hline
+MFA & Multi-Factor Authentication. \\
+\hline
+RPO & Recovery Point Objective -- maximum acceptable age of files restored from backup. \\
+\hline
+RTO & Recovery Time Objective -- maximum acceptable downtime. \\
+\hline
 \end{tabularx}
 \caption{QC glossary addendum}
 \label{tab:qc-glossary}
 \end{table}
 
 % =====================
-% References
+% 10 AI REVIEW
+% =====================
+\section{AI Review}
+
+The following prompts were used with an AI assistant during the QC audit process to assist in identifying potential defects. The responses provided by the AI were considered alongside manual inspection.
+
+\subsection*{Prompt 1}
+\textit{"Review the attached SRS for contradictions in security requirements, particularly around multi-factor authentication (MFA)."}
+
+\textbf{AI Response:}
+\begin{quote}
+In Section 1.4.1 (In-Scope Deliverables), under "Authentication \& Security", it states: "Multi-factor authentication (MFA) for all user accounts with SMS/email OTP support." However, Section 3.2 FR-2.6 says: "The system shall enforce multi-factor authentication (MFA) for all administrative accounts." This is a direct contradiction: the first requires MFA for all users, the second only for administrators. This inconsistency needs resolution.
+\end{quote}
+
+\subsection*{Prompt 2}
+\textit{"Identify any missing exception-handling requirements in the blockchain transaction recording functional requirements."}
+
+\textbf{AI Response:}
+\begin{quote}
+FR-1.1 to FR-1.4 describe recording transactions, validating hash integrity, executing smart contracts, and viewing records. There is no requirement addressing failures such as blockchain network unavailability, transaction timeout, consensus failure, or retry logic. These omissions could lead to undefined system behavior in degraded modes.
+\end{quote}
+
+\subsection*{Prompt 3}
+\textit{"Point out any vague or undefined terms in the functional requirements."}
+
+\textbf{AI Response:}
+\begin{quote}
+FR-3.9 states: "The system shall allow Transporters to submit periodic GPS updates during shipment transit." The term "periodic" is not defined; it could mean every minute, every hour, or upon specific events. This ambiguity should be resolved by specifying a frequency or trigger condition.
+\end{quote}
+
+\subsection*{Prompt 4}
+\textit{"Check for inconsistencies in performance targets across the document."}
+
+\textbf{AI Response:}
+\begin{quote}
+Section 1.4.1 (Performance Requirements) states blockchain transaction confirmation should be "<30 seconds for standard transactions". Section 5.1 NFR-2 requires confirmation "within 10 seconds for standard operations". These are conflicting values and must be aligned.
+\end{quote}
+
+\subsection*{Prompt 5}
+\textit{"Identify any typographical or formatting errors."}
+
+\textbf{AI Response:}
+\begin{quote}
+In Section 5.1, NFR-4 and NFR-7 both contain a duplicated word: "shall shall complete". Also, Section 1.4.3 appears twice (pages 9 and 10) with different content, indicating a numbering error.
+\end{quote}
+
+% =====================
+% REFERENCES
 % =====================
 \clearpage
 \pagenumbering{arabic}
@@ -759,8 +757,8 @@ Traceability coherence & The degree to which requirements, models, sources, and 
 \section*{References}
 \addcontentsline{toc}{section}{References}
 \begin{itemize}[leftmargin=*,nosep]
-\item Triton Deepwater, \textit{Project Specification: The Abyss Navigator Suite}, ICT2113, 2026.
-\item Brigman Deep Sea Technology, \textit{Software Requirements Specification (SRS): Abyss Navigator Suite}, 2026.
+\item Medicare Plus, \textit{Project Specification: Smart Contract Enabled Pharmaceutical Supply Chain System}, ICT2113, 2026.
+\item Brigman Deep Sea Technology, \textit{Software Requirements Specification (SRS): Smart Contract Enabled Pharmaceutical Supply Chain System}, 2026.
 \item Kevin Anthony Jones, \textit{Labtorial Guide for Class Project: Reqrs now \& near future}, Dec 2025.
 \item Kevin Anthony Jones, \textit{Rubric for Assessment of Validating Report}, Mar 2026.
 \item Karl E. Wiegers, \textit{Software Requirements Specification Template}, 1999.
