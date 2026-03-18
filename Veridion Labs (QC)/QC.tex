@@ -14,6 +14,7 @@
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{graphicx}
+\usepackage{eso-pic}
 \usepackage{fancyhdr}
 \usepackage{tabularx}
 \usepackage{booktabs}
@@ -59,11 +60,20 @@ citecolor=blue
 \setstretch{1.0}
 
 % =====================
+% BACKGROUND IMAGES SETUP
+% =====================
+\AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \includegraphics[width=\paperwidth,height=\paperheight]{VL Letterhead.pdf}%
+  }%
+}
+
+% =====================
 % HEADER/FOOTER
 % =====================
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\textbf{Veridion Systems Validation Labs}}
+\lhead{\textbf{Veridion Labs}}
 \rhead{Quality Control (QC) Audit Report}
 \cfoot{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
@@ -81,14 +91,7 @@ citecolor=blue
 \newgeometry{top=5.2cm,left=0.9in,right=0.9in,bottom=1.2in}
 
 \begin{center}
-
-{\Large\fbox{\parbox{0.72\textwidth}{\centering
-\vspace{0.3cm}
-\textbf{BACKGROUND PLACEHOLDER}\\
-Insert QC cover background here later
-\vspace{0.3cm}}}}
-
-\vspace{1cm}
+\includegraphics[width=0.8\textwidth]{VL Logo.png}\\[0.5cm]
 
 \LARGE\textbf{Quality Control (QC) Audit Report}
 
@@ -98,7 +101,7 @@ Insert QC cover background here later
 
 \vspace{0.8cm}
 
-\textbf{\Large Veridion Systems Validation Labs}
+\textbf{\Large Veridion Labs}
 
 \today
 
@@ -122,7 +125,7 @@ Muhammad Mikhail Bin Mazlan & QC Team & QC Specialist & QC-003 \\
 Kannan s/o Rajamohan & QC Team & QC Specialist & QC-004 \\
 \hline
 \end{tabular}
-\caption{QC Team -- Veridion Systems Validation Labs}
+\caption{QC Team -- Veridion Labs}
 \label{tab:qc-team}
 \end{table}
 
@@ -699,53 +702,6 @@ RTO & Recovery Time Objective -- maximum acceptable downtime. \\
 \caption{QC glossary addendum}
 \label{tab:qc-glossary}
 \end{table}
-
-% =====================
-% 10 AI REVIEW
-% =====================
-\section{AI Review}
-
-The following prompts were used with an AI assistant during the QC audit process to assist in identifying potential defects. The responses provided by the AI were considered alongside manual inspection.
-
-\subsection*{Prompt 1}
-\textit{"Review the attached SRS for contradictions in security requirements, particularly around multi-factor authentication (MFA)."}
-
-\textbf{AI Response:}
-\begin{quote}
-In Section 1.4.1 (In-Scope Deliverables), under "Authentication \& Security", it states: "Multi-factor authentication (MFA) for all user accounts with SMS/email OTP support." However, Section 3.2 FR-2.6 says: "The system shall enforce multi-factor authentication (MFA) for all administrative accounts." This is a direct contradiction: the first requires MFA for all users, the second only for administrators. This inconsistency needs resolution.
-\end{quote}
-
-\subsection*{Prompt 2}
-\textit{"Identify any missing exception-handling requirements in the blockchain transaction recording functional requirements."}
-
-\textbf{AI Response:}
-\begin{quote}
-FR-1.1 to FR-1.4 describe recording transactions, validating hash integrity, executing smart contracts, and viewing records. There is no requirement addressing failures such as blockchain network unavailability, transaction timeout, consensus failure, or retry logic. These omissions could lead to undefined system behavior in degraded modes.
-\end{quote}
-
-\subsection*{Prompt 3}
-\textit{"Point out any vague or undefined terms in the functional requirements."}
-
-\textbf{AI Response:}
-\begin{quote}
-FR-3.9 states: "The system shall allow Transporters to submit periodic GPS updates during shipment transit." The term "periodic" is not defined; it could mean every minute, every hour, or upon specific events. This ambiguity should be resolved by specifying a frequency or trigger condition.
-\end{quote}
-
-\subsection*{Prompt 4}
-\textit{"Check for inconsistencies in performance targets across the document."}
-
-\textbf{AI Response:}
-\begin{quote}
-Section 1.4.1 (Performance Requirements) states blockchain transaction confirmation should be "<30 seconds for standard transactions". Section 5.1 NFR-2 requires confirmation "within 10 seconds for standard operations". These are conflicting values and must be aligned.
-\end{quote}
-
-\subsection*{Prompt 5}
-\textit{"Identify any typographical or formatting errors."}
-
-\textbf{AI Response:}
-\begin{quote}
-In Section 5.1, NFR-4 and NFR-7 both contain a duplicated word: "shall shall complete". Also, Section 1.4.3 appears twice (pages 9 and 10) with different content, indicating a numbering error.
-\end{quote}
 
 % =====================
 % REFERENCES
