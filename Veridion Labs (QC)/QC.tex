@@ -175,17 +175,8 @@ This Quality Control (QC) Audit Report presents the findings of an independent i
 
 In accordance with the validating stage of Requirements Engineering, QC focuses on defect detection in the \textbf{requirements work product itself}. The QC team records findings but does not propose fixes; the customer determines any corrective actions.
 
-\subsection{Document Conventions}
-This document is an audit report rather than a replacement SRS. It records detected defects and explains their implications.
-
-Audit findings use the format \texttt{QC-FND-XXX}.
-
-Error detection instances use the format \texttt{QC-ERR-XXX}.
-
-\subsection{Intended Audience and Reading Suggestions}
-This report is intended for the BioSec Educational Institution requirements engineering team, project management personnel, and relevant stakeholders involved in SRS review and approval.
-
-Readers should begin with the Executive Summary and Sections 1--3, then proceed to the QC Checklist, Error Detection, and detailed Findings.
+\subsection{Document Conventions and Intended Audience}
+This document is an audit report rather than a replacement SRS. It records detected defects and explains their implications. Audit findings use the format \texttt{QC-FND-XXX} and error detection instances use the format \texttt{QC-ERR-XXX}. This report is intended for the BioSec requirements engineering team, project management personnel, and relevant stakeholders. Readers should begin with the Executive Summary and Sections 1--3, then proceed to the QC Checklist, Error Detection, and detailed Findings.
 
 \subsection{Audit Scope}
 The audit covers the SRS (NS-SRS-2026-001) as a QC exercise. The scope includes:
@@ -240,27 +231,10 @@ The SRS serves as the contractual baseline for all downstream design, developmen
 The QC team reviewed the released SRS document and all supporting artefacts provided for audit, including diagrams, appendices, the iRTM, and change mitigation strategies.
 
 \subsection{Inspection Techniques Used}
-\begin{enumerate}[leftmargin=*, nosep]
-\item Close document inspection
-\item Perspective-based reading (developer, tester, PM, compliance officer)
-\item Cross-section contradiction checking
-\item Codification and traceability verification
-\item Model-to-text consistency inspection
-\item Omission mapping against expected SRS topics
-\item Scenario-based reading (biometric attendance and leave management scenarios)
-\item Assumption reading
-\item Double-checking dates, facts, figures, and identifiers
-\item Spellcheck and grammar review
-\end{enumerate}
+The QC audit employed investigative techniques organised by the error type each technique targets: authorship detection, omissions detection, and contradictions detection. The full mapping of techniques to error types is presented in \hyperref[tab:qc-techniques]{Appendix A, Table A-3: Inspection Techniques Used}.
 
-\subsection{Work Breakdown}
-Team roles and responsibilities are detailed in \hyperref[tab:qc-wbs]{Appendix A, Table A-1: QC Audit Team Work Allocation}.
-
-\subsection{Indicative Timeline}
-The audit schedule is shown in \hyperref[tab:qc-timeline]{Appendix A, Table A-2: Indicative QC Audit Timeline}.
-
-\subsection{Reporting}
-The QC team records findings in this report; the audit team does not amend the SRS.
+\subsection{Work Breakdown, Timeline, and Reporting}
+Team roles and responsibilities are detailed in \hyperref[tab:qc-wbs]{Appendix A, Table A-1: QC Audit Team Work Allocation}. The audit schedule is shown in \hyperref[tab:qc-timeline]{Appendix A, Table A-2: Indicative QC Audit Timeline}. The QC team records findings in this report; the audit team does not amend the SRS.
 
 % =====================
 % 4 QC CHECKLIST
@@ -433,13 +407,9 @@ RBAC is one of the most frequently referenced acronyms in the SRS but is absent 
 % =====================
 \section{Conclusion}
 
-The QC audit concludes that the Software Requirements Specification for the Biometric Student Attendance System is substantively well-structured and reflects considerable work carried out during the earlier Requirements Engineering stages. The SRS demonstrates thorough coverage of functional areas including biometric scanning, leave management, compliance monitoring, notification delivery, and traceability.
+The SRS is substantively well-structured with thorough coverage of core functional areas. However, the audit identified 12 findings across three defect types, including high-severity contradictions in 2FA scope and attendance status terminology, and high-severity omissions for biometric enrolment, password recovery, and offline limit handling. The findings are presented for BioSec's consideration; the QC team does not amend the SRS.
 
-However, the document contains defects typical of the validating stage. Two high-severity contradictions were identified -- the scope of 2FA enforcement and the inconsistency in attendance status terminology between the UI requirements and the data dictionary -- both of which will directly impact implementation correctness. Three high-severity omissions were found concerning the biometric enrolment process, the absence of a password recovery mechanism, and undefined behaviour at the offline mode limit. Additional medium and low severity authorship and omission defects were also detected.
-
-The QC team does not directly modify the SRS. Instead, the findings documented in this report are presented for BioSec's consideration. The customer will determine what actions, if any, should be taken to address the identified defects.
-
-Overall, the SRS is assessed as \textbf{conditionally acceptable}, pending customer review and resolution of the findings.
+Overall, the SRS is assessed as \textbf{conditionally acceptable}, pending customer review and resolution of the identified defects.
 
 % =====================
 % 8 SIGN-OFF
@@ -457,13 +427,13 @@ Overall, the SRS is assessed as \textbf{conditionally acceptable}, pending custo
 \rowcolor{tableheader}
 \textbf{Name} & \textbf{Role} & \textbf{Authentication} \\
 \hline
-Muhammad Ridwan Putra Jasni & QC Audit Lead & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Brigman/Signatures/signature_ridwan.jpg}} \\
+Muhammad Ridwan Putra Jasni & QC Audit Lead & \makebox[\linewidth][c]{\includegraphics[height=0.9cm]{../Brigman/Signatures/signature_ridwan.jpg}} \\
 \hline
-Lin Yuhao & QC Auditor & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Brigman/Signatures/signature_yuhao.jpg}} \\
+Lin Yuhao & QC Auditor & \makebox[\linewidth][c]{\includegraphics[height=0.9cm]{../Brigman/Signatures/signature_yuhao.jpg}} \\
 \hline
-Muhammad Mikhail Bin Mazlan & QC Auditor & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Brigman/Signatures/signature_mikhail.jpg}} \\
+Muhammad Mikhail Bin Mazlan & QC Auditor & \makebox[\linewidth][c]{\includegraphics[height=0.9cm]{../Brigman/Signatures/signature_mikhail.jpg}} \\
 \hline
-Kannan s/o Rajamohan & QC Auditor & \makebox[\linewidth][c]{\includegraphics[height=1.2cm]{../Brigman/Signatures/signature_kannan.jpg}} \\
+Kannan s/o Rajamohan & QC Auditor & \makebox[\linewidth][c]{\includegraphics[height=0.9cm]{../Brigman/Signatures/signature_kannan.jpg}} \\
 \hline
 \end{tabular}
 \caption{QC Audit Team Sign-Off}
@@ -574,6 +544,43 @@ Stage 4 & Final report formatting, checking, and team sign-off & 1 hour \\
 \end{tabularx}
 \caption*{Table A-2: Indicative QC Audit Timeline}
 \label{tab:qc-timeline}
+\end{table}
+
+\subsection*{A.3 Inspection Techniques Used}
+\addcontentsline{toc}{subsection}{A.3 Inspection Techniques Used}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\textwidth}{|X|p{0.35\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Technique} & \textbf{Error Type Targeted} \\
+\hline
+Close document inspection & \multirow{3}{*}{Authorship Detection} \\
+\cline{1-1}
+Spellcheck and grammar review & \\
+\cline{1-1}
+Double-checking dates, facts, figures, and identifiers & \\
+\hline
+Skimming (top-down \& bottom-up) & \multirow{4}{*}{Omissions Detection} \\
+\cline{1-1}
+Assumption reading & \\
+\cline{1-1}
+Scenario-based reading & \\
+\cline{1-1}
+Perspective-based reading & \\
+\hline
+Cross-section contradiction checking & \multirow{3}{*}{Contradictions Detection} \\
+\cline{1-1}
+Persona-based reading & \\
+\cline{1-1}
+Codification and traceability verification & \\
+\hline
+\end{tabularx}
+\caption*{Table A-3: Inspection Techniques Used}
+\label{tab:qc-techniques}
 \end{table}
 
 % =====================
