@@ -40,9 +40,12 @@ standalone extractable file, and a change management template exists in
 the repository. The Validating phase yields one resolved non-conformance
 (QA-V-01: BioSec customer sign-off confirmed by NS-DECL-2026-001
 committed to the repository) and one open item (QA-V-02: no documentary
-evidence of editorial checks was found). The QC team process remains
-unconfirmed: no QC plan, checklist, or findings report was located in
-the repository or in any artefact supplied to this audit.
+evidence of editorial checks was found). The QC team process is now
+confirmed from Veridion Labs artefacts: a documented QC plan, checklist,
+and recorded findings are present in `Veridion Labs (QC)\QC.tex`. The QC
+inspection recorded twelve findings (QC-FND-001 to QC-FND-012), and the
+SRS was assessed by QC as **conditionally acceptable** pending BioSec
+review.
 
 ---
 
@@ -189,12 +192,12 @@ signed declarations, interview records, and process self-checks.
 | C2 | Is there evidence of a spell check? | M3 | Partial | SRS\_1561W.pdf Declaration page | No documentary evidence found; QA-V-02 open |
 | C3 | Is there evidence of a grammar check? | M3 | Partial | SRS\_1561W.pdf Declaration page | No documentary evidence found; QA-V-02 open |
 | C4 | Is there evidence of an editorial check? | M3 | Partial | SRS\_1561W.pdf Declaration page | No documentary evidence found; QA-V-02 open |
-| D1 | Does the QC team have a written plan for their review? | M3 | Missing | Repository inspection | No QC plan located in repository or artefacts supplied |
-| D2 | Does the QC team have a checklist (similar to an IRC)? | M3 | Missing | Repository inspection | No QC checklist located |
-| D3 | Did the QC team check for Scenario errors? | M3 | Missing | Repository inspection | No QC findings report located |
-| D4 | Did the QC team check for Persona errors? | M3 | Missing | Repository inspection | No QC findings report located |
-| D5 | Did the QC team check for Assumption errors? | M3 | Missing | Repository inspection | No QC findings report located |
-| D6 | Did the QC team save their findings? | M3 | Missing | Repository inspection | No QC findings report located |
+| D1 | Does the QC team have a written plan for their review? | M3 | Pass | Veridion Labs (QC)\QC.tex Section 3; Appendix A (Table A.1, A.2) | Written QC plan, work allocation, and timeline documented |
+| D2 | Does the QC team have a checklist (similar to an IRC)? | M3 | Pass | Veridion Labs (QC)\QC.tex Section 4; Appendix B (QC checklist) | QC checklist documented and applied |
+| D3 | Did the QC team check for Scenario errors? | M3 | Pass | Veridion Labs (QC)\QC.tex Section 3.4 (scenario-based reading); Section 6 findings | Scenario-based inspection technique explicitly used |
+| D4 | Did the QC team check for Persona errors? | M3 | Pass | Veridion Labs (QC)\QC.tex Section 3.4 (perspective-based reading) | Persona/perspective-based reading (developer, tester, PM, compliance) performed |
+| D5 | Did the QC team check for Assumption errors? | M3 | Pass | Veridion Labs (QC)\QC.tex Section 3.4 (assumption reading) | Assumption reading explicitly listed as an inspection technique |
+| D6 | Did the QC team save their findings? | M3 | Pass | Veridion Labs (QC)\QC.tex Section 6 (QC findings); Appendix C (error detection register) | Findings recorded as QC-FND-001 to QC-FND-012 |
 | F1 | Did you have to ask for any declarations? | M3 | Pass | NS-DECL-2026-001; Annex 5 | Declaration requested and obtained; placed in Annex 5 |
 | F2 | Did you use interviews or focus groups? | M3 | Pending | Annex 6 (reserved) | Interview/focus group pending for QA-V-02 |
 | F3 | In your presentation/findings, did you avoid suggesting solutions? | M3 | Pass | Report text | Self-check: no corrective actions prescribed in findings |
@@ -310,7 +313,7 @@ but no documentary evidence of distinct editorial check activities was
 found in the repository. This item requires follow-up interview or focus
 group with Nevon Solutions to determine its final status.
 
-*(QC audit findings — see Section 2.)*
+*(QC audit findings are documented in Section 2, including checklist outcomes and finding summary.)*
 
 ---
 
@@ -318,26 +321,61 @@ group with Nevon Solutions to determine its final status.
 
 ### 2.1 Execution Plan
 
-*(To be completed.)*
+The QC audit targeted the Software Requirements Specification workproduct
+(`NS-SRS-2026-001`, Version 0.8) prepared by Nevon Solutions for BioSec.
+Based on `Veridion Labs (QC)\QC.tex`, the QC objective was to detect
+defects remaining in the SRS before downstream design and implementation.
+The inspection context and goals were to evaluate SRS clarity,
+completeness, and internal consistency, while documenting defects only
+for customer consideration (without amending the SRS).
+
+Inspection techniques documented by Veridion Labs include close document
+inspection, perspective-based reading (developer, tester, PM, compliance
+officer), cross-section contradiction checking, codification/traceability
+verification, model-to-text consistency inspection, omission mapping,
+scenario-based reading (biometric attendance and leave management),
+assumption reading, and editorial checks (spell/grammar review).
+
+Work breakdown and timeline are documented in QC Appendix A: roles were
+allocated across an audit lead, requirements reviewer, traceability
+reviewer, and editorial/structure reviewer; the indicative execution plan
+was staged as (1) individual inspection — 3 hours, (2) consolidation and
+de-duplication — 1 hour, (3) severity review and finding documentation —
+1 hour, and (4) final report formatting/checking/sign-off — 1 hour.
 
 ### 2.2 QC Checklist
 
 | ID | Checklist Item | Status | Evidence Location | Notes |
 |:---|:---|:---|:---|:---|
-| D1 | Does the QC team have a written plan for their review? | | | |
-| D2 | Does the QC team have a checklist? | | | |
-| D3 | Did the QC team check for Scenario errors? | | | |
-| D4 | Did the QC team check for Persona errors? | | | |
-| D5 | Did the QC team check for Assumption errors? | | | |
-| D6 | Did the QC team save their findings? | | | |
+| D1 | Does the QC team have a written plan for their review? | Pass | Veridion Labs (QC)\QC.tex Section 3; Appendix A Tables A.1–A.2 | QC plan, role allocation, and timeline are documented |
+| D2 | Does the QC team have a checklist? | Pass | Veridion Labs (QC)\QC.tex Section 4; Appendix B | QC checklist is documented and inspection results are recorded |
+| D3 | Did the QC team check for Scenario errors? | Pass | Veridion Labs (QC)\QC.tex Section 3.4; Section 6 | Scenario-based reading is explicitly listed and reflected in findings |
+| D4 | Did the QC team check for Persona errors? | Pass | Veridion Labs (QC)\QC.tex Section 3.4 | Perspective-based reading by role/persona is explicitly listed |
+| D5 | Did the QC team check for Assumption errors? | Pass | Veridion Labs (QC)\QC.tex Section 3.4 | Assumption reading is explicitly listed as an inspection technique |
+| D6 | Did the QC team save their findings? | Pass | Veridion Labs (QC)\QC.tex Section 6; Appendix C | Findings are recorded as QC-FND-001 to QC-FND-012 |
 
 ### 2.3 Error Detection
 
-*(To be completed.)*
+The QC error detection register in `Veridion Labs (QC)\QC.tex` records
+twelve findings (`QC-FND-001` to `QC-FND-012`) across contradiction,
+omission, and authorship defect classes.
+
+| Finding Type | High | Medium | Low | Total | Finding IDs |
+|:---|:---:|:---:|:---:|:---:|:---|
+| Contradiction | 2 | 1 | 0 | 3 | QC-FND-001, QC-FND-002, QC-FND-003 |
+| Omission | 3 | 2 | 0 | 5 | QC-FND-004, QC-FND-005, QC-FND-006, QC-FND-007, QC-FND-012 |
+| Authorship | 0 | 1 | 3 | 4 | QC-FND-008, QC-FND-009, QC-FND-010, QC-FND-011 |
+| **Total** | **5** | **4** | **3** | **12** | **QC-FND-001 to QC-FND-012** |
 
 ### 2.4 Final Findings
 
-*(To be completed.)*
+Based on Veridion Labs QC evidence, the SRS inspection is complete and
+the QC process obligations (plan, checklist, scenario/perspective/
+assumption checks, and finding record) are evidenced. The QC report
+concludes the SRS is **conditionally acceptable** pending BioSec review
+of the identified defects. Consistent with QC scope, no remediation or
+correction actions are prescribed by the QC team; corrective direction
+remains a customer decision.
 
 ---
 
