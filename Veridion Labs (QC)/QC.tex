@@ -111,19 +111,18 @@ citecolor=blue
 \centering
 \small
 \renewcommand{\arraystretch}{2.0}
-\begin{tabular}{|m{0.25\textwidth}|m{0.2\textwidth}|m{0.25\textwidth}|m{0.2\textwidth}|}
-\hline
-\rowcolor{tableheader}
-Team Members & Department & Role & Employee ID \\
-\hline
-Muhammad Ridwan Putra Jasni & QC Team & QC Audit Lead & QC-001 \\
-\hline
-Lin Yuhao & QC Team & QC Specialist & QC-002 \\
-\hline
-Muhammad Mikhail Bin Mazlan & QC Team & QC Specialist & QC-003 \\
-\hline
-Kannan s/o Rajamohan & QC Team & QC Specialist & QC-004 \\
-\hline
+\begin{tabular}{m{0.30\textwidth} m{0.20\textwidth} m{0.40\textwidth}}
+\toprule
+\textbf{Team Member} & \textbf{Role} & \textbf{Responsibility} \\
+\midrule
+Muhammad Ridwan Putra Jasni & QC Audit Lead & Coordinate audit activities and consolidate findings \\
+\midrule
+Lin Yuhao & QC Specialist & QC inspection and error detection \\
+\midrule
+Muhammad Mikhail Bin Mazlan & QC Specialist & QC inspection and error detection \\
+\midrule
+Kannan s/o Rajamohan & QC Specialist & QC inspection and error detection \\
+\bottomrule
 \end{tabular}
 \caption{Veridion Labs QC Audit Team}
 \label{tab:qc-team}
@@ -253,17 +252,29 @@ The SRS serves as the contractual baseline for all downstream design, developmen
 The QC team reviewed the released SRS document and all supporting artefacts provided for audit, including diagrams, appendices, the iRTM, and change mitigation strategies.
 
 \subsection{Inspection Techniques Used}
-\begin{enumerate}[leftmargin=*]
-\item Close document inspection
-\item Perspective-based reading (developer, tester, PM, compliance officer)
-\item Cross-section contradiction checking
-\item Codification and traceability verification
-\item Model-to-text consistency inspection
-\item Omission mapping against expected SRS topics
-\item Scenario-based reading (biometric attendance and leave management scenarios)
-\item Assumption reading
-\item Double-checking dates, facts, figures, and identifiers
-\item Spellcheck and grammar review
+The QC audit employed investigative techniques drawn from the ICT2113 module framework, organised by the error type each technique targets.
+
+\textbf{Authorship Error Detection (QC\#1)}
+\begin{enumerate}[label=\Alph*., leftmargin=*]
+\item \textbf{Apply personal checklist.} The QC team applied a tailored inspection checklist derived from industry standards and lecture guidelines to systematically assess the SRS.
+\item \textbf{Separate spellchecks.} Each auditor performed independent spellcheck and grammar review, covering repeated words, incorrect pluralisation, and punctuation errors.
+\item \textbf{Focus on one error type at a time.} The SRS was read multiple times, each pass targeting a single error type (e.g., sentence structure, word choice, spelling, punctuation).
+\item \textbf{Project document on screen.} The SRS was reviewed on-screen to allow error instances to stand out through a different reading medium compared to print.
+\end{enumerate}
+
+\textbf{Omission and Contradiction Error Detection (QC\#2 \& \#3)}
+\begin{enumerate}[label=\Alph*., leftmargin=*]
+\item \textbf{Skim.} The entire SRS was read top-to-bottom and then bottom-to-top to identify missing or structurally different sections compared to standard SRS templates. Any sense of discontinuity flagged a possible omission.
+\item \textbf{Double-check.} Dates, facts, figures, identifiers, and proper names were cross-verified for contradictions across sections.
+\item \textbf{Persona-based reading.} The SRS was reviewed from the perspectives of different personas (developer, tester, PM, compliance officer) to detect omissions and contradictions within functional and non-functional requirements.
+\item \textbf{Scenario-based reading.} The SRS was evaluated against specific business operation scenarios (biometric attendance capture and leave management flows) to detect incongruencies between requirements and expected workflows.
+\item \textbf{Assumption reading.} Assumptions stated in the SRS were reviewed to detect cases where assumptions contradict requirements or have been made redundant by subsequent provisions.
+\end{enumerate}
+
+\textbf{QA Error Detection (QC\#4)}
+\begin{enumerate}[label=\Alph*., leftmargin=*]
+\item \textbf{Apply tasklist.} A tailored investigation tasklist was prepared from the project specification and applied to SRS sections to detect obvious errors in requirement formulation and traceability.
+\item \textbf{Cross-referencing alternate sources.} The SRS was compared against the project specification, iRTM, and data dictionary to reveal anomalies and verify the integrity of cross-referenced artefacts.
 \end{enumerate}
 
 \subsection{Work Breakdown}
