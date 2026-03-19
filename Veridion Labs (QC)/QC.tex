@@ -159,18 +159,11 @@ Kannan s/o Rajamohan & QC Team & QC Specialist & QC-004 \\
 % =====================
 \section{Executive Summary}
 
-This report presents the results of a Quality Control (QC) validation of the Software Requirements Specification (SRS) for the \textbf{Biometric Student Attendance System}, prepared by Nevon Solutions for BioSec Educational Institution (Document ID: NS-SRS-2026-001, Version 0.8, dated 3 March 2026). The objective of this QC audit is to identify defects that remain in the SRS after the completion of Eliciting, Analysing, and Specifying.
+This report presents the results of a Quality Control (QC) validation of the Software Requirements Specification (SRS) for the \textbf{Biometric Student Attendance System}, prepared by Nevon Solutions for BioSec Educational Institution (NS-SRS-2026-001, Version 0.8, 3 March 2026). The audit focused on three principal categories of SRS defects expected at the Validating stage: \textbf{authorship} (unclear expression), \textbf{omission} (missing content), and \textbf{contradiction} (inconsistent behaviour across sections).
 
-The audit focused on three principal categories of SRS defects expected at the Validating stage:
-\begin{itemize}[leftmargin=*]
-\item \textbf{Authorship defects} -- where intended meanings are not expressed clearly enough.
-\item \textbf{Omission defects} -- where required scenarios, conditions, or supporting content are missing.
-\item \textbf{Contradiction defects} -- where different parts of the SRS imply inconsistent behaviour.
-\end{itemize}
+The SRS is generally well-structured and covers most core functional areas. However, defects were detected including contradictions in 2FA scope and attendance status terminology, omissions for biometric enrolment, password recovery, offline limit handling, and session scheduling, as well as grammatical and editorial errors. The SRS sign-off section also contains blank approver signatures.
 
-The inspection found that the SRS is generally well-structured and covers most core functional areas including biometric attendance recording, leave management, compliance monitoring, and push notifications. However, a number of defects were detected including a contradiction in the scope of two-factor authentication enforcement, an inconsistency in attendance status terminology across sections, missing requirements for biometric enrolment, password recovery, offline limit handling, and session scheduling, as well as grammatical and editorial errors. The SRS sign-off section also contains blank approver signatures.
-
-These findings indicate that the SRS is \textbf{conditionally acceptable}, subject to BioSec's review of the identified defects. No recommendations for correction are provided; the customer will determine any necessary actions.
+These findings indicate that the SRS is \textbf{conditionally acceptable}, subject to BioSec's review. No recommendations for correction are provided; the customer will determine any necessary actions.
 
 % =====================
 % 1 INTRODUCTION
@@ -196,7 +189,7 @@ Readers should begin with the Executive Summary and Sections 1--3, then proceed 
 
 \subsection{Audit Scope}
 The audit covers the SRS (NS-SRS-2026-001) as a QC exercise. The scope includes:
-\begin{itemize}[leftmargin=*]
+\begin{itemize}[leftmargin=*, nosep]
 \item detection of authorship defects (ambiguity, vagueness, grammatical errors)
 \item detection of latent contradictions across sections
 \item detection of omission of topics (missing scenarios, exception paths, uncovered capabilities)
@@ -209,11 +202,10 @@ The audit covers the SRS (NS-SRS-2026-001) as a QC exercise. The scope includes:
 % =====================
 \section{Audit Basis}
 
-\subsection{Basis and Nature of QC}
-This audit assumes the SRS is mature after earlier RE stages. QC inspects the work product itself, identifying defects without direct amendment. The audit team reports findings for customer consideration.
+\subsection{Basis, Error Types, and Severity}
+This audit assumes the SRS is mature after earlier RE stages. QC inspects the work product itself, identifying defects without direct amendment. The audit team reports findings for customer consideration. The following error types were pursued:
 
-\subsection{Kinds of Errors Pursued}
-\begin{itemize}[leftmargin=*]
+\begin{itemize}[leftmargin=*, nosep]
 \item \textbf{Authorship:} unclear expression of intended meaning.
 \item \textbf{Latent contradictions:} conflicting requirements across sections.
 \item \textbf{Omission:} missing topics, edge conditions, or supporting information.
@@ -221,15 +213,10 @@ This audit assumes the SRS is mature after earlier RE stages. QC inspects the wo
 \item \textbf{Editorial:} formatting, naming, or presentation inconsistencies.
 \end{itemize}
 
-\subsection{Severity Classification}
-\begin{itemize}[leftmargin=*]
-\item \textbf{High:} significantly affects interpretation, implementation, or expected behaviour.
-\item \textbf{Medium:} introduces ambiguity without changing core intent.
-\item \textbf{Low:} minor editorial issues with no material impact.
-\end{itemize}
+Each finding is classified by severity: \textbf{High} (significantly affects interpretation, implementation, or expected behaviour), \textbf{Medium} (introduces ambiguity without changing core intent), or \textbf{Low} (minor editorial issues with no material impact).
 
 \subsection{Documents Reviewed}
-\begin{itemize}[leftmargin=*]
+\begin{itemize}[leftmargin=*, nosep]
 \item SRS: Biometric Student Attendance System (NS-SRS-2026-001, Version 0.8, 3 March 2026)
 \item BioSec Project Specification (BS-PS-2026-001, Version 1.0)
 \item Requirements models: Context DFD, Wireframes, Use Case Diagram, ERD (Figures 1--4)
@@ -253,7 +240,7 @@ The SRS serves as the contractual baseline for all downstream design, developmen
 The QC team reviewed the released SRS document and all supporting artefacts provided for audit, including diagrams, appendices, the iRTM, and change mitigation strategies.
 
 \subsection{Inspection Techniques Used}
-\begin{enumerate}[leftmargin=*]
+\begin{enumerate}[leftmargin=*, nosep]
 \item Close document inspection
 \item Perspective-based reading (developer, tester, PM, compliance officer)
 \item Cross-section contradiction checking
@@ -278,20 +265,11 @@ The QC team records findings in this report; the audit team does not amend the S
 % =====================
 % 4 QC CHECKLIST
 % =====================
-\section{QC Checklist}
+\section{QC Checklist and Error Detection}
 
-The following checklist was used by the QC audit team to inspect the SRS work product. The checklist items represent critical aspects of a high-quality SRS, derived from industry standards and lecture guidelines, and are assessed against the Biometric Student Attendance System SRS specifically.
+The QC audit team applied a tailored inspection checklist of 21 items derived from industry standards and lecture guidelines, covering correctness, completeness, consistency, relevance, measurability, and traceability across all SRS sections. The full checklist register is presented in \hyperref[tab:qc-checklist]{Appendix B, Table B-1: QC Inspection Checklist}.
 
-For readability in the main report, the full checklist register is presented in \hyperref[tab:qc-checklist]{Appendix B, Table B-1: QC Inspection Checklist}. The appendix table records each checklist item together with the inspection result applied during the audit.
-
-% =====================
-% 5 ERROR DETECTION
-% =====================
-\section{Error Detection}
-
-The QC audit identified instances of three principal QC error types: authorship, omission, and contradiction. Each detected instance was recorded with its location in the SRS and the characteristic of the defect observed during inspection.
-
-For readability in the main report, the consolidated error detection register is presented in \hyperref[tab:qc-error-detection]{Appendix C, Table C-1: Detected QC Error Instances}. The appendix table serves as the detailed supporting record for the findings discussed in Section~\ref{sec:qc-findings}. A summary of all findings is separately provided in \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary}.
+The audit identified instances of three principal QC error types: authorship, omission, and contradiction. Each detected instance was recorded with its location and defect characteristic. The error detection register is presented in \hyperref[tab:qc-error-detection]{Appendix C, Table C-1: Detected QC Error Instances}, and a summary of all findings in \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary}.
 
 % =====================
 % 6 QC FINDINGS
