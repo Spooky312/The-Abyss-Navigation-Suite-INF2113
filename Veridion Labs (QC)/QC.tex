@@ -616,7 +616,6 @@ Stage 4 & Final report formatting, checking, and team sign-off & 1 hour \\
 \small
 \renewcommand{\arraystretch}{1.35}
 \begin{longtable}{|>{\RaggedRight\arraybackslash}p{0.08\textwidth}|>{\RaggedRight\arraybackslash}p{0.14\textwidth}|>{\RaggedRight\arraybackslash}p{0.56\textwidth}|>{\RaggedRight\arraybackslash}p{0.16\textwidth}|}
-\caption{Table B-1: QC Inspection Checklist}\label{tab:qc-checklist}\\
 \hline
 \rowcolor{tableheader}
 \textbf{Item} & \textbf{Focus} & \textbf{QC Checklist Item} & \textbf{\shortstack[l]{Inspection\\Result}} \\
@@ -695,6 +694,7 @@ QC20 & Correctness & Does every diagram include a descriptive title, revision no
 QC21 & Completeness & Is the SRS sign-off section fully completed with signatures and dates from all designated approvers? & Not satisfied \\
 \hline
 
+\caption{Table B-1: QC Inspection Checklist}\label{tab:qc-checklist}\\
 \end{longtable}
 \endgroup
 
@@ -716,7 +716,6 @@ QC21 & Completeness & Is the SRS sign-off section fully completed with signature
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.4}
 \begin{longtable}{|>{\RaggedRight\arraybackslash}p{0.13\textwidth}|>{\RaggedRight\arraybackslash}p{0.16\textwidth}|>{\RaggedRight\arraybackslash}p{0.27\textwidth}|>{\RaggedRight\arraybackslash}p{0.44\textwidth}|}
-\caption{Table C-1: Detected QC Error Instances}\label{tab:qc-error-detection}\\
 \hline
 \rowcolor{tableheader}
 \textbf{Error ID} & \textbf{Error Type} & \textbf{Location} & \textbf{Characteristic of Error} \\
@@ -756,6 +755,7 @@ QC-ERR-011 & Authorship & Section 9 SRS Sign-off & The Designated Approvers tabl
 \hline
 QC-ERR-012 & Omission & Appendix A Glossary vs Sections 4.1, FR-RBAC-01, QA-INTEG-01 & The acronym RBAC is used extensively throughout the SRS including in the Section 4.1 heading, FR-RBAC-01, and QA-INTEG-01. Appendix A Glossary defines 27 terms but does not include RBAC, leaving the acronym undefined within the SRS. \\
 \hline
+\caption{Table C-1: Detected QC Error Instances}\label{tab:qc-error-detection}\\
 \end{longtable}
 \endgroup
 
@@ -777,7 +777,6 @@ QC-ERR-012 & Omission & Appendix A Glossary vs Sections 4.1, FR-RBAC-01, QA-INTE
 \small
 \renewcommand{\arraystretch}{1.4}
 \begin{longtable}{|>{\RaggedRight\arraybackslash}p{0.13\textwidth}|>{\RaggedRight\arraybackslash}p{0.16\textwidth}|>{\RaggedRight\arraybackslash}p{0.13\textwidth}|>{\RaggedRight\arraybackslash}p{0.16\textwidth}|>{\RaggedRight\arraybackslash}p{0.42\textwidth}|}
-\caption{Table D-1: QC Findings Summary}\label{tab:qc-findings-summary}\\
 \hline
 \rowcolor{tableheader}
 \textbf{Finding ID} & \textbf{Type} & \textbf{Severity} & \textbf{Related Error} & \textbf{Short Description} \\
@@ -817,6 +816,7 @@ QC-FND-011 & Authorship & Low & QC-ERR-011 & SRS sign-off section contains entir
 \hline
 QC-FND-012 & Omission & Medium & QC-ERR-012 & RBAC used extensively throughout but not defined in Appendix A Glossary. \\
 \hline
+\caption{Table D-1: QC Findings Summary}\label{tab:qc-findings-summary}\\
 \end{longtable}
 \endgroup
 
