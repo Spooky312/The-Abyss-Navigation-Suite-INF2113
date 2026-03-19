@@ -93,3 +93,9 @@ latex.out/
 *.xdy
 
 Biometric-Student-Attandence-System/
+conversion_script.py
+full_conversion_runner.py
+run_conversion.bat
+run_full_conversion.bat
+run_script.bat
+simple_runner.py
