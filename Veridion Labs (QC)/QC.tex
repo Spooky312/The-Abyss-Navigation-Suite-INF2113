@@ -324,35 +324,35 @@ The attendance status value ``Attended'' used in the UI requirements conflicts w
 \textbf{Type:} Contradiction \\
 \textbf{Severity:} High
 
-\textbf{Context.} Section 3.1 UR-MOB-01 states attendance status is shown as ``Attended, Absent, Late, or Excused''. Section 4.3.2 Stimulus/Response Sequences states the system displays records with status ``Excused, Attended, Late, Absent''. However, Appendix C Table C.4 AttendanceRecord defines the status ENUM as ``Present, Late, Absent, Excused'' -- using ``Present'' rather than ``Attended''.
+\textbf{Context.} Section 3.1 (UR-MOB-01) defines attendance status values as ``Attended, Absent, Late, or Excused''. Section 4.3.2 (Stimulus/Response Sequences) repeats ``Excused, Attended, Late, Absent''. However, Appendix C (AttendanceRecord table) defines the status ENUM as ``Present, Late, Absent, Excused''.
 
-\textbf{Result.} The database schema uses a different status value from the UI and functional requirements. This will cause implementation inconsistency between the data layer and presentation layer unless one authoritative value is confirmed.
+\textbf{Result.} The system defines two different terms (``Attended'' and ``Present'') for the same attendance state across different parts of the SRS, resulting in inconsistency between the presentation layer and the data layer.
 
-\textbf{Analysis.} The term ``Attended'' in UI requirements directly conflicts with ``Present'' in the data dictionary. This is a latent contradiction that will surface during development and testing.
+\textbf{Analysis.} Developers implementing the database schema will adopt ``Present'' as defined in the data dictionary, while UI and functional requirements specify ``Attended''. This mismatch will lead to inconsistent data representation, mapping issues, and potential defects during system integration and testing.
 
 \subsubsection*{QC-FND-003: Contradiction in Report Generation Time Specification}
-The stimulus/response description for report generation omits the query-type distinction that NFR-PERF-03 explicitly requires, creating an inconsistency between functional description and non-functional measurement. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
+The response time for report generation is described inconsistently between functional behaviour and non-functional requirements. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
 \textbf{Related error detection:} QC-ERR-003 \\
 \textbf{Type:} Contradiction \\
 \textbf{Severity:} Medium
 
-\textbf{Context.} Section 4.6.2 Stimulus/Response Sequences states that ``the administrator generates an attendance report, which the system returns within 10--60 seconds depending on data volume'', without distinguishing query types. NFR-PERF-03 specifies ``within 10 seconds for single class queries and within 60 seconds for institution-wide reports''.
+\textbf{Context.} Section 4.6.2 (Stimulus/Response Sequences) states that the system generates attendance reports within ``10--60 seconds depending on data volume''. However, NFR-PERF-03 specifies two distinct performance thresholds: 10 seconds for single-class queries and 60 seconds for institution-wide reports.
 
-\textbf{Result.} The stimulus/response description omits the distinction between single-class and institution-wide queries, making the behaviour ambiguous for testers and architects relying on that section.
+\textbf{Result.} The functional description presents a generalised timing range without distinguishing between different query types, while the non-functional requirement defines specific measurable conditions.
 
-\textbf{Analysis.} While NFR-PERF-03 is precise, the omission of the distinction in Section 4.6.2 creates an inconsistency between how the feature is described functionally and how it is measured non-functionally.
+\textbf{Analysis.} This inconsistency creates ambiguity for developers and testers. It is unclear which timing constraint applies under specific conditions, leading to potential misinterpretation during implementation or incorrect validation during testing.
 
 \subsubsection*{QC-FND-004: Omission of Biometric Enrolment Process}
-The SRS specifies extensive biometric scanning behaviour but is entirely silent on the student fingerprint enrolment process -- a prerequisite capability without which the attendance system cannot function. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
+The SRS specifies biometric attendance functionality but does not define how users are initially enrolled into the biometric system. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
 \textbf{Related error detection:} QC-ERR-004 \\
 \textbf{Type:} Omission \\
 \textbf{Severity:} High
 
-\textbf{Context.} The SRS extensively describes biometric fingerprint scanning for attendance recording across Sections 3.2, 4, and Appendix C. However, there is no requirement anywhere in the SRS defining how students are initially enrolled into the biometric system -- the fingerprint registration process, who performs it, under what conditions, and what happens if enrolment fails or is rejected.
+\textbf{Context.} The SRS describes fingerprint-based attendance recording across Sections 3.2, 4, and Appendix C. However, there is no requirement specifying how students are initially registered in the system, including fingerprint capture, responsible actors, enrolment conditions, or error handling.
 
-\textbf{Result.} Without enrolment requirements, the development team has no specification for a core prerequisite of the entire biometric attendance function. The system cannot operate without students being enrolled, yet the SRS is silent on this process.
+\textbf{Result.} A prerequisite capability required for biometric attendance operation is missing. Without enrolment, students cannot be recognised by the system, making attendance recording infeasible.
 
-\textbf{Analysis.} This is a significant functional omission. The biometric attendance system is entirely dependent on prior enrolment, making this a high-severity gap in the requirements baseline.
+\textbf{Analysis.} This is a critical omission defect. Biometric enrolment is a foundational process required before any attendance functionality can operate. Its absence forces developers to make assumptions about system behaviour, leading to inconsistent implementations and increased risk of system failure.
 
 \subsubsection*{QC-FND-005: Omission of Password Reset and Account Recovery}
 The SRS specifies account lockout after failed login attempts but provides no requirement for how locked-out users can recover access, leaving a critical gap in the authentication lifecycle. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
