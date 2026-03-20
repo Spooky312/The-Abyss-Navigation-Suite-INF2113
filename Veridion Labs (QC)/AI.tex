@@ -86,7 +86,7 @@ citecolor=blue
 \begin{center}
 \includegraphics[width=0.8\textwidth]{VL Logo.png}\\[0.5cm]
 
-\LARGE\textbf{AI Review – QC Audit Support}
+\LARGE\textbf{AI Review -- QC Audit Support}
 
 \large Biometric Student Attendance System
 
@@ -111,55 +111,46 @@ citecolor=blue
 % CONTENT (Prompts and Responses)
 % =====================
 \setcounter{page}{1}
-\noindent The following prompts were used with an AI assistant during the QC audit process to assist in identifying potential defects in the \textbf{Biometric Student Attendance System} SRS (NS-SRS-2026-001, Version 0.8). The responses provided by the AI were considered alongside manual inspection.
+\noindent The following prompts were used with an AI assistant during the QC audit process to help inspect the \textbf{entire SRS} for the \textbf{Biometric Student Attendance System} (NS-SRS-2026-001, Version 0.8). Each prompt explicitly asked the AI to read the SRS as one complete work product rather than as isolated sections. The responses below focus on findings that are \textbf{different from the ones recorded in the QC audit report}.
 
 \subsection*{Prompt 1}
-\textit{“Review the attached SRS for contradictions in authentication requirements, particularly around two-factor authentication (2FA).”}
+\textit{``Review the entire attached SRS as one complete work product and check whether any internal reading instructions or section references are incorrect. Do not inspect only one section. Read the whole SRS and provide one complete answer based on the full document.''}
 
 \textbf{AI Response:}
 \begin{quote}
-In Section 3.1 (User Interfaces), UR-MOB-06 states: “The parent and teacher authentication shall include a 2-Factor Authentication screen process.” However, Section 5.3 NFR-SEC-03 requires: “The system shall enforce two-factor authentication (2FA) for all administrator accounts.” This is a direct contradiction: the first requires 2FA for parents and teachers, the second only for administrators. The scope of 2FA enforcement is inconsistent and must be resolved.
+Yes. There is a cross-reference error in Section 1.3. The Project Manager is told to read ``Section 6 for the iRTM and change mitigation strategy,'' but the iRTM is not located in Section 6. The SRS itself states that the complete iRTM is provided in Appendix D, while Change Mitigation Strategies are in Section 8. This means the audience guidance is internally inaccurate and may misdirect readers who rely on the introduction to navigate the SRS.
 \end{quote}
 
 \subsection*{Prompt 2}
-\textit{“Identify any missing exception-handling requirements in the leave submission and MCS integration functional requirements.”}
+\textit{``Review the entire attached SRS as one complete work product and determine whether all unresolved issues mentioned anywhere in the document are formally tracked in the open-issues mechanism. Do not inspect only one section. Read the whole SRS and provide one complete answer based on the full document.''}
 
 \textbf{AI Response:}
 \begin{quote}
-FR-LEAVE-02 and FR-SW-02 describe MCS validation with retry logic (5-second timeout, 3 retries with exponential backoff). However, there is no requirement addressing what happens when the MCS is completely unavailable, when validation times out after all retries are exhausted, or when the MCS returns an ambiguous or unresolved status. The system behaviour in these failure scenarios is not specified. Additionally, FR-LEAVE-02 and FR-LEAVE-03 conflict: one says a leave request shall not be recorded if MCS validation fails, while the other requires recording all submissions with outcome. This ambiguity needs resolution.
+No. The SRS does not fully align its unresolved-issue references. Section 2.7 states that ``data mapping specifications are a pending open issue,'' but Appendix B and Section 8.2 list only three formal open issues: MCS Integration Security, Disaster Recovery RPO/RTO, and Biometric Template Format. There is no separate open issue entry for the data-mapping matter. As a result, the document mentions an unresolved issue that is not actually governed by the formal CM\#2 open-issue structure.
 \end{quote}
 
 \subsection*{Prompt 3}
-\textit{“Point out any vague or undefined terms in the user interface requirements.”}
+\textit{``Review the entire attached SRS as one complete work product and check whether the leave-request requirements are internally consistent on what gets recorded when MCS validation fails. Do not inspect only one section. Read the whole SRS and provide one complete answer based on the full document.''}
 
 \textbf{AI Response:}
 \begin{quote}
-UR-GUI-03 states: “The parent and teacher mobile application shall be mobile user friendly with simple navigation.” The term “mobile user friendly” is subjective and not measurable. It should be replaced with specific usability criteria, such as task completion time, number of clicks, or completion rate. Similarly, QA-USAB-01 contains a grammatical error: “allow parent and teacher users must be able to” – this is malformed and should be corrected.
+There is an internal inconsistency in the leave-recording logic. FR-SW-01 says the medical certificate is validated before recording any leave submission. FR-LEAVE-02 says a leave request shall not be recorded if MCS validation fails or returns an unresolved status. However, FR-LEAVE-03 says the system shall record all leave submissions with timestamp, user ID, student ID, leave reason, and MCS validation outcome for audit purposes. In addition, the Data Integrity and Auditability subsection says integration failures shall not overwrite or invalidate existing LeaveRequest entries. Taken together, the SRS does not state clearly whether a failed or unresolved submission becomes a stored LeaveRequest, an audit-only log entry, or no record at all. That makes the required system behaviour unclear.
 \end{quote}
 
 \subsection*{Prompt 4}
-\textit{“Check for compound requirements that combine multiple distinct behaviours in a single clause.”}
+\textit{``Review the entire attached SRS as one complete work product and identify any requirements that remain compound even though the document says atomic requirements should be decomposed for traceability. Do not inspect only one section. Read the whole SRS and provide one complete answer based on the full document.''}
 
 \textbf{AI Response:}
 \begin{quote}
-Several requirements are compound and should be decomposed for atomicity and testability:
-\begin{itemize}
-\item UR-WEB-05 combines reports screen, multiple report categories, and CSV/PDF export behaviour.
-\item UR-WEB-06 combines add, edit, and delete user operations in one clause.
-\item FR-SW-02 bundles timeout policy, retry behaviour, failure logging, and administrator notification.
-\item FR-RBAC-03 groups role assignment updates, credential resets, account unlocks, and change logging.
-\end{itemize}
-Each of these should be split into separate atomic requirements.
+Yes. The SRS says that atomic requirements derived from compound decomposition carry a parent ID reference, but several requirements still combine multiple behaviours in one clause. Examples include UR-WEB-05, which combines multiple report categories and export behaviour; UR-WEB-06, which combines add, edit, and delete user operations; FR-RBAC-03, which combines role updates, credential resets, unlocks, and change logging; and FR-SW-02, which combines timeout policy, retry behaviour, failure logging, and administrator notification. These clauses are still compound and would be harder to test, trace, and allocate precisely.
 \end{quote}
 
 \subsection*{Prompt 5}
-\textit{“Identify any cross-reference errors or inconsistencies in open issue tracking.”}
+\textit{``Review the entire attached SRS as one complete work product and check whether the high-risk change control strategy is internally consistent about which requirements are treated as very high risk. Do not inspect only one section. Read the whole SRS and provide one complete answer based on the full document.''}
 
 \textbf{AI Response:}
 \begin{quote}
-Section 1.3 (Intended Audience) directs the Project Manager to “Section 6 for the iRTM and change mitigation strategy.” However, the iRTM is located in Appendix D and the change mitigation strategy is in Section 8. This is an incorrect cross-reference.
-
-Section 2.7 (Assumptions and Dependencies) mentions that “data mapping specifications are a pending open issue,” but Appendix B (Issues List) contains only CM-OI-01 to CM-OI-03 and does not include this data-mapping issue. An unresolved issue is mentioned but not formally tracked in the open issues list.
+There is a consistency problem in Section 8.3. The SRS first defines the designated high-risk requirements as NFR-SEC-01, FR-HW-02, NFR-PERF-01, FR-NOTIF-01, and NFR-LEGAL-01. But Step 4 of the same process says that for ``very high-risk requirements'' the contract-amendment rule applies to NFR-SEC-03 and NFR-LEGAL-01. NFR-SEC-03 is not part of the designated high-risk list in that section. This means the strategy shifts categories mid-process without explaining why, so a reader cannot tell whether NFR-SEC-03 was accidentally omitted from the high-risk list or accidentally inserted into the approval rule.
 \end{quote}
 
 \end{document}
