@@ -811,19 +811,23 @@ QC-FND-012 & Omission & Medium & QC-ERR-012 & RBAC used extensively throughout b
 
 This appendix presents annotated screenshots from the SRS (NS-SRS-2026-001, Version 0.8) as supporting evidence for each QC finding documented in Section~\ref{sec:qc-findings}.
 
+\setlength{\fboxsep}{2pt}
+\setlength{\fboxrule}{0.5pt}
+\captionsetup{justification=centering}
+
 % --- QC-FND-001 ---
 \subsection*{E.1 QC-FND-001: Contradiction in Two-Factor Authentication Scope}
 \label{fig:evidence-001}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_001a.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_001a.png}}
 \caption*{Figure E-1a: SRS Section 3.1 -- UR-MOB-06 requires 2FA for parent and teacher mobile users.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_001b.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_001b.png}}
 \caption*{Figure E-1b: SRS Section 5.3 -- NFR-SEC-03 enforces 2FA only for administrator accounts on the web portal.}
 \end{figure}
 
@@ -833,25 +837,25 @@ This appendix presents annotated screenshots from the SRS (NS-SRS-2026-001, Vers
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_002a.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_002a.png}}
 \caption*{Figure E-2a: SRS Section 3.1 -- UR-MOB-01 uses status value ``Attended''.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_002b.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_002b.png}}
 \caption*{Figure E-2b: SRS Section 4.3.2 -- Stimulus/Response Sequences repeats ``Attended''.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{evidence/evidence_002c.png}
+\fbox{\includegraphics[width=\dimexpr0.7\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_002c.png}}
 \caption*{Figure E-2c: SRS Appendix C -- AttendanceRecord Data Dictionary (Table C.4) showing full table.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_002d.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_002d.png}}
 \caption*{Figure E-2d: SRS Appendix C -- AttendanceRecord status ENUM defined as ``Present, Late, Absent, Excused'' (close-up).}
 \end{figure}
 
@@ -861,13 +865,13 @@ This appendix presents annotated screenshots from the SRS (NS-SRS-2026-001, Vers
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_003a.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_003a.png}}
 \caption*{Figure E-3a: SRS Section 4.6.2 -- report returns ``within 10--60 seconds depending on data volume'' without distinguishing query types.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_003b.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_003b.png}}
 \caption*{Figure E-3b: SRS Section 5.1 -- NFR-PERF-03 specifies 10 seconds for single class queries and 60 seconds for institution-wide reports.}
 \end{figure}
 
@@ -877,13 +881,13 @@ This appendix presents annotated screenshots from the SRS (NS-SRS-2026-001, Vers
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{evidence/evidence_004a.png}
+\fbox{\includegraphics[width=\dimexpr0.85\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_004a.png}}
 \caption*{Figure E-4a: SRS Section 3.2 -- Hardware Interface Requirements define biometric scanning behaviour (FR-HW-01 to FR-HW-05) but contain no enrolment process.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_004b.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_004b.png}}
 \caption*{Figure E-4b: SRS Section 4.3.3 -- FR-ATT-03 creates AttendanceRecord entries assuming students are already enrolled, but no enrolment requirement exists.}
 \end{figure}
 
@@ -893,13 +897,13 @@ This appendix presents annotated screenshots from the SRS (NS-SRS-2026-001, Vers
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_005a.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_005a.png}}
 \caption*{Figure E-5a: SRS Section 5.3 -- NFR-SEC-04 specifies account lockout after configurable failed login attempts.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_005b.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_005b.png}}
 \caption*{Figure E-5b: SRS Section 4.2.2 -- confirms lockout after five unsuccessful attempts, but no recovery mechanism is defined.}
 \end{figure}
 
@@ -909,13 +913,13 @@ This appendix presents annotated screenshots from the SRS (NS-SRS-2026-001, Vers
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_006a.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_006a.png}}
 \caption*{Figure E-6a: SRS Section 2.5 -- offline mode supports up to 48 hours with 50MB local storage limit.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_006b.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_006b.png}}
 \caption*{Figure E-6b: SRS Section 5.3 -- NFR-SEC-09 confirms auto-purge after 48 hours, but no limit-exceeded or sync conflict behaviour is defined.}
 \end{figure}
 
@@ -925,13 +929,13 @@ This appendix presents annotated screenshots from the SRS (NS-SRS-2026-001, Vers
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_007a.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_007a.png}}
 \caption*{Figure E-7a: SRS Section 5.5 -- BR-02 states attendance capture is only permitted during ``officially scheduled academic sessions''.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_007b.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_007b.png}}
 \caption*{Figure E-7b: SRS Section 4.3.3 -- FR-ATT-03 references session ID, but no requirement defines how sessions are created or managed.}
 \end{figure}
 
@@ -941,13 +945,13 @@ This appendix presents annotated screenshots from the SRS (NS-SRS-2026-001, Vers
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_008a.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_008a.png}}
 \caption*{Figure E-8a: SRS Section 2.2 -- Product Functions describes ``periodic synchronisation'' without specifying a frequency.}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_008b.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_008b.png}}
 \caption*{Figure E-8b: SRS Section 3.4 -- FR-COM-01 specifies synchronisation ``every 5 minutes when connected''.}
 \end{figure}
 
@@ -957,7 +961,7 @@ This appendix presents annotated screenshots from the SRS (NS-SRS-2026-001, Vers
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_009.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_009.png}}
 \caption*{Figure E-9: SRS Section 5.4.1 -- QA-USAB-01 contains the double verb construction ``shall allow \ldots{} must be able to''.}
 \end{figure}
 
@@ -967,7 +971,7 @@ This appendix presents annotated screenshots from the SRS (NS-SRS-2026-001, Vers
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{evidence/evidence_010.png}
+\fbox{\includegraphics[width=\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_010.png}}
 \caption*{Figure E-10: SRS Section 3.1 -- UR-WEB-08 and UR-WEB-09 begin with lowercase ``the portal shall'', inconsistent with all other requirements.}
 \end{figure}
 
@@ -977,7 +981,7 @@ This appendix presents annotated screenshots from the SRS (NS-SRS-2026-001, Vers
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{evidence/evidence_011.png}
+\fbox{\includegraphics[width=\dimexpr0.85\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_011.png}}
 \caption*{Figure E-11: SRS Section 9 -- Designated Approvers tables with entirely blank Signature and Date fields for all four approvers.}
 \end{figure}
 
@@ -987,7 +991,7 @@ This appendix presents annotated screenshots from the SRS (NS-SRS-2026-001, Vers
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{evidence/evidence_012.png}
+\fbox{\includegraphics[width=\dimexpr0.7\textwidth-2\fboxsep-2\fboxrule\relax]{evidence/evidence_012.png}}
 \caption*{Figure E-12: SRS Appendix A -- Glossary defines 27 terms but does not include RBAC, despite its extensive use throughout the SRS.}
 \end{figure}
 
