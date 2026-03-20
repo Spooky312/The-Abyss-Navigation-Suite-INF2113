@@ -110,47 +110,87 @@ citecolor=blue
 % =====================
 % CONTENT (Prompts and Responses)
 % =====================
-\setcounter{page}{1}
-\noindent The following prompts were used with an AI assistant during the QC audit process to help inspect the \textbf{entire SRS} for the \textbf{Biometric Student Attendance System} (NS-SRS-2026-001, Version 0.8). Each prompt explicitly asked the AI to read the SRS as one complete work product rather than as isolated sections. The responses below focus on findings that are \textbf{different from the ones recorded in the QC audit report}.
+\section*{AI Review of QC Audit}
 
-\subsection*{Prompt 1}
-\textit{``Review the entire attached SRS as one complete work product and check whether any internal reading instructions or section references are incorrect. Do not inspect only one section. Read the whole SRS and provide one complete answer based on the full document.''}
+\subsection*{Prompt 1:}
 
-\textbf{AI Response:}
-\begin{quote}
-Yes. There is a cross-reference error in Section 1.3. The Project Manager is told to read ``Section 6 for the iRTM and change mitigation strategy,'' but the iRTM is not located in Section 6. The SRS itself states that the complete iRTM is provided in Appendix D, while Change Mitigation Strategies are in Section 8. This means the audience guidance is internally inaccurate and may misdirect readers who rely on the introduction to navigate the SRS.
-\end{quote}
+I have a QC audit report for an SRS. Can you help me evaluate whether the QC has covered the SRS sufficiently? I want to know if the audit looks complete or if there are areas that might have been missed.
 
-\subsection*{Prompt 2}
-\textit{``Review the entire attached SRS as one complete work product and determine whether all unresolved issues mentioned anywhere in the document are formally tracked in the open-issues mechanism. Do not inspect only one section. Read the whole SRS and provide one complete answer based on the full document.''}
+\subsection*{AI Response 1:}
 
-\textbf{AI Response:}
-\begin{quote}
-No. The SRS does not fully align its unresolved-issue references. Section 2.7 states that ``data mapping specifications are a pending open issue,'' but Appendix B and Section 8.2 list only three formal open issues: MCS Integration Security, Disaster Recovery RPO/RTO, and Biometric Template Format. There is no separate open issue entry for the data-mapping matter. As a result, the document mentions an unresolved issue that is not actually governed by the formal CM\#2 open-issue structure.
-\end{quote}
+The QC audit shows strong coverage in key functional areas such as authentication, attendance tracking, and user interaction flows. These core components are analysed with reasonable depth.
 
-\subsection*{Prompt 3}
-\textit{``Review the entire attached SRS as one complete work product and check whether the leave-request requirements are internally consistent on what gets recorded when MCS validation fails. Do not inspect only one section. Read the whole SRS and provide one complete answer based on the full document.''}
+However, the coverage is not fully comprehensive across the entire SRS. Certain areas appear to be less emphasised, particularly external interface requirements, traceability mechanisms, and data-related specifications. This suggests that while the QC is thorough in selected sections, it may not fully cover all aspects of the SRS.
 
-\textbf{AI Response:}
-\begin{quote}
-There is an internal inconsistency in the leave-recording logic. FR-SW-01 says the medical certificate is validated before recording any leave submission. FR-LEAVE-02 says a leave request shall not be recorded if MCS validation fails or returns an unresolved status. However, FR-LEAVE-03 says the system shall record all leave submissions with timestamp, user ID, student ID, leave reason, and MCS validation outcome for audit purposes. In addition, the Data Integrity and Auditability subsection says integration failures shall not overwrite or invalidate existing LeaveRequest entries. Taken together, the SRS does not state clearly whether a failed or unresolved submission becomes a stored LeaveRequest, an audit-only log entry, or no record at all. That makes the required system behaviour unclear.
-\end{quote}
+\subsection*{Prompt 2:}
 
-\subsection*{Prompt 4}
-\textit{``Review the entire attached SRS as one complete work product and identify any requirements that remain compound even though the document says atomic requirements should be decomposed for traceability. Do not inspect only one section. Read the whole SRS and provide one complete answer based on the full document.''}
+Do the defects identified in the QC report make sense? For example, the contradictions and omissions that were pointed out — are they valid?
 
-\textbf{AI Response:}
-\begin{quote}
-Yes. The SRS says that atomic requirements derived from compound decomposition carry a parent ID reference, but several requirements still combine multiple behaviours in one clause. Examples include UR-WEB-05, which combines multiple report categories and export behaviour; UR-WEB-06, which combines add, edit, and delete user operations; FR-RBAC-03, which combines role updates, credential resets, unlocks, and change logging; and FR-SW-02, which combines timeout policy, retry behaviour, failure logging, and administrator notification. These clauses are still compound and would be harder to test, trace, and allocate precisely.
-\end{quote}
+\subsection*{AI Response 2:}
 
-\subsection*{Prompt 5}
-\textit{``Review the entire attached SRS as one complete work product and check whether the high-risk change control strategy is internally consistent about which requirements are treated as very high risk. Do not inspect only one section. Read the whole SRS and provide one complete answer based on the full document.''}
+The defects identified in the QC report are generally valid and align with expected QC practices. The contradictions highlighted reflect inconsistencies that would likely cause confusion during system implementation.
 
-\textbf{AI Response:}
-\begin{quote}
-There is a consistency problem in Section 8.3. The SRS first defines the designated high-risk requirements as NFR-SEC-01, FR-HW-02, NFR-PERF-01, FR-NOTIF-01, and NFR-LEGAL-01. But Step 4 of the same process says that for ``very high-risk requirements'' the contract-amendment rule applies to NFR-SEC-03 and NFR-LEGAL-01. NFR-SEC-03 is not part of the designated high-risk list in that section. This means the strategy shifts categories mid-process without explaining why, so a reader cannot tell whether NFR-SEC-03 was accidentally omitted from the high-risk list or accidentally inserted into the approval rule.
-\end{quote}
+Similarly, the omissions identified represent missing system behaviours that are important for completeness. The classification of these issues appears appropriate, and the reasoning provided shows a clear understanding of how such defects impact requirement quality.
 
+\subsection*{Prompt 3:}
+
+Do you think the QC report provides enough explanation and evidence for its findings? Or are there areas where the reasoning could be stronger?
+
+\subsection*{AI Response 3:}
+
+The QC report generally provides clear explanations and references to support its findings. The structure of presenting each issue with context and analysis helps make the reasoning easy to follow.
+
+However, some findings could benefit from deeper analysis. In particular, the report could further explore the broader impact of certain defects, such as how they might affect system integration, exception handling, or operational scenarios. Strengthening these aspects would improve the overall quality of the audit.
+
+\subsection*{Prompt 4:}
+
+Are there any important areas in the SRS that the QC report might have overlooked or not analysed in enough detail?
+
+\subsection*{AI Response 4:}
+
+There are some areas that appear to be less thoroughly analysed in the QC report. These include biometric data lifecycle processes such as enrolment and updates, consistency between data definitions and functional requirements, and handling of external system integrations.
+
+In addition, non-functional requirements such as performance, scalability, and recovery behaviour could be examined more rigorously. These gaps suggest that while the QC report identifies several key issues, it may not fully cover all critical aspects of the SRS.
+
+\subsection*{Prompt 5:}
+
+Overall, would you say the QC report is well done? Is it reliable as a validation of the SRS?
+
+\subsection*{AI Response 5:}
+
+Overall, the QC report is well-structured and demonstrates a solid approach to requirement validation. It successfully identifies several important defects and applies consistent reasoning in its analysis.
+
+That said, the audit is stronger in depth than in breadth. While the findings are credible and useful, expanding the coverage to include less-emphasised areas of the SRS would improve its overall completeness.
+
+In its current form, the QC report can be considered reliable, but not fully exhaustive.
+
+\subsection*{Prompt 6:}
+
+The QC report mentions contradictions in system behaviour under certain conditions. Do you think identifying such contradictions is important in validating an SRS?
+
+\subsection*{AI Response 6:}
+
+Yes, identifying contradictions is critical in validating an SRS. Contradictory requirements can lead to confusion during system development, as different interpretations may result in inconsistent implementations.
+
+The QC report is justified in highlighting such issues, as contradictions directly impact system correctness and can cause failures in real-world scenarios, especially in systems that rely on consistent logic such as attendance tracking.
+
+\subsection*{Prompt 7:}
+
+Looking at the QC report, it mentions that some requirements are incomplete or not clearly defined. Do you think this assessment is reasonable based on what is described in the SRS?
+
+\subsection*{AI Response 7:}
+
+The QC report’s assessment appears reasonable. Based on the described requirements in the SRS, there are instances where the level of detail may not be sufficient to fully support implementation or testing.
+
+In systems such as biometric attendance tracking, incomplete definitions can lead to ambiguity in how features are built or interpreted. The QC report is justified in highlighting that certain requirements lack clarity, especially where system behaviour or expected outputs are not fully specified.
+
+\subsection*{Prompt 8:}
+
+The QC report points out that the report export function does not specify the output format. Do you think this is a valid issue raised by QC?
+
+\subsection*{AI Response 8:}
+
+Yes, this is a valid issue raised by the QC report. Allowing report export without specifying the output format introduces ambiguity in system behaviour.
+
+For a biometric attendance system, reports could reasonably be expected in formats such as PDF or CSV. Without explicit definition, different implementations may produce inconsistent outputs, which affects usability and testing. The QC report is therefore justified in identifying this as an incomplete requirement.
 \end{document}
