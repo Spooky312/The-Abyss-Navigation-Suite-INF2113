@@ -253,7 +253,7 @@ The audit identified 12 findings across three defect types. A consolidated summa
 \label{subsec:detailed-findings}
 
 \subsubsection*{QC-FND-001: Contradiction in Two-Factor Authentication Scope}
-Two conflicting requirements exist on which user classes must use 2FA. UR-MOB-06 mandates 2FA for parents and teachers on the mobile app, while NFR-SEC-03 restricts 2FA only to administrators on the web portal. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
+Two conflicting requirements exist on which user classes must use 2FA. UR-MOB-06 mandates 2FA for parents and teachers on the mobile app, while NFR-SEC-03 restricts 2FA only to administrators on the web portal. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. Evidence: \hyperref[fig:evidence-001]{Appendix E, Figures E-1a and E-1b}. \\
 \textbf{Related error detection:} QC-ERR-001 \\
 \textbf{Type:} Contradiction \\
 \textbf{Severity:} High
@@ -265,7 +265,7 @@ Two conflicting requirements exist on which user classes must use 2FA. UR-MOB-06
 \textbf{Analysis.} These two requirements are mutually inconsistent on the scope of 2FA enforcement. One must be incorrect or the SRS must be clarified to specify a single authoritative position on which user classes require 2FA.
 
 \subsubsection*{QC-FND-002: Contradiction in Attendance Status Terminology}
-The attendance status value ``Attended'' used in the UI requirements conflicts with ``Present'' used in the AttendanceRecord data dictionary ENUM, creating a direct inconsistency between the presentation layer and the data layer. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
+The attendance status value ``Attended'' used in the UI requirements conflicts with ``Present'' used in the AttendanceRecord data dictionary ENUM, creating a direct inconsistency between the presentation layer and the data layer. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. Evidence: \hyperref[fig:evidence-002]{Appendix E, Figures E-2a to E-2d}. \\
 \textbf{Related error detection:} QC-ERR-002 \\
 \textbf{Type:} Contradiction \\
 \textbf{Severity:} High
@@ -277,7 +277,7 @@ The attendance status value ``Attended'' used in the UI requirements conflicts w
 \textbf{Analysis.} Developers implementing the database schema will adopt ``Present'' as defined in the data dictionary, while UI and functional requirements specify ``Attended''. This mismatch will lead to inconsistent data representation, mapping issues, and potential defects during system integration and testing.
 
 \subsubsection*{QC-FND-003: Contradiction in Report Generation Time Specification}
-The response time for report generation is described inconsistently between functional behaviour and non-functional requirements. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
+The response time for report generation is described inconsistently between functional behaviour and non-functional requirements. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. Evidence: \hyperref[fig:evidence-003]{Appendix E, Figures E-3a and E-3b}. \\
 \textbf{Related error detection:} QC-ERR-003 \\
 \textbf{Type:} Contradiction \\
 \textbf{Severity:} Medium
@@ -289,7 +289,7 @@ The response time for report generation is described inconsistently between func
 \textbf{Analysis.} This inconsistency creates ambiguity for developers and testers. It is unclear which timing constraint applies under specific conditions, leading to potential misinterpretation during implementation or incorrect validation during testing.
 
 \subsubsection*{QC-FND-004: Omission of Biometric Enrolment Process}
-The SRS specifies biometric attendance functionality but does not define how users are initially enrolled into the biometric system. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
+The SRS specifies biometric attendance functionality but does not define how users are initially enrolled into the biometric system. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. Evidence: \hyperref[fig:evidence-004]{Appendix E, Figures E-4a and E-4b}. \\
 \textbf{Related error detection:} QC-ERR-004 \\
 \textbf{Type:} Omission \\
 \textbf{Severity:} High
@@ -301,7 +301,7 @@ The SRS specifies biometric attendance functionality but does not define how use
 \textbf{Analysis.} This is a critical omission defect. Biometric enrolment is a foundational process required before any attendance functionality can operate. Its absence forces developers to make assumptions about system behaviour, leading to inconsistent implementations and increased risk of system failure.
 
 \subsubsection*{QC-FND-005: Omission of Password Reset and Account Recovery}
-The SRS specifies account lockout after failed login attempts but provides no requirement for how locked-out users can recover access, leaving a critical gap in the authentication lifecycle. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
+The SRS specifies account lockout after failed login attempts but provides no requirement for how locked-out users can recover access, leaving a critical gap in the authentication lifecycle. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. Evidence: \hyperref[fig:evidence-005]{Appendix E, Figures E-5a and E-5b}. \\
 \textbf{Related error detection:} QC-ERR-005 \\
 \textbf{Type:} Omission \\
 \textbf{Severity:} High
@@ -313,7 +313,7 @@ The SRS specifies account lockout after failed login attempts but provides no re
 \textbf{Analysis.} Account lockout without a corresponding recovery mechanism is an incomplete functional capability. This omission will require resolution before the system can be deployed to real users.
 
 \subsubsection*{QC-FND-006: Omission of Offline Limit Exceeded Handling}
-The SRS defines a 48-hour offline mode but contains no requirement for system behaviour when this limit is exceeded or for resolving data conflicts upon reconnection. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
+The SRS defines a 48-hour offline mode but contains no requirement for system behaviour when this limit is exceeded or for resolving data conflicts upon reconnection. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. Evidence: \hyperref[fig:evidence-006]{Appendix E, Figures E-6a and E-6b}. \\
 \textbf{Related error detection:} QC-ERR-006 \\
 \textbf{Type:} Omission \\
 \textbf{Severity:} High
@@ -325,7 +325,7 @@ The SRS defines a 48-hour offline mode but contains no requirement for system be
 \textbf{Analysis.} Offline mode is an explicitly scoped capability. The absence of requirements for limit-exceeded behaviour and conflict resolution leaves developers to make assumptions that may be inconsistent with stakeholder expectations.
 
 \subsubsection*{QC-FND-007: Omission of Session Creation and Management Requirements}
-Academic sessions are referenced extensively as a prerequisite for attendance capture, but no requirement in the SRS defines how sessions are created, scheduled, or managed within the system. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
+Academic sessions are referenced extensively as a prerequisite for attendance capture, but no requirement in the SRS defines how sessions are created, scheduled, or managed within the system. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. Evidence: \hyperref[fig:evidence-007]{Appendix E, Figures E-7a and E-7b}. \\
 \textbf{Related error detection:} QC-ERR-007 \\
 \textbf{Type:} Omission \\
 \textbf{Severity:} Medium
@@ -337,7 +337,7 @@ Academic sessions are referenced extensively as a prerequisite for attendance ca
 \textbf{Analysis.} This is a functional gap. Session management is a prerequisite for the attendance capture business rule to function correctly.
 
 \subsubsection*{QC-FND-008: Ambiguous Use of ``Periodic Synchronisation''}
-The product functions summary uses the vague term ``periodic synchronisation'' without specifying a frequency, inconsistent with the precise 5-minute figure stated in FR-COM-01. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
+The product functions summary uses the vague term ``periodic synchronisation'' without specifying a frequency, inconsistent with the precise 5-minute figure stated in FR-COM-01. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. Evidence: \hyperref[fig:evidence-008]{Appendix E, Figures E-8a and E-8b}. \\
 \textbf{Related error detection:} QC-ERR-008 \\
 \textbf{Type:} Authorship \\
 \textbf{Severity:} Medium
@@ -349,7 +349,7 @@ The product functions summary uses the vague term ``periodic synchronisation'' w
 \textbf{Analysis.} While FR-COM-01 is precise, the inconsistency between vague language in the product summary and specific language in the functional requirement reduces overall document clarity.
 
 \subsubsection*{QC-FND-009: Grammatical Error in QA-USAB-01}
-A double verb construction in QA-USAB-01 -- ``shall allow \ldots{} must be able to'' -- is grammatically incorrect and introduces ambiguity about the nature of the obligation. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
+A double verb construction in QA-USAB-01 -- ``shall allow \ldots{} must be able to'' -- is grammatically incorrect and introduces ambiguity about the nature of the obligation. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. Evidence: \hyperref[fig:evidence-009]{Appendix E, Figure E-9}. \\
 \textbf{Related error detection:} QC-ERR-009 \\
 \textbf{Type:} Authorship \\
 \textbf{Severity:} Low
@@ -361,7 +361,7 @@ A double verb construction in QA-USAB-01 -- ``shall allow \ldots{} must be able 
 \textbf{Analysis.} While the intended meaning is reasonably clear from context, the grammatical error introduces imprecision in a quality attribute requirement that should be unambiguous for verification purposes.
 
 \subsubsection*{QC-FND-010: Capitalisation Inconsistency in UR-WEB-08 and UR-WEB-09}
-Requirements UR-WEB-08 and UR-WEB-09 begin with a lowercase ``the portal shall'' while all other requirements in Section 3.1 consistently use the capitalised ``The portal shall'', indicating an editorial oversight. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
+Requirements UR-WEB-08 and UR-WEB-09 begin with a lowercase ``the portal shall'' while all other requirements in Section 3.1 consistently use the capitalised ``The portal shall'', indicating an editorial oversight. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. Evidence: \hyperref[fig:evidence-010]{Appendix E, Figure E-10}. \\
 \textbf{Related error detection:} QC-ERR-010 \\
 \textbf{Type:} Authorship \\
 \textbf{Severity:} Low
@@ -373,7 +373,7 @@ Requirements UR-WEB-08 and UR-WEB-09 begin with a lowercase ``the portal shall''
 \textbf{Analysis.} While this does not affect the meaning of the requirements, it is indicative of an insufficient final editorial pass prior to SRS release.
 
 \subsubsection*{QC-FND-011: Unsigned SRS Sign-off Section}
-All four designated approvers in the SRS sign-off section -- two from Nevon Solutions and two from BioSec -- have entirely blank signature and date fields, indicating the SRS was released without their formal approval. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
+All four designated approvers in the SRS sign-off section -- two from Nevon Solutions and two from BioSec -- have entirely blank signature and date fields, indicating the SRS was released without their formal approval. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. Evidence: \hyperref[fig:evidence-011]{Appendix E, Figure E-11}. \\
 \textbf{Related error detection:} QC-ERR-011 \\
 \textbf{Type:} Authorship \\
 \textbf{Severity:} Low
@@ -385,7 +385,7 @@ All four designated approvers in the SRS sign-off section -- two from Nevon Solu
 \textbf{Analysis.} While the Project Lead (Loh Wen Xuan) has signed the Vendor Authenticator section, the absence of designated approver signatures raises a question about whether the SRS was formally reviewed and approved by all required parties before release.
 
 \subsubsection*{QC-FND-012: RBAC Not Defined in Glossary}
-RBAC is one of the most frequently referenced acronyms in the SRS but is absent from Appendix A Glossary, which defines 27 other terms including abbreviations of similar nature. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. \\
+RBAC is one of the most frequently referenced acronyms in the SRS but is absent from Appendix A Glossary, which defines 27 other terms including abbreviations of similar nature. See \hyperref[tab:qc-findings-summary]{Appendix D, Table D-1: QC Findings Summary} for the finding summary entry. Evidence: \hyperref[fig:evidence-012]{Appendix E, Figure E-12}. \\
 \textbf{Related error detection:} QC-ERR-012 \\
 \textbf{Type:} Omission \\
 \textbf{Severity:} Medium
@@ -797,6 +797,199 @@ QC-FND-012 & Omission & Medium & QC-ERR-012 & RBAC used extensively throughout b
 \end{longtable}
 \captionof*{table}{Table D-1: QC Findings Summary}\label{tab:qc-findings-summary}
 \endgroup
+
+% =====================
+% APPENDIX E: EVIDENCE SCREENSHOTS
+% =====================
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\renewcommand{\thepage}{E-\arabic{page}}
+\section*{Appendix E: SRS Evidence Screenshots}
+\phantomsection
+\addcontentsline{toc}{section}{Appendix E: SRS Evidence Screenshots}
+
+This appendix presents annotated screenshots from the SRS (NS-SRS-2026-001, Version 0.8) as supporting evidence for each QC finding documented in Section~\ref{sec:qc-findings}.
+
+% --- QC-FND-001 ---
+\subsection*{E.1 QC-FND-001: Contradiction in Two-Factor Authentication Scope}
+\label{fig:evidence-001}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_001a.png}
+\caption*{Figure E-1a: SRS Section 3.1 -- UR-MOB-06 requires 2FA for parent and teacher mobile users.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_001b.png}
+\caption*{Figure E-1b: SRS Section 5.3 -- NFR-SEC-03 enforces 2FA only for administrator accounts on the web portal.}
+\end{figure}
+
+% --- QC-FND-002 ---
+\subsection*{E.2 QC-FND-002: Contradiction in Attendance Status Terminology}
+\label{fig:evidence-002}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_002a.png}
+\caption*{Figure E-2a: SRS Section 3.1 -- UR-MOB-01 uses status value ``Attended''.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_002b.png}
+\caption*{Figure E-2b: SRS Section 4.3.2 -- Stimulus/Response Sequences repeats ``Attended''.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{evidence/evidence_002c.png}
+\caption*{Figure E-2c: SRS Appendix C -- AttendanceRecord Data Dictionary (Table C.4) showing full table.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_002d.png}
+\caption*{Figure E-2d: SRS Appendix C -- AttendanceRecord status ENUM defined as ``Present, Late, Absent, Excused'' (close-up).}
+\end{figure}
+
+% --- QC-FND-003 ---
+\subsection*{E.3 QC-FND-003: Contradiction in Report Generation Time Specification}
+\label{fig:evidence-003}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_003a.png}
+\caption*{Figure E-3a: SRS Section 4.6.2 -- report returns ``within 10--60 seconds depending on data volume'' without distinguishing query types.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_003b.png}
+\caption*{Figure E-3b: SRS Section 5.1 -- NFR-PERF-03 specifies 10 seconds for single class queries and 60 seconds for institution-wide reports.}
+\end{figure}
+
+% --- QC-FND-004 ---
+\subsection*{E.4 QC-FND-004: Omission of Biometric Enrolment Process}
+\label{fig:evidence-004}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{evidence/evidence_004a.png}
+\caption*{Figure E-4a: SRS Section 3.2 -- Hardware Interface Requirements define biometric scanning behaviour (FR-HW-01 to FR-HW-05) but contain no enrolment process.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_004b.png}
+\caption*{Figure E-4b: SRS Section 4.3.3 -- FR-ATT-03 creates AttendanceRecord entries assuming students are already enrolled, but no enrolment requirement exists.}
+\end{figure}
+
+% --- QC-FND-005 ---
+\subsection*{E.5 QC-FND-005: Omission of Password Reset and Account Recovery}
+\label{fig:evidence-005}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_005a.png}
+\caption*{Figure E-5a: SRS Section 5.3 -- NFR-SEC-04 specifies account lockout after configurable failed login attempts.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_005b.png}
+\caption*{Figure E-5b: SRS Section 4.2.2 -- confirms lockout after five unsuccessful attempts, but no recovery mechanism is defined.}
+\end{figure}
+
+% --- QC-FND-006 ---
+\subsection*{E.6 QC-FND-006: Omission of Offline Limit Exceeded Handling}
+\label{fig:evidence-006}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_006a.png}
+\caption*{Figure E-6a: SRS Section 2.5 -- offline mode supports up to 48 hours with 50MB local storage limit.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_006b.png}
+\caption*{Figure E-6b: SRS Section 5.3 -- NFR-SEC-09 confirms auto-purge after 48 hours, but no limit-exceeded or sync conflict behaviour is defined.}
+\end{figure}
+
+% --- QC-FND-007 ---
+\subsection*{E.7 QC-FND-007: Omission of Session Creation and Management Requirements}
+\label{fig:evidence-007}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_007a.png}
+\caption*{Figure E-7a: SRS Section 5.5 -- BR-02 states attendance capture is only permitted during ``officially scheduled academic sessions''.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_007b.png}
+\caption*{Figure E-7b: SRS Section 4.3.3 -- FR-ATT-03 references session ID, but no requirement defines how sessions are created or managed.}
+\end{figure}
+
+% --- QC-FND-008 ---
+\subsection*{E.8 QC-FND-008: Ambiguous Use of ``Periodic Synchronisation''}
+\label{fig:evidence-008}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_008a.png}
+\caption*{Figure E-8a: SRS Section 2.2 -- Product Functions describes ``periodic synchronisation'' without specifying a frequency.}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_008b.png}
+\caption*{Figure E-8b: SRS Section 3.4 -- FR-COM-01 specifies synchronisation ``every 5 minutes when connected''.}
+\end{figure}
+
+% --- QC-FND-009 ---
+\subsection*{E.9 QC-FND-009: Grammatical Error in QA-USAB-01}
+\label{fig:evidence-009}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_009.png}
+\caption*{Figure E-9: SRS Section 5.4.1 -- QA-USAB-01 contains the double verb construction ``shall allow \ldots{} must be able to''.}
+\end{figure}
+
+% --- QC-FND-010 ---
+\subsection*{E.10 QC-FND-010: Capitalisation Inconsistency in UR-WEB-08 and UR-WEB-09}
+\label{fig:evidence-010}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{evidence/evidence_010.png}
+\caption*{Figure E-10: SRS Section 3.1 -- UR-WEB-08 and UR-WEB-09 begin with lowercase ``the portal shall'', inconsistent with all other requirements.}
+\end{figure}
+
+% --- QC-FND-011 ---
+\subsection*{E.11 QC-FND-011: Unsigned SRS Sign-off Section}
+\label{fig:evidence-011}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{evidence/evidence_011.png}
+\caption*{Figure E-11: SRS Section 9 -- Designated Approvers tables with entirely blank Signature and Date fields for all four approvers.}
+\end{figure}
+
+% --- QC-FND-012 ---
+\subsection*{E.12 QC-FND-012: RBAC Not Defined in Glossary}
+\label{fig:evidence-012}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{evidence/evidence_012.png}
+\caption*{Figure E-12: SRS Appendix A -- Glossary defines 27 terms but does not include RBAC, despite its extensive use throughout the SRS.}
+\end{figure}
 
 % =====================
 % REFERENCES
