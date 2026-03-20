@@ -93,7 +93,7 @@
 \includegraphics[width=0.45\textwidth]{template/paragon_assurance_logo.jpg}\\[0.8cm]
 
 \LARGE\textbf{Quality Assurance Validating Report}\\[0.4cm]
-\large\textbf{Requirements Engineering Process ---\\Biometric Student Attendance System}\\[0.8cm]
+\large\textbf{Requirements Engineering Process\\Biometric Student Attendance System}\\[0.8cm]
 
 \textbf{\Large Paragon Assurance}\\[0.2cm]
 19 March 2026
@@ -146,7 +146,7 @@ Chng Zong Han & QA Auditor \\\hline
 
 \subsection{Audit Context}
 
-Paragon Assurance was engaged by BioSec Educational Institution as an independent external Quality Assurance (QA) vendor to audit the Requirements Engineering (RE) process conducted by Nevon Solutions (Team P2-1561W) for the Biometric Student Attendance System. The audit scope covers three RE methods --- Analysing, Specifying, and Validating --- in accordance with the QA auditor's mandate. The Eliciting method is excluded, as it was conducted by BioSec prior to vendor engagement and falls outside the QA audit boundary. The audit additionally evaluates the Validating method's QC component by assessing whether the assigned QC team (Veridion Labs) followed a compliant audit process.
+Paragon Assurance was engaged by BioSec Educational Institution as an independent external Quality Assurance (QA) vendor to audit the Requirements Engineering (RE) process conducted by Nevon Solutions (Team P2-1561W) for the Biometric Student Attendance System. The audit scope covers three RE methods, Analysing, Specifying, and Validating, in accordance with the QA auditor's mandate. The Eliciting method is excluded, as it was conducted by BioSec prior to vendor engagement and falls outside the QA audit boundary. The audit additionally evaluates the Validating method's QC component by assessing whether the assigned QC team (Veridion Labs) followed a compliant audit process.
 
 The principal process artefacts reviewed are: Analysing Report (NS-AR-2026-001, v1.0), Software Requirements Specification (NS-SRS-2026-001, v0.8), Project Specification (BS-PS-2026-001, v1.0), Requirements repository (GitHub), QC Audit Report (Veridion Labs), and Clarification session records BC-01 (07/02/2026) and TC-02 (09/02/2026).
 
@@ -160,7 +160,7 @@ The audit identified \textbf{six (6) process non-compliance instances} across th
 \hline
 \rowcolor{tableheader}
 \textbf{Severity} & \textbf{Count} & \textbf{Error IDs} \\\hline
-Critical        & 1 & PA-ERR-002 (SRS Sign-off Absent --- Validating Method Incomplete) \\\hline
+Critical        & 1 & PA-ERR-002 (SRS Sign-off Absent: Validating Method Incomplete) \\\hline
 High            & 1 & PA-ERR-001 (Open Issues Unresolved) \\\hline
 High-to-Medium  & 3 & PA-ERR-003 (2FA Contradiction), PA-ERR-004 (Enrolment Not Elicited), PA-ERR-005 (Terminology Inconsistency) \\\hline
 Medium          & 1 & PA-ERR-006 (SRS Below Version 1.0) \\\hline
@@ -174,7 +174,7 @@ Key non-compliance areas:
     \item \textbf{The SRS has no customer or vendor signatures anywhere in the document.} All four designated approver fields in SRS \S9 are blank. The Validating method requires formal SRS authorisation before external audit release; this step was not completed (PA-ERR-002).
     \item Three open issues from the Analysing phase remain unresolved in the submitted SRS despite a stated resolution deadline of 20 February 2026 (PA-ERR-001).
     \item A contradictory 2FA scope specification was not resolved during the Clarify phase (PA-ERR-003).
-    \item The biometric student enrolment process --- a prerequisite for all scan-based functions --- was not elicited and is absent from the SRS (PA-ERR-004).
+    \item The biometric student enrolment process is a prerequisite for all scan-based functions which was not elicited and is absent from the SRS (PA-ERR-004).
     \item Attendance status terminology is inconsistent across SRS sections and the Data Dictionary (PA-ERR-005).
     \item The SRS was submitted at Version 0.8, below the Version 1.0 threshold expected for external audit release (PA-ERR-006).
 \end{itemize}
@@ -188,15 +188,15 @@ The QC team (Veridion Labs) is assessed as process-compliant: a documented plan 
 
 \subsection{Target Process Description}
 
-The process under audit is the Requirements Engineering (RE) process as performed by Nevon Solutions for the Biometric Student Attendance System, Customer BioSec Educational Institution, Project Reference P2-1561W. QA audits the \emph{process} that produces the work product, not the work product itself. The error type for all QA findings is \textbf{Process Non-Compliance} --- an instance where the RE process deviated from defined process requirements through omission, incorrect execution, or unauthorised deviation.
+The process under audit is the Requirements Engineering (RE) process as performed by Nevon Solutions for the Biometric Student Attendance System, Customer BioSec Educational Institution, Project Reference P2-1561W. QA audits the \emph{process} that produces the work product, not the work product itself. The error type for all QA findings is \textbf{Process Non-Compliance}, an instance where the RE process deviated from defined process requirements through omission, incorrect execution, or unauthorised deviation.
 
 The RE process under audit comprises three sequential methods:
 
-\textbf{Analysing Method} --- receiving the BioSec Project Specification, assessing requirements for congruency using the IRC, resolving incongruities through BCIC process (Breakdown, Clarify, Interpret, Categorise), and producing a regulated-revision requirements repository. Phases audited: Breakdown (IRC application, decomposition), Clarify (BC-01 and TC-02 sessions, open issue management), Carrying forward (PS model revision), and Codification.
+\textbf{Analysing Method}: receiving the BioSec Project Specification, assessing requirements for congruency using the IRC, resolving incongruities through BCIC process (Breakdown, Clarify, Interpret, Categorise), and producing a regulated-revision requirements repository. Phases audited: Breakdown (IRC application, decomposition), Clarify (BC-01 and TC-02 sessions, open issue management), Carrying forward (PS model revision), and Codification.
 
-\textbf{Specifying Method} --- interpreting, categorising, and specifying the analysed requirements into the SRS document (NS-SRS-2026-001). Phases audited: Interpret and Categorise, Specify (SRS drafting, template application), iRTM (standalone file, chain-of-custody), and Change mitigation.
+\textbf{Specifying Method}: interpreting, categorising, and specifying the analysed requirements into the SRS document (NS-SRS-2026-001). Phases audited: Interpret and Categorise, Specify (SRS drafting, template application), iRTM (standalone file, chain-of-custody), and Change mitigation.
 
-\textbf{Validating Method} --- applying quality control measures onto the SRS and conducting quality assurance audit. Components: Customer/Vendor validation (SRS sign-off, editorial checks) and QC audit process (plan, checklist, execution, findings preservation).
+\textbf{Validating Method}: applying quality control measures onto the SRS and conducting quality assurance audit. Components: Customer/Vendor validation (SRS sign-off, editorial checks) and QC audit process (plan, checklist, execution, findings preservation).
 
 \subsection{Context and Goals}
 
@@ -213,7 +213,7 @@ The audit was structured in five phases conducted by a single QA auditor ({\rais
 % ══════════════════════════════════════════════════════════════
 \section{QA Checklist}
 
-The checklist addresses process compliance across four domains using three investigation methods: \textbf{M1} (Artefact Inspection), \textbf{M2} (Traceability and Cross-Reference), and \textbf{M3} (Declaration and Sign-Off Review). Rating key: S = Satisfied, PS = Partially Satisfied, NS = Not Satisfied, N/A = Not Applicable. Full checklist with detailed notes is in Appendix~\ref{app:checklist}.
+The checklist addresses process compliance across four domains using three investigation methods: \textbf{M1} (Artefact Inspection), \textbf{M2} (Traceability and Cross-Reference), and \textbf{M3} (Declaration and Sign-Off Review). \\Rating key:\\\textbf{S} = Satisfied\\\textbf{PS} = Partially Satisfied\\\textbf{NS} = Not Satisfied\\\textbf{N/A} = Not Applicable.\\Full checklist with detailed notes is in Appendix~\ref{app:checklist}.
 
 \begin{longtable}{|L{0.8cm}|>{\RaggedRight\arraybackslash}m{9cm}|L{1.3cm}|L{1.3cm}|}
 \caption{QA checklist summary (see Appendix~\ref{app:checklist} for full notes)}\\
@@ -221,7 +221,7 @@ The checklist addresses process compliance across four domains using three inves
 \rowcolor{tableheader}
 \textbf{ID} & \textbf{Checklist Item} & \textbf{Method} & \textbf{Rating} \\\hline
 \endhead
-\multicolumn{4}{|l|}{\cellcolor{tableheader}\textbf{Domain A --- Analysing Method}} \\\hline
+\multicolumn{4}{|l|}{\cellcolor{tableheader}\textbf{Domain A: Analysing Method}} \\\hline
 A.1 & PS copy in repository & M1 & S \\\hline
 A.2 & All PS requirements subjected to IRC analysis & M1 & S \\\hline
 A.3 & Ambiguous requirements quantified during Clarify & M1, M2 & PS \\\hline
@@ -236,7 +236,7 @@ A.11 & IRC was actually used & M1 & S \\\hline
 A.12 & Plan for Analysing phase & M1 & S \\\hline
 A.13 & PS items codified in repository & M1, M2 & S \\\hline
 A.14 & Biometric enrolment process elicited & M1, M2 & NS \\\hline
-\multicolumn{4}{|l|}{\cellcolor{tableheader}\textbf{Domain B --- Specifying Method}} \\\hline
+\multicolumn{4}{|l|}{\cellcolor{tableheader}\textbf{Domain B: Specifying Method}} \\\hline
 B.1 & SRS references recognised template & M1 & S \\\hline
 B.2 & Requirements traceable via iRTM & M1, M2 & PS \\\hline
 B.3 & iRTM exists as standalone file & M1 & S \\\hline
@@ -246,16 +246,12 @@ B.6 & Contradictions resolved before Specifying & M2 & NS \\\hline
 B.7 & New model source files present & M1 & N/A \\\hline
 B.8 & Change Mitigation template exists & M1 & S \\\hline
 B.9 & SRS at final ($\geq$ v1.0) version & M1 & NS \\\hline
-\multicolumn{4}{|l|}{\cellcolor{tableheader}\textbf{Domain C --- Validating Method}} \\\hline
+\multicolumn{4}{|l|}{\cellcolor{tableheader}\textbf{Domain C: Validating Method}} \\\hline
 C.1 & SRS formally signed off & M3 & NS \\\hline
 C.2 & Spell check evidence & M3 & PS \\\hline
 C.3 & Grammar check evidence & M3 & PS \\\hline
 C.4 & Editorial review evidence & M3 & NS \\\hline
-C.5 & QC team has documented audit plan & M1 & S \\\hline
-C.6 & QC team has structured checklist & M1 & S \\\hline
-C.7 & QC team documented findings with evidence & M1 & S \\\hline
-C.8 & QC findings in retrievable format & M1 & S \\\hline
-\multicolumn{4}{|l|}{\cellcolor{tableheader}\textbf{Domain D --- Process Artefact Integrity}} \\\hline
+\multicolumn{4}{|l|}{\cellcolor{tableheader}\textbf{Domain D: Process Artefact Integrity}} \\\hline
 D.1 & All required artefacts present & M1 & S \\\hline
 D.2 & Artefacts internally consistent & M2 & PS \\\hline
 D.3 & AI and Plagiarism declarations present & M1, M3 & S \\\hline
@@ -281,7 +277,7 @@ All findings are of error type \textbf{Process Non-Compliance}.
 PA-ERR-001 & AR \S3.5; SRS \S2.5, \S3.3, \S6.5 & Three open issues remain unresolved 11+ days past the RPO/RTO deadline of 20/02/2026. \\\hline
 PA-ERR-002 & SRS \S9; full repository & All four sign-off fields blank. No supplementary authorisation evidence found. Validating method not completed. \\\hline
 PA-ERR-003 & SRS \S3.1 UR-MOB-06; \S5.3 NFR-SEC-03 & 2FA required for parents/teachers in UR-MOB-06 but restricted to administrators in NFR-SEC-03. Not resolved during Clarify. \\\hline
-PA-ERR-004 & SRS \S4; AR \S3.3--3.4; repository & Biometric enrolment --- prerequisite for scan-based operations --- not elicited. No requirement exists despite BOR-0-03 referencing it. \\\hline
+PA-ERR-004 & SRS \S4; AR \S3.3--3.4; repository & Biometric enrolment; prerequisite for scan-based operations was not elicited. No requirement exists despite BOR-0-03 referencing it. \\\hline
 PA-ERR-005 & SRS \S3.1, \S4.3.2; Data Dictionary C.4 & Three-way terminology inconsistency: ``Attended'' vs ``Excused, Attended...'' vs ``Present.'' \\\hline
 PA-ERR-006 & SRS cover; AR cover & SRS at v0.8 (03/03/2026); AR released at v1.0 (08/02/2026). SRS handed over before completion. \\\hline
 \end{tabular}
@@ -296,47 +292,47 @@ PA-ERR-006 & SRS cover; AR cover & SRS at v0.8 (03/03/2026); AR released at v1.0
 
 Each finding presents a CRaM analysis of the non-compliance instance. Findings are presented without corrective action; Nevon Solutions is to determine remediation at its discretion. Full evidence tables are in Appendix~\ref{app:findings}.
 
-\subsection{PA-FND-001 --- Open Issues Unresolved at SRS Finalisation}
+\subsection{PA-FND-001: Open Issues Unresolved at SRS Finalisation}
 
 \noindent\textbf{Evidence:} See \ref{ann:evidence-001} (Annex)
 
-\noindent\textbf{Error:} PA-ERR-001 \quad \textbf{Severity:} High \quad \textbf{Phase:} Analysing --- Open Issue Management; Specifying --- SRS Finalisation
+\noindent\textbf{Error:} PA-ERR-001 \quad \textbf{Severity:} High \quad \textbf{Phase:} Analysing \& Specifying 
 
 The Analysing Report \S3.5 documents three open issues: MCS Integration Security (no deadline), Disaster Recovery RPO/RTO (deadline 20/02/2026), and Biometric Template Storage Format. The SRS dated 03/03/2026 retains all three as unresolved (\S2.5, \S3.3, \S6.5 NFR-DOC-03). The RPO/RTO deadline passed without resolution and no formal deferral was presented. This constitutes a failure of the open issue resolution protocol required before SRS release.
 
-\subsection{PA-FND-002 --- SRS Sign-off Entirely Absent --- Validating Method Incomplete}
+\subsection{PA-FND-002: SRS Sign-off Entirely Absent}
 
 \noindent\textbf{Evidence:} See \ref{ann:evidence-002} (Annex)
 
-\noindent\textbf{Error:} PA-ERR-002 \quad \textbf{Severity:} Critical \quad \textbf{Phase:} Validating --- Customer SRS Authorisation
+\noindent\textbf{Error:} PA-ERR-002 \quad \textbf{Severity:} Critical \quad \textbf{Phase:} Validating
 
 SRS \S9 provides sign-off fields for four designated roles; all four rows are entirely blank. The QA auditor conducted a full repository inspection: no signed declaration, no BioSec confirmation document, no interview record, and no alternative authorisation evidence of any kind was found. The Analysing Report sign-off is correctly completed (Loh Wen Xuan, 13/02/2026), confirming the team knows the protocol. The SRS sign-off is the terminal step of the Validating method; its absence means the method was not completed and the SRS was released as an unauthorised draft.
 
-\subsection{PA-FND-003 --- 2FA Scope Contradiction Not Resolved}
+\subsection{PA-FND-003: 2FA Scope Contradiction Not Resolved}
 
 \noindent\textbf{Evidence:} See \ref{ann:evidence-003} (Annex)
 
-\noindent\textbf{Error:} PA-ERR-003 \quad \textbf{Severity:} High-to-Medium \quad \textbf{Phase:} Analysing --- Clarify; Specifying --- Cross-Section Review
+\noindent\textbf{Error:} PA-ERR-003 \quad \textbf{Severity:} High-to-Medium \quad \textbf{Phase:} Analysing \& Specifying
 
 UR-MOB-06 mandates 2FA for parents and teachers (mobile), while NFR-SEC-03 mandates 2FA exclusively for administrators (web portal). These are directly contradictory. BC-01 and TC-02 session outcomes contain no reference to 2FA scope resolution.
 
-\subsection{PA-FND-004 --- Biometric Student Enrolment Process Not Elicited}
+\subsection{PA-FND-004: Biometric Student Enrolment Process Not Elicited}
 
-\noindent\textbf{Error:} PA-ERR-004 \quad \textbf{Severity:} High-to-Medium \quad \textbf{Phase:} Analysing --- Breakdown and Clarify
+\noindent\textbf{Error:} PA-ERR-004 \quad \textbf{Severity:} High-to-Medium \quad \textbf{Phase:} Analysing \& Specifying
 
-Biometric enrolment --- the process of capturing and registering a student's fingerprint template --- is a logical prerequisite for all scan-based operations. No enrolment requirement exists in the SRS (\S4), the repository, or the Analysing Report session outcomes. However, BOR-0-03 acceptance criteria reference ``biometric enrolment,'' confirming the team was aware of the concept but did not elicit it.
+Biometric enrolment is the process of capturing and registering a student's fingerprint template which is a logical prerequisite for all scan-based operations. No enrolment requirement exists in the SRS (\S4), the repository, or the Analysing Report session outcomes. However, BOR-0-03 acceptance criteria reference ``biometric enrolment,'' confirming the team was aware of the concept but did not elicit it.
 
-\subsection{PA-FND-005 --- Attendance Status Terminology Inconsistency}
+\subsection{PA-FND-005: Attendance Status Terminology Inconsistency}
 
-\noindent\textbf{Error:} PA-ERR-005 \quad \textbf{Severity:} High-to-Medium \quad \textbf{Phase:} Specifying --- Cross-Section Consistency Review
+\noindent\textbf{Error:} PA-ERR-005 \quad \textbf{Severity:} High-to-Medium \quad \textbf{Phase:} Specifying
 
 Three-way inconsistency: UR-MOB-01 uses ``Attended, Absent, Late, or Excused''; \S4.3.2 uses ``Excused, Attended, Late, Absent''; Data Dictionary Table C.4 uses ``Present.'' This should have been detected and unified during the Specifying phase.
 
-\subsection{PA-FND-006 --- SRS Submitted Below Final Version Threshold}
+\subsection{PA-FND-006: SRS Submitted Below Final Version Threshold}
 
 \noindent\textbf{Evidence:} See \ref{ann:evidence-006} (Annex)
 
-\noindent\textbf{Error:} PA-ERR-006 \quad \textbf{Severity:} Medium \quad \textbf{Phase:} Specifying --- Version Control and Release Protocol
+\noindent\textbf{Error:} PA-ERR-006 \quad \textbf{Severity:} Medium \quad \textbf{Phase:} Specifying
 
 The SRS bears Version 0.8 (03/03/2026) while the Analysing Report was released at Version 1.0 (08/02/2026). Sub-1.0 version numbers indicate draft status. This is corroborated by incomplete sign-off (PA-FND-002) and unresolved open issues (PA-FND-001).
 
@@ -407,7 +403,7 @@ QA Auditor & Zong Han & \includegraphics[width=3.5cm,height=0.8cm]{../Brigman/Si
 \section{Full QA Checklist}
 \label{app:checklist}
 
-\subsection{Domain A --- Analysing Method}
+\subsection{Domain A: Analysing Method}
 
 \begin{longtable}{|L{0.8cm}|L{4cm}|L{1.3cm}|L{1.3cm}|L{5.5cm}|}
 \hline
@@ -431,7 +427,7 @@ A.13 & Were items from the PS properly codified in the repository? & M1, M2 & S 
 A.14 & Was the biometric enrolment process elicited as part of the Analysing phase? & M1, M2 & NS & No enrolment requirement appears in either the repository or the SRS. BC-01 and TC-02 outcomes make no reference to enrolment. See PA-ERR-004. \\\hline
 \end{longtable}
 
-\subsection{Domain B --- Specifying Method}
+\subsection{Domain B: Specifying Method}
 
 \begin{longtable}{|L{0.8cm}|L{4cm}|L{1.3cm}|L{1.3cm}|L{5.5cm}|}
 \hline
@@ -450,9 +446,9 @@ B.8 & If a Change Mitigation template is mentioned, does the template file exist
 B.9 & Was the SRS submitted at a final ($\geq$ Version 1.0) version? & M1 & NS & SRS bears Version 0.8. Analysing Report was released at Version 1.0. See PA-ERR-006. \\\hline
 \end{longtable}
 
-\subsection{Domain C --- Validating Method}
+\subsection{Domain C: Validating Method}
 
-\subsubsection{C.I --- Customer/Vendor Validation}
+\subsubsection{C.I Customer/Vendor Validation}
 
 \begin{longtable}{|L{0.8cm}|L{4cm}|L{1.3cm}|L{1.3cm}|L{5.5cm}|}
 \hline
@@ -466,7 +462,7 @@ C.3 & Is there evidence of a grammar check before SRS submission? & M3 & PS & No
 C.4 & Is there evidence of an editorial review before SRS submission? & M3 & NS & No editorial check record found. Terminology inconsistencies (PA-ERR-005) indicate editorial review was either not performed or was ineffective. \\\hline
 \end{longtable}
 
-\subsubsection{C.II --- QC Audit Process}
+\subsubsection{C.II QC Audit Process}
 
 \begin{longtable}{|L{0.8cm}|L{4cm}|L{1.3cm}|L{1.3cm}|L{5.5cm}|}
 \hline
@@ -480,7 +476,7 @@ C.7 & Did the QC team document findings with evidence? & M1 & S & QC Report \S5-
 C.8 & Are QC findings saved in a retrievable report format? & M1 & S & QC Report submitted as a standalone PDF with structured appendices. All 4 team members signed off (\S8). See Section~\ref{sec:qc-audit}. \\\hline
 \end{longtable}
 
-\subsection{Domain D --- Process Artefact Integrity}
+\subsection{Domain D: Process Artefact Integrity}
 
 \begin{longtable}{|L{0.8cm}|L{4cm}|L{1.3cm}|L{1.3cm}|L{5.5cm}|}
 \hline
@@ -501,10 +497,10 @@ D.7 & Are version control and document metadata complete across all deliverables
 \clearpage
 \renewcommand{\appendixprefix}{B}
 \setcounter{page}{1}
-\section{Detailed QA Findings --- Evidence Tables}
+\section{Detailed QA Findings: Evidence Tables}
 \label{app:findings}
 
-\subsection{PA-FND-001 --- Evidence}
+\subsection{PA-FND-001: Evidence}
 
 \begin{table}[H]
 \centering\small
@@ -521,7 +517,7 @@ SRS & \S6.5 NFR-DOC-03 & Disaster recovery RPO/RTO ``still pending BioSec approv
 
 \textbf{Confirmation:} The SRS date of 03/03/2026 post-dates the RPO/RTO resolution deadline of 20/02/2026. The SRS text itself acknowledges all three issues as unresolved. No resolution or deferral documentation was presented to the QA auditor.
 
-\subsection{PA-FND-002 --- Evidence}
+\subsection{PA-FND-002: Evidence}
 
 \begin{table}[H]
 \centering\small
@@ -538,7 +534,7 @@ Analysing Report & Declaration, p.3 & Correctly completed: Loh Wen Xuan, signatu
 
 \textbf{Confirmation:} Direct inspection of SRS \S9 confirms all sign-off fields are blank. Full repository inspection confirms no supplementary authorisation evidence exists. The Analysing Report's correctly completed sign-off confirms the team is familiar with the protocol. The Validating method was not completed.
 
-\subsection{PA-FND-003 --- Evidence}
+\subsection{PA-FND-003: Evidence}
 
 \begin{table}[H]
 \centering\small
@@ -553,7 +549,7 @@ Analysing Report & \S3.4 TC-02 & No reference to 2FA scope \\\hline
 \end{tabular}
 \end{table}
 
-\subsection{PA-FND-004 --- Evidence}
+\subsection{PA-FND-004: Evidence}
 
 \begin{table}[H]
 \centering\small
@@ -563,12 +559,12 @@ Analysing Report & \S3.4 TC-02 & No reference to 2FA scope \\\hline
 \textbf{Source} & \textbf{Location} & \textbf{Content} \\\hline
 SRS & \S4 System Features & No enrolment feature section; seven features, none covering enrolment \\\hline
 Repository & bizops-requirements.md & No enrolment requirement present \\\hline
-Repository & BOR-0-03 Acceptance Criteria & ``Parental consent is collected before biometric enrolment'' --- references enrolment without a corresponding requirement \\\hline
+Repository & BOR-0-03 Acceptance Criteria & ``Parental consent is collected before biometric enrolment'' references enrolment without a corresponding requirement \\\hline
 Analysing Report & \S3.3--3.4 & No enrolment process in documented outcomes \\\hline
 \end{tabular}
 \end{table}
 
-\subsection{PA-FND-005 --- Evidence}
+\subsection{PA-FND-005: Evidence}
 
 \begin{table}[H]
 \centering\small
@@ -582,7 +578,7 @@ SRS & Data Dictionary Table C.4 & ``Present'' --- diverges from both SRS \S3.1 a
 \end{tabular}
 \end{table}
 
-\subsection{PA-FND-006 --- Evidence}
+\subsection{PA-FND-006: Evidence}
 
 \begin{table}[H]
 \centering\small
@@ -615,7 +611,7 @@ The QC Report \S3 contains a documented audit plan with the following elements:
 Target workproduct & Present & \S3.1: NS-SRS-2026-001, Version 0.8, prepared by Nevon Solutions for BioSec Educational Institution \\\hline
 Context and goals & Present & \S3.2: Verifies SRS clarity, completeness, and internal consistency \\\hline
 Inspection techniques & Present & \S3.4: 10 techniques including close document inspection, perspective-based reading, cross-section contradiction checking, codification verification, model-to-text consistency, omission mapping, scenario-based reading, assumption reading, fact-checking, and spellcheck/grammar review \\\hline
-Work breakdown & Present & \S3.5/Appendix A Table A-1: Four roles --- QC Audit Lead, Requirements Reviewer, Traceability Reviewer, Editorial and Structure Reviewer \\\hline
+Work breakdown & Present & \S3.5/Appendix A Table A-1: Four roles: QC Audit Lead, Requirements Reviewer, Traceability Reviewer, Editorial and Structure Reviewer \\\hline
 Timeline & Present & \S3.6/Appendix A Table A-2: Four stages totalling {\raise.17ex\hbox{$\scriptstyle\sim$}}6 hours \\\hline
 Reporting protocol & Present & \S3.7: Findings recorded in report; audit team does not amend the SRS \\\hline
 \end{tabular}
@@ -752,7 +748,7 @@ Declaration & Signed legal statement confirming the truth of a claim. Used as ha
 
 This annex contains supporting screenshots and visual evidence linked to the QA findings documented in Section~\ref{sec:findings}. Each subsection corresponds to a finding and presents relevant document excerpts, requirement statements, or process artefacts that substantiate the non-compliance instance.
 
-\subsection{PA-FND-001 --- Open Issues Unresolved at SRS Finalisation}
+\subsection{PA-FND-001: Open Issues Unresolved at SRS Finalisation}
 \label{ann:evidence-001}
 
 \noindent\textbf{Related Finding:} Section~\ref{sec:findings}, PA-FND-001
@@ -762,18 +758,18 @@ This annex contains supporting screenshots and visual evidence linked to the QA 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{evidence/analysing_open_issues.png}
-\caption{Analysing Report \S3.5 — Open Issues table with deadlines}
+\caption{Analysing Report \S3.5: Open Issues table with deadlines}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{evidence/srs_open_issues.png}
-\caption{SRS \S2.5, \S3.3, \S6.5 — Unresolved open issues (biometric template, MCS encryption, RPO/RTO)}
+\caption{SRS \S2.5, \S3.3, \S6.5: Unresolved open issues (biometric template, MCS encryption, RPO/RTO)}
 \end{figure}
 
 \vspace{0.5cm}
 
-\subsection{PA-FND-002 --- SRS Sign-off Entirely Absent}
+\subsection{PA-FND-002: SRS Sign-off Entirely Absent}
 \label{ann:evidence-002}
 
 \noindent\textbf{Related Finding:} Section~\ref{sec:findings}, PA-FND-002
@@ -783,18 +779,18 @@ This annex contains supporting screenshots and visual evidence linked to the QA 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{evidence/srs_blank_sign_off.png}
-\caption{SRS \S9 — Blank sign-off fields (all four rows empty)}
+\caption{SRS \S9: Blank sign-off fields (all four rows empty)}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{evidence/analysing_report_signed.png}
-\caption{Analysing Report — Correctly completed sign-off (reference)}
+\caption{Analysing Report: Correctly completed sign-off (reference)}
 \end{figure}
 
 \vspace{0.5cm}
 
-\subsection{PA-FND-003 --- 2FA Scope Contradiction Not Resolved}
+\subsection{PA-FND-003: 2FA Scope Contradiction Not Resolved}
 \label{ann:evidence-003}
 
 \noindent\textbf{Related Finding:} Section~\ref{sec:findings}, PA-FND-003
@@ -804,30 +800,30 @@ This annex contains supporting screenshots and visual evidence linked to the QA 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{evidence/srs_2fa_for_parents.png}
-\caption{SRS \S3.1 UR-MOB-06 — 2FA requirement for parents and teachers}
+\caption{SRS \S3.1 UR-MOB-06: 2FA requirement for parents and teachers}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{evidence/srs_2fa_admins.png}
-\caption{SRS \S5.3 NFR-SEC-03 — 2FA requirement for administrators only}
+\caption{SRS \S5.3 NFR-SEC-03: 2FA requirement for administrators only}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{evidence/BC-01.png}
-\caption{Analysing Report \S3.3 — BC-01 clarification session outcomes (no 2FA resolution)}
+\caption{Analysing Report \S3.3: BC-01 clarification session outcomes (no 2FA resolution)}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{evidence/TC-02.png}
-\caption{Analysing Report \S3.4 — TC-02 clarification session outcomes (no 2FA resolution)}
+\caption{Analysing Report \S3.4: TC-02 clarification session outcomes (no 2FA resolution)}
 \end{figure}
 
 \vspace{0.5cm}
 
-\subsection{PA-FND-006 --- SRS Submitted Below Final Version Threshold}
+\subsection{PA-FND-006: SRS Submitted Below Final Version Threshold}
 \label{ann:evidence-006}
 
 \noindent\textbf{Related Finding:} Section~\ref{sec:findings}, PA-FND-006
@@ -837,13 +833,13 @@ This annex contains supporting screenshots and visual evidence linked to the QA 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{evidence/srs_cover_page.png}
-\caption{SRS cover page — Version 0.8, 03 March 2026}
+\caption{SRS cover page: Version 0.8, 03 March 2026}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{evidence/analysing_report_cover_page.png}
-\caption{Analysing Report cover page — Version 1.0, 08 February 2026}
+\caption{Analysing Report cover page: Version 1.0, 08 February 2026}
 \end{figure}
 
 \vspace{1cm}
