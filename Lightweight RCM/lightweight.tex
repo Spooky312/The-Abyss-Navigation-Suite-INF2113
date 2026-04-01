@@ -124,7 +124,7 @@ citecolor=blue
 \hline
 Report Type & Lightweight RCM report combining User Story and UseCase2.0 artifacts. \\
 \hline
-Progenitor & Team 1684R Eliciting Project Specification / Project Description baseline for \textit{The Abyss Navigator Suite}. \\
+Progenitor & Team 1684R Project Description (PD) baseline for \textit{The Abyss Navigator Suite}. \\
 \hline
 Customer & Triton Deepwater \\
 \hline
@@ -181,7 +181,7 @@ Kannan s/o Rajamohan & 2401517 & Safety \& Compliance Officer \\
 \hypersetup{pageanchor=true}
 
 \noindent\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
-\small\textbf{Note on Hyperlinks:} Throughout this document, all hyperlinks are displayed in \textcolor{blue}{\uline{blue and underlined}}. These links are fully clickable in the PDF viewer and will navigate to the relevant section, table, diagram, or addendum.
+\small\textbf{Note on Hyperlinks:} Throughout this document, internal references are displayed in \textcolor{blue}{\uline{blue and underlined}}. These links are fully clickable in the PDF viewer and navigate directly to the relevant section, table, diagram, or addendum.
 \end{minipage}}
 
 \bigskip
@@ -189,7 +189,7 @@ Kannan s/o Rajamohan & 2401517 & Safety \& Compliance Officer \\
 \section{Progenitor}
 \label{sec:progenitor}
 
-This report is a lightweight derivative of the elicited Project Specification for the \textit{Abyss Navigator Suite}. The progenitor baseline establishes the project goal, scope, stakeholder context, Level 1 and Level 2 requirement statements, and the high-level models from which the stories, use case, and slices below were derived.
+This report is a lightweight derivative of the elicited Project Description (PD) for the \textit{Abyss Navigator Suite}. The progenitor baseline establishes the project goal, scope, stakeholder context, Level 1 and Level 2 requirement statements, and the high-level models from which the stories, use case, and slices below were derived.
 
 The applied progenitor baseline is summarized in \hyperref[tab:progenitor]{Table~\ref*{tab:progenitor}}.
 
@@ -202,27 +202,27 @@ The applied progenitor baseline is summarized in \hyperref[tab:progenitor]{Table
 \rowcolor{tableheader}
 \textbf{Progenitor Aspect} & \textbf{Applied Baseline} \\
 \hline
-Primary source & Eliciting Project Specification for Team 1684R, \textit{The Abyss Navigator Suite}. \\
+Primary source & Team 1684R Project Description (PD) for \textit{The Abyss Navigator Suite}. \\
 \hline
 Goal anchor & Enable unmanned deep-sea missions that are autonomous, safely supervised, recoverable, and auditable. \\
 \hline
 Scope anchor & Remote mission oversight, autonomous execution, safety handling, recovery coordination, and post-mission accountability. \\
 \hline
-Story source clauses & BO-L1-2, BO-L1-4, BO-L1-6, BO-L1-7, IT-L1-1, IT-L1-2, IT-L1-5, IT-L1-6 and related section text in the Project Specification. \\
+Story source clauses & BO-L1-2, BO-L1-4, BO-L1-6, BO-L1-7, IT-L1-1, IT-L1-2, IT-L1-5, IT-L1-6 and related section text in the PD. \\
 \hline
 Method selection & Connextra for User Stories; Cockburn casual/low-ceremony for UC Stories; STS-style slices for realization planning. \\
 \hline
 \end{tabularx}
-\caption{Applied progenitor baseline for this lightweight report}
+\caption{Applied PD progenitor baseline for this lightweight report}
 \label{tab:progenitor}
 \end{table}
 
 \section{Executive Summary}
 \label{sec:exec-summary}
 
-This report applies a deliberately lightweight RCM approach to the Abyss Navigator Suite by combining small, business-facing User Stories with one system-wide \hyperref[fig:lightweight-usecase]{Use Case diagram} and one deeper UseCase2.0 drill-down. The User Story portion captures concise operational needs that still carry business value: mission configuration, abnormal-condition alerting, and post-mission accountability. Each story stays traceable to the progenitor Project Specification so the report remains concise without losing chain-of-custody back to the original elicited need.
+This report applies a deliberately lightweight RCM approach to the Abyss Navigator Suite by combining small, business-facing User Stories with one system-wide \hyperref[fig:lightweight-usecase]{Use Case diagram} and one deeper UseCase2.0 drill-down. The User Story portion captures concise operational needs that still carry business value: mission configuration, abnormal-condition alerting, and post-mission accountability. Each story stays traceable to the progenitor PD so the report remains concise without losing chain-of-custody back to the original elicited need.
 
-The UseCase2.0 portion preserves the big picture with one GPV-aligned use case model built around mission setup, autonomous execution, vessel-health monitoring, manual override, abnormal handling, recovery initiation, fleet management, and mission-record review. It then focuses on the most safety-critical use case in the current model: \textbf{UC01 Handle Abnormal Conditions and Initiate Recovery}. Within that priority use case, the report defines the walking skeleton as the thinnest end-to-end proof that a threshold breach becomes a visible health alert, and the MVP as the first usable recovery flow that lets operators respond through alerting, override, and recovery initiation. The resulting UC stories, auxiliary detail, conversation notes, and two STS-style slices give Brigman a practical realization path while keeping the document lightweight rather than expanding into a heavyweight UML pack.
+The UseCase2.0 portion preserves the big picture with one GPV-aligned use case model built around mission setup, autonomous execution, vessel-health monitoring, manual override, abnormal handling, recovery initiation, fleet management, and mission-record review. It then focuses on the most safety-critical use case in the current model: \textbf{UC01 Handle Abnormal Conditions and Initiate Recovery}. Within that priority use case, the report defines the walking skeleton as the thinnest end-to-end proof that a threshold breach becomes a visible health alert, and the MVP as the first usable recovery flow that lets operators respond through alerting, override, and recovery initiation. The resulting UC stories, auxiliary detail, conversation notes, and two STS-style slices give Triton Deepwater a practical basis for reviewing priority behaviour and expected realization without expanding this submission into a heavyweight UML pack.
 
 \newpage
 \section{User Story RCM}
@@ -248,11 +248,11 @@ The story set, its PD references, and its business confirmation signals are cons
 \hypertarget{us03}{US-03} & As a mission review officer, I want to review a completed mission record with anomalies and overrides so that I can conduct post-mission review and investigation. & PD 2.1 In Scope; PD 6.6 Operational Accountability; PD 6.7 Mission Data Value Delivery; PD 7.2 Data Management; IT-L1-5; IT-L2-5.1. & The review officer can open a completed mission and see an attributable timeline of mission events, anomalies, and override actions. \\
 \hline
 \end{tabularx}
-\caption{Three lightweight User Stories derived from the progenitor baseline}
+\caption{Three lightweight User Stories derived from the PD progenitor baseline}
 \label{tab:user-stories}
 \end{table}
 
-\noindent In this report, ``PD'' refers to the project description / progenitor baseline embodied in the team's Eliciting PS file.
+\noindent In this report, ``PD'' refers to the team's Project Description and its progenitor baseline.
 
 \noindent Full progenitor trace links for the story set are consolidated in \hyperref[tab:add-trace]{Table~\ref*{tab:add-trace}} in \hyperref[add:trace]{Addendum A: Progenitor Trace Links}.
 
@@ -261,7 +261,7 @@ The story set, its PD references, and its business confirmation signals are cons
 \addcontentsline{toc}{subsection}{User Story Conversation: US-02}
 \label{sec:us02-conversation}
 
-Before implementing US-02, a developer still needs the following stakeholder clarifications:
+Before implementation of US-02, the following stakeholder clarifications remain necessary:
 
 \begin{itemize}[leftmargin=*,nosep]
   \item Exact threshold ownership: who approves the operational baseline for pressure, temperature, and power thresholds when sea-trial data changes?
@@ -289,7 +289,7 @@ The current \hyperref[fig:lightweight-usecase]{use case diagram} keeps the main 
 \label{fig:lightweight-usecase}
 \end{figure}
 
-\noindent Within the current model, \hyperref[tab:priority-uc]{UC01 Handle Abnormal Conditions and Initiate Recovery} is the only use case selected for detailed treatment in this report. The other use cases shown in \hyperref[fig:lightweight-usecase]{Figure~\ref*{fig:lightweight-usecase}}: \hyperref[fig:lightweight-usecase]{UC02 Monitor Vessel Health}, \hyperref[fig:lightweight-usecase]{UC03 Manual Control Override}, \hyperref[fig:lightweight-usecase]{UC04 Execute Mission Autonomously}, \hyperref[fig:lightweight-usecase]{UC05 Configure Mission Parameters}, \hyperref[fig:lightweight-usecase]{UC06 Manage Fleet Mission}, and \hyperref[fig:lightweight-usecase]{UC07 Review Mission Record}, remain at whole-system diagram level and are not decomposed further in this lightweight report.
+\noindent Within the current model, \hyperref[tab:priority-uc]{UC01 Handle Abnormal Conditions and Initiate Recovery} is the only use case selected for detailed treatment in this report. The remaining use cases shown in \hyperref[fig:lightweight-usecase]{Figure~\ref*{fig:lightweight-usecase}}: \hyperref[fig:lightweight-usecase]{UC02 Monitor Vessel Health}, \hyperref[fig:lightweight-usecase]{UC03 Manual Control Override}, \hyperref[fig:lightweight-usecase]{UC04 Execute Mission Autonomously}, \hyperref[fig:lightweight-usecase]{UC05 Configure Mission Parameters}, \hyperref[fig:lightweight-usecase]{UC06 Manage Fleet Mission}, and \hyperref[fig:lightweight-usecase]{UC07 Review Mission Record}, are retained at whole-system level and are not decomposed further in this document.
 
 \subsection*{Priority Use Case, Walking Skeleton, and MVP}
 \phantomsection
@@ -309,9 +309,9 @@ The priority use case, walking skeleton, and MVP definitions are summarized in \
 \hline
 Priority use case & \hypertarget{uc01-priority}{\textbf{UC01 Handle Abnormal Conditions and Initiate Recovery.}} In the current diagram, this use case best concentrates the project's GPV because it converts abnormal-condition awareness into a concrete recovery response. See \hyperref[fig:lightweight-usecase]{Figure~\ref*{fig:lightweight-usecase}} and \hyperref[sec:uc01-stories]{the UC01 stories}. \\
 \hline
-Walking skeleton & \hypertarget{uc01-ws}{\textbf{UC-01-WS: Health alert vertical path.}} The thinnest end-to-end proof that one threshold breach can travel from vessel-health monitoring to abnormal detection, health-alert presentation, and audit logging. This is not a story; it is the first technical backbone of the use case, realized in \hyperref[sec:uc-slice-ws]{UC Slice 1}. \\
+Walking skeleton & \hypertarget{uc01-ws}{\textbf{UC-01-WS: Health alert vertical path.}} The thinnest end-to-end proof that one threshold breach can travel from vessel-health monitoring to abnormal detection, health-alert presentation, and audit logging. This item is a prioritization construct rather than a story and is realized in \hyperref[sec:uc-slice-ws]{UC Slice 1}. \\
 \hline
-MVP & \hypertarget{uc01-mvp}{\textbf{UC-01-MVP: First usable recovery response.}} The smallest version a user can meaningfully operate: detect pressure/temperature/power breaches, display a health alert, permit manual override or recovery initiation, update mission status, and retain recovery context. This is not a story, and it is realized in \hyperref[sec:uc-slice-mvp]{UC Slice 2}. \\
+MVP & \hypertarget{uc01-mvp}{\textbf{UC-01-MVP: First usable recovery response.}} The smallest version a user can meaningfully operate: detect pressure/temperature/power breaches, display a health alert, permit manual override or recovery initiation, update mission status, and retain recovery context. This item is a prioritization construct rather than a story and is realized in \hyperref[sec:uc-slice-mvp]{UC Slice 2}. \\
 \hline
 \end{tabularx}
 \caption{Priority use case definition and prioritization scheme}
@@ -359,7 +359,7 @@ The auxiliary detail set for UC01 is consolidated in \hyperref[tab:uc-aux]{Table
 \hline
 For / effective date & Use Case \textbf{UC01 Handle Abnormal Conditions and Initiate Recovery}; effective date \textbf{2026-091}. \\
 \hline
-Assumptions & Missions are supervised from a surface or mothership environment. Customer-supplied sensors remain available for software integration. A configured baseline exists for each monitored parameter before mission launch. A recovery handoff path to the emergency retrieval system is available. \\
+Assumptions & Missions are supervised from Triton Deepwater's surface or mothership environment. Triton-provided sensors remain available for software integration. A configured baseline exists for each monitored parameter before mission launch. A recovery handoff path to the emergency retrieval system is available. \\
 \hline
 Business rules & Critical abnormal conditions must raise a health alert. Every alert, override, and recovery-initiation action must remain attributable to mission, vehicle, time, and actor. Manual override may precede full recovery initiation when the pilot judges it appropriate. \\
 \hline
@@ -373,7 +373,7 @@ Technical details: load \& stress parameters & Support at least 3 supervised sub
 \hline
 Technical details: performance benchmarks & Telemetry refresh target is every 30 seconds when connectivity is available. Pressure anomaly detection target is within 5 seconds; temperature and power within 10 seconds. Recovery-initiation or override acknowledgement target is within 60 seconds when link latency is at or below 30 seconds. \\
 \hline
-Technical details: platform \& IT compatibility & Telemetry and sensor integration use ROS2 middleware, DDS transport, and JSON schema validation. The operator interface runs from the surface or mothership environment. Operational records are stored in PostgreSQL or equivalent structured storage. \\
+Technical details: platform \& IT compatibility & Telemetry and sensor integration use ROS2 middleware, DDS transport, and JSON schema validation. The operator interface runs from Triton Deepwater's surface or mothership environment. Operational records are stored in PostgreSQL or equivalent structured storage. \\
 \hline
 Technical details: quality features & Safety integrity, traceability, operability, resilience under degraded communications, and confidentiality/integrity of operational data. \\
 \hline
@@ -391,7 +391,7 @@ Technical details: UI \& UX & The dashboard must show severity, vehicle ID, miss
 \addcontentsline{toc}{subsection}{UC Conversation}
 \label{sec:uc-conversation}
 
-Before deriving realization slices, Brigman still needs stakeholder clarification on several points that materially affect slice boundaries:
+Before realization slices are finalized, the following matters require clarification from Triton Deepwater stakeholders:
 
 \begin{itemize}[leftmargin=*,nosep]
   \item Whether the mothership pilot or the emergency retrieval system owns the first authoritative recovery trigger.
@@ -401,7 +401,6 @@ Before deriving realization slices, Brigman still needs stakeholder clarificatio
   \item Whether a malformed sensor payload should immediately escalate the incident or first remain as a sensor-fault warning pending human review.
 \end{itemize}
 
-\newpage
 \subsection*{UC Slice 1: Walking Skeleton}
 \phantomsection
 \addcontentsline{toc}{subsection}{UC Slice 1: Walking Skeleton}
@@ -500,7 +499,7 @@ Brigman Deep Sea Technology\\
 
 \textbf{AI Use Declaration:} ChatGPT was used to help the team with language, grammar and flow. Our team also used it as a way to explain complex concepts to us. All content, stories, use cases, slices, models and diagrams were developed by the team.
 
-\textbf{Originality Declaration:} This report presents original lightweight requirements capture work prepared for the Abyss Navigator Suite project. The report content is derived from the team's elicited Project Specification and subsequent internal analysis, and has not been copied from external deliverables.
+\textbf{Originality Declaration:} This report presents original lightweight requirements capture work prepared for the Abyss Navigator Suite project. The report content is derived from the team's PD baseline and has not been copied from external deliverables.
 
 Team declarations and signatures are recorded in \hyperref[tab:declarations]{Table~\ref*{tab:declarations}}.
 
@@ -524,7 +523,7 @@ Muhammad Mikhail Bin Mazlan & 2402298 & \makebox[\linewidth][c]{\includegraphics
 Kannan s/o Rajamohan & 2401517 & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_kannan.jpg}} \\
 \hline
 \end{tabular}
-\caption{Team declarations following the Eliciting PS pattern}
+\caption{Team declarations and signatures}
 \label{tab:declarations}
 \end{table}
 
@@ -539,7 +538,7 @@ Kannan s/o Rajamohan & 2401517 & \makebox[\linewidth][c]{\includegraphics[height
 \subsection{Addendum A: Progenitor Trace Links}
 \label{add:trace}
 
-This addendum supports the base User Story and UseCase2.0 sections by preserving concise trace links back to the progenitor document without expanding the body into a heavyweight trace matrix.
+This addendum supports the base User Story and UseCase2.0 sections by preserving concise trace links back to the PD without expanding the body into a heavyweight trace matrix.
 
 \begin{table}[H]
 \centering
@@ -563,7 +562,7 @@ This addendum supports the base User Story and UseCase2.0 sections by preserving
 \hyperlink{uc01-mvp}{UC01-MVP} & \hyperref[sec:uc-slice-mvp]{UC Slice 2} & BO-L2-4.1, BO-L2-4.2, IT-L1-2, IT-L1-6. & Shows why the MVP must move beyond detection into usable override and recovery response under real link constraints. \\
 \hline
 \end{tabularx}
-\caption{Trace links from lightweight artifacts back to the progenitor baseline}
+\caption{Trace links from lightweight artifacts back to the PD progenitor baseline}
 \label{tab:add-trace}
 \end{table}
 
@@ -581,17 +580,17 @@ This addendum supports the base UC Auxiliary Detail and UC Slice sections by hol
 \rowcolor{tableheader}
 \textbf{Note ID} & \textbf{Base Section} & \textbf{Supporting Note} & \textbf{Source} \\
 \hline
-ADD-B1 & UC Auxiliary Detail & Pressure deviations beyond \(\pm5\%\) are treated as critical within 5 seconds. & Brigman analysis baseline and derived SRS safety requirement SAF-EMG-001. \\
+ADD-B1 & UC Auxiliary Detail & Pressure deviations beyond \(\pm5\%\) are treated as critical within 5 seconds. & PD 1.5; PD 6.4; BO-L2-4.1. \\
 \hline
-ADD-B2 & UC Auxiliary Detail & Temperature deviations beyond \(\pm10\%\) and power deviations beyond \(\pm15\%\) are treated as critical within 10 seconds. & Derived safety requirements SAF-EMG-002 and SAF-EMG-003. \\
+ADD-B2 & UC Auxiliary Detail & Temperature deviations beyond \(\pm10\%\) and power deviations beyond \(\pm15\%\) are treated as critical within 10 seconds. & PD 1.5; PD 6.4; BO-L2-4.2. \\
 \hline
-ADD-B3 & UC Auxiliary Detail / Slice 2 & Telemetry should refresh at least every 30 seconds when connectivity is available. & Remote monitoring requirement COM-MON-001. \\
+ADD-B3 & UC Auxiliary Detail / Slice 2 & Telemetry should refresh at least every 30 seconds when connectivity is available. & PD 2.1; PD 7.4; IT-L1-1. \\
 \hline
-ADD-B4 & UC Auxiliary Detail / Slice 2 & Recovery-initiation or manual-override acknowledgement target is within 60 seconds when one-way latency is at or below 30 seconds. & Remote intervention requirement COM-INT-001. \\
+ADD-B4 & UC Auxiliary Detail / Slice 2 & Recovery-initiation or manual-override acknowledgement target is within 60 seconds when one-way latency is at or below 30 seconds. & PD 6.4; PD 7.4; IT-L1-2; IT-L1-6. \\
 \hline
-ADD-B5 & UC Auxiliary Detail / Slice 2 & Degraded communications planning constrains alert, override, and recovery handling under low bandwidth, high latency, and sustained link loss. & Degraded communications requirement COM-DEG-001. \\
+ADD-B5 & UC Auxiliary Detail / Slice 2 & Degraded communications planning constrains alert, override, and recovery handling under low bandwidth, high latency, and sustained link loss. & PD 2.1; PD 7.4; IT-L1-6. \\
 \hline
-ADD-B6 & UC Auxiliary Detail / Slice 1 & Telemetry integration assumes ROS2 middleware, DDS transport, and JSON schema validation. & Interface requirement INT-SENS-001. \\
+ADD-B6 & UC Auxiliary Detail / Slice 1 & Telemetry integration assumes ROS2 middleware, DDS transport, and JSON schema validation. & PD 7.4; IT-L1-1; IT-L1-2. \\
 \hline
 \end{tabularx}
 \caption{Quantitative and interface notes supporting the priority use case}
