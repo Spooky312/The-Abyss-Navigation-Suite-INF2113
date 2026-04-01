@@ -20,9 +20,15 @@
 \usepackage{caption}
 \usepackage{bookmark}
 \usepackage{tikz}
+\usepackage[normalem]{ulem}
 \usetikzlibrary{arrows.meta,positioning,shapes.geometric}
 
-\hypersetup{hidelinks}
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+urlcolor=blue,
+citecolor=blue
+}
 \frenchspacing
 \setstretch{1.0}
 
@@ -36,6 +42,15 @@
 
 \newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
 \newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+
+\AtBeginDocument{
+\let\orighyperref\hyperref
+\renewcommand{\hyperref}[2][]{\orighyperref[#1]{\uline{#2}}}
+\let\orighyperlink\hyperlink
+\renewcommand{\hyperlink}[2]{\orighyperlink{#1}{\uline{#2}}}
+\let\orighref\href
+\renewcommand{\href}[2]{\orighref{#1}{\uline{#2}}}
+}
 
 \newcommand{\manualmodelplaceholder}[4]{%
 \begin{figure}[H]
@@ -154,18 +169,29 @@ Kannan s/o Rajamohan & 2401517 & Safety \& Compliance Officer \\
 \renewcommand{\headrulewidth}{0.4pt}
 
 \newpage
-\hypersetup{pageanchor=true}
-\pagenumbering{arabic}
-\setcounter{page}{1}
 
 \pdfbookmark[0]{Contents}{contents}
+\thispagestyle{empty}
+\hypersetup{linkcolor=black}
 \tableofcontents
 \newpage
+\hypersetup{linkcolor=blue}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\hypersetup{pageanchor=true}
+
+\noindent\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
+\small\textbf{Note on Hyperlinks:} Throughout this document, all hyperlinks are displayed in \textcolor{blue}{\uline{blue and underlined}}. These links are fully clickable in the PDF viewer and will navigate to the relevant section, table, diagram, or addendum.
+\end{minipage}}
+
+\bigskip
 
 \section{Progenitor}
 \label{sec:progenitor}
 
 This report is a lightweight derivative of the elicited Project Specification for the \textit{Abyss Navigator Suite}. The progenitor baseline establishes the project goal, scope, stakeholder context, Level 1 and Level 2 requirement statements, and the high-level models from which the stories, use case, and slices below were derived.
+
+The applied progenitor baseline is summarized in \hyperref[tab:progenitor]{Table~\ref*{tab:progenitor}}.
 
 \begin{table}[H]
 \centering
@@ -187,19 +213,24 @@ Story source clauses & BO-L1-2, BO-L1-4, BO-L1-6, BO-L1-7, IT-L1-1, IT-L1-2, IT-
 Method selection & Connextra for User Stories; Cockburn casual/low-ceremony for UC Stories; STS-style slices for realization planning. \\
 \hline
 \end{tabularx}
+\caption{Applied progenitor baseline for this lightweight report}
+\label{tab:progenitor}
 \end{table}
 
 \section{Executive Summary}
 \label{sec:exec-summary}
 
-This report applies a deliberately lightweight RCM approach to the Abyss Navigator Suite by combining small, business-facing User Stories with one system-wide Use Case diagram and one deeper UseCase2.0 drill-down. The User Story portion captures concise operational needs that still carry business value: mission configuration, abnormal-condition alerting, and post-mission accountability. Each story stays traceable to the progenitor Project Specification so the report remains concise without losing chain-of-custody back to the original elicited need.
+This report applies a deliberately lightweight RCM approach to the Abyss Navigator Suite by combining small, business-facing User Stories with one system-wide \hyperref[fig:lightweight-usecase]{Use Case diagram} and one deeper UseCase2.0 drill-down. The User Story portion captures concise operational needs that still carry business value: mission configuration, abnormal-condition alerting, and post-mission accountability. Each story stays traceable to the progenitor Project Specification so the report remains concise without losing chain-of-custody back to the original elicited need.
 
 The UseCase2.0 portion preserves the big picture with one GPV-aligned use case model built around mission setup, autonomous execution, vessel-health monitoring, manual override, abnormal handling, recovery initiation, fleet management, and mission-record review. It then focuses on the most safety-critical use case in the current model: \textbf{UC01 Handle Abnormal Conditions and Initiate Recovery}. Within that priority use case, the report defines the walking skeleton as the thinnest end-to-end proof that a threshold breach becomes a visible health alert, and the MVP as the first usable recovery flow that lets operators respond through alerting, override, and recovery initiation. The resulting UC stories, auxiliary detail, conversation notes, and two STS-style slices give Brigman a practical realization path while keeping the document lightweight rather than expanding into a heavyweight UML pack.
 
+\newpage
 \section{User Story RCM}
 \label{sec:user-story-rcm}
 
 \textbf{Chosen convention.} This report uses the \textbf{Connextra} convention only. Every User Story follows the exact pattern \textit{As a \dots I want \dots so that \dots}. No hybridization with INVEST or Three-C's is used in the story wording itself.
+
+The story set, its PD references, and its business confirmation signals are consolidated in \hyperref[tab:user-stories]{Table~\ref*{tab:user-stories}}.
 
 \begin{table}[H]
 \centering
@@ -208,22 +239,22 @@ The UseCase2.0 portion preserves the big picture with one GPV-aligned use case m
 \begin{tabularx}{\textwidth}{|P{0.09\textwidth}|Y|P{0.27\textwidth}|P{0.18\textwidth}|}
 \hline
 \rowcolor{tableheader}
-\textbf{ID} & \textbf{Connextra User Story} & \textbf{PD / Progenitor Reference} & \textbf{Business Confirmation Signal} \\
+\textbf{ID} & \textbf{Connextra User Story} & \textbf{PD Reference} & \textbf{Business Confirmation Signal} \\
 \hline
-\hypertarget{us01}{US-01} & As a fleet operations controller, I want to configure mission parameters before deployment so that each autonomous mission starts with approved objectives, route settings, and operational limits. & PD baseline: autonomous mission support, supervised execution, and approved mission setup; PS \S1.5, \S2.1, \S6.1, \S7.4. & The controller can create and save a mission configuration that is ready for autonomous execution. \\
+\hypertarget{us01}{US-01} & As a fleet operations controller, I want to configure mission parameters before deployment so that each autonomous mission starts with approved objectives, route settings, and operational limits. & PD 1.5 Project Goal; PD 2.1 In Scope; PD 6.1 Autonomous Mission Execution; PD 7.4 IT Capability Requirements. & The controller can create and save a mission configuration that is ready for autonomous execution. \\
 \hline
-\hypertarget{us02}{US-02} & As a mothership pilot, I want critical pressure, temperature, and power deviations to raise a clear health alert so that I can initiate recovery before risk escalates. & PD baseline: safe supervision, abnormal handling, and recovery readiness; PS \S1.5, \S2.1, \S4.3, \S6.4, BO-L2-4.1, BO-L2-4.2. & A critical health alert appears with vehicle ID, mission ID, breached parameter, severity, and timestamp. \\
+\hypertarget{us02}{US-02} & As a mothership pilot, I want critical pressure, temperature, and power deviations to raise a clear health alert so that I can initiate recovery before risk escalates. & PD 1.5 Project Goal; PD 2.1 In Scope; PD 4.3 Regulatory Obligations; PD 6.4 Emergency and Abnormal Situation Handling; BO-L2-4.1; BO-L2-4.2. & A critical health alert appears with vehicle ID, mission ID, breached parameter, severity, and timestamp. \\
 \hline
-\hypertarget{us03}{US-03} & As a mission review officer, I want to review a completed mission record with anomalies and overrides so that I can conduct post-mission review and investigation. & PD baseline: post-mission accountability, traceability, and mission data value; PS \S2.1, \S6.6, \S6.7, \S7.2, IT-L1-5, IT-L2-5.1. & The review officer can open a completed mission and see an attributable timeline of mission events, anomalies, and override actions. \\
+\hypertarget{us03}{US-03} & As a mission review officer, I want to review a completed mission record with anomalies and overrides so that I can conduct post-mission review and investigation. & PD 2.1 In Scope; PD 6.6 Operational Accountability; PD 6.7 Mission Data Value Delivery; PD 7.2 Data Management; IT-L1-5; IT-L2-5.1. & The review officer can open a completed mission and see an attributable timeline of mission events, anomalies, and override actions. \\
 \hline
 \end{tabularx}
 \caption{Three lightweight User Stories derived from the progenitor baseline}
 \label{tab:user-stories}
 \end{table}
 
-\noindent In this report, ``PD'' refers to the project-description / progenitor baseline carried forward from the Eliciting PS.
+\noindent In this report, ``PD'' refers to the project description / progenitor baseline embodied in the team's Eliciting PS file.
 
-\noindent Full progenitor trace links for the story set are consolidated in Addendum~\ref{add:trace}.
+\noindent Full progenitor trace links for the story set are consolidated in \hyperref[tab:add-trace]{Table~\ref*{tab:add-trace}} in \hyperref[add:trace]{Addendum A: Progenitor Trace Links}.
 
 \subsection*{User Story Conversation: US-02}
 \phantomsection
@@ -240,6 +271,7 @@ Before implementing US-02, a developer still needs the following stakeholder cla
   \item Evidence rule: what minimum incident detail must be retained for later compliance review and investigation?
 \end{itemize}
 
+\newpage
 \section{UseCase2.0 RCM}
 \label{sec:usecase-rcm}
 
@@ -248,21 +280,23 @@ Before implementing US-02, a developer still needs the following stakeholder cla
 \addcontentsline{toc}{subsection}{Whole-System Use Case Diagram}
 \label{sec:uc-diagram}
 
-The current diagram keeps the main operational goals visible and shows the supporting detect-alert chain used by the abnormal-condition flow. It remains aligned to the progenitor GPV by centering mission setup, autonomous execution, vessel-health monitoring, override/recovery response, and mission-record accountability.
+The current \hyperref[fig:lightweight-usecase]{use case diagram} keeps the main operational goals visible and shows the supporting detect-alert chain used by the abnormal-condition flow. It remains aligned to the progenitor GPV by centering mission setup, autonomous execution, vessel-health monitoring, override/recovery response, and mission-record accountability.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.86\textwidth]{{SMA Models - Use Case Diagram(2).png}}
+\includegraphics[width=0.86\textwidth]{{SMA Models - Use Case Diagram(3).png}}
 \caption{Current lightweight use case view used for this report}
 \label{fig:lightweight-usecase}
 \end{figure}
 
-\noindent\textbf{Use case navigation.} \hyperref[tab:priority-uc]{UC01 Handle Abnormal Conditions and Initiate Recovery} is elaborated further in this report. \hyperref[fig:lightweight-usecase]{UC02 Monitor Vessel Health}, \hyperref[fig:lightweight-usecase]{UC03 Manual Control Override}, \hyperref[fig:lightweight-usecase]{UC04 Execute Mission Autonomously}, \hyperref[fig:lightweight-usecase]{UC05 Configure Mission Parameters}, \hyperref[fig:lightweight-usecase]{UC06 Manage Fleet Mission}, and \hyperref[fig:lightweight-usecase]{UC08 Review Mission Record} remain at whole-system diagram level.
+\noindent Within the current model, \hyperref[tab:priority-uc]{UC01 Handle Abnormal Conditions and Initiate Recovery} is the only use case selected for detailed treatment in this report. The other use cases shown in \hyperref[fig:lightweight-usecase]{Figure~\ref*{fig:lightweight-usecase}}: \hyperref[fig:lightweight-usecase]{UC02 Monitor Vessel Health}, \hyperref[fig:lightweight-usecase]{UC03 Manual Control Override}, \hyperref[fig:lightweight-usecase]{UC04 Execute Mission Autonomously}, \hyperref[fig:lightweight-usecase]{UC05 Configure Mission Parameters}, \hyperref[fig:lightweight-usecase]{UC06 Manage Fleet Mission}, and \hyperref[fig:lightweight-usecase]{UC07 Review Mission Record}, remain at whole-system diagram level and are not decomposed further in this lightweight report.
 
 \subsection*{Priority Use Case, Walking Skeleton, and MVP}
 \phantomsection
 \addcontentsline{toc}{subsection}{Priority Use Case, Walking Skeleton, and MVP}
 \label{sec:priority-uc}
+
+The priority use case, walking skeleton, and MVP definitions are summarized in \hyperref[tab:priority-uc]{Table~\ref*{tab:priority-uc}}.
 
 \begin{table}[H]
 \centering
@@ -284,7 +318,7 @@ MVP & \hypertarget{uc01-mvp}{\textbf{UC-01-MVP: First usable recovery response.}
 \label{tab:priority-uc}
 \end{table}
 
-\noindent\textbf{UC01 drill-down links.} \hyperref[sec:uc01-stories]{UC stories}; \hyperref[tab:uc-aux]{auxiliary detail}; \hyperref[sec:uc-conversation]{UC conversation}; \hyperref[sec:uc-slice-ws]{walking skeleton slice}; \hyperref[sec:uc-slice-mvp]{MVP slice}.
+\noindent Further elaboration of UC01 is provided in the \hyperref[sec:uc01-stories]{UC stories section}, the \hyperref[tab:uc-aux]{auxiliary detail table (Table~\ref*{tab:uc-aux})}, the \hyperref[sec:uc-conversation]{UC conversation section}, the \hyperref[tab:slice-ws]{walking skeleton slice table (Table~\ref*{tab:slice-ws})}, and the \hyperref[tab:slice-mvp]{MVP slice table (Table~\ref*{tab:slice-mvp})}.
 
 \subsection*{UC Stories for UC01 Handle Abnormal Conditions and Initiate Recovery}
 \phantomsection
@@ -311,6 +345,8 @@ MVP & \hypertarget{uc01-mvp}{\textbf{UC-01-MVP: First usable recovery response.}
 \phantomsection
 \addcontentsline{toc}{subsection}{UC Auxiliary Detail for UC01}
 \label{sec:uc01-aux}
+
+The auxiliary detail set for UC01 is consolidated in \hyperref[tab:uc-aux]{Table~\ref*{tab:uc-aux}}.
 
 \begin{table}[H]
 \centering
@@ -348,7 +384,7 @@ Technical details: UI \& UX & The dashboard must show severity, vehicle ID, miss
 \label{tab:uc-aux}
 \end{table}
 
-\noindent Quantitative source notes that support these auxiliary details are consolidated in Addendum~\ref{add:source-notes}.
+\noindent Quantitative source notes that support these auxiliary details are consolidated in \hyperref[tab:add-source-notes]{Table~\ref*{tab:add-source-notes}} in \hyperref[add:source-notes]{Addendum B: Quantitative and Interface Source Notes}.
 
 \subsection*{UC Conversation}
 \phantomsection
@@ -365,12 +401,15 @@ Before deriving realization slices, Brigman still needs stakeholder clarificatio
   \item Whether a malformed sensor payload should immediately escalate the incident or first remain as a sensor-fault warning pending human review.
 \end{itemize}
 
+\newpage
 \subsection*{UC Slice 1: Walking Skeleton}
 \phantomsection
 \addcontentsline{toc}{subsection}{UC Slice 1: Walking Skeleton}
 \label{sec:uc-slice-ws}
 
 \textbf{Title:} UC01-SL01 Health Alert Vertical Path
+
+The walking skeleton slice definition is detailed in \hyperref[tab:slice-ws]{Table~\ref*{tab:slice-ws}}.
 
 \begin{table}[H]
 \centering
@@ -409,6 +448,8 @@ Acceptance & AC01 [Y/N]: One simulated pressure breach creates exactly one healt
 
 \textbf{Title:} UC01-SL02 First Usable Recovery Response
 
+The MVP slice definition is detailed in \hyperref[tab:slice-mvp]{Table~\ref*{tab:slice-mvp}}.
+
 \begin{table}[H]
 \centering
 \footnotesize
@@ -439,36 +480,20 @@ Acceptance & AC11 [Y/N]: Pressure, temperature, and power breaches produce the c
 \label{tab:slice-mvp}
 \end{table}
 
+\newpage
 \section{Combined Sign-off}
 \label{sec:signoff}
 
-This Lightweight RCM Report is certified as complete and ready for submission to Triton Deepwater following completion of lightweight requirements capture activities. The following team members sign in their respective role positions as subject matter contributors to the lightweight RCM baseline.
+This Lightweight RCM Report is certified as complete and ready for submission to Triton Deepwater following completion of lightweight requirements capture activities.
 
-\begin{table}[H]
-\centering
-\small
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|P{0.28\textwidth}|P{0.28\textwidth}|P{0.22\textwidth}|}
-\hline
-\rowcolor{tableheader}
-\textbf{Name} & \textbf{Role Position} & \textbf{Signature} \\
-\hline
-Muhammad Ridwan Putra Jasni & Project Leader / Mission Operations Manager & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_ridwan.jpg}} \\
-\hline
-Chng Zong Han & IT Systems Manager & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_zonghan.jpg}} \\
-\hline
-Lin Yuhao & Mothership Pilot & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_yuhao.jpg}} \\
-\hline
-Muhammad Mikhail Bin Mazlan & Mission Data Analyst & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_mikhail.jpg}} \\
-\hline
-Kannan s/o Rajamohan & Safety \& Compliance Officer & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_kannan.jpg}} \\
-\hline
-\end{tabular}
-\caption{Combined sign-off by the project lead and role owners}
-\label{tab:signoff}
-\end{table}
+\vspace{0.25cm}
+\noindent\textbf{Signed by:}\\[0.1cm]
+\includegraphics[height=1.2cm]{../Brigman/Signatures/signature_ridwan.jpg}\\[-0.05cm]
 
-\noindent Date of sign-off: 01 April 2026
+\textbf{Muhammad Ridwan Putra Jasni}\\
+Project Leader / Mission Operations Manager\\
+Brigman Deep Sea Technology\\
+01 April 2026
 
 \section{Declarations}
 \label{sec:declarations}
@@ -476,6 +501,8 @@ Kannan s/o Rajamohan & Safety \& Compliance Officer & \makebox[\linewidth][c]{\i
 \textbf{AI Use Declaration:} ChatGPT was used to help the team with language, grammar and flow. Our team also used it as a way to explain complex concepts to us. All content, stories, use cases, slices, models and diagrams were developed by the team.
 
 \textbf{Originality Declaration:} This report presents original lightweight requirements capture work prepared for the Abyss Navigator Suite project. The report content is derived from the team's elicited Project Specification and subsequent internal analysis, and has not been copied from external deliverables.
+
+Team declarations and signatures are recorded in \hyperref[tab:declarations]{Table~\ref*{tab:declarations}}.
 
 \begin{table}[H]
 \centering
@@ -523,13 +550,13 @@ This addendum supports the base User Story and UseCase2.0 sections by preserving
 \rowcolor{tableheader}
 \textbf{Item} & \textbf{Base Section} & \textbf{PD / Progenitor Link} & \textbf{Why It Matters} \\
 \hline
-\hyperlink{us01}{US-01} & \hyperref[sec:user-story-rcm]{User Story RCM} & PD baseline: autonomous mission support; PS \S2.1, \S6.2, \S7.4, IT-L1-1. & Grounds telemetry visibility in remote supervision rather than a vendor-only invention. \\
+\hyperlink{us01}{US-01} & \hyperref[sec:user-story-rcm]{User Story RCM} & PD 1.5; PD 2.1; PD 6.1; PD 7.4; IT-L1-1. & Grounds telemetry visibility in remote supervision rather than a vendor-only invention. \\
 \hline
-\hyperlink{us02}{US-02} & \hyperref[sec:user-story-rcm]{User Story RCM} & PD baseline: abnormal handling and recovery readiness; PS \S1.5, \S2.1, \S4.3, \S6.4, BO-L2-4.1, BO-L2-4.2. & Keeps the alerting story tied directly to safety and compliance intent. \\
+\hyperlink{us02}{US-02} & \hyperref[sec:user-story-rcm]{User Story RCM} & PD 1.5; PD 2.1; PD 4.3; PD 6.4; BO-L2-4.1; BO-L2-4.2. & Keeps the alerting story tied directly to safety and compliance intent. \\
 \hline
-\hyperlink{us03}{US-03} & \hyperref[sec:user-story-rcm]{User Story RCM} & PD baseline: accountability and mission data value; PS \S2.1, \S6.6, \S6.7, \S7.2, IT-L1-5, IT-L2-5.1. & Preserves accountability and post-mission value as explicit business needs. \\
+\hyperlink{us03}{US-03} & \hyperref[sec:user-story-rcm]{User Story RCM} & PD 2.1; PD 6.6; PD 6.7; PD 7.2; IT-L1-5; IT-L2-5.1. & Preserves accountability and post-mission value as explicit business needs. \\
 \hline
-\hyperlink{uc01-priority}{UC-01} & \hyperref[sec:usecase-rcm]{UseCase2.0 RCM} & PD baseline: safe supervised intervention and recovery coordination; PS \S1.5, \S2.1, \S6.4, \S6.5, \S7.4. & Justifies selecting abnormal-condition handling and recovery initiation as the priority use case in the current diagram. \\
+\hyperlink{uc01-priority}{UC-01} & \hyperref[sec:usecase-rcm]{UseCase2.0 RCM} & PD 1.5; PD 2.1; PD 6.4; PD 6.5; PD 7.4. & Justifies selecting abnormal-condition handling and recovery initiation as the priority use case in the current diagram. \\
 \hline
 \hyperlink{uc01-ws}{UC01-WS} & \hyperref[sec:uc-slice-ws]{UC Slice 1} & BO-L2-4.1 plus IT-L1-1 / IT-L1-5 support. & Confirms the first slice proves the core health-alert path before broader recovery behavior. \\
 \hline
