@@ -1,0 +1,596 @@
+          ICT2113 SOFTWARE REQRS:
+             NOW & NEAR FUTURE
+
+
+    11. UseCase2.0: Heavyweight
+    RCM Updated To Lightweight
+    Prof Kevin
+1                                   ICT2113 Software Modelling & Analysis   25/12/2025
+    “What we need is not evolu-
+    tion but revolution for it to be
+    transformed into something
+    else.”
+       Bring on the learning revolution!, TED Talk, 2010
+            Ivar Jacobson never said this, but I believe he would have. Inspired by
+            new mindset that Agile brought to sw lightweight development, he
+            revolutionized his familiar heavyweight Use Case 1987 into entirely new
+            incremental and iterative lightweight RCM. Highlight of UseCase2.0 is it
+            provides new dimension to SDM (like super-Epic of numerous dev cycles)
+            as well as alternative RCM (slices) to User stories. Let’s get to it.
+2                                                     ICT2113 Software Modelling & Analysis   25/12/2025
+     Agenda: UseCase2.0 revived for Agile
+
+
+    1. Previous week’s learning.
+    2. Today’s learning outcomes.
+    3. Today’s new learning material.
+    4. Active learning – ques on applying
+       UseCase2.0 + effect.
+    5. Epilogue.
+
+3                                           ICT2113 Software Modelling & Analysis   25/12/2025
+    Previous week’s learning                 Remember why
+                                             review of previous
+                                             week’s learning
+                                             important!
+                                             Strengthen memory
+             Seven slides                    retention.
+                                             Highlight knowledge
+                                             gaps.
+                                             Prepare for acquiring
+                                             new material (per
+                                             iterative learning
+                                             approach in HE insti-
+                                             tutions).
+
+
+4                           ICT2113 Software Modelling & Analysis   25/12/2025
+    Timeline of lightweight SDMs evolution
+    Since 1950, SDM-RCM pairing was heavyweight. In late 1970s, lightweight SDM-RCMs began
+    emerging, though they retained vestiges of heavyweight. Finally, 1996 saw first truly lightweight
+    RCM: User stories. Used in C3 project, it went largely unnoticed. Yet, within three years, it
+    would become mainstay of lightweight projs. These are highlights of evolution of lightweight.
+
+    Year                               SDM                                                        RCM
+    1957   Incremental by Gerald Weinberg & Bernie Dimsdale at IBM        RE
+    1977   Joint Application Dev by Chuck Morris & Tony Crawford at IBM   RE
+    1977   V-chart by J.B. Munson at Sys Dev Corp                         RE
+    1986   Spiral Model by Barry Boehm at TRW Software Productivity Sys   Progressive in ea spiral
+    1991   Rapid Application Development by James Martin                  Initial for MVP, progressive after ea iteration
+    1995   Scrum by Schwaber and Sutherland at Easel Corp                 BRUF (not RE)
+    1996   Extreme Programming (XP) by Kent Beck et al at Chrysler        User story
+    1997   Feature-Driven by Jeff DeLuca at Singapore’s UOB Bank          Initial for PM, progressive with UML models
+5                                                                                         ICT2113 Software Modelling & Analysis   25/12/2025
+      User story: description not specification
+     Informal description of new sw’s capability/condition from perspec-
+     tives of its user, imagined usage, and expected benefit, along with
+     its production-grade code being realized (designed, coded & accep-
+     ted by stakeholder) within hours to few days.
+                                                                                                              Factsheet of
+    Conversation. Story initiates expansive conversation between user & developer to                          fundamental
+    specify reqr; only source code & some design saved after realization.                                     ideas about
+                                                                                                              User story
+    Epic & Feature. Each sw dev proj has many user stories because each applies to
+                                                                                                              method
+    very small part of new sw. To cope with such, stories amalgamated into “Epics” to
+    manage numerous disparate tasks, or “Features” to integrate code blocks into
+    functions. But stories always realized individually.
+    Product backlog. Stories held in repository ‘Product Backlog’ (PB) for realization.
+    Not saved. Once chosen for realization, User story deleted from PB.
+    Coach. First time customers hire ‘Agile coaches’ to align corporate expectations
+    with Agile development norms, especially fragmentation debt.
+6                                                                                ICT2113 Software Modelling & Analysis   25/12/2025
+User story process model                                                    Shippable
+                                                                            product
+
+                                             User
+                         User stories                                                Accepted realizations
+                      taken from PB                                              6 become sw increments
+                       for realization 4                                           uploaded into shippable
+                                                               Developers
+                                                                                                   product
+                 Developers join
+                 users for specifi-
+                 cation & prioriti-                 User   Developers & users
+    Users
+                 zation of User                             realize each User
+                 stories 3                                   story specified                 User
+
+                                   PB                             5
+
+         Users write
+         User stories
+     1
+
+
+         User story        2 User stories
+7                             stored in PB                                   ICT2113 Software Modelling & Analysis   25/12/2025
+User story’s origin is embedded in XP practice
+User stories are super-tightly bound to XP SCM.
+Of original 13 practices, five (see right) are di-
+rectly driving User stories. For XP teams, User
+stories are written as they always have been;
+effectiveness is non-sequitur.
+ Customer conducts release planning,
+  i.e., difficulty, cost & scheduling of
+  realizing User stories.
+ Real users are part of whole team for
+  reqrs, priorities, and steering of proj.
+ Customer defines acceptance tests for realized User
+  stories; theses added into regression testing regime.
+ Proj co-opts Customer’s simple evocative vision
+  of how new sw works, via use of metaphor.
+ Customer sets reqrs small yet with real business value, so they can be
+  realized and shipped to customer frequently as "shrink-wrapped" sw features.
+8                                                                                ICT2113 Software Modelling & Analysis   25/12/2025
+         Effective writing conventions: Three-C’s
+    Prior to Agile conclave, XP co-creators never published their convention for writing User stories; thus
+    first convention published was Connextra in May 2001. Only then did XP co-creator Ron Jeffries post
+    Aug 2001 blog reaffirming stories original non-format convention, and gave it name, “Card,
+    Conversation, Confirmation” or “Three-C’s”.
+        Card. Story is unformatted first-hand outline, by authentic user, who stays for all three-C’s, of biz process with just
+         enough info to evoke one unique proto-reqr. Story bound not by standard format, but by standard-size text box.
+         (Original was 3”x5” index card.) If story too large to fit, then it must be revised to fit into smaller box; it
+         encourages users to not write SRS-kind of reqrs. Story storage media can be physical or digital, as dictated by PB
+         setup. Once validated, story in standard text box is used as marker in mapping its progress through realization.
+        Conversation. This is collaboration of user and developer akin to Eliciting Method in RE RCM, to specify full reqr
+         from ‘proto’ one and to estimate realization effort. It uses “social” eliciting techniques, exchanges documents, and
+         demos prototypes. Prior to specification, proto-reqr is validated. Priority and cost notes are appended to
+         validated User story, depending on available space. In parallel to specification, criteria for acceptance of sw
+         realization is also generated.
+        Confirmation. This is realization of sw by developer, followed by acceptance testing of said sw by authentic user
+         akin to SDLC User Acceptance Testing (UAT) with two important differences: a) user already familiar with sw’s
+         capability and UX because pre-coding development work is done in full collaboration with developer, and b) only
+         one reqr is being tested, to allow incremental release of accepted sw to customer.
+9                                                                                             ICT2113 Software Modelling & Analysis   25/12/2025
+          Effective writing conventions: Connextra
+     In May 2001 during their new sw installation project for UK company Connextra, Rachel
+     Davies and her XP development team conceived and applied new format template for
+     effectively writing User stories. Named “Connextra format”, it is sentence comprising three
+     parts that are filled in by stakeholder (see below; underlined & italicized words indicate type
+     of entries by stakeholders).
+        As a _position , I want to _do biz process_ , so that _benefit derived .
+
+     Tips for content style in each entry field:
+         Position. Must be specific job appointment or title. Generic roles such as “user” or “manager” are
+          insufficient to understand context and identify stakeholder (for conversation).
+         Biz process. Work unit per breakdown of stakeholder’s job duties; not technical action such as pressing
+          button. It must have measurable criteria of completion, although that is not shown with story itself.
+         Benefit. Rationale or justification that is job-related, not personal. It can be any of: achieving biz goal,
+          fulfilling biz purpose, or generating something of value to biz.
+
+     Acceptance tests may be appended to User story text box, i.e., index card, data element.
+10                                                                                          ICT2113 Software Modelling & Analysis   25/12/2025
+            Effective writing conventions: INVEST
+     Independent consultant & XP early practitioner Bill Wake published third convention of
+     User story effective writing in Aug 2003 blog, “INVEST in Good Stories & SMART Tasks”.
+     Acronym INVEST highlights characteristics that User stories of good quality will exhibit.
+         “I” ndependent. Its content does not overlap with any others.
+         “N” egotiable. Its exact representation of full reqr is completely open to being elaborated via
+          conversation. (Assume “conversation” meaning as per Three-C’s.)
+         “V” aluable. Its derived benefit to authentic user must be tangible & compelling.
+         “E” stimable. It must have enough prioritization content to enable cost & effort derivation by orgs.
+         “S” mall. It fits in given standard text box and its realization is achievable in minimum period of
+          time.
+         “T” estable. Its operability must be measurable, so definitive acceptance can be made of its
+          suitability.
+     User story authors must accompany them with scorecard showing which quality features
+     are met and which aren’t. Poor scorecard doesn’t mean User story is discarded; more
+     often, developers use it to critique when and in what order such User stories are processed.
+11                                                                                         ICT2113 Software Modelling & Analysis   25/12/2025
+     Today’s learning                    Remember why
+                                         knowing learning
+                                         outcomes important!
+
+        outcomes                         Roadmap of learning
+                                         goals & expectations.
+                                         Encourages develop-
+                                         ing preparation &
+           One slide                     study strategies.
+                                         Promote engaging in
+                                         learning process.
+                                         Facilitate managing
+                                         learning material &
+                                         effort.
+
+12                      ICT2113 Software Modelling & Analysis   25/12/2025
+      LO#11: UseCase2.0 reworked for Agile
+
+     After today’s lesson, student will be able to explain …                              These are
+                                                                                          objectives I
+      ❑ … UseCase2.0 methodology.                                                         plan for you to
+      ❑ … parent-UC method including Auxiliary details.                                   achieve in this
+                                                                                          session.
+      ❑ … UseCase Stories.
+
+      ❑ … UseCase Slices.                                                                 Your objectives
+                                                                                          should sync
+      ❑ … effectively writing Auxiliary details, Stories, and Slices.
+                                                                                          with these, but
+                                                                                          don’t need to
+     After today’s lesson, student will be able to sketch artisti-
+                                                                                          be verbatim
+     cally as opposed to formally UseCase2.0 process model.                               identical.
+
+13                                                                      ICT2113 Software Modelling & Analysis   25/12/2025
+     Today’s new learning
+           material
+            Twelve slides
+
+
+
+
+14                          ICT2113 Software Modelling & Analysis   25/12/2025
+              History of UseCase original version
+     UseCase method is brain-child of Swedish computer scientist Ivar Jacobson, and has
+     been in use for almost 60 years. From 1967, original modeling method coined
+     “traffic cases” was used to specify functions and features for large telecommuni-
+     cation switching systems built and operated by Ericsson. Later, for application as
+     foundational element in Objectory method for specifying sw reqrs, he enhanced
+     traffic cases into what we now know as “UseCases”. In particular, said UseCases
+     specified and modelled all ways of using system to yield particular goal, purpose, or
+     value (GPR) for particular user.
+     At second annual OOPSLA in 1987, Ivar revealed concept of UseCases in his article
+     “Object-oriented development in an industrial environment”, and how they were
+     used at Ericsson to capture large system reqrs. In 1993, he along with Christerson,
+     Jonsson & Overgaard authored book “Object-Oriented Software Engineering — A
+     Use Case Driven Approach”. Among other major ideas, it introduced UseCases in
+     graph & matrix representations as cornerstones of software design. After book’s
+     publication, interest in applying UseCase method grew steadily.
+15                                                                        ICT2113 Software Modelling & Analysis   25/12/2025
+        History of UseCase original ver (cont)
+     After release of versions 0.9 and 0.91 of UML in 1996 ― being first to include Jacobson’s
+     UseCases in diagram-only form ― popularity of UseCase diagrams soon eclipsed most of
+     others in specification. For instance, in 2006 article “How UML is used” by Dobing and
+     Parsons, usage of UseCase diagrams was tied in second place with Sequence diagrams;
+     Class diagrams were first. Interestingly, UseCase matrices, a.k.a., descriptions, were in third
+     place, ahead of Activity, StateMachine, and Collaboration diagrams.
+     Unlike other reqrs capturing methods, UseCases can also be
+     SDM, ergo, UseCase-driven 1) SDM, and 2) SWE. Its creator
+     goes further: it can drive most of individual parts of whole
+     SDLC (see right; even Agile SDM) as framework. E.g., Analysis
+     stage utilizes UseCase value statement to generate Boundary-
+     Control-Entity elements, or Architecture stage components
+     are UseCases encapsulating business logic and interfaces, or
+     Testing stage applies UseCase models to ascertain if newly
+     realized sw is acceptable.                                                                             UseCase hub
+16                                                                          ICT2113 Software Modelling & Analysis   25/12/2025
+       Anything you are uncertain about? …
+             Ask, and let me help clarify
+
+
+
+
+     Take                                                                             Let’s
+     quick       300 sec countdown – ends when fully filled                           continue
+     break                                                                            with LS
+
+
+17                                                            ICT2113 Software Modelling & Analysis   25/12/2025
+     Lightweight RCM applying combination of, parent-UseCase (UC) circa
+     1987-92,97, Stories similar to XP User stories, and Slices that constitute
+     reqrs of new not yet existing sw; subtype of parent-UC. It comprises six
+     steps, 1) draw UC graphic model and list ‘Auxiliary details’ for big picture,
+     2) prioritize UCs, 3) write Stories covering complete range of ways each UC
+     is used, 4) bring forth via conversation full specification of reqrs behind
+     brevity of Stories, 5) write Slices to align select reqrs into “vertical”
+     orientation set by Jacobson’s BCE model, and 6) prioritize & deploy Slices
+     for realization. Once realized, Slices are discarded, and new source code +
+     UC model + Auxiliary details, become primary documentation for new sw.
+
+
+                        UseCase2.0 methodology
+             Last of three Reqrs Capture Methodologies that we will study our module.
+
+                                                                                                             Attention
+
+18                                                                       ICT2113 Software Modelling & Analysis   25/12/2025
+       UseCase2.0 is new application of UseCase
+                                                                                                In 2002, Kurt Bitt-
+     In 2011, Jacobson collaborated with Ian Spence and Kurt Bittner to write                   ner and Ian Spence
+     eBook, “Use-Case 2.0: The Guide to Succeeding with Use Cases”. It explained                wrote definitive
+     that UseCase2.0 is new way of applying UseCases that is lightweight, lean,                 book “Use-Case
+     scalable, versatile, easy-to-use, and inspired by User stories. Structurally,              Modeling”. Ivar
+     UseCase2.0 is still UseCase 1987-92,97, a.k.a., parent-UC, its UML specification           openly praised
+     unchanged, and retains its original strengths, especially its coverage across              Spence as expert
+     SDM, SWE, and SDLC. Now, with UseCase as cornerstone, they supplemented                    on Use-Cases. In
+     parent-UC with two new methods, Story and Slice.                                           2011, all three co-
+     Are “User story” & “Story” same? In 1996, Kent Beck (XP lead-creator) says he              wrote “Use-Case
+                                                                                                2.0 Guide to
+     was inspired by Jacobson’s UseCases. In them, he saw that users elaborating
+                                                                                                Succeeding with
+     cases about ‘value yielded by sw’, could establish with developers shared
+                                                                                                Use Cases”. (Its
+     understanding on exactly what was needed. (Biggest challenge in sw develop-
+                                                                                                true that you see
+     ment: communicating details of what to build.) So, name “User story” signifies             farther on shoul-
+     how they’re used and not how they’re written. Jump 15 years later. With his                ders of giants.)
+     UseCase2.0, Ivar says “inspiration has flown in opposite direction”.
+19                                                                            ICT2113 Software Modelling & Analysis   25/12/2025
+             UseCase: Cornerstone of this RCM
+     A specification of some part of biz ops of new sw that a) is stable, b)                                     Factsheet of
+                                                                                                                 fundamental
+     achieves observable GPV for either or both of user and new sw, and c)
+                                                                                                                 ideas about
+     is performed in all sequences of related transactions akin to dialog                                        User story
+     with user(s). Typically, said biz ops is initiated by said user(s). Finally,                                RCM
+     it is weight-neutral RCM, being cornerstone of both heavy and light.
+     Stable. It’s unreal that any biz ops yielding value to both user & system (the “what”) would change in
+     parallel with development of new sw (the “how”). Only exception is ‘Business Process Reengineering’.
+     GPV. (Acronym for “goal, purpose, value” in LS#4) This drives business to strive in its efforts to efficient-
+     ly produce products or services that customers consistently find useful, effectively align with market
+     demands, and steadfastly achieve financial success.
+     Dialog. Transactions between user and system are not portrayed as one-sided, like in maps or code.
+     Instead, they are articulated as dialog, e.g., user does, system responds, user counters, and so on.
+     Weight-neutral. UseCase has two models, graphic and matrix. In heavyweight project, both models are
+     valuable additions to project documentation. In lightweight, graphic model only (no matrix) for provid-
+     ing big picture for Stories & Slices. Once all are generated, discarding or keeping them is moot.
+20                                                                                  ICT2113 Software Modelling & Analysis   25/12/2025
+ Users priori-
+ tize each UC
+ for MVP 2
+                                               UseCase2.0 process model
+                               1 Users draw Use-                                                  Shippable
+                                   Case model of                                                  product                      Accepted
+ Users write
+                                   new sw, and list                                                                         realizations
+ Stories for 3                                                                  Developers & users
+                                   Auxiliary details                                                                         become sw
+ priority UC                                                                       join in realizing
+                                                                                                                             increments
+                                                                                7 each Slice IAW
+                                                                                                                          uploaded into
+                                                                                   priority scheme
+       Story                                                                                                          shippable product
+                           Users                                                                                                  8
+                                            Developers
+               4       Developers join users to
+                       specify full reqrs from
+                       Stories
+                           5
+                                                                6
+                                                Write Slices to align select
+                                                reqrs in vertical orientation
+     Store Stories in PB           Slices       of Jacobson’s BCE model
+     per UC & priority
+21                                                                                               ICT2113 Software Modelling & Analysis   25/12/2025
+      Auxiliary details: what & how
+        to write them effectively
+                                                                               Auxiliary details
+     UC2.0 processing model slide shows that UC graphical      For: < <”Model of new sw” <name>> or
+     model is accompanied by Auxiliary details list. It’s               < “UseCase” <name>> or
+     also stated earlier that matrix form of UC model is not            <”Story” <name> > >.
+     used in lightweight development. So, how to retain        Effective date: in Julian format as per policy.
+     still-critical info contained therein, yet conform to     List of details:
+                                                               1. Assumptions:
+     Agile principle of “working sw over documentation”?
+                                                               2. Business rules:
+     Write said critical info — assumptions, business rules,   3. Constraints:
+     constraints, pre- & post-conditions, and technical        4. Pre- & post-conditions:
+     details — into simple list with same rules as ‘note’!     5. Technical details:
+                                                                  a. Database elements & parameters:
+     Creator of UC2.0 provided only guidelines about              b. Load & stress parameters:
+     having critical info available. For academic purposes,       c. Performance benchmarks:
+     makeshift template is appropriate (see right for             d. Platform & IT compatibility:
+     example.) Content for each field is free-text; if nil,       e. Quality features:
+     “none”. Add or delete technical items as applicable.         f. UI & UX:
+22                                                                            ICT2113 Software Modelling & Analysis   25/12/2025
+           Story & Slice: Keepers of RCM’s fluidity
+     Story. Short description of dialogical transactions between user and new system; in other words, a
+     ‘story about way of usage’ of UC. It is authored by user or BA. UC can have several Stories covering
+     all ways that usage occurs in it; crucially, all must semantically relate to GPV of their UC. There are
+     three categories of usage, basic, alternate & exception. (Definitions are per parent-UC specification,
+     as is one only is basic.) Finally, while UC has pre- and post-conditions, Story may not; even if it did,
+     neither would be expressed by author in those terms.
+     Slice. Technical specification of small portion of UC’s functionality that undergoes realization per
+     lightweight norms. Said functionality is drawn from UC’s Stories, and established into an end-to-end
+     vertically-oriented segment. Segment’s orientation is derived from Boundary, Control, Entity (BCE)
+     elements comprising Jacobson’s Analysis Model (1992), and content from platform’s sw architecture.
+     Stories are analysed for their BCE elements to determine if 1) whole Story connects through whole
+     vertical stack, and if there are none, then 2) isolate parts of Stories to assemble vertical stack that fills
+     out particular function. Ergo, it is usual to find that some Stories may be shared in several Slices.
+     Criterion underpinning said analysis is that Slice should not be so comprehensive or complicated that
+     long period of time is required to realize it.
+23                                                                                  ICT2113 Software Modelling & Analysis   25/12/2025
+            Prioritization scheme for UC and Slice
+     UC2.0 processing model slide shows that UC from graphic model and Slices are subjected to
+     prioritization. Said prioritization conducted per one of three schemes: minimum marketable
+     product (MMP), minimum viable product (MVP), and Walking skeleton. Their common purpose is
+     to minimizes risk and validate reqrs & assumptions early to avoid painful rewrites later, but with
+     specific emphases:
+         MMP. Coined by Mark Denne & Jane Cleland-Huang in 2003 “Software by Numbers: Low-Risk, High-Return
+          Development”. For businesses that outsource development of product that they intend to sell or distribute.
+          Must be stable and polished enough to provide reliable test market feedback while protecting brand trust.
+         MVP. Coined by Frank Robinson at SyncDev in 2001, and later popularized in 2011 ”The Lean Startup”. Has
+          enough features for early adopters to meaningfully use and provide feedback on what may need adjustment.
+         Walking skeleton. Coined by Alistair Cockburn in 2004 “Crystal Clear: A Human-Powered Methodology for
+          Small Teams”. Technical proof of concept of architecture with minimal features; backbone of development.
+     Generally, Walking skeleton is realized first before either of MVP or MMP, ensuring that decisions
+     pertaining to biz ops can at least have foundation of new product’s technical viability. Prioritization
+     is not static; it can be redirected as more increments of shippable product are released.
+24                                                                                    ICT2113 Software Modelling & Analysis   25/12/2025
+              Alistair’s effective writing of Stories
+     Alistair Cockburn, independent consultant, and co-signatory on 2001 Agile Manifesto, started his
+     decades-long association with writing UseCases when he visited C3 project in 1998, expecting Use cases
+     (see LS#10). In 2000/2001, he published his tome “Writing Effective Use Cases”, cementing his
+     eminence in writing UseCases. (Interestingly similar to way Mike Cohn gained his estimable status in
+     effective writing of User Stories.)
+     UseCase templates in his 2000/2001 book are elaborations of varying complexity of matrix models. As
+     such, they are not appropriate for lightweight development, except for one of them, i.e., ‘Casual’ &
+     ‘low-ceremony’ (see below). Essentially, this is most useful to UC2.0 for effective writing of Stories.
+
+
+
+
+25                                                                              ICT2113 Software Modelling & Analysis   25/12/2025
+                                                    Title: Slice unique ID and name.
+     Effective writing of Slice                     Context:
+                                                    • Effective date: Date in Julian format as per policy.
+                                                    • Parent UC: ID and name of parent UC.
+     Being technical specification involving        • Story list: Prioritized list of the specific Stories used.
+     database elements, Interface contracts &       • Prelim: List of pre-conditions plus description of current
+     platform’s sw architecture, Slice is written     situation to ready for realization according to its dictates.
+                                                    Narrative: Derived telling of Stories sourced for vertical stack.
+     more formally and with more technical
+                                                    Also include Auxiliary details specific to used Stories.
+     jargon than Stories. But, as with Stories,     Scope:
+     Slices have no accepted writing conven-        • Category: basic / alternate / exception.
+     tion. Instead, it has only guidelines from     • Priority, MVP, Status, KIV, , etc.
+                                                    Tech details: Details of actions, including changes, to specific
+     its creator.                                   Architectural components in vertical stack, including UI
+     For academic purposes, makeshift con-          (Boundary), Logic (Control), and Database (Entity). Also
+                                                    API/Interface contracts between Layers, and from internal
+     vention is appropriate. (See right) Said       system to external. Also, infrastructure setup, DevOps and
+     guidelines by Jacobson are converted into      environmental requirements necessary to deploy and run Slice.
+                                                    Acceptance: List of Acceptance criteria (AC) tests, including
+     Slice Technical Specification (STS) tem-
+                                                    binary checks {Y, N}, to confirm the Slice’s vertical stack is
+     plate. Examples provided in next slide.        ‘done/fully in place’.
+26                                                                                ICT2113 Software Modelling & Analysis   25/12/2025
+                                     Slice effective writing examples
+              Walking skeleton                                                             Exception, still part of MVP
+ Title: SYS-SLICE-01: Global Stack Verification.                  Title: INT-SLICE-09: Postal API Timeout Handler.
+ Context:                                                         Context:
+    Effective date: 16 Nov 2021.                                  Effective date: 21 Nov 2021.
+    Parent UC: UC-01 System readiness and confirmation.              Parent UC: UC-05 External System Utilization & Management.
+    Story list: S01 & S02.                                           Story list: S05 & S06.
+    Prelim: The developers have isolated parts of the                Prelim: This slice is vertical stack assembled specifically to handle failure state when
+    'connection Stories' to build the first Slice.                   external system times out.
+ Narrative: The user triggers system heartbeat from the dash-     Narrative: When external validation service fails to respond, system catches timeout at
+ board; the system passes this through the API to DB and          logic tier and presents "Manual Verification Required" override to the user at GUI tier.
+ returns timestamp, confirming the full vertical path is live.    Scope:
+ Scope:                                                              Category: Exception.
+    Category: Basic.                                                 Status: MVP.
+    Status: MVP.                                                     Priority: High (Prevents blocked sales).
+    Priority: blocker [Essential for all subsequent work].        Technical:
+ Technical:                                                          UI: Modal popup for “Manual Override” signature.
+    UI: "System Status" widget with a 'Test' button.                 Logic: ExternalServiceWrapper with 5-second CircuitBreaker and exception catch.
+    Logic: PingController calls HealthService.                       Data: Set Validation_Method to "Manual_Override" in Orders table (in Postgres).
+    Data: Write/Read test to System_Status table(in Postgres).    Acceptance:
+ Acceptance:                                                         AC12: If API is blocked (simulated), "Manual Override" modal appears within 6 secs..
+    AC01: Dashboard displays "Stack Online" after button click.      AC14: Transaction proceeds to "Authorized" status despite external failure.
+    AC02: Log entry created in DB with correct Server_ID.
+
+
+27                                                                                                            ICT2113 Software Modelling & Analysis   25/12/2025
+     Active learning
+         Three slides
+
+
+
+
+28                      ICT2113 Software Modelling & Analysis   25/12/2025
+       RailPocket: From PDA to Smart phone app
+     Dutch Railways is principal passenger railway operator in Netherlands. To facilitate real-time
+     improvement of its passenger services and experience, in February 2007 it fielded fleet of
+     PDAs named RailPocket for use by its 10,000 front-line employees and 50 service
+     ambassadors to do …
+       Ticket validation. Conductors can read and validate passenger tickets in minutes.
+       Providing updates. Employees can inform travelers in near real time with latest info on its trains and
+         stations, such as schedules, onboard quantities, queuing times, and on-route station bypasses.
+       Internal data entry. Conductors and engineers can immediately report problems and get action taken
+         on problems that may take hours or days, such as seating capacity, train punctuality, and safety or
+         maintenance issues.
+     Though highly successful (and award-winning), it was bulky to carry, it was slow, its operating
+     system was no longer supported, and it was operating at its capacity limit leaving no possi-
+     bility of expanding its functionality. Dutch Railways launched project in 2014 to replace PDA
+     with series of Railway apps powered by ubiquitous Smart phone. To conduct development
+     using Agile SDM, project adopted UseCase2.0 for its RCM. Project was wildly successful!
+29                                                                                       ICT2113 Software Modelling & Analysis   25/12/2025
+                   Instructions
+           Given RailPocket replacement project
+           is gold standard of applying UC2.0,
+           our company wants to replicate that
+           winning formula in our own project
+           pipeline. Your team will be giving
+           company’s workshops on UC2.0. In
+           preparation, you searched for Rail-
+           Pocket proj models but found only:
+             1st model is “MyShift” app.
+             2nd model is big picture of Slices for
+               UC001 Retrieve Service Data.
+
+           Your RO wants ProgRep. Your team
+           decides to make short slide prez of all
+           models in UC2.0 process, mixing
+           existing with templates of missing
+           models (that you will fill in later), in
+     1st   correct order as per process. Post
+30                ICT2113 Software Modelling & Analysis   25/12/2025
+     Instructions
+        (cont)
+You have 15 mins to prepare.
+Just sketch outline of models
+& SnipIt into slides.
+Your team has less than two
+mins to present. Identify
+each model and what they
+represent in UC2.0 RCM.
+You’ll be critiqued on
+explanation and order of
+models.
+Assume your prioritization
+scheme is walking skeleton.
+At least three teams will be
+selected in quick succession.
+Feedback is available from
+teacher (being RO) & peers.                                             2nd
+31                              ICT2113 Software Modelling & Analysis   25/12/2025
+     Epilogue
+      Two slides
+
+
+
+
+32                 ICT2113 Software Modelling & Analysis   25/12/2025
+     UseCase2.0 emerges as phenomenal alternative to User stories, by
+     bridging gap between high-level system intent vs granular, iterative
+     delivery, through its unique three-method approach. First, it
+     preserves reliable parent-UC, providing stable architectural anchor
+     that ensures “big picture” remains visible entire project duration.
+     Second, it effectively re-works “usage stories” by making them into
+     prioritizable dynamic flows that anticipate complexity before it hits
+     realization effort. Third and most transformative is exceptional
+     method of “slicing”, vertically-oriented Slices of functionality that
+     provide direct pipeline from value to specification to realization,
+     ensuring that every iteration delivers functional piece of new sw
+     that is both architecturally sound & immediately valuable to user.
+
+
+                     “Big things have small beginnings.”
+33                                                                   ICT2113 Software Modelling & Analysis   25/12/2025
+                                    My final words
+     Contact me for …
+                                                                                                   Glossary & Google
+         regular stuff via my work email h51581@singaporetech.edu.sg.
+                                                                                                   readings for next
+         more sensitive stuff, by Whatsapp 97761716 or my personal email
+                                                                                                   week
+          johnmilton2000@gmail.com.
+                                                                                                   ❑ ???
+     Tomorrow’s lab is 2nd on subject of Validating. Hopefully, teams are
+     comfortable with all data they’ve collected about errors in the SRS, and those
+     in vendor subprocesses. In preparation, ensure you are familiar with your …
+         Validating report details to date.
+
+         presentation as QC team member to Specifying team/developers who wrote SRS.
+
+         presentation as QA team member to vendor’s C-staff in charge of RE conduct.
+
+     Keep on working through Glossary, four terms per week, and Google.
+     Teachers take certain concepts being understood for granted. If you are
+     falling behind, see me or TA for consultation.
+34                                                                                  ICT2113 Software Modelling & Analysis   25/12/2025
+             Any final thoughts?
+                        If not …
+
+
+
+
+                       End of LS#11
+     UseCase2.0: Heavyweight RCM Updated To Lightweight
+                       by Prof Kevin
+
+         ICT2113 Software Reqrs: Now & Near Future
+35                                       ICT2113 Software Modelling & Analysis   25/12/2025
+

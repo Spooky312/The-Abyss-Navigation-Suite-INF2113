@@ -1,0 +1,516 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[top=0.9in,left=0.9in,right=0.9in,bottom=1.1in]{geometry}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{eso-pic}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{parskip}
+\usepackage{longtable}
+\usepackage{caption}
+\usepackage{bookmark}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric}
+
+\hypersetup{hidelinks}
+\frenchspacing
+\setstretch{1.0}
+
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.95]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{tableheader}{RGB}{240, 240, 240}
+\definecolor{tablerow}{RGB}{250, 250, 250}
+\definecolor{accent}{RGB}{22, 78, 99}
+
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
+
+\newcommand{\manualmodelplaceholder}[4]{%
+\begin{figure}[H]
+\centering
+\fbox{%
+\begin{minipage}[c][0.34\textheight][c]{0.88\textwidth}
+\centering
+\textbf{Manual Diagram / Model Placeholder}\\[0.6em]
+\textbf{Insert here:} #1\\[0.6em]
+\textit{Replace this box with your manually prepared diagram or model image.}\\[0.4em]
+\textit{Suggested LaTeX: \texttt{\string\includegraphics[width=0.92\string\textwidth]\{<your-file>\}}}\\[0.8em]
+#2
+\end{minipage}}
+\caption{#3}
+\label{#4}
+\end{figure}
+}
+
+\AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \includegraphics[width=\paperwidth,height=\paperheight]{../Brigman/templates/Brigman_Letterhead.pdf}%
+  }%
+}
+
+\AddToShipoutPictureBG{%
+  \ifnum\value{page}>1
+    \AtPageLowerLeft{%
+      \includegraphics[width=\paperwidth,height=\paperheight]{../Brigman/templates/Brigman_Paper.pdf}%
+    }%
+  \fi
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{Brigman Deep Sea Technology}}
+\rhead{Lightweight RCM Report}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\setlength{\headheight}{20pt}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+
+\thispagestyle{empty}
+\fancyhf{}
+\lhead{}
+\rhead{}
+\cfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\newgeometry{top=4.8cm,left=0.9in,right=0.9in,bottom=1.1in}
+
+\begin{center}
+\includegraphics[width=0.33\textwidth]{../Brigman/templates/brigman logo.png}\\[0.35cm]
+
+\LARGE\textbf{Lightweight Requirements Capture Model Report}\\[0.25cm]
+\large\textbf{User Story + UseCase2.0 Combined}\\[0.25cm]
+\large\textbf{Abyss Navigator Suite Project}\\[0.45cm]
+
+\textbf{\Large Brigman Deep Sea Technology}\\
+01 April 2026
+\end{center}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{0.96\textwidth}{|P{0.24\textwidth}|Y|}
+\hline
+\rowcolor{tableheader}
+\textbf{Document Control Item} & \textbf{Value} \\
+\hline
+Report Type & Lightweight RCM report combining User Story and UseCase2.0 artifacts. \\
+\hline
+Progenitor & Team 1684R Eliciting Project Specification / Project Description baseline for \textit{The Abyss Navigator Suite}. \\
+\hline
+Customer & Triton Deepwater \\
+\hline
+User Story Convention & Connextra only: ``As a \dots I want \dots so that \dots'' \\
+\hline
+UC Story Convention & Alistair Cockburn casual / low-ceremony style \\
+\hline
+Priority Use Case & UC01 Handle Abnormal Conditions and Initiate Recovery \\
+\hline
+GPV Anchor & Safe autonomous deep-sea operations with controlled intervention, recovery readiness, and operational traceability. \\
+\hline
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{|P{0.42\textwidth}|P{0.18\textwidth}|P{0.26\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Team Member} & \textbf{Student ID} & \textbf{Brigman Role} \\
+\hline
+Muhammad Ridwan Putra Jasni & 2401684 & Lead Business Analyst \\
+\hline
+Chng Zong Han & 2401892 & Business Analyst \\
+\hline
+Lin Yuhao & 2400703 & Business Analyst \\
+\hline
+Muhammad Mikhail Bin Mazlan & 2402298 & Business Analyst \\
+\hline
+Kannan s/o Rajamohan & 2401517 & Business Analyst \\
+\hline
+\end{tabular}
+\end{table}
+
+\restoregeometry
+\fancyhf{}
+\lhead{\textbf{Brigman Deep Sea Technology}}
+\rhead{Lightweight RCM Report}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\newpage
+\hypersetup{pageanchor=true}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\section{Progenitor}
+
+This report is a lightweight derivative of the elicited Project Specification for the \textit{Abyss Navigator Suite}. The progenitor baseline establishes the project goal, scope, stakeholder context, Level 1 and Level 2 requirement statements, and the high-level models from which the stories, use case, and slices below were derived.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{|P{0.22\textwidth}|Y|}
+\hline
+\rowcolor{tableheader}
+\textbf{Progenitor Aspect} & \textbf{Applied Baseline} \\
+\hline
+Primary source & Eliciting Project Specification for Team 1684R, \textit{The Abyss Navigator Suite}. \\
+\hline
+Goal anchor & Enable unmanned deep-sea missions that are autonomous, safely supervised, recoverable, and auditable. \\
+\hline
+Scope anchor & Remote mission oversight, autonomous execution, safety handling, recovery coordination, and post-mission accountability. \\
+\hline
+Story source clauses & BO-L1-2, BO-L1-4, BO-L1-6, BO-L1-7, IT-L1-1, IT-L1-2, IT-L1-5, IT-L1-6 and related section text in the Project Specification. \\
+\hline
+Method selection & Connextra for User Stories; Cockburn casual/low-ceremony for UC Stories; STS-style slices for realization planning. \\
+\hline
+\end{tabularx}
+\end{table}
+
+\section{Executive Summary}
+
+This report applies a deliberately lightweight RCM approach to the Abyss Navigator Suite by combining small, business-facing User Stories with one system-wide Use Case diagram and one deeper UseCase2.0 drill-down. The User Story portion captures concise operational needs that still carry business value: mission configuration, abnormal-condition alerting, and post-mission accountability. Each story stays traceable to the progenitor Project Specification so the report remains concise without losing chain-of-custody back to the original elicited need.
+
+The UseCase2.0 portion preserves the big picture with one GPV-aligned use case model built around mission setup, autonomous execution, vessel-health monitoring, manual override, abnormal handling, recovery initiation, fleet management, and mission-record review. It then focuses on the most safety-critical use case in the current model: \textbf{UC01 Handle Abnormal Conditions and Initiate Recovery}. Within that priority use case, the report defines the walking skeleton as the thinnest end-to-end proof that a threshold breach becomes a visible health alert, and the MVP as the first usable recovery flow that lets operators respond through alerting, override, and recovery initiation. The resulting UC stories, auxiliary detail, conversation notes, and two STS-style slices give Brigman a practical realization path while keeping the document lightweight rather than expanding into a heavyweight UML pack.
+
+\section{User Story RCM}
+
+\textbf{Chosen convention.} This report uses the \textbf{Connextra} convention only. Every User Story follows the exact pattern \textit{As a \dots I want \dots so that \dots}. No hybridization with INVEST or Three-C's is used in the story wording itself.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{|P{0.09\textwidth}|Y|P{0.27\textwidth}|P{0.18\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{ID} & \textbf{Connextra User Story} & \textbf{PD / PS Trace Link} & \textbf{Business Confirmation Signal} \\
+\hline
+US-01 & As a fleet operations controller, I want to configure mission parameters before deployment so that each autonomous mission starts with approved objectives, route settings, and operational limits. & PS \S1.5 goal; \S2.1 in-scope autonomous mission support; \S6.1 Autonomous Mission Execution; \S7.4 enabling IT capabilities. & The controller can create and save a mission configuration that is ready for autonomous execution. \\
+\hline
+US-02 & As a mothership pilot, I want critical pressure, temperature, and power deviations to raise a clear health alert so that I can initiate recovery before risk escalates. & PS \S1.5 safety and recovery goal; \S2.1 emergency handling; \S4.3 regulatory obligations; \S6.4 Emergency and Abnormal Situation Handling; BO-L2-4.1 and BO-L2-4.2. & A critical health alert appears with vehicle ID, mission ID, breached parameter, severity, and timestamp. \\
+\hline
+US-03 & As a mission review officer, I want to review a completed mission record with anomalies and overrides so that I can conduct post-mission review and investigation. & PS \S2.1 recording of mission activity; \S6.6 Operational Accountability; \S6.7 Mission Data Value Delivery; \S7.2 Data Management; IT-L1-5 and IT-L2-5.1. & The review officer can open a completed mission and see an attributable timeline of mission events, anomalies, and override actions. \\
+\hline
+\end{tabularx}
+\caption{Three lightweight User Stories derived from the progenitor baseline}
+\label{tab:user-stories}
+\end{table}
+
+\noindent Full progenitor trace links for the story set are consolidated in Addendum~\ref{add:trace}.
+
+\subsection*{User Story Conversation: US-02}
+
+Before implementing US-02, a developer still needs the following stakeholder clarifications:
+
+\begin{itemize}[leftmargin=*,nosep]
+  \item Exact threshold ownership: who approves the operational baseline for pressure, temperature, and power thresholds when sea-trial data changes?
+  \item Alert semantics: should repeated breaches for the same parameter open a new alert each time or update an existing active alert?
+  \item Escalation rule: when does the system only raise a health alert, and when must it recommend immediate recovery initiation?
+  \item Human authority: which roles may acknowledge the alert, request manual override, or initiate recovery during a live mission?
+  \item Evidence rule: what minimum incident detail must be retained for later compliance review and investigation?
+\end{itemize}
+
+\section{UseCase2.0 RCM}
+
+\subsection*{Whole-System Use Case Diagram}
+
+The current diagram keeps the main operational goals visible and shows the supporting detect-alert chain used by the abnormal-condition flow. It remains aligned to the progenitor GPV by centering mission setup, autonomous execution, vessel-health monitoring, override/recovery response, and mission-record accountability.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.86\textwidth]{{SMA Models - Use Case Diagram(1).png}}
+\caption{Current lightweight use case view used for this report}
+\label{fig:lightweight-usecase}
+\end{figure}
+
+\subsection*{Priority Use Case, Walking Skeleton, and MVP}
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{|P{0.18\textwidth}|Y|}
+\hline
+\rowcolor{tableheader}
+\textbf{Item} & \textbf{Definition} \\
+\hline
+Priority use case & \textbf{UC01 Handle Abnormal Conditions and Initiate Recovery.} In the current diagram, this use case best concentrates the project's GPV because it converts abnormal-condition awareness into a concrete recovery response. \\
+\hline
+Walking skeleton & \textbf{UC-01-WS: Health alert vertical path.} The thinnest end-to-end proof that one threshold breach can travel from vessel-health monitoring to abnormal detection, health-alert presentation, and audit logging. This is not a story; it is the first technical backbone of the use case. \\
+\hline
+MVP & \textbf{UC-01-MVP: First usable recovery response.} The smallest version a user can meaningfully operate: detect pressure/temperature/power breaches, display a health alert, permit manual override or recovery initiation, update mission status, and retain recovery context. This is not a story. \\
+\hline
+\end{tabularx}
+\caption{Priority use case definition and prioritization scheme}
+\label{tab:priority-uc}
+\end{table}
+
+\subsection*{UC Stories for UC01 Handle Abnormal Conditions and Initiate Recovery}
+
+\textbf{UC01-S1 Basic Story: A critical condition leads to recovery initiation.} During an active autonomous mission, vessel-health monitoring detects a parameter that exceeds the approved threshold. The system recognizes the condition as abnormal, raises a health alert, and presents the alert to the mothership pilot with enough context to initiate recovery.
+
+\textbf{Main scenario}
+\begin{enumerate}[leftmargin=*,nosep]
+  \item The mission is active and vessel-health monitoring is running for the selected submersible.
+  \item A pressure, temperature, or power value breaches the configured critical threshold.
+  \item The system detects the abnormal condition and records the triggering telemetry point.
+  \item The system raises a health alert that identifies the vehicle, mission, breached parameter, severity, and timestamp.
+  \item The mothership pilot reviews the alert and chooses to initiate recovery.
+  \item The system records the recovery initiation, updates mission status, and notifies the emergency retrieval system.
+\end{enumerate}
+
+\textbf{UC01-S2 Alternate Story: Manual override is chosen before full recovery.} The health alert appears, but the pilot judges that direct manual intervention should be attempted before committing to full recovery. The system records the override request, exposes the manual-control path, and keeps the health alert active until the condition is resolved or recovery is initiated.
+
+\textbf{UC01-S3 Exception Story: Sensor input is invalid or incomplete.} The telemetry message arrives without a valid parameter value or with a malformed payload. The system does not silently discard the event. Instead, it records a sensor-data fault, flags the affected reading as unusable for normal threshold evaluation, and escalates the incident because the monitoring flow can no longer rely on that sensor signal with confidence.
+
+\subsection*{UC Auxiliary Detail for UC01}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{|P{0.24\textwidth}|Y|}
+\hline
+\rowcolor{tableheader}
+\textbf{Auxiliary Detail Item} & \textbf{Content} \\
+\hline
+For / effective date & Use Case \textbf{UC01 Handle Abnormal Conditions and Initiate Recovery}; effective date \textbf{2026-091}. \\
+\hline
+Assumptions & Missions are supervised from a surface or mothership environment. Customer-supplied sensors remain available for software integration. A configured baseline exists for each monitored parameter before mission launch. A recovery handoff path to the emergency retrieval system is available. \\
+\hline
+Business rules & Critical abnormal conditions must raise a health alert. Every alert, override, and recovery-initiation action must remain attributable to mission, vehicle, time, and actor. Manual override may precede full recovery initiation when the pilot judges it appropriate. \\
+\hline
+Constraints & Communications may degrade to low bandwidth, intermittent connectivity, and up to 30-second one-way latency. Deep-sea missions remain unmanned. Compliance with maritime safety and data-governance obligations is mandatory. \\
+\hline
+Pre- \& post-conditions & \textbf{Pre:} mission run exists, threshold profile is loaded, vessel-health monitoring is active, and a pilot session plus retrieval-system channel are available. \textbf{Post:} abnormal event is persisted, a health alert or sensor-fault incident is visible, mission state is updated to reflect recovery or override status as appropriate, and audit history is complete enough for investigation. \\
+\hline
+Technical details: database elements \& parameters & MissionRun, TelemetrySnapshot, ThresholdProfile, HealthAlert, OverrideCommand, RecoveryEvent, and OperationalLog. Pressure deviation \(>\pm5\%\) within 5 seconds is critical. Temperature deviation \(>\pm10\%\) within 10 seconds is critical. Power deviation \(>\pm15\%\) within 10 seconds is critical. \\
+\hline
+Technical details: load \& stress parameters & Support at least 3 supervised submersibles in one session. Continue operating under constrained communication at 1 kbps minimum bandwidth, 30-second one-way latency, and intermittent link conditions. \\
+\hline
+Technical details: performance benchmarks & Telemetry refresh target is every 30 seconds when connectivity is available. Pressure anomaly detection target is within 5 seconds; temperature and power within 10 seconds. Recovery-initiation or override acknowledgement target is within 60 seconds when link latency is at or below 30 seconds. \\
+\hline
+Technical details: platform \& IT compatibility & Telemetry and sensor integration use ROS2 middleware, DDS transport, and JSON schema validation. The operator interface runs from the surface or mothership environment. Operational records are stored in PostgreSQL or equivalent structured storage. \\
+\hline
+Technical details: quality features & Safety integrity, traceability, operability, resilience under degraded communications, and confidentiality/integrity of operational data. \\
+\hline
+Technical details: UI \& UX & The dashboard must show severity, vehicle ID, mission ID, breached parameter, timestamp, and recommended next action on one mission health panel. The manual-override and initiate-recovery controls must be visible without forcing the operator through multiple pages during an incident. \\
+\hline
+\end{tabularx}
+\caption{Auxiliary detail list for the priority use case}
+\label{tab:uc-aux}
+\end{table}
+
+\noindent Quantitative source notes that support these auxiliary details are consolidated in Addendum~\ref{add:source-notes}.
+
+\subsection*{UC Conversation}
+
+Before deriving realization slices, Brigman still needs stakeholder clarification on several points that materially affect slice boundaries:
+
+\begin{itemize}[leftmargin=*,nosep]
+  \item Whether the mothership pilot or the emergency retrieval system owns the first authoritative recovery trigger.
+  \item The exact rule for merging, reopening, or auto-closing repeat health alerts on the same parameter.
+  \item The minimum recovery-handoff data required on-screen once recovery is initiated: status only, or status plus last-known position, heading, and depth.
+  \item When manual override is permitted instead of immediate recovery initiation.
+  \item Whether a malformed sensor payload should immediately escalate the incident or first remain as a sensor-fault warning pending human review.
+\end{itemize}
+
+\subsection*{UC Slice 1: Walking Skeleton}
+
+\textbf{Title:} UC01-SL01 Health Alert Vertical Path
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{|P{0.22\textwidth}|Y|}
+\hline
+\rowcolor{tableheader}
+\textbf{STS Field} & \textbf{Slice Content} \\
+\hline
+Context & \textbf{Effective date:} 2026-091. \textbf{Parent UC:} UC01 Handle Abnormal Conditions and Initiate Recovery. \textbf{Story list:} UC01-S1. \textbf{Prelim:} Seed one active mission, one vehicle, one threshold profile, one pilot session, and one monitoring input path. Use a telemetry simulator or stub that can emit one pressure breach event. \\
+\hline
+Narrative & The slice proves the full health-alert path is alive. A threshold breach enters through the monitoring boundary, passes through abnormal-condition evaluation logic, creates one health-alert entity, appears on the pilot dashboard, and records one alert event in the audit trail. \\
+\hline
+Scope & \textbf{Category:} Basic. \textbf{Priority:} Blocker. \textbf{Status:} Walking Skeleton. \textbf{KIV:} recovery initiation, manual override, multi-parameter rules, and degraded-link handling beyond basic alert visibility. \\
+\hline
+Tech details: Boundary & Telemetry / vessel-health input stub for one vehicle; mission health widget showing the current alert. \\
+\hline
+Tech details: Control & HealthMonitorController validates JSON payload; AbnormalConditionService compares against threshold profile; HealthAlertController exposes the alert state; AuditService records the alert event. \\
+\hline
+Tech details: Entity & MissionRun, TelemetrySnapshot, ThresholdProfile, HealthAlert, and OperationalLog tables or equivalents. \\
+\hline
+Tech details: Interfaces / infrastructure & ROS2 or simulator adapter into the application boundary; dashboard update over internal API; local PostgreSQL schema and seeded mission data; baseline health check for the service stack. \\
+\hline
+Acceptance & AC01 [Y/N]: One simulated pressure breach creates exactly one health alert linked to the correct mission and vehicle. AC02 [Y/N]: The alert appears on the dashboard within 5 seconds of ingest. AC03 [Y/N]: The alert event is written to the audit log with timestamp and vehicle context. AC04 [Y/N]: The end-to-end path boundary $\rightarrow$ control $\rightarrow$ entity is demonstrably online. \\
+\hline
+\end{tabularx}
+\caption{STS-style walking skeleton slice for the priority use case}
+\label{tab:slice-ws}
+\end{table}
+
+\subsection*{UC Slice 2: MVP}
+
+\textbf{Title:} UC01-SL02 First Usable Recovery Response
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{|P{0.22\textwidth}|Y|}
+\hline
+\rowcolor{tableheader}
+\textbf{STS Field} & \textbf{Slice Content} \\
+\hline
+Context & \textbf{Effective date:} 2026-091. \textbf{Parent UC:} UC01 Handle Abnormal Conditions and Initiate Recovery. \textbf{Story list:} UC01-S1, UC01-S2, UC01-S3. \textbf{Prelim:} Walking skeleton slice is working; threshold profiles for pressure, temperature, and power are configured; command adapter supports recovery initiation and manual override; mission UI already shows active health alerts. \\
+\hline
+Narrative & This slice delivers the first recovery flow that an operations team can meaningfully use. The system detects critical pressure, temperature, or power breaches, presents a health alert, permits the pilot to choose manual override or initiate recovery, updates mission state, preserves last-known context during degraded communications, and stores enough recovery and audit data for post-mission review. \\
+\hline
+Scope & \textbf{Category:} Basic. \textbf{Priority:} High. \textbf{Status:} MVP. \textbf{KIV:} automated emergency retrieval orchestration, fleet-wide alarm triage, richer sensor-fault diagnostics, and downstream regulatory reporting automation. \\
+\hline
+Tech details: Boundary & Mission health panel with live alert list, recommended-action text, manual-override control, initiate-recovery control, degraded-link indicator, and recovery status card. \\
+\hline
+Tech details: Control & Multi-parameter rule evaluation for pressure/temperature/power; role-based authorization check for pilot actions; ManualOverrideService; RecoveryDispatchService for recovery request; ConnectivityMonitor for degraded-link state; RecoveryStatusService for last-known position and handoff visibility. \\
+\hline
+Tech details: Entity & MissionRun, ThresholdProfile, HealthAlert, OverrideCommand, RecoveryEvent, OperationalLog, and TelemetrySnapshot. \\
+\hline
+Tech details: Interfaces / infrastructure & Command channel to the emergency retrieval system and override adapter; cached read model for last-known mission state; JSON schema validation on inbound telemetry; database migration for alert, override, and recovery entities; environment configuration for latency and outage simulation. \\
+\hline
+Acceptance & AC11 [Y/N]: Pressure, temperature, and power breaches produce the correct health-alert severity and recommended action. AC12 [Y/N]: The mothership pilot can initiate recovery from an active health alert and the emergency retrieval system receives notification within 60 seconds under simulated 30-second latency. AC13 [Y/N]: Mission state changes to \texttt{RECOVERY\_INITIATED} or \texttt{MANUAL\_OVERRIDE\_ACTIVE} and the recovery card shows last-known position plus handoff status. AC14 [Y/N]: If the link degrades after alert creation, the dashboard preserves the last-known alert context and logs the degraded communication event. \\
+\hline
+\end{tabularx}
+\caption{STS-style MVP slice for the priority use case}
+\label{tab:slice-mvp}
+\end{table}
+
+\section{Combined Sign-off}
+
+This Lightweight RCM Report is certified as complete and ready for submission to Triton Deepwater following completion of lightweight requirements capture activities.
+
+\vspace{0.25cm}
+\noindent\textbf{Signed by:}\\[0.1cm]
+\includegraphics[height=1.2cm]{../Brigman/Signatures/Briggman_Sig.png}\\[-0.05cm]
+
+\textbf{Nathan Briggs}\\
+Engineering Delivery Lead\\
+Brigman Deep Sea Technology\\
+01 April 2026
+
+\section{Declarations}
+
+\textbf{AI Use Declaration:} ChatGPT was used to help the team with language, grammar and flow. Our team also used it as a way to explain complex concepts to us. All content, stories, use cases, slices, models and diagrams were developed by the team.
+
+\textbf{Originality Declaration:} This report presents original lightweight requirements capture work prepared for the Abyss Navigator Suite project. The report content is derived from the team's elicited Project Specification and subsequent internal analysis, and has not been copied from external deliverables.
+
+\begin{table}[H]
+\centering
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|P{0.34\textwidth}|P{0.16\textwidth}|P{0.26\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Name} & \textbf{Student ID} & \textbf{Signature} \\
+\hline
+Muhammad Ridwan Putra Jasni & 2401684 & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_ridwan.jpg}} \\
+\hline
+Chng Zong Han & 2401892 & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_zonghan.jpg}} \\
+\hline
+Lin Yuhao & 2400703 & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_yuhao.jpg}} \\
+\hline
+Muhammad Mikhail Bin Mazlan & 2402298 & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_mikhail.jpg}} \\
+\hline
+Kannan s/o Rajamohan & 2401517 & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_kannan.jpg}} \\
+\hline
+\end{tabular}
+\caption{Team declarations following the Eliciting PS pattern}
+\label{tab:declarations}
+\end{table}
+
+\clearpage
+\appendix
+\setcounter{page}{1}
+\renewcommand{\thepage}{A-\arabic{page}}
+
+\section{Addenda}
+
+\subsection{Addendum A: Progenitor Trace Links}
+\label{add:trace}
+
+This addendum supports the base User Story and UseCase2.0 sections by preserving concise trace links back to the progenitor document without expanding the body into a heavyweight trace matrix.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{|P{0.16\textwidth}|P{0.2\textwidth}|Y|P{0.18\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Item} & \textbf{Base Section} & \textbf{Progenitor Link} & \textbf{Why It Matters} \\
+\hline
+US-01 & User Story RCM & PS \S2.1, \S6.2, \S7.4, IT-L1-1 & Grounds telemetry visibility in remote supervision rather than a vendor-only invention. \\
+\hline
+US-02 & User Story RCM & PS \S1.5, \S2.1, \S4.3, \S6.4, BO-L2-4.1, BO-L2-4.2 & Keeps the alerting story tied directly to safety and compliance intent. \\
+\hline
+US-03 & User Story RCM & PS \S2.1, \S6.6, \S6.7, \S7.2, IT-L1-5, IT-L2-5.1 & Preserves accountability and post-mission value as explicit business needs. \\
+\hline
+UC-01 & UseCase2.0 RCM & PS \S1.5, \S2.1, \S6.4, \S6.5, \S7.4 & Justifies selecting abnormal-condition handling and recovery initiation as the priority use case in the current diagram. \\
+\hline
+UC01-WS & UC Slice 1 & BO-L2-4.1 plus IT-L1-1 / IT-L1-5 support & Confirms the first slice proves the core health-alert path before broader recovery behavior. \\
+\hline
+UC01-MVP & UC Slice 2 & BO-L2-4.1, BO-L2-4.2, IT-L1-2, IT-L1-6 & Shows why the MVP must move beyond detection into usable override and recovery response under real link constraints. \\
+\hline
+\end{tabularx}
+\caption{Trace links from lightweight artifacts back to the progenitor baseline}
+\label{tab:add-trace}
+\end{table}
+
+\subsection{Addendum B: Quantitative and Interface Source Notes}
+\label{add:source-notes}
+
+This addendum supports the base UC Auxiliary Detail and UC Slice sections by holding the quantitative notes and interface assumptions used to keep the priority use case CRaM and testable.
+
+\begin{table}[H]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.18}
+\begin{tabularx}{\textwidth}{|P{0.12\textwidth}|P{0.2\textwidth}|Y|P{0.18\textwidth}|}
+\hline
+\rowcolor{tableheader}
+\textbf{Note ID} & \textbf{Base Section} & \textbf{Supporting Note} & \textbf{Source} \\
+\hline
+ADD-B1 & UC Auxiliary Detail & Pressure deviations beyond \(\pm5\%\) are treated as critical within 5 seconds. & Brigman analysis baseline and derived SRS safety requirement SAF-EMG-001. \\
+\hline
+ADD-B2 & UC Auxiliary Detail & Temperature deviations beyond \(\pm10\%\) and power deviations beyond \(\pm15\%\) are treated as critical within 10 seconds. & Derived safety requirements SAF-EMG-002 and SAF-EMG-003. \\
+\hline
+ADD-B3 & UC Auxiliary Detail / Slice 2 & Telemetry should refresh at least every 30 seconds when connectivity is available. & Remote monitoring requirement COM-MON-001. \\
+\hline
+ADD-B4 & UC Auxiliary Detail / Slice 2 & Recovery-initiation or manual-override acknowledgement target is within 60 seconds when one-way latency is at or below 30 seconds. & Remote intervention requirement COM-INT-001. \\
+\hline
+ADD-B5 & UC Auxiliary Detail / Slice 2 & Degraded communications planning constrains alert, override, and recovery handling under low bandwidth, high latency, and sustained link loss. & Degraded communications requirement COM-DEG-001. \\
+\hline
+ADD-B6 & UC Auxiliary Detail / Slice 1 & Telemetry integration assumes ROS2 middleware, DDS transport, and JSON schema validation. & Interface requirement INT-SENS-001. \\
+\hline
+\end{tabularx}
+\caption{Quantitative and interface notes supporting the priority use case}
+\label{tab:add-source-notes}
+\end{table}
+
+\end{document}

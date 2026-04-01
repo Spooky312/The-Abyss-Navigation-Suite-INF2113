@@ -1,0 +1,708 @@
+         ICT2113 SOFTWARE REQRS:
+            NOW & NEAR FUTURE
+
+
+    10. Overcoming Deficiencies
+       of RE – UserStory is Answer
+     Prof Kevin
+1                                  ICT2113 Software Modelling & Analysis   25/12/2025
+    “The moment you think you
+    got it figured, you’re wrong.”
+                                                        Shooter, 2007
+         Only one truly correct fact: User stories originated in XP SCM. But, it’s
+         totally incorrect that super-simple format “As a... I want to ... so that ...”
+         was ingrained at its creation. For XP developers, it was ignorance gone
+         viral. To correct that misinformation, XP co-creator published effective
+         writing convention decreeing that User stories are social, casual, and
+         entirely free-form; no format is ever to be used. Incongruously, these
+         two conventions of format & none, exist now harmoniously as canon. To
+         exacerbate already paradoxical situation, one of early XP coaches then
+         publishes 3rd canon that User stories are effectively written only when
+         they conform to quality control features. Truth is out there!
+
+2                                                      ICT2113 Software Modelling & Analysis   25/12/2025
+       Agenda: User story is answer to RE
+
+                                                                             Please be
+    1. Previous week’s learning.                                             ready to
+                                                                             discuss with
+    2. Today’s learning outcomes.                                            your team
+                                                                             mates offline.
+    3. Video – “User Story, Epic, Features, et al”.
+                                                                             Even better,
+    4. Today’s new learning material.                                        get together
+                                                                             physically
+    5. Active learning – teams discuss response to ques.                     while using
+                                                                             our zoom
+    6. Epilogue.                                                             meeting.
+
+
+3                                                      ICT2113 Software Modelling & Analysis   25/12/2025
+    Previous week’s learning                Remember why
+                                            review of previous
+                                            week’s learning
+                                            important!
+                                            Strengthen memory
+             Four slides                    retention.
+                                            Highlight knowledge
+                                            gaps.
+                                            Prepare for acquiring
+                                            new material (per
+                                            iterative learning
+                                            approach in HE insti-
+                                            tutions).
+
+
+4                          ICT2113 Software Modelling & Analysis   25/12/2025
+        Guest lecture & RE (BRUF) review
+
+
+    Summary of Guest Lecturer’s message. Notes taken by
+    teacher.
+    Review of …
+      ❑ … complete RE model and definitions of all four
+        subprocesses, i.e., Eliciting, Analysing, Specifying, and
+        Validating.
+      ❑ … dominance of RE in sw development.
+
+
+5                                                             ICT2113 Software Modelling & Analysis   25/12/2025
+           Summary of Guest Lecturer’s message
+    Two activities are being recognized as key benchmarks in reqrs capturing.
+        Testing of code by stakeholders. Compatibility to Gherkin format is key for success.
+
+        Iterations, starting with ‘minimum viable product’ (MVP) and progressing through
+         release functionality according to some prioritization schema.
+    Most of small and flexible apps, such as Spotify, are developed using Agile
+    approach. Some are now getting customers & non-techies to write User stories
+    for they improving functionality that they desire.
+    State of present reqrs capturing is as follows.
+        Since they are very small, volume of User stories can be unwieldy to manage. Yet, they
+         are still integral to Agile reqrs capturing; tools available for their management.
+        Championed by Alistair Cockburn, Use case textual rendition (description) is emerging to
+         prominence. In fact, it can be reqrs specification by itself.
+        AI being applied to RE specifying and validating. Better, more in-depth training of AI
+         such as ChatGPT is expected to bring great improvements to reqrs capturing process.
+6                                                                                        ICT2113 Software Modelling & Analysis   25/12/2025
+    RE model: Methods, specifications & datastore
+    Note two cooperating orgs, four methods, two specs, and one datastore.
+
+                    Customer’s PL team                      Vendor’s Reqrs analysis team
+
+    Drawing forth lingeringEliciting
+                             ideas & expecta-        Regulated-revision of PS into ready-content for SRS that is
+    tions from stakeholders on reqrs for new         checked, fixed for integrity and comprehensiveness, plus
+                                                                                            Rel-
+    not yet existing sw, along with survey of        enhanced with vendor’s best practice      intodomain & technology.
+                                                                                            ease
+    pertinent historical record for presently-in-    Relies on customer-vendor cooperation  sw dev
+                                                                                                 to clear up any
+                                     PS project, Analysing              Repository          team
+    use sw, plus terms for new sw dev                uncertainties about reqrs.                             Legend:
+    and then documenting all that info as                                                                          Method
+    clauses and models in Project Spec (PS).         Writing sw reqrs spec (SRS) that    comprises
+                                                                                     Draft           ‘base’ reqrs per
+                                                                                                                   Specification
+                                   Release to        agreed  standards
+                                                      Specifying          with codified ‘development
+                                                                                     Complete           provisions’ best
+                                   contracted        practices, i.e., latest tech, swRelease
+                                                                                      dev quality
+                                                                                             SRS   model, iRTM & Datastore
+                                                                                                                   change     (VCS)
+                                   vendor
+                                                     mitigation strategy, all needed by vendor in post-reqrs SDLC.
+
+                                               Applying  quality control measures onto SRS, and conducting quality
+                                                 Validating
+                 Conducted                     assurance audit of vendor’s conduct     of Analysing, Specifying, and
+                                                                              Draft, complete,
+                 in-house or by                                               and release are dif-
+                 ext consultant                Validating against contractual ferent
+                                                                               and professional    standards, to ensure
+                                                                                     versions of SRS
+                                               that vendor has right SRS produced right.
+
+7                                            (UML Activity diagram)                              ICT2113 Software Modelling & Analysis   25/12/2025
+            Dominance of RE in sw development
+    In mid-1940s, first generation of digital electronic computers built by Electrical and
+    Electronic engineers according to hardware development standards, because
+    software as we know it now didn’t exist then. Computing cycles were run                                  BRUF is
+    according to physical rearrangement of patch cables and manual switches.                                 associated
+    1950s saw emergence of sw being an internally stored program that enabled                                with
+    computing cycles to be run without manual setup. This new sw was written by                              waterfall
+    new breed of gifted pseudo-professionals who approached each new project on                              model and
+    ad-hoc basis, neither baselining, repeating, nor optimizing their code.                                  other
+    By mid-1960s, sw industry was in crisis situation of massive project delays and                          inceptive
+    abandonments. In 1968, much needed discipline was established via SWE and                                models of
+    SDLC. Unfortunately, engineering rigour and quality that was being applied to                            SDLC.
+    design, coding, testing, and deployment, came late to capturing requirements;
+    1997 in fact. By then, RE was established as ‘the actionable methodology’ that
+    aligned with any prevailing ‘software development methodology’ (SDM) that called
+    for ‘big reqrs up front’ (BRUF).
+8                                                                              ICT2113 Software Modelling & Analysis   25/12/2025
+    Today’s learning                    Remember why
+                                        knowing learning
+                                        outcomes important!
+
+       outcomes                         Roadmap of learning
+                                        goals & expectations.
+                                        Encourages develop-
+                                        ing preparation &
+          One slide                     study strategies.
+                                        Promote engaging in
+                                        learning process.
+                                        Facilitate managing
+                                        learning material &
+                                        effort.
+
+9                      ICT2113 Software Modelling & Analysis   25/12/2025
+         LO#10: User story is answer to RE
+
+     After today’s lesson, student will be able to explain …                          These are
+                                                                                      objectives I
+      ❑ … quiet revolution of RCM from heavyweight to lightweight
+                                                                                      plan for you to
+        pre-Agile conclave.
+                                                                                      achieve in this
+      ❑ … User stories method & methodology.                                          session.
+      ❑ … origin of User stories.
+                                                                                      Your objectives
+      ❑ … importance of Agile conclave on dominance of User stories.                  should sync
+      ❑ … three conventions for effectively writing User stories.                     with these, but
+                                                                                      don’t need to
+     After today’s lesson, student will be able to sketch artisti-                    be verbatim
+                                                                                      identical.
+     cally as opposed to formally User story process model.
+10                                                                  ICT2113 Software Modelling & Analysis   25/12/2025
+                 Video
+           One slide & 7:09 min clip
+
+     Clip10 User Story, Epic, Feature, et al
+
+
+
+
+11                                             ICT2113 Software Modelling & Analysis   25/12/2025
+          Things to keep in mind before viewing
+     Video is brief explanation of User stories, plus most of size categorization
+     terms associated with .
+        First video defines differences between software development methodologies that
+         are traditional waterfall-compliant vs those being Agile.
+        Second video is about present ad hoc approach to organizing User stories.
+
+     As you watch first video, please keep foremost in your mind that software
+     development drives innovation in requirements capturing. Up to now, this
+     is consistent historical record.
+     For second video, ask yourself why it had to made. User stories are
+     innovative, but do they more surpass RE? No; seems, there is weakness
+     with User stories that our industry is responding to. What is it? Do you
+     agree with “tourniquet” solution.
+     Signal when you understand, and are ready to begin.
+
+12                                                                                   ICT2113 Software Modelling & Analysis   25/12/2025
+     Today’s new learning
+           material
+           Eighteen slides
+
+
+
+
+13                           ICT2113 Software Modelling & Analysis   25/12/2025
+     User stories: Revolution of sw proj weighting
+     To understand significance of User story, we must appreciate weighting                      (See next slide)
+     evolution from heavy to light that SDM-RCM pairing underwent. Since                         SDM evolution
+     inception of modern sw in 1950, SDM was heavyweight and suitably paired                     traces back to
+     with RE RCM. So it remained pre-eminent for several decades of sw projects.                 1956 & is still
+     In 1970s, lightweight SDMs started emerging. Being paired with SDMs, RCM                    going strong.
+     began changing also, though not quite as quickly or substantially as SDMs.                  What came
+     Strict linear arrangement of RE gave way to incremental, iterative, and even                before 1996
+     evolutionary. Feedback between customer and vendor increased; some                          was great, but
+     methodologies even captured reqrs jointly. Though innovative, these RCMs                    XP surpassed
+     still retained vestiges of traditional practice.                                            them all.
+     Finally, 1996 saw first truly lightweight RCM (see next slide). To save floun-              User story is
+     dering Chrysler Comprehensive Compensation (C3) project, PM Kent Beck                       wonderkid of
+     created never seen before SDM & RCM. Though largely unnoticed at first,
+                                                                                                 RCMs.
+     within three years it would become mainstay of lightweight RCM.
+14                                                                          ICT2113 Software Modelling & Analysis   25/12/2025
+          Key pioneering SDM innovations (w/RCM)                                                                              Code
+                                                                                                                              D = Sw develop
+                                                  (M, 1977)                          (M, 1977)                                M = Proj Mgmt
+               (M, 1957)
+                                       Joint Application Dev, by Chuck        V-chart of SDLC, by
+           Incremental, by
+                                        Morris & Tony Crawford in IBM           J.B, Munson in Sys                 (D, 1986)
+             Weinberg &
+                                                                                          Dev Corp         Spiral Model of SDLC, by
+           Dimsdale in IBM                         Continuous
+                                                                         Continuous                            Barry Boehm in TRW
+                          Min viable              participation
+                                                                         multi-level           Build in
+   (M, 1956)            product, then             of customer
+                                                                         feedback              rapid cycles
+ Kanban, by              fcn after fcn
+  Taiichi Ōno                                                                                                             (M, 1991)
+   in Toyota                                                                                                           Rapid Applica-
+                Work tracked at                                                                   Fast delivery of
+                                                                                                                       tion (RAD), by
+                regular intervals                                                                 working  program
+                                                                                                                      James Martin in
+                      for JIT                                                                                                IBM
+    (M, 2007)                                                                               Continuous &
+ Knbn Method,                                        Best practice     Increased            clear comms
+                            Visibility of
+  by Anderson                                         to extreme       flexibility &
+                       progress & results                                                                         (M, 1994)
+     in Corbis                                         (D, 1996)       speed
+                            (D, 1997)                                                                    Dynamic Sys Dev Method
+                    Feature-Driven Dev, by          Extreme   Prog-            (D,  1986, 1995)           (DSDM), by Consortium
+                     Jeff DeLuca in United          ramming (XP),                  Scrum, by                  in pilot projects
+                         Overseas Bank              by Kent  Beck                 Schwaber   &
+                                                    in Chrysler                   Sutherland
+15                                                                                               ICT2113 Software Modelling & Analysis   25/12/2025
+     Lightweight RCM employing collection of User stories, or short, self-
+     contained ‘stories of usage by stakeholders’, that are “markers” for full
+     reqrs of new not yet existing sw. It comprises three steps, 1) write User
+     stories, 2) bring forth via conversation, full specification of reqr
+     behind User story’s brevity, and 3) prioritize User stories for selection
+     from PB and realization. Once realized, User stories are discarded,
+     and new source code becomes primary documentation for new sw. All
+     three methods in this RCM involve User Story artifact only, justifying
+     designating this “the User story methodology”.
+
+
+                        User Story methodology
+           Second of three Reqrs Capture Methodologies that we will study our module.
+
+                                                                                                            Attention
+
+16                                                                      ICT2113 Software Modelling & Analysis   25/12/2025
+       User story: Anchor element of this RCM
+                                                                                                               Factsheet of
+      Informal description of new sw’s capability/condition from perspec-
+                                                                                                               fundamental
+      tives of its user, imagined usage, and expected benefit, along with                                      ideas about
+      its production-grade code being realized (designed, coded & accep-                                       User story
+      ted by stakeholder) within hours to few days.                                                            RCM
+
+     Conversation. User story is enough to initiate expansive conversation (verbal, docs, observing) between
+     stakeholder & developer to specify reqr. Little saved after realization: source code & some design.
+     Epic & Feature. Each sw dev proj has many user stories, 100s even 1,000s, because each applies to very
+     small part of new sw. To cope with such, often user stories amalgamated into “Epics” to better manage
+     numerous disparate tasks, or “Features” to optimally integrate code blocks into functions. These are
+     broken apart to be realized as individual stories, only to be rejoined post realization.
+     Product backlog. Stories held in repository ‘Product Backlog’ (PB) to await realization; no SRS per se.
+     Not saved. Once chosen for realization, User story deleted from PB.
+     Coach. Typically, first-time customers hire ‘Agile coaches’ to cope with gap between Agile and corporate
+     norms. Biggest tension is with fragmentation debt: system context lost in sea of disjointed PB items.
+17                                                                                ICT2113 Software Modelling & Analysis   25/12/2025
+ User story process model                                                    Shippable
+                                                                             product
+
+                                              User
+                          User stories                                                Accepted realizations
+                       taken from PB                                              6 become sw increments
+                        for realization 4                                           uploaded into shippable
+                                                                Developers
+                                                                                                    product
+                  Developers join
+                  users for specifi-
+                  cation & prioriti-                 User   Developers & users
+     Users
+                  zation of User                             realize each User
+                  stories 3                                   story specified                 User
+
+                                    PB                             5
+
+          Users write
+          User stories
+      1
+
+
+          User story        2 User stories
+18                             stored in PB                                   ICT2113 Software Modelling & Analysis   25/12/2025
+ User story’s origin is embedded in XP practice
+ User stories are super-tightly bound to XP SCM.
+ Of original 13 practices, five (see right) are di-
+ rectly driving User stories. For XP teams, User
+ stories are written as they always have been;
+ effectiveness is non-sequitur.
+  Customer conducts release planning,
+   i.e., difficulty, cost & scheduling of
+   realizing User stories.
+  Real users are part of whole team for
+   reqrs, priorities, and steering of proj.
+  Customer defines acceptance tests for realized User
+   stories; theses added into regression testing regime.
+  Proj co-opts Customer’s simple evocative vision
+   of how new sw works, via use of metaphor.
+  Customer sets reqrs small yet with real business value, so they can be
+   realized and shipped to customer frequently as "shrink-wrapped" sw features.
+19                                                                                ICT2113 Software Modelling & Analysis   25/12/2025
+       Anything you are uncertain about? …
+             Ask, and let me help clarify
+
+
+
+
+     Take                                                                             Let’s
+     quick       300 sec countdown – ends when fully filled                           continue
+     break                                                                            with LS
+
+
+20                                                            ICT2113 Software Modelling & Analysis   25/12/2025
+      User story effective writing: 3xConventions
+     Though User story is rightfully considered “wonderkid of RCMs”, it has one
+     significant issue: how to effectively write it. XP developers treat story writ-                  What happened
+                                                                                                      to C3 project? It
+     ing as “leave well enough alone”. Developers from other SCMs would be
+                                                                                                      was halted early
+     unacquainted with stories, ergo need writing guidance. Presently, three
+                                                                                                      1999 pending
+     conventions recognized (ignoring many one-off variations arising since).
+                                                                                                      Daimler-Benz’s
+      1. Original no name → Three-C’s – forged from crucible of real practice in XP.                  buyout of
+      2. Connextra (via format) – brought in as coaching aid.                                         Chrysler.
+      3. INVEST (via quality) – benchmarked against tailored effectiveness features.                  New owners
+                               1. Original no name                                                    brought in their
+                                                                                                      own compensa-
+     After its launch in 1993, C3 project SDM suffered setbacks. Within one year                      tion sw and sum-
+     of being new PM (Mar 1996), Beck brought C3 back on track to pay 10K                             marily terminated
+     employees. Key to his success was replacing BAs with business users to                           C3 in Feb 2000.
+     articulate C3’s real needs, and letting them do it in story form directly to                     Even so, XP is
+     developers. Written on 3”x5” index cards, stories were bereft of detail                          seen as triumph.
+     deliberately to engage developers in superlative conversation with users.
+21                                                                                 ICT2113 Software Modelling & Analysis   25/12/2025
+                       1. Original no name (cont)
+     Crucially, said stories
+     were unformatted &
+     force-fit on index cards
+     (see right; from Beck’s
+     1999 book) so users
+     don’t infer they are
+     writing full-blown reqrs
+     for SRS. Size of cards
+     used was never more
+     than 3”x5”, but could be
+     smaller to force large
+     stories to reduce.       SPLIT COLA: When the COLA rate chgs in the middle of the B/W Pay Period, we will want to
+                                     st                                                    nd
+                                pay the 1 week of the pay period at the OLD COLA rate and the 2 week of the Pay Period
+     User story always          at the NEW COLA rate. Should occur automatically based on system design.
+     intended to initiate         For the OT, we will run a m/frame program that will pay or calculate the COLA on the 2nd
+     conversation and           week of the OT. The plant currently retransmits the hours data for the 2nd week exclusively
+     collaboration.             so that we can calc COLA. This will come into the Model as a “2144” COLA.
+22                                Gross Pay Adjustment. Create RM Boundary and Place inICT2113
+                                                                                           DE Ent   Express
+                                                                                                Software       COLA
+                                                                                                         Modelling    BIN. 25/12/2025
+                                                                                                                   & nalysis
+                        1. Original no name (cont)
+     Alistair Cockburn, independent consultant & researcher focusing on successful                                 Three credited
+     SDM, visited C3 project in 1998, expecting Use cases. He wrote “They put so little                            founders of XP
+     into each use case that they called them “stories” rather than ‘Use cases’, and                               SDM are Kent
+     wrote them on single cards. Each story card was really a promise for a conversa-                              Beck, Ward
+     tion between a requirements expert and a developer.” (Cockburn, Writing Effective                             Cunningham &
+     Use Cases, 2000/2001, p. 223) It highlights value principle of ‘human interaction                             Ron Jeffries.
+     over documentation’ that later became part of 2001 Agile Manifesto.
+     Then followed flurry of publications on XP SDM and transformative nature of its RCM (user story).
+         In 1999 Beck, as creator of XP SDM, authored “XP Explained: Embracing Change”.
+         In collaboration with Martin Fowler, prominent thought leader in OOP underpinning core of XP practice,
+          Beck publishes in Oct 2000 his second book “Planning XP”.
+         After C3 terminated, Ron Jeffries turned to independent consultant to promote XP & coach early adopters.
+          In Nov 2000, he published “XP Installed” with two XP coaches Ann Anderson and Chet Hendrickson.
+         In Jan 2001, independent consultant & XP coach Bill Wake published “XP Programming Explored” for
+          applying XP best practices.
+         Aug 2001 Ron Jeffries posts seminal blog on User story effective writing practiced in XP projects.
+23                                                                                       ICT2113 Software Modelling & Analysis   25/12/2025
+          Agile arrives: “Vive la
+                révolution”
+ On 11–13 Feb 2001, seventeen pioneering innovators
+ met at Snowbird resort in Utah to discuss lightweight
+ SDM: Kent Beck, Ward Cunningham & Ron Jeffries
+ (XP), Jeff Sutherland, Ken Schwaber & Mike Beedle
+ (Scrum), Dave Thomas & Andrew Hunt (Pragmatic
+ Programming & Ruby) , Jim Highsmith (ASD), Alistair
+ Cockburn (Crystal Method), Robert C. Martin (Object
+ Mentor), Martin Fowler (OOP, UML & XP), Arie van
+ Bennekum (Lightweight consult), James Grenning (XP,
+ embedded & TDD), Jon Kern (Adaptavist Grp), Brian
+ Marick (Ruby & TDD), and Steve Mellor (OMG).
+ After conclave ended, self-named ‘Agile Alliance’ published manifesto (see above right) for their ‘agile
+ approach’ ― comprising core values and principles ― to sw development. ‘Agile’ now synonymous with
+ ‘Lightweight’; terms are interchangeable. Immediately, list of SDMs that fully adhere to Agile manifesto was
+ agreed: ASD, Crystal Clear, DSDM, FDD, JAD, Kanban Method, RAD, Scrum & XP. Same was done for RCMs,
+ although list had only one entry: User story from XP. So began User story’s reign as ‘Agile RCM’.
+24                                                                            ICT2113 Software Modelling & Analysis   25/12/2025
+      Agile arrives: User story fits SDM revolution
+     Five reasons why User story is outstanding fit for being Agile RCM.
+     1.   Its focus is ‘human interaction over documentation’ which fits almost word-for-
+          word with principle of Agile Manifesto.
+     2.   It pairs with all Agile SDMs. This is because User story captures reqrs iteratively,
+          adaptively, flexibly & via continual feedback with stakeholders, all synonymous with
+          lightweight. Plus, User stories carry nil technical detail, making them totally
+          opposite to BRUF hallmark of heavyweight SDMs.
+     3.   It can be written by any stakeholder type, especially by direct & indirect end users
+          that often were ignored in heavyweight RCMs.
+     4.   It transcends language & skill constraints. This is because User story captures story-
+          like descriptions of whatever stakeholders sees and does in natural and non-
+          technical language.
+     5.   Testing for acceptance of newly-crafted sw is conducted by same stakeholder that
+          composes User story, together with same developer that produces its production-
+          grade code; another hallmark of lightweight.
+
+25                                                                                     ICT2113 Software Modelling & Analysis   25/12/2025
+              2. Connextra format: coaching aid
+     After Agile conclave in Feb 2001, demand for Scrum and XP SDMs grew, but not
+                                                                                                Cohn’s 2004 book is
+     without growing pains. Aside from lack of qualified Scrum/XP coaches, existing             considered definitive
+     problem of effectively writing User stories worsened as many more “new-to-                 treatise on User stor-
+     Agile stakeholders stuck in BRUF approach” needed Agile coaching.                          ies, and earned him
+                                                                                                placement alongside
+     In May 2001 during their new sw installation project for UK company Connextra,             Agile luminaries.
+     Rachel Davies and her XP development team conceived and applied new format                 Interestingly, no one
+     template for effectively writing User stories. Named “Connextra format”, it is             in Davies’ team ever
+     sentence comprising three parts that are filled in by stakeholder (see below;              wrote about conceiv-
+                                                                                                ing & applying Conn-
+     underlined & italicized words indicate type of entries by stakeholders).
+                                                                                                extra format. So,
+       As a _position , I want to _do biz process_ , so that _benefit derived .                 when Cohn credited
+                                                                                                Davies’ team in his
+                                                                                                book, he became
+     Perfectly timed (few months after conclave), it was quickly adopted as practice            sole source of that
+     standard for effectively writing User stories. Later, it was formalized in Mike            historical account.
+     Cohn’s 2004 “User Stories Applied for Agile Software Development.
+26                                                                           ICT2113 Software Modelling & Analysis   25/12/2025
+     2. Connextra format: coaching aid (cont)                                                               Sticky note
+
+     (See right) First, format written on ‘sticky note’ & ‘3”x5” index
+     cards’ for physical placement on ‘progress board’. Later,
+     transitioned to data elements on digitized flow charts &
+     maps. Tips for content style in each entry field :
+         Position. Must be specific job appointment or title. Generic roles
+          such as “user” or “manager” are insufficient to under-stand
+          context and identify stakeholder (for conversation).
+         Biz process. Work unit per breakdown of stakeholder’s job                                     Data element
+          duties; not technical action such as pressing button. It must have
+                                                                               As a <bank> customer ,
+          measurable criteria of completion, although that is not shown
+          with story itself.
+                                                                               I want to view my current
+                                                                               account balance ,
+         Benefit. Rationale or justification that is job-related, not
+                                                                               so that I know my recent
+          personal. It can be any of: achieving biz goal, fulfilling biz
+          purpose, or generating something of value to biz.                    deposit went through .
+
+     Acceptance tests may be added to note or data element.
+27                                                                              ICT2113 Software Modelling & Analysis   25/12/2025
+         2. Connextra format: coaching aid (cont)
+     These example user stories illustrate well-articulated biz processes and derived benefits for
+     different stakeholders in different scenarios.
+     1. Scenario example 1: Product development.
+          As a product manager, I want a way for team members to understand how individual tasks
+          contribute to larger business goals, so that their commitment and cooperation are enhanced.
+     2. Scenario example 2: Customer experience.
+          As a returning customer, I want my information to be saved, so that I have a more streamlined
+          checkout experience.
+     3. Scenario example 3: Mobile application.
+          As a frequent app user, I want a way to digest relevant information in the quickest way possible, so
+          that I can decide on the best course of action in the fastest time.
+     User stories such as these are posted into PB, periodically prioritized, possibly aggregated
+     into Epics or Features, and eventually realized-then-integrated individually into host product
+     or program.
+28                                                                                  ICT2113 Software Modelling & Analysis   25/12/2025
+                  1. Original becomes “Three-C’s”
+     Four books 1999 to 2001 (see slide 18) about XP never specified any conven-                         Jeffries refers to
+     tion for writing User stories. This was corrected three months after Conn-                          Card, Conversation,
+     extra format became public, when Jeffries posted blog that reaffirmed XP’s                          Confirmation as
+     original non-format convention, and finally gave it name, “Card, Conversa-                          “components”. So,
+                                                                                                         considering them as
+     tion, Confirmation” or “Three-C’s”. Also, he highlighted higher effectiveness
+                                                                                                         things seems right.
+     of social reqrs capture over “documentary”. 18 years later, Jeffries revisited
+                                                                                                         Also, Jeffries refers to
+     first blog with two more in quick succession. As such, their language being
+                                                                                                         select entities in one
+     casual, not precise, open to interpretation; mine is things derived in stages.                      component being
+           Card. This is first-hand outline of biz process with just enough info to evoke one           planned in previous
+            unique proto-reqr to be specified in full in subsequent stage (Conversation). It is          component, suggest-
+            bound not by standard format, but by standard-size text box. If it exceeds stand-            ing sequence of
+                                                                                                         stages. Yet, Card is
+            ard size, then it must be revised to fit into smaller box. Its author must be
+                                                                                                         optional, so staging
+            authentic user who stays for all of three-C’s. Media that stores outline can be
+                                                                                                         may be oversimplifi-
+            physical or digital, as dictated by PB setup. Finally, if validated during Conver-           cation.
+            sation, User story in its standard-sized box, is used as marker in mapping its
+            progress through realization. (Mapping is conducted on Story board.)
+29                                                                                    ICT2113 Software Modelling & Analysis   25/12/2025
+           1. Original becomes “Three-C’s” (cont)
+          Conversation. This is collaboration between user and developer akin to Eliciting Method in RE
+           RCM. Its purpose is to specify full reqr from ‘proto’ one and to estimate realization effort. It uses
+           many “social” eliciting techniques, exchanges documents & examples, and demos lots of
+           prototypes. Before doing specification, User story’s proto-reqr is validated ― it can be outright
+           accepted, or discarded entirely, or replaced by revised story. Notes concerning priority and cost
+           can be appended to validated User story, depending on available space. As specification is being
+           conceptualized, user is also generating all criteria that will used to accept sw realization of reqr
+           specification tied to User story. Collaborating on said criteria helps to bring specifications closer to
+           perfection, avoid reqrs creep, and optimally shorten overall realization duration.
+          Confirmation. This is realization of sw by developer, followed by acceptance testing of said sw by
+           authentic user. This akin to SDLC User Acceptance Testing (UAT) with two important differences:
+           a) user already familiar with sw’s capability and UX because pre-coding development work is done
+           in full collaboration with developer, and b) only one reqr is being tested because stories realized
+           one-by-one, followed by release of sw incements to customer. (This is way of lightweight SDMs.)
+     Achieving user’s acceptance marks end of Three-C’s convention. Next, sw enters process of
+     integration into host product/program, involving different customer-vendor teams.
+30                                                                                     ICT2113 Software Modelling & Analysis   25/12/2025
+           1. Original becomes “Three-C’s” (cont)
+          Conversation. This is collaboration between user and developer akin to Eliciting Method in RE
+           RCM, to specify full reqr from ‘proto’ one. To do this, it uses any eliciting techniques, including
+           interviews, exchanges of documents & examples, and prototypes:. a) validate proto-reqr story ―
+           yes, it can be outright accepted, or discarded entirely, or replaced by revised story ― and b) then
+           estimate realization effort ― yes, notes concerning priority and cost can be appended to validated
+           User story, depending on available space. that supports collaborations between user and
+           developer. (In fact, User story is one recognized eliciting technique.) Said collaboration. Finally,
+           this must produce criteria that user will follow for accepting sw realization of reqr specification of
+           User story; importantly focus & limit to avoid reqrs creep.
+          Confirmation. This is acceptance test of sw that developer realized for User story’s reqrs specifi-
+           cation produced in Conversation. This akin to SDLC Testing stage as acceptance is primary respon-
+           sibility of customer. Difference is that a) user already familiar with sw’s capability and UX because
+           pre-coding development work is done collaboratively with developer, plus b) only one reqr is being
+           tested.
+     Achieving user’s acceptance marks end of Three-C’s convention. Next, sw enters process of
+     integration into host product/program, involving different customer-vendor teams.
+31                                                                                    ICT2113 Software Modelling & Analysis   25/12/2025
+       3. Benchmark effectiveness via quality stds
+     Independent consultant & XP early practitioner Bill Wake published third convention of User
+     story effective writing in Aug 2003 blog, “INVEST in Good Stories & SMART Tasks”. Acronym
+     INVEST highlights characteristics that User stories of best quality will exhibit.
+         “I” ndependent. Its content does not overlap with any others.
+         “N” egotiable. Its exact representation of full reqr is completely open to being elaborated via conver-
+          sation. (Assume “conversation” meaning as per Three-C’s.)
+         “V” aluable. Its derived benefit to authentic user must be tangible & compelling.
+         “E” stimatable. It must have enough prioritization content to enable cost & effort derivation by orgs.
+         “S” mall. It fits in given standard text box and its realization is achievable in minimum period of time.
+         “T” estable. Its operability must be measurable, so definitive acceptance can be made of its suitability.
+     Most projects that incorporate INVEST convention in their Agile RCM, stipulate that authors
+     must accompany their User stories with scorecard that shows which quality features are met
+     and which aren’t. Poor scorecard doesn’t mean User story is discarded; more often,
+     developers use it to critique when and in what order such User stories are processed.
+32                                                                                    ICT2113 Software Modelling & Analysis   25/12/2025
+           Which convention best for Agile RCM?
+     In 2004, Mike Cohn published book “User Stories Applied For Agile Software                          Throughout mid-
+     Development” that is considered by many to be canon of how to apply User                            1990s, Mike Cohn
+     stories in Agile SDMs. In it, he discusses how and when to apply all three                          was running rapid sw
+                                                                                                         dev: no documents,
+     effective writing conventions we have learned thus far.                                             no BRUF, just verbal-
+     He suggests following usage scheme (gross oversimplification of 291 pages):                         ly engaging users,
+                                                                                                         hand-drawing
+      1. Connextra format for customer’s first few Agile RCMs. It is easiest to teach and vet.           designs on napkins,
+         Most common error authors will make is being too generic, e.g., As a user, I want to            and prototyping
+         check filled-out form for mistakes, so that I avoid mistake propagation.                        (lots). He always felt
+      2. INVEST for customers who no longer need special coaching for their RCM. It is                   guilty that his way
+         more effective for increasing quality of User stories that are unformatted. Still, that         was not how it was
+         doesn’t preclude applying it to User stories that are formatted.                                supposed to be.
+                                                                                                         Then, he read Kent
+      3. Three-C’s for customers whose company culture has been re-oriented to profic-
+                                                                                                         Beck’s 1999 book,
+         iently conduct Agile SDMs, especially XP’s. To be clear, Connextra format is not
+                                                                                                         and suddenly, all of
+         compatible with Three-C’s. Also, developers have to be super-comfortable with                   his guilt evaporated.
+         talking reqrs with users.
+33                                                                                    ICT2113 Software Modelling & Analysis   25/12/2025
+     Active learning 1-2
+            Two slides
+
+
+
+
+34                         ICT2113 Software Modelling & Analysis   25/12/2025
+              These are instructions for session
+     There are two parts to today’s ‘Active learning’ session:
+       Part 1 – Explain why in Three-C's if User story exceeds standard size, then it
+       must be revised to fit into smaller size?
+       Part 2 – Propose your team’s choice of User story effective writing convention
+       and how that convention will be conducted and managed?
+
+     For Part 1. Clue is in factsheet and named convention’s stipulations.
+     Teams must explain exactly how size is measured, and what difference
+     is between standard vs smaller.
+     Teams have five mins to come up with their answers. Once time is up,
+     teams be prepared to share their results if called by teacher. Feedback
+     is available from teacher and peers.
+     Any questions? Wait for teacher’s signal to begin Part 1.
+35                                                                             ICT2113 Software Modelling & Analysis   25/12/2025
+        These are instructions for session (cont)
+     For Part 2. Teams can ignore Cohn’s usage scheme, i.e., Connextra for
+     beginners, INVEST for intermediates, and three C-s for experts. Choose
+     whichever convention you want to try.
+     Crucially, don’t combine conventions into some hybrid; adhere to their
+     stipulations in their purest sense. Be especially precise for INVEST: if
+     you decide formatted, it cannot be Connextra; you have to come up
+     with your own format and stick to it. Also, don’t write any User stories.
+     Teams have 15 mins to come up with their choice. Once time is up,
+     teams be prepared to share their results if called by teacher. Feedback
+     is available from teacher and peers. After LS, bring choice to this
+     week’s labtorial to begin applying it to your team’s PD. Post notes.
+     Any questions? Wait for teacher’s signal to begin Part 1.
+36                                                                     ICT2113 Software Modelling & Analysis   25/12/2025
+     Epilogue
+      Three slides
+
+
+
+
+37                   ICT2113 Software Modelling & Analysis   25/12/2025
+     There is so much misunderstanding about User stories, because
+     they emerged not from centralized revolution, but from counter-
+     culture of innovation by engineers of many perspectives, who
+     understood that developing sw was exceedingly different to that
+     of hardware. User stories are paradigm shift in reqrs capture.
+     They aren’t reqrs, and they don’t replace documentation. Instead,
+     they represent ideas of reqrs, and ideas are fluid. So, User stories
+     walk fine line of being written ideas that evoke tangibilities that
+     are commonly comprehended, without being too verbose that
+     they supercede conversation and collaboration.
+
+
+
+          “Just enough to represent, yet not stifle flexibility”
+
+38                                                                   ICT2113 Software Modelling & Analysis   25/12/2025
+                                  My final words
+      Contact me for …
+         regular stuff via my work email h51581@singaporetech.edu.sg.
+                                                                                                      Glossary & Google
+                                                                                                      reading for next
+         more sensitive stuff, by Whatsapp 97761716 or my personal email
+                                                                                                      week
+           johnmilton2000@gmail.com.
+                                                                                                      ❑ UseCase2.0
+      Tomorrow’s lab is on this subject of Validating. This is the last part
+       of capturing requirements via traditional RE methodology. In                                   ❑ OO SWE — A
+       preparation, ensure you are familiar with …                                                        Use-Case-Driven
+         your role, either QC or QA, including their relevant checklists and tasks.
+                                                                                                          Approach by Ivar
+                                                                                                          Jacobson
+         other team’s SRS that you will be conducting the QC and QA upon.
+                                                                                                      ❑ Writing Effective
+         your plan (possibly posted in LMS) for catching QC and QA errors.
+                                                                                                          Use Cases by
+      You should be nearly through Glossary; good, keep going. Also,                                     Alistair
+       keep up with references to get deeper sense of modules objectives.                                 Cockburn
+39                                                                                     ICT2113 Software Modelling & Analysis   25/12/2025
+             Any final thoughts?
+                        If not …
+
+
+
+
+                     End of LS#10
+     Overcoming RE Deficiencies – UserStory is Answer
+                     by Prof Kevin
+
+       ICT2113 Software Reqrs: Now & Near Future
+40                                        ICT2113 Software Modelling & Analysis   25/12/2025
+

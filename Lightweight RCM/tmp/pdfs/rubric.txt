@@ -1,0 +1,62 @@
+                                     Labtorial Guide for Class Project        Reqrs now & near future
+
+
+
+
+               RUBRIC FOR LIGHTWEIGHT RCM REPORT –
+                           REPLACEMENT
+
+   Validating paired reports (QC & QA) – 8 Aspects & key evaluation items per each.
+   Weighting applies. Two reports along with two AI notes and two presentations submitted
+   in one zip file.
+           •    Combined Executive summary – correct and CRaM content, covering both User
+                story and UseCase 2.0 RCMs.
+           •    UStry User story – three correct CRaM stories; describe effective writing
+                convention used; and, show reference in PD for each User story.
+           •    UStry Conversation – IAW one User story only, explain info that developer
+                might need to clarify with stakeholder before conducting dev.
+           •    UC UseCase diagram – draw one diagram for complete sw IAW correct
+                alignment to GPV. (Don’t exceed seven use case ovals. KIV how to uncover
+                walking skeleton and MVP within one of all use cases. Can reuse GPV-aligned
+                diagram or product goals from SRS.)
+           •    UC Priority – within one of all use cases, define one each of CRaM Walking
+                skeleton & MVP; and, reference use case for each. (These are not stories.)
+           •    UC Story – IAW priority use case, max three correct CRaM content. (One main
+                scenario, plus alternative(s). Also, use Alister Cockburn writing convention.)
+           •    UC Auxiliary detail – IAW priority use case, correct CRaM content. (Use
+                template from LS.)
+           •    UC Conversation – IAW Stories & Auxiliary detail, explain any further info that
+                developer might need to clarify with stakeholder before deriving Slices.
+           •    UC Slice – one each for Walking skeleton & MVP. (Use template from LS.)
+           •    Combined Sign-off (assume ready for submission to customer PC) – PM’s
+                signature.
+           •    Addenda – IAW Glossary; correct addenda kind ; and, correct F&S. Content
+                linked to base Aspect.
+
+
+
+Assignment of weighting to Aspects
+   Lightweight RCM report (User story & UseCase2.0 combined).
+
+
+
+Prof Kevin Anthony Jones                          1 of 2                                    Mar 2026
+                                     Labtorial Guide for Class Project            Reqrs now & near future
+
+
+
+         Weighting                Aspect                      Weighting           Aspect
+        PK                 Progenitor                        DBK          UC UseCase graph
+        PK                 Org & styling                     DDK          UC Priority
+        PK                 Max pages                         DDK          UC Story
+        PK                 Declarations                      DBK          UC Auxiliary detail
+        PK                 Addenda                           DBK          UC Conversation
+        DBK                Combo Exec summary                DDK          UC Slice
+        DDK                UStry User story                  DBK          Combo Sign-off
+        DBK                UStry Conversation
+
+
+
+
+Prof Kevin Anthony Jones                          2 of 2                                        Mar 2026
+
