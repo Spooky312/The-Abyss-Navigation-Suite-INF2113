@@ -39,7 +39,6 @@ citecolor=blue
 \definecolor{tableheader}{RGB}{240, 240, 240}
 \definecolor{tablerow}{RGB}{250, 250, 250}
 \definecolor{accent}{RGB}{22, 78, 99}
-
 \newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
 \newcolumntype{P}[1]{>{\RaggedRight\arraybackslash}p{#1}}
 
@@ -69,26 +68,18 @@ citecolor=blue
 \end{figure}
 }
 
-\AddToShipoutPictureBG*{%
-  \AtPageLowerLeft{%
-    \includegraphics[width=\paperwidth,height=\paperheight]{../Brigman/templates/Brigman_Letterhead.pdf}%
-  }%
-}
-
 \AddToShipoutPictureBG{%
-  \ifnum\value{page}>1
-    \AtPageLowerLeft{%
-      \includegraphics[width=\paperwidth,height=\paperheight]{../Brigman/templates/Brigman_Paper.pdf}%
-    }%
-  \fi
+  \AtPageLowerLeft{%
+    \includegraphics[width=\paperwidth,height=\paperheight]{triton_letterhead.pdf}%
+  }%
 }
 
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\textbf{Brigman Deep Sea Technology}}
+\lhead{}
 \rhead{Lightweight RCM Report}
 \cfoot{\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0pt}
 \setlength{\headheight}{20pt}
 
 \begin{document}
@@ -100,16 +91,16 @@ citecolor=blue
 \rhead{}
 \cfoot{}
 \renewcommand{\headrulewidth}{0pt}
-\newgeometry{top=4.8cm,left=0.9in,right=0.9in,bottom=1.1in}
+\newgeometry{top=3.0cm,left=0.9in,right=0.9in,bottom=1.55in}
 
 \begin{center}
-\includegraphics[width=0.33\textwidth]{../Brigman/templates/brigman logo.png}\\[0.35cm]
+\includegraphics[width=0.23\textwidth]{triton.png}\\[0.35cm]
 
 \LARGE\textbf{Lightweight Requirements Capture Model Report}\\[0.25cm]
 \large\textbf{User Story + UseCase2.0 Combined}\\[0.25cm]
 \large\textbf{Abyss Navigator Suite Project}\\[0.45cm]
 
-\textbf{\Large Brigman Deep Sea Technology}\\
+\textbf{\Large Triton Deepwater}\\
 01 April 2026
 \end{center}
 
@@ -161,12 +152,14 @@ Kannan s/o Rajamohan & 2401517 & Safety \& Compliance Officer \\
 \end{tabular}
 \end{table}
 
-\restoregeometry
+\newgeometry{top=1.8in,left=0.9in,right=0.9in,bottom=1.55in}
 \fancyhf{}
-\lhead{\textbf{Brigman Deep Sea Technology}}
+\lhead{}
 \rhead{Lightweight RCM Report}
 \cfoot{\thepage}
-\renewcommand{\headrulewidth}{0.4pt}
+\fancyfootoffset{0pt}
+\setlength{\footskip}{68pt}
+\renewcommand{\headrulewidth}{0pt}
 
 \newpage
 
@@ -183,8 +176,6 @@ Kannan s/o Rajamohan & 2401517 & Safety \& Compliance Officer \\
 \noindent\fbox{\begin{minipage}{\dimexpr\textwidth-2\fboxsep-2\fboxrule\relax}
 \small\textbf{Note on Hyperlinks:} Throughout this document, internal references are displayed in \textcolor{blue}{\uline{blue and underlined}}. These links are fully clickable in the PDF viewer and navigate directly to the relevant section, table, diagram, or addendum.
 \end{minipage}}
-
-\bigskip
 
 \section{Progenitor}
 \label{sec:progenitor}
@@ -224,7 +215,7 @@ This report applies a deliberately lightweight RCM approach to the Abyss Navigat
 
 The UseCase2.0 portion preserves the big picture with one GPV-aligned use case model built around mission setup, autonomous execution, vessel-health monitoring, manual override, abnormal handling, recovery initiation, fleet management, and mission-record review. It then focuses on the most safety-critical use case in the current model: \textbf{UC01 Handle Abnormal Conditions and Initiate Recovery}. Within that priority use case, the report defines the walking skeleton as the thinnest end-to-end proof that a threshold breach becomes a visible health alert, and the MVP as the first usable recovery flow that lets operators respond through alerting, override, and recovery initiation. The resulting UC stories, auxiliary detail, conversation notes, and two STS-style slices give Triton Deepwater a practical basis for reviewing priority behaviour and expected realization without expanding this submission into a heavyweight UML pack.
 
-\newpage
+
 \section{User Story RCM}
 \label{sec:user-story-rcm}
 
@@ -234,7 +225,7 @@ The story set, its PD references, and its business confirmation signals are cons
 
 \begin{table}[H]
 \centering
-\footnotesize
+\small
 \renewcommand{\arraystretch}{1.25}
 \begin{tabularx}{\textwidth}{|P{0.09\textwidth}|Y|P{0.27\textwidth}|P{0.18\textwidth}|}
 \hline
@@ -271,7 +262,6 @@ Before implementation of US-02, the following stakeholder clarifications remain 
   \item Evidence rule: what minimum incident detail must be retained for later compliance review and investigation?
 \end{itemize}
 
-\newpage
 \section{UseCase2.0 RCM}
 \label{sec:usecase-rcm}
 
@@ -280,16 +270,9 @@ Before implementation of US-02, the following stakeholder clarifications remain 
 \addcontentsline{toc}{subsection}{Whole-System Use Case Diagram}
 \label{sec:uc-diagram}
 
-The current \hyperref[fig:lightweight-usecase]{use case diagram} keeps the main operational goals visible and shows the supporting detect-alert chain used by the abnormal-condition flow. It remains aligned to the progenitor GPV by centering mission setup, autonomous execution, vessel-health monitoring, override/recovery response, and mission-record accountability.
+The whole-system use case diagram is provided in \hyperref[add:uc-diagram]{Addendum C}. It keeps the main operational goals visible and shows the supporting detect-alert chain used by the abnormal-condition flow. It remains aligned to the progenitor GPV by centering mission setup, autonomous execution, vessel-health monitoring, override/recovery response, and mission-record accountability.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.86\textwidth]{{SMA Models - Use Case Diagram(3).png}}
-\caption{Current lightweight use case view used for this report}
-\label{fig:lightweight-usecase}
-\end{figure}
-
-\noindent Within the current model, \hyperref[tab:priority-uc]{UC01 Handle Abnormal Conditions and Initiate Recovery} is the only use case selected for detailed treatment in this report. The remaining use cases shown in \hyperref[fig:lightweight-usecase]{Figure~\ref*{fig:lightweight-usecase}}: \hyperref[fig:lightweight-usecase]{UC02 Monitor Vessel Health}, \hyperref[fig:lightweight-usecase]{UC03 Manual Control Override}, \hyperref[fig:lightweight-usecase]{UC04 Execute Mission Autonomously}, \hyperref[fig:lightweight-usecase]{UC05 Configure Mission Parameters}, \hyperref[fig:lightweight-usecase]{UC06 Manage Fleet Mission}, and \hyperref[fig:lightweight-usecase]{UC07 Review Mission Record}, are retained at whole-system level and are not decomposed further in this document.
+\noindent Within the current model, \hyperref[tab:priority-uc]{UC01 Handle Abnormal Conditions and Initiate Recovery} is the only use case selected for detailed treatment in this report. The remaining use cases shown in \hyperref[add:uc-diagram]{Addendum C}: \hyperref[add:uc-diagram]{UC02 Monitor Vessel Health}, \hyperref[add:uc-diagram]{UC03 Manual Control Override}, \hyperref[add:uc-diagram]{UC04 Execute Mission Autonomously}, \hyperref[add:uc-diagram]{UC05 Configure Mission Parameters}, \hyperref[add:uc-diagram]{UC06 Manage Fleet Mission}, and \hyperref[add:uc-diagram]{UC07 Review Mission Record}, are retained at whole-system level and are not decomposed further in this document.
 
 \subsection*{Priority Use Case, Walking Skeleton, and MVP}
 \phantomsection
@@ -307,7 +290,7 @@ The priority use case, walking skeleton, and MVP definitions are summarized in \
 \rowcolor{tableheader}
 \textbf{Item} & \textbf{Definition} \\
 \hline
-Priority use case & \hypertarget{uc01-priority}{\textbf{UC01 Handle Abnormal Conditions and Initiate Recovery.}} In the current diagram, this use case best concentrates the project's GPV because it converts abnormal-condition awareness into a concrete recovery response. See \hyperref[fig:lightweight-usecase]{Figure~\ref*{fig:lightweight-usecase}} and \hyperref[sec:uc01-stories]{the UC01 stories}. \\
+Priority use case & \hypertarget{uc01-priority}{\textbf{UC01 Handle Abnormal Conditions and Initiate Recovery.}} In the current diagram, this use case best concentrates the project's GPV because it converts abnormal-condition awareness into a concrete recovery response. See \hyperref[add:uc-diagram]{Addendum C} and \hyperref[sec:uc01-stories]{the UC01 stories}. \\
 \hline
 Walking skeleton & \hypertarget{uc01-ws}{\textbf{UC-01-WS: Health alert vertical path.}} The thinnest end-to-end proof that one threshold breach can travel from vessel-health monitoring to abnormal detection, health-alert presentation, and audit logging. This item is a prioritization construct rather than a story and is realized in \hyperref[sec:uc-slice-ws]{UC Slice 1}. \\
 \hline
@@ -350,7 +333,7 @@ The auxiliary detail set for UC01 is consolidated in \hyperref[tab:uc-aux]{Table
 
 \begin{table}[H]
 \centering
-\footnotesize
+\small
 \renewcommand{\arraystretch}{1.2}
 \begin{tabularx}{\textwidth}{|P{0.24\textwidth}|Y|}
 \hline
@@ -412,8 +395,8 @@ The walking skeleton slice definition is detailed in \hyperref[tab:slice-ws]{Tab
 
 \begin{table}[H]
 \centering
-\footnotesize
-\renewcommand{\arraystretch}{1.18}
+\small
+\renewcommand{\arraystretch}{1.15}
 \begin{tabularx}{\textwidth}{|P{0.22\textwidth}|Y|}
 \hline
 \rowcolor{tableheader}
@@ -451,8 +434,8 @@ The MVP slice definition is detailed in \hyperref[tab:slice-mvp]{Table~\ref*{tab
 
 \begin{table}[H]
 \centering
-\footnotesize
-\renewcommand{\arraystretch}{1.18}
+\small
+\renewcommand{\arraystretch}{1.15}
 \begin{tabularx}{\textwidth}{|P{0.22\textwidth}|Y|}
 \hline
 \rowcolor{tableheader}
@@ -479,48 +462,49 @@ Acceptance & AC11 [Y/N]: Pressure, temperature, and power breaches produce the c
 \label{tab:slice-mvp}
 \end{table}
 
-\newpage
 \section{Combined Sign-off}
 \label{sec:signoff}
 
-This Lightweight RCM Report is certified as complete and ready for submission to Triton Deepwater following completion of lightweight requirements capture activities.
+This Lightweight RCM Report is certified as complete and ready for submission to Triton Deepwater.
 
-\vspace{0.25cm}
-\noindent\textbf{Signed by:}\\[0.1cm]
-\includegraphics[height=1.2cm]{../Brigman/Signatures/signature_ridwan.jpg}\\[-0.05cm]
+\noindent\textbf{Signed by:}\\[-0.05cm]
+\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_ridwan.jpg}\\[-0.12cm]
 
 \textbf{Muhammad Ridwan Putra Jasni}\\
-Project Leader / Mission Operations Manager\\
-Brigman Deep Sea Technology\\
+Project Leader\\
 01 April 2026
 
+\clearpage
+\setcounter{page}{1}
+\renewcommand{\thepage}{D-\arabic{page}}
 \section{Declarations}
 \label{sec:declarations}
 
-\textbf{AI Use Declaration:} ChatGPT was used to help the team with language, grammar and flow. Our team also used it as a way to explain complex concepts to us. All content, stories, use cases, slices, models and diagrams were developed by the team.
-
-\textbf{Originality Declaration:} This report presents original lightweight requirements capture work prepared for the Abyss Navigator Suite project. The report content is derived from the team's PD baseline and has not been copied from external deliverables.
-
-Team declarations and signatures are recorded in \hyperref[tab:declarations]{Table~\ref*{tab:declarations}}.
+\small
+\noindent\textbf{AI Use Declaration:} ChatGPT was used for language support, grammar refinement, and explanation of complex concepts. All stories, use cases, slices, models, and diagrams were produced by the team.
+\par\smallskip
+\noindent\textbf{Originality Declaration:} This report presents original lightweight requirements capture work for the Abyss Navigator Suite project and is derived from the team's PD baseline.
+\par\smallskip
+\noindent Team declarations and signatures are recorded in \hyperref[tab:declarations]{Table~\ref*{tab:declarations}}.
 
 \begin{table}[H]
 \centering
-\small
+\normalsize
 \renewcommand{\arraystretch}{1.2}
 \begin{tabular}{|P{0.34\textwidth}|P{0.16\textwidth}|P{0.26\textwidth}|}
 \hline
 \rowcolor{tableheader}
 \textbf{Name} & \textbf{Student ID} & \textbf{Signature} \\
 \hline
-Muhammad Ridwan Putra Jasni & 2401684 & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_ridwan.jpg}} \\
+Muhammad Ridwan Putra Jasni & 2401684 & \makebox[\linewidth][c]{\includegraphics[height=0.9cm]{../Brigman/Signatures/signature_ridwan.jpg}} \\
 \hline
-Chng Zong Han & 2401892 & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_zonghan.jpg}} \\
+Chng Zong Han & 2401892 & \makebox[\linewidth][c]{\includegraphics[height=0.9cm]{../Brigman/Signatures/signature_zonghan.jpg}} \\
 \hline
-Lin Yuhao & 2400703 & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_yuhao.jpg}} \\
+Lin Yuhao & 2400703 & \makebox[\linewidth][c]{\includegraphics[height=0.9cm]{../Brigman/Signatures/signature_yuhao.jpg}} \\
 \hline
-Muhammad Mikhail Bin Mazlan & 2402298 & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_mikhail.jpg}} \\
+Muhammad Mikhail Bin Mazlan & 2402298 & \makebox[\linewidth][c]{\includegraphics[height=0.9cm]{../Brigman/Signatures/signature_mikhail.jpg}} \\
 \hline
-Kannan s/o Rajamohan & 2401517 & \makebox[\linewidth][c]{\includegraphics[height=0.95cm]{../Brigman/Signatures/signature_kannan.jpg}} \\
+Kannan s/o Rajamohan & 2401517 & \makebox[\linewidth][c]{\includegraphics[height=0.9cm]{../Brigman/Signatures/signature_kannan.jpg}} \\
 \hline
 \end{tabular}
 \caption{Team declarations and signatures}
@@ -542,7 +526,7 @@ This addendum supports the base User Story and UseCase2.0 sections by preserving
 
 \begin{table}[H]
 \centering
-\footnotesize
+\small
 \renewcommand{\arraystretch}{1.18}
 \begin{tabularx}{\textwidth}{|P{0.16\textwidth}|P{0.2\textwidth}|Y|P{0.18\textwidth}|}
 \hline
@@ -573,8 +557,8 @@ This addendum supports the base UC Auxiliary Detail and UC Slice sections by hol
 
 \begin{table}[H]
 \centering
-\footnotesize
-\renewcommand{\arraystretch}{1.18}
+\normalsize
+\renewcommand{\arraystretch}{1.25}
 \begin{tabularx}{\textwidth}{|P{0.12\textwidth}|P{0.2\textwidth}|Y|P{0.18\textwidth}|}
 \hline
 \rowcolor{tableheader}
@@ -596,5 +580,18 @@ ADD-B6 & UC Auxiliary Detail / Slice 1 & Telemetry integration assumes ROS2 midd
 \caption{Quantitative and interface notes supporting the priority use case}
 \label{tab:add-source-notes}
 \end{table}
+
+\clearpage
+\subsection{Addendum C: Whole-System Use Case Diagram}
+\label{add:uc-diagram}
+
+This addendum contains the whole-system use case diagram referenced in the UseCase2.0 section.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth,height=0.68\textheight,keepaspectratio]{{SMA Models - Use Case Diagram(3).png}}
+\caption{Whole-system use case diagram referenced by the UseCase2.0 body section}
+\label{fig:lightweight-usecase}
+\end{figure}
 
 \end{document}
