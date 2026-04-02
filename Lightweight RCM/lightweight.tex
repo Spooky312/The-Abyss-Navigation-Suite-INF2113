@@ -213,7 +213,7 @@ Method selection & Connextra for User Stories; Cockburn casual/low-ceremony for 
 
 This report applies a deliberately lightweight RCM approach to the Abyss Navigator Suite by combining small, business-facing User Stories with one system-wide \hyperref[fig:lightweight-usecase]{Use Case diagram} and one deeper UseCase2.0 drill-down. The User Story portion captures concise operational needs that still carry business value: mission configuration, abnormal-condition alerting, and post-mission accountability. Each story stays traceable to the progenitor PD so the report remains concise without losing chain-of-custody back to the original elicited need.
 
-The UseCase2.0 portion preserves the big picture with one GPV-aligned use case model built around mission setup, autonomous execution, vessel-health monitoring, manual override, abnormal handling, recovery initiation, fleet management, and mission-record review. It then focuses on the most safety-critical use case in the current model: \textbf{UC01 Handle Abnormal Conditions and Initiate Recovery}. Within that priority use case, the report defines the walking skeleton as the thinnest end-to-end proof that a threshold breach becomes a visible health alert, and the MVP as the first usable recovery flow that lets operators respond through alerting, override, and recovery initiation. The resulting UC stories, auxiliary detail, conversation notes, and two STS-style slices give Triton Deepwater a practical basis for reviewing priority behaviour and expected realization without expanding this submission into a heavyweight UML pack.
+The UseCase2.0 portion keeps the big picture through one GPV-aligned diagram that relates four actors, namely the Mothership Pilot, Emergency Retrieval System, Fleet Operations Controller, and Mission Review Officer, to seven customer-visible goals: UC01 Handle Abnormal Conditions and Initiate Recovery, UC02 Monitor Vessel Health, UC03 Manual Control Override, UC04 Execute Mission Autonomously, UC05 Configure Mission Parameters, UC06 Manage Fleet Mission, and UC07 Review Mission Record. The report then drills into \textbf{UC01 Handle Abnormal Conditions and Initiate Recovery} because it is the most safety-critical use case in the current model. Within that priority use case, the walking skeleton is the thinnest monitor-to-alert backbone that proves the safety-response path is technically alive, while the MVP is the first usable response flow that couples alerting, override routing, and recovery handoff. The resulting UC stories, auxiliary detail, conversation notes, and two STS-style slices keep the document aligned to the lecture approach: one lightweight whole-system view, then one priority use case elaborated just deeply enough for realization planning.
 
 
 \section{User Story RCM}
@@ -270,9 +270,9 @@ Before implementation of US-02, the following stakeholder clarifications remain 
 \addcontentsline{toc}{subsection}{Whole-System Use Case Diagram}
 \label{sec:uc-diagram}
 
-The whole-system use case diagram is provided in \hyperref[add:uc-diagram]{Addendum C}. It keeps the main operational goals visible and shows the supporting detect-alert chain used by the abnormal-condition flow. It remains aligned to the progenitor GPV by centering mission setup, autonomous execution, vessel-health monitoring, override/recovery response, and mission-record accountability.
+The whole-system use case diagram is provided in \hyperref[add:uc-diagram]{Addendum C}. In the current model, the Mothership Pilot and Emergency Retrieval System participate in the safety-response cluster around UC01, UC02, and UC03; the Fleet Operations Controller owns mission execution and planning use cases UC04, UC05, and UC06; and the Mission Review Officer owns UC07 Review Mission Record. This keeps the diagram aligned to the progenitor GPV while staying within the seven-oval limit required by the rubric.
 
-\noindent Within the current model, \hyperref[tab:priority-uc]{UC01 Handle Abnormal Conditions and Initiate Recovery} is the only use case selected for detailed treatment in this report. The remaining use cases shown in \hyperref[add:uc-diagram]{Addendum C}: \hyperref[add:uc-diagram]{UC02 Monitor Vessel Health}, \hyperref[add:uc-diagram]{UC03 Manual Control Override}, \hyperref[add:uc-diagram]{UC04 Execute Mission Autonomously}, \hyperref[add:uc-diagram]{UC05 Configure Mission Parameters}, \hyperref[add:uc-diagram]{UC06 Manage Fleet Mission}, and \hyperref[add:uc-diagram]{UC07 Review Mission Record}, are retained at whole-system level and are not decomposed further in this document.
+\noindent Within the current model, \hyperref[tab:priority-uc]{UC01 Handle Abnormal Conditions and Initiate Recovery} is the only use case selected for detailed treatment in this report because it connects the monitoring, override, and recovery concerns into one business-critical safety response. The remaining use cases shown in \hyperref[add:uc-diagram]{Addendum C}: \hyperref[add:uc-diagram]{UC02 Monitor Vessel Health}, \hyperref[add:uc-diagram]{UC03 Manual Control Override}, \hyperref[add:uc-diagram]{UC04 Execute Mission Autonomously}, \hyperref[add:uc-diagram]{UC05 Configure Mission Parameters}, \hyperref[add:uc-diagram]{UC06 Manage Fleet Mission}, and \hyperref[add:uc-diagram]{UC07 Review Mission Record}, are retained at whole-system level and are not decomposed further in this document.
 
 \subsection*{Priority Use Case, Walking Skeleton, and MVP}
 \phantomsection
@@ -290,11 +290,11 @@ The priority use case, walking skeleton, and MVP definitions are summarized in \
 \rowcolor{tableheader}
 \textbf{Item} & \textbf{Definition} \\
 \hline
-Priority use case & \hypertarget{uc01-priority}{\textbf{UC01 Handle Abnormal Conditions and Initiate Recovery.}} In the current diagram, this use case best concentrates the project's GPV because it converts abnormal-condition awareness into a concrete recovery response. See \hyperref[add:uc-diagram]{Addendum C} and \hyperref[sec:uc01-stories]{the UC01 stories}. \\
+Priority use case & \hypertarget{uc01-priority}{\textbf{UC01 Handle Abnormal Conditions and Initiate Recovery.}} In the current diagram, this use case best concentrates the project's GPV because it turns monitoring outcomes into an accountable safety response that can either trigger recovery or route the incident into control intervention. See \hyperref[add:uc-diagram]{Addendum C} and \hyperref[sec:uc01-stories]{the UC01 stories}. \\
 \hline
-Walking skeleton & \hypertarget{uc01-ws}{\textbf{UC-01-WS: Health alert vertical path.}} The thinnest end-to-end proof that one threshold breach can travel from vessel-health monitoring to abnormal detection, health-alert presentation, and audit logging. This item is a prioritization construct rather than a story and is realized in \hyperref[sec:uc-slice-ws]{UC Slice 1}. \\
+Walking skeleton & \hypertarget{uc01-ws}{\textbf{UC-01-WS: Monitor-to-alert backbone.}} The thinnest end-to-end proof that a critical health event from UC02 Monitor Vessel Health can trigger UC01, raise a visible alert, and record the incident. This item is a prioritization construct rather than a story and is realized in \hyperref[sec:uc-slice-ws]{UC Slice 1}. \\
 \hline
-MVP & \hypertarget{uc01-mvp}{\textbf{UC-01-MVP: First usable recovery response.}} The smallest version a user can meaningfully operate: detect pressure/temperature/power breaches, display a health alert, permit manual override or recovery initiation, update mission status, and retain recovery context. This item is a prioritization construct rather than a story and is realized in \hyperref[sec:uc-slice-mvp]{UC Slice 2}. \\
+MVP & \hypertarget{uc01-mvp}{\textbf{UC-01-MVP: First usable safety response.}} The smallest version Triton Deepwater can meaningfully use: accept critical monitoring events, display a health alert, route the incident into recovery initiation or UC03 Manual Control Override, update mission status, notify the Emergency Retrieval System when recovery is chosen, and retain incident context. This item is a prioritization construct rather than a story and is realized in \hyperref[sec:uc-slice-mvp]{UC Slice 2}. \\
 \hline
 \end{tabularx}
 \caption{Priority use case definition and prioritization scheme}
@@ -308,21 +308,22 @@ MVP & \hypertarget{uc01-mvp}{\textbf{UC-01-MVP: First usable recovery response.}
 \addcontentsline{toc}{subsection}{UC Stories for UC01 Handle Abnormal Conditions and Initiate Recovery}
 \label{sec:uc01-stories}
 
-\textbf{UC01-S1 Basic Story: A critical condition leads to recovery initiation.} During an active autonomous mission, vessel-health monitoring detects a parameter that exceeds the approved threshold. The system recognizes the condition as abnormal, raises a health alert, and presents the alert to the mothership pilot with enough context to initiate recovery.
+\textbf{UC01-S1 Basic Story: A critical condition leads to recovery initiation.} During autonomous mission execution, UC02 Monitor Vessel Health detects a parameter that exceeds the approved threshold. UC01 takes ownership of the incident, raises a health alert to the mothership pilot, and coordinates the first recovery response with the emergency retrieval system.
 
 \textbf{Main scenario}
 \begin{enumerate}[leftmargin=*,nosep]
-  \item The mission is active and vessel-health monitoring is running for the selected submersible.
+  \item The mission is active under autonomous execution and vessel-health monitoring is live for the selected submersible.
   \item A pressure, temperature, or power value breaches the configured critical threshold.
-  \item The system detects the abnormal condition and records the triggering telemetry point.
-  \item The system raises a health alert that identifies the vehicle, mission, breached parameter, severity, and timestamp.
-  \item The mothership pilot reviews the alert and chooses to initiate recovery.
-  \item The system records the recovery initiation, updates mission status, and notifies the emergency retrieval system.
+  \item UC01 records the abnormal condition and opens a health alert for the affected mission and vehicle.
+  \item The system presents the alert to the mothership pilot with severity, breached parameter, timestamp, and recommended response.
+  \item The mothership pilot confirms recovery initiation.
+  \item The system changes mission state to recovery initiated and sends the recovery handoff to the emergency retrieval system.
+  \item The system records the handoff outcome and keeps the incident visible until recovery status is confirmed.
 \end{enumerate}
 
-\textbf{UC01-S2 Alternate Story: Manual override is chosen before full recovery.} The health alert appears, but the pilot judges that direct manual intervention should be attempted before committing to full recovery. The system records the override request, exposes the manual-control path, and keeps the health alert active until the condition is resolved or recovery is initiated.
+\textbf{UC01-S2 Alternate Story: The incident is routed into UC03 Manual Control Override before full recovery.} The abnormal condition is visible, but the operator decides the vehicle should be stabilized or repositioned under manual control before committing to recovery. The system records the override decision, suspends purely autonomous control, routes the incident into the manual-control path, and keeps the abnormal condition open until recovery is later initiated or the health state returns to an acceptable range.
 
-\textbf{UC01-S3 Exception Story: Sensor input is invalid or incomplete.} The telemetry message arrives without a valid parameter value or with a malformed payload. The system does not silently discard the event. Instead, it records a sensor-data fault, flags the affected reading as unusable for normal threshold evaluation, and escalates the incident because the monitoring flow can no longer rely on that sensor signal with confidence.
+\textbf{UC01-S3 Exception Story: Vessel-health data is unavailable or contradictory.} UC02 cannot produce a trustworthy health state because the incoming signal is missing, stale, or malformed. The system raises a sensor-data fault, marks the health state as uncertain, and prevents the abnormal event from being treated as resolved without human review.
 
 \subsection*{UC Auxiliary Detail for UC01}
 \phantomsection
@@ -331,24 +332,35 @@ MVP & \hypertarget{uc01-mvp}{\textbf{UC-01-MVP: First usable recovery response.}
 
 The auxiliary detail set for UC01 is consolidated in \hyperref[tab:uc-aux]{Table~\ref*{tab:uc-aux}}.
 
-\begin{table}[H]
-\centering
 \small
-\renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{\textwidth}{|P{0.24\textwidth}|Y|}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{|P{0.22\textwidth}|P{0.70\textwidth}|}
 \hline
 \rowcolor{tableheader}
 \textbf{Auxiliary Detail Item} & \textbf{Content} \\
 \hline
+\endfirsthead
+\hline
+\rowcolor{tableheader}
+\textbf{Auxiliary Detail Item} & \textbf{Content} \\
+\hline
+\endhead
+\hline
+\multicolumn{2}{r}{\small Continued on next page} \\
+\endfoot
+\hline
+\endlastfoot
 For / effective date & Use Case \textbf{UC01 Handle Abnormal Conditions and Initiate Recovery}; effective date \textbf{2026-091}. \\
 \hline
-Assumptions & Missions are supervised from Triton Deepwater's surface or mothership environment. Triton-provided sensors remain available for software integration. A configured baseline exists for each monitored parameter before mission launch. A recovery handoff path to the emergency retrieval system is available. \\
+Assumptions & Missions may already be underway under UC04 Execute Mission Autonomously and are supervised from Triton Deepwater's surface or mothership environment. Triton-provided sensors remain available for software integration through UC02 Monitor Vessel Health. A configured baseline exists for each monitored parameter before mission launch. A recovery handoff path to the emergency retrieval system and an authorized operator session are available. \\
 \hline
-Business rules & Critical abnormal conditions must raise a health alert. Every alert, override, and recovery-initiation action must remain attributable to mission, vehicle, time, and actor. Manual override may precede full recovery initiation when the pilot judges it appropriate. \\
+Business rules & Critical abnormal conditions must be escalated through UC01 and not remain hidden inside monitoring alone. Every alert, override transition, and recovery-initiation action must remain attributable to mission, vehicle, time, and actor. Routing an incident into UC03 Manual Control Override does not close the incident; it only changes the response mode until the condition is resolved or recovery is initiated. \\
 \hline
 Constraints & Communications may degrade to low bandwidth, intermittent connectivity, and up to 30-second one-way latency. Deep-sea missions remain unmanned. Compliance with maritime safety and data-governance obligations is mandatory. \\
 \hline
-Pre- \& post-conditions & \textbf{Pre:} mission run exists, threshold profile is loaded, vessel-health monitoring is active, and a pilot session plus retrieval-system channel are available. \textbf{Post:} abnormal event is persisted, a health alert or sensor-fault incident is visible, mission state is updated to reflect recovery or override status as appropriate, and audit history is complete enough for investigation. \\
+Pre- \& post-conditions & \textbf{Pre:} mission run exists, threshold profile is loaded, UC02 vessel-health monitoring is active, and a pilot session plus retrieval-system channel are available. \textbf{Post:} abnormal event is persisted; one of recovery initiated, manual override active, or sensor-fault escalated is visible; mission state is updated to reflect the chosen response; and audit history is complete enough for investigation. \\
 \hline
 Technical details: database elements \& parameters & MissionRun, TelemetrySnapshot, ThresholdProfile, HealthAlert, OverrideCommand, RecoveryEvent, and OperationalLog. Pressure deviation \(>\pm5\%\) within 5 seconds is critical. Temperature deviation \(>\pm10\%\) within 10 seconds is critical. Power deviation \(>\pm15\%\) within 10 seconds is critical. \\
 \hline
@@ -360,12 +372,13 @@ Technical details: platform \& IT compatibility & Telemetry and sensor integrati
 \hline
 Technical details: quality features & Safety integrity, traceability, operability, resilience under degraded communications, and confidentiality/integrity of operational data. \\
 \hline
-Technical details: UI \& UX & The dashboard must show severity, vehicle ID, mission ID, breached parameter, timestamp, and recommended next action on one mission health panel. The manual-override and initiate-recovery controls must be visible without forcing the operator through multiple pages during an incident. \\
-\hline
-\end{tabularx}
-\caption{Auxiliary detail list for the priority use case}
+Technical details: UI \& UX & The incident panel must show severity, vehicle ID, mission ID, breached parameter, timestamp, and recommended next action on one screen. The manual-override and initiate-recovery controls must remain visible while the incident is open, and the operator must be able to tell whether the current response mode is autonomous, manual override, or recovery initiated. \\
+\end{longtable}
 \label{tab:uc-aux}
-\end{table}
+\begin{center}
+\small Table \thetable: Auxiliary detail list for the priority use case
+\end{center}
+\normalsize
 
 \noindent Quantitative source notes that support these auxiliary details are consolidated in \hyperref[tab:add-source-notes]{Table~\ref*{tab:add-source-notes}} in \hyperref[add:source-notes]{Addendum B: Quantitative and Interface Source Notes}.
 
@@ -377,11 +390,11 @@ Technical details: UI \& UX & The dashboard must show severity, vehicle ID, miss
 Before realization slices are finalized, the following matters require clarification from Triton Deepwater stakeholders:
 
 \begin{itemize}[leftmargin=*,nosep]
-  \item Whether the mothership pilot or the emergency retrieval system owns the first authoritative recovery trigger.
+  \item Whether the mothership pilot alone can confirm recovery initiation, or whether the emergency retrieval system must acknowledge the trigger before UC01 is considered complete.
+  \item Whether routing an incident into UC03 Manual Control Override automatically suspends UC04 autonomous execution or requires a second confirmation step.
+  \item Which vessel-health indicators from UC02 must remain visible during a live abnormal-condition incident and subsequent recovery handoff.
   \item The exact rule for merging, reopening, or auto-closing repeat health alerts on the same parameter.
-  \item The minimum recovery-handoff data required on-screen once recovery is initiated: status only, or status plus last-known position, heading, and depth.
-  \item When manual override is permitted instead of immediate recovery initiation.
-  \item Whether a malformed sensor payload should immediately escalate the incident or first remain as a sensor-fault warning pending human review.
+  \item Whether a sensor-data fault should immediately pause autonomous execution or remain as a warning pending human review.
 \end{itemize}
 
 \subsection*{UC Slice 1: Walking Skeleton}
@@ -389,7 +402,7 @@ Before realization slices are finalized, the following matters require clarifica
 \addcontentsline{toc}{subsection}{UC Slice 1: Walking Skeleton}
 \label{sec:uc-slice-ws}
 
-\textbf{Title:} UC01-SL01 Health Alert Vertical Path
+\textbf{Title:} UC01-SL01 Monitor-to-Alert Backbone
 
 The walking skeleton slice definition is detailed in \hyperref[tab:slice-ws]{Table~\ref*{tab:slice-ws}}.
 
@@ -402,15 +415,15 @@ The walking skeleton slice definition is detailed in \hyperref[tab:slice-ws]{Tab
 \rowcolor{tableheader}
 \textbf{STS Field} & \textbf{Slice Content} \\
 \hline
-Context & \textbf{Effective date:} 2026-091. \textbf{Parent UC:} UC01 Handle Abnormal Conditions and Initiate Recovery. \textbf{Story list:} UC01-S1. \textbf{Prelim:} Seed one active mission, one vehicle, one threshold profile, one pilot session, and one monitoring input path. Use a telemetry simulator or stub that can emit one pressure breach event. \\
+Context & \textbf{Effective date:} 2026-091. \textbf{Parent UC:} UC01 Handle Abnormal Conditions and Initiate Recovery. \textbf{Story list:} UC01-S1. \textbf{Prelim:} Seed one active autonomous mission, one vehicle, one threshold profile, one pilot session, and one UC02 monitoring input path. Use a telemetry simulator or stub that can emit one pressure breach event. \\
 \hline
-Narrative & The slice proves the full health-alert path is alive. A threshold breach enters through the monitoring boundary, passes through abnormal-condition evaluation logic, creates one health-alert entity, appears on the pilot dashboard, and records one alert event in the audit trail. \\
+Narrative & The slice proves the first safety-response backbone is alive. A monitoring event from UC02 enters through the boundary, passes through abnormal-condition evaluation logic in UC01, creates one health-alert entity, appears on the pilot incident panel, and records one alert event in the audit trail. \\
 \hline
-Scope & \textbf{Category:} Basic. \textbf{Priority:} Blocker. \textbf{Status:} Walking Skeleton. \textbf{KIV:} recovery initiation, manual override, multi-parameter rules, and degraded-link handling beyond basic alert visibility. \\
+Scope & \textbf{Category:} Basic. \textbf{Priority:} Blocker. \textbf{Status:} Walking Skeleton. \textbf{KIV:} recovery dispatch, manual override transition, multi-parameter rules, and degraded-link handling beyond basic alert visibility. \\
 \hline
-Tech details: Boundary & Telemetry / vessel-health input stub for one vehicle; mission health widget showing the current alert. \\
+Tech details: Boundary & UC02 monitoring input stub for one vehicle; mission health or incident widget showing the current alert to the mothership pilot. \\
 \hline
-Tech details: Control & HealthMonitorController validates JSON payload; AbnormalConditionService compares against threshold profile; HealthAlertController exposes the alert state; AuditService records the alert event. \\
+Tech details: Control & MonitorVesselHealthAdapter validates incoming payload; AbnormalConditionService compares against threshold profile; HealthAlertController exposes the incident state; AuditService records the alert event. \\
 \hline
 Tech details: Entity & MissionRun, TelemetrySnapshot, ThresholdProfile, HealthAlert, and OperationalLog tables or equivalents. \\
 \hline
@@ -428,7 +441,7 @@ Acceptance & AC01 [Y/N]: One simulated pressure breach creates exactly one healt
 \addcontentsline{toc}{subsection}{UC Slice 2: MVP}
 \label{sec:uc-slice-mvp}
 
-\textbf{Title:} UC01-SL02 First Usable Recovery Response
+\textbf{Title:} UC01-SL02 First Usable Safety Response
 
 The MVP slice definition is detailed in \hyperref[tab:slice-mvp]{Table~\ref*{tab:slice-mvp}}.
 
@@ -441,21 +454,21 @@ The MVP slice definition is detailed in \hyperref[tab:slice-mvp]{Table~\ref*{tab
 \rowcolor{tableheader}
 \textbf{STS Field} & \textbf{Slice Content} \\
 \hline
-Context & \textbf{Effective date:} 2026-091. \textbf{Parent UC:} UC01 Handle Abnormal Conditions and Initiate Recovery. \textbf{Story list:} UC01-S1, UC01-S2, UC01-S3. \textbf{Prelim:} Walking skeleton slice is working; threshold profiles for pressure, temperature, and power are configured; command adapter supports recovery initiation and manual override; mission UI already shows active health alerts. \\
+Context & \textbf{Effective date:} 2026-091. \textbf{Parent UC:} UC01 Handle Abnormal Conditions and Initiate Recovery. \textbf{Story list:} UC01-S1, UC01-S2, UC01-S3. \textbf{Prelim:} Walking skeleton slice is working; threshold profiles for pressure, temperature, and power are configured; command adapters support recovery initiation and manual override; UC04 mission execution is already running; mission UI already shows active health alerts. \\
 \hline
-Narrative & This slice delivers the first recovery flow that an operations team can meaningfully use. The system detects critical pressure, temperature, or power breaches, presents a health alert, permits the pilot to choose manual override or initiate recovery, updates mission state, preserves last-known context during degraded communications, and stores enough recovery and audit data for post-mission review. \\
+Narrative & This slice delivers the first usable safety-response flow. Critical monitoring events from UC02 open a health alert in UC01, the operator can route the incident either to recovery initiation or into UC03 Manual Control Override, mission state is updated, the emergency retrieval system receives the recovery handoff when selected, and the incident history is preserved for later review. \\
 \hline
 Scope & \textbf{Category:} Basic. \textbf{Priority:} High. \textbf{Status:} MVP. \textbf{KIV:} automated emergency retrieval orchestration, fleet-wide alarm triage, richer sensor-fault diagnostics, and downstream regulatory reporting automation. \\
 \hline
 Tech details: Boundary & Mission health panel with live alert list, recommended-action text, manual-override control, initiate-recovery control, degraded-link indicator, and recovery status card. \\
 \hline
-Tech details: Control & Multi-parameter rule evaluation for pressure/temperature/power; role-based authorization check for pilot actions; ManualOverrideService; RecoveryDispatchService for recovery request; ConnectivityMonitor for degraded-link state; RecoveryStatusService for last-known position and handoff visibility. \\
+Tech details: Control & Multi-parameter rule evaluation for pressure/temperature/power; role-based authorization check for operator actions; AutonomousExecutionStateManager for suspending autonomous mode when override is chosen; ManualOverrideService for UC03 transition; RecoveryDispatchService for recovery request; ConnectivityMonitor for degraded-link state; RecoveryStatusService for last-known position and handoff visibility. \\
 \hline
 Tech details: Entity & MissionRun, ThresholdProfile, HealthAlert, OverrideCommand, RecoveryEvent, OperationalLog, and TelemetrySnapshot. \\
 \hline
 Tech details: Interfaces / infrastructure & Command channel to the emergency retrieval system and override adapter; cached read model for last-known mission state; JSON schema validation on inbound telemetry; database migration for alert, override, and recovery entities; environment configuration for latency and outage simulation. \\
 \hline
-Acceptance & AC11 [Y/N]: Pressure, temperature, and power breaches produce the correct health-alert severity and recommended action. AC12 [Y/N]: The mothership pilot can initiate recovery from an active health alert and the emergency retrieval system receives notification within 60 seconds under simulated 30-second latency. AC13 [Y/N]: Mission state changes to \texttt{RECOVERY\_INITIATED} or \texttt{MANUAL\_OVERRIDE\_ACTIVE} and the recovery card shows last-known position plus handoff status. AC14 [Y/N]: If the link degrades after alert creation, the dashboard preserves the last-known alert context and logs the degraded communication event. \\
+Acceptance & AC11 [Y/N]: Pressure, temperature, and power breaches produce the correct health-alert severity and recommended action. AC12 [Y/N]: The mothership pilot can initiate recovery from an active health alert and the emergency retrieval system receives notification within 60 seconds under simulated 30-second latency. AC13 [Y/N]: If manual override is chosen, mission state changes to \texttt{MANUAL\_OVERRIDE\_ACTIVE}, autonomous execution is suspended or marked paused, and the incident remains open. AC14 [Y/N]: If the link degrades after alert creation, the dashboard preserves the last-known incident context and logs the degraded communication event. \\
 \hline
 \end{tabularx}
 \caption{STS-style MVP slice for the priority use case}
@@ -533,7 +546,7 @@ This addendum supports the base User Story and UseCase2.0 sections by preserving
 \rowcolor{tableheader}
 \textbf{Item} & \textbf{Base Section} & \textbf{PD / Progenitor Link} & \textbf{Why It Matters} \\
 \hline
-\hyperlink{us01}{US-01} & \hyperref[sec:user-story-rcm]{User Story RCM} & PD 1.5; PD 2.1; PD 6.1; PD 7.4; IT-L1-1. & Grounds telemetry visibility in remote supervision rather than a vendor-only invention. \\
+\hyperlink{us01}{US-01} & \hyperref[sec:user-story-rcm]{User Story RCM} & PD 1.5; PD 2.1; PD 6.1; PD 7.4; IT-L1-1. & Preserves mission setup as an explicit controller-facing business need before autonomous execution begins. \\
 \hline
 \hyperlink{us02}{US-02} & \hyperref[sec:user-story-rcm]{User Story RCM} & PD 1.5; PD 2.1; PD 4.3; PD 6.4; BO-L2-4.1; BO-L2-4.2. & Keeps the alerting story tied directly to safety and compliance intent. \\
 \hline
@@ -541,9 +554,9 @@ This addendum supports the base User Story and UseCase2.0 sections by preserving
 \hline
 \hyperlink{uc01-priority}{UC-01} & \hyperref[sec:usecase-rcm]{UseCase2.0 RCM} & PD 1.5; PD 2.1; PD 6.4; PD 6.5; PD 7.4. & Justifies selecting abnormal-condition handling and recovery initiation as the priority use case in the current diagram. \\
 \hline
-\hyperlink{uc01-ws}{UC01-WS} & \hyperref[sec:uc-slice-ws]{UC Slice 1} & BO-L2-4.1 plus IT-L1-1 / IT-L1-5 support. & Confirms the first slice proves the core health-alert path before broader recovery behavior. \\
+\hyperlink{uc01-ws}{UC01-WS} & \hyperref[sec:uc-slice-ws]{UC Slice 1} & BO-L2-4.1 plus IT-L1-1 / IT-L1-5 support. & Confirms the first slice proves the monitor-to-alert backbone before override or recovery-handoff behavior. \\
 \hline
-\hyperlink{uc01-mvp}{UC01-MVP} & \hyperref[sec:uc-slice-mvp]{UC Slice 2} & BO-L2-4.1, BO-L2-4.2, IT-L1-2, IT-L1-6. & Shows why the MVP must move beyond detection into usable override and recovery response under real link constraints. \\
+\hyperlink{uc01-mvp}{UC01-MVP} & \hyperref[sec:uc-slice-mvp]{UC Slice 2} & BO-L2-4.1, BO-L2-4.2, IT-L1-2, IT-L1-6. & Shows why the MVP must integrate monitoring, override routing, and recovery handoff under real link constraints. \\
 \hline
 \end{tabularx}
 \caption{Trace links from lightweight artifacts back to the PD progenitor baseline}
@@ -584,13 +597,13 @@ ADD-B6 & UC Auxiliary Detail / Slice 1 & Telemetry integration assumes ROS2 midd
 \clearpage
 \subsection{Addendum C: Whole-System Use Case Diagram}
 \label{add:uc-diagram}
-
-This addendum contains the whole-system use case diagram referenced in the UseCase2.0 section.
+s
+This addendum contains the GPV-aligned seven-use-case diagram referenced in the UseCase2.0 section. It relates the Mothership Pilot, Emergency Retrieval System, Fleet Operations Controller, and Mission Review Officer to UC01 through UC07.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth,height=0.68\textheight,keepaspectratio]{{SMA Models - Use Case Diagram(3).png}}
-\caption{Whole-system use case diagram referenced by the UseCase2.0 body section}
+\includegraphics[width=0.8\textwidth,height=0.68\textheight,keepaspectratio]{{SMA Models - Use Case Diagram(4).png}}
+\caption{GPV-aligned whole-system use case diagram used by the lightweight UseCase2.0 section}
 \label{fig:lightweight-usecase}
 \end{figure}
 
